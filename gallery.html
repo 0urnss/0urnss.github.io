@@ -24,6 +24,7 @@
             font-family: Arial, sans-serif;
             color: #333;
             background: #f5eeee;
+            overflow-x: hidden;
         }
 
 
@@ -48,6 +49,8 @@
             z-index: 100;
 
             border-bottom: 1px solid #e8dddd;
+
+            animation: navAppear .8s ease both;
         }
 
         .logo {
@@ -60,7 +63,6 @@
 
         nav {
             display: flex;
-
             gap: 30px;
         }
 
@@ -71,11 +73,33 @@
 
             font-size: 13px;
 
-            transition: .2s;
+            transition: .25s ease;
+
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -6px;
+
+            width: 0;
+            height: 1px;
+
+            background: #b97986;
+
+            transition: width .3s ease;
         }
 
         nav a:hover {
             color: #b97986;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
 
@@ -88,6 +112,8 @@
             text-align: center;
 
             padding: 80px 20px 45px;
+
+            animation: fadeUp 1s ease .15s both;
         }
 
         .gallery-header small {
@@ -97,6 +123,10 @@
             font-size: 10px;
 
             letter-spacing: 3px;
+
+            display: block;
+
+            animation: fadeUp .8s ease .25s both;
         }
 
         .gallery-header h1 {
@@ -108,6 +138,8 @@
             font-weight: 400;
 
             margin-top: 10px;
+
+            animation: titleReveal 1s ease .35s both;
         }
 
 
@@ -134,6 +166,8 @@
             background: rgba(245, 238, 238, .96);
 
             backdrop-filter: blur(8px);
+
+            animation: fadeUp .9s ease .5s both;
         }
 
         .category-nav a {
@@ -148,13 +182,12 @@
 
             padding: 16px 28px;
 
-            transition: .2s;
+            transition: .25s ease;
 
             border-right: 1px solid #e8dddd;
         }
 
         .category-nav a:last-child {
-
             border-right: none;
         }
 
@@ -163,6 +196,8 @@
             color: #b97986;
 
             background: rgba(255, 255, 255, .35);
+
+            transform: translateY(-1px);
         }
 
 
@@ -181,6 +216,21 @@
             padding: 0 25px;
 
             scroll-margin-top: 100px;
+
+            opacity: 0;
+
+            transform: translateY(45px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .category.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
         }
 
         .category-heading {
@@ -247,6 +297,33 @@
             border-radius: 22px;
 
             background: #eee;
+
+            box-shadow:
+                0 10px 35px rgba(120, 80, 80, .08);
+
+            opacity: 0;
+
+            transform: translateY(35px) scale(.98);
+
+            transition:
+                opacity .9s ease,
+                transform .9s ease,
+                box-shadow .4s ease;
+        }
+
+        .category.show .artwork {
+
+            opacity: 1;
+
+            transform: translateY(0) scale(1);
+
+            transition-delay: .2s;
+        }
+
+        .artwork:hover {
+
+            box-shadow:
+                0 18px 45px rgba(120, 80, 80, .14);
         }
 
         .artwork img {
@@ -257,12 +334,16 @@
 
             display: block;
 
-            transition: transform .5s ease;
+            transition:
+                transform .7s ease,
+                filter .5s ease;
         }
 
         .artwork:hover img {
 
             transform: scale(1.025);
+
+            filter: brightness(.96);
         }
 
 
@@ -291,7 +372,7 @@
 
             transform: translateY(10px);
 
-            transition: .3s;
+            transition: .35s ease;
         }
 
         .artwork:hover .artwork-info {
@@ -323,6 +404,172 @@
 
 
         /* =========================
+           🍀 DAUN SEMANGGI
+        ========================= */
+
+        .clover {
+
+            position: fixed;
+
+            top: 0;
+
+            z-index: 150;
+
+            pointer-events: none;
+
+            width: 24px;
+            height: 24px;
+
+            opacity: 0;
+
+            font-size: 24px;
+
+            filter: drop-shadow(
+                0 3px 5px rgba(70, 100, 70, .15)
+            );
+
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+
+        /* DAUN DARI KIRI */
+
+        .clover.left {
+
+            left: -35px;
+
+            animation-name: cloverLeft;
+
+            animation-duration: 9s;
+        }
+
+
+        /* DAUN DARI KANAN */
+
+        .clover.right {
+
+            right: -35px;
+
+            animation-name: cloverRight;
+
+            animation-duration: 10s;
+        }
+
+
+        @keyframes cloverLeft {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(-30px, 10vh)
+                    rotate(0deg)
+                    scale(.7);
+            }
+
+            10% {
+
+                opacity: .65;
+            }
+
+            30% {
+
+                transform:
+                    translate(25vw, 25vh)
+                    rotate(100deg)
+                    scale(1);
+            }
+
+            55% {
+
+                transform:
+                    translate(50vw, 12vh)
+                    rotate(210deg)
+                    scale(.85);
+            }
+
+            80% {
+
+                opacity: .5;
+
+                transform:
+                    translate(78vw, 35vh)
+                    rotate(310deg)
+                    scale(.9);
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(110vw, 20vh)
+                    rotate(420deg)
+                    scale(.6);
+            }
+
+        }
+
+
+        @keyframes cloverRight {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(30px, 45vh)
+                    rotate(0deg)
+                    scale(.65);
+            }
+
+            10% {
+
+                opacity: .6;
+            }
+
+            30% {
+
+                transform:
+                    translate(-22vw, 30vh)
+                    rotate(-100deg)
+                    scale(.95);
+            }
+
+            55% {
+
+                transform:
+                    translate(-48vw, 48vh)
+                    rotate(-210deg)
+                    scale(.8);
+            }
+
+            80% {
+
+                opacity: .45;
+
+                transform:
+                    translate(-75vw, 25vh)
+                    rotate(-320deg)
+                    scale(.9);
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(-110vw, 40vh)
+                    rotate(-430deg)
+                    scale(.6);
+            }
+
+        }
+
+
+        /* =========================
            FOOTER
         ========================= */
 
@@ -339,6 +586,75 @@
             font-size: 11px;
 
             border-top: 1px solid #e8dddd;
+
+            opacity: 0;
+
+            animation: fadeUp .8s ease 1s forwards;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes titleReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(18px);
+
+                letter-spacing: 5px;
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+                letter-spacing: normal;
+            }
+
+        }
+
+
+        @keyframes navAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(-15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
         }
 
 
@@ -420,6 +736,17 @@
                 font-size: 22px;
             }
 
+
+            /* CLOVER HP */
+
+            .clover {
+
+                font-size: 19px;
+
+                width: 19px;
+                height: 19px;
+            }
+
         }
 
 
@@ -463,6 +790,28 @@
 
         }
 
+
+        /* =========================
+           REDUCE MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: .01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: .01ms !important;
+
+                scroll-behavior: auto !important;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -498,6 +847,35 @@
     </nav>
 
 </header>
+
+
+<!-- =========================
+     🍀 DAUN SEMANGGI
+========================= -->
+
+<div class="clover left" style="animation-delay: 2s;">
+    🍀
+</div>
+
+<div class="clover right" style="animation-delay: 5s;">
+    🍀
+</div>
+
+<div class="clover left" style="animation-delay: 9s;">
+    🍀
+</div>
+
+<div class="clover right" style="animation-delay: 13s;">
+    🍀
+</div>
+
+<div class="clover left" style="animation-delay: 17s;">
+    🍀
+</div>
+
+<div class="clover right" style="animation-delay: 21s;">
+    🍀
+</div>
 
 
 <!-- =========================
@@ -709,6 +1087,47 @@
     © 2026 ART GALLERY · Personal artwork archive
 
 </footer>
+
+
+<!-- =========================
+     SCROLL ANIMATION
+========================= -->
+
+<script>
+
+    const sections = document.querySelectorAll(".category");
+
+    const observer = new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+    sections.forEach((section) => {
+
+        observer.observe(section);
+
+    });
+
+
+</script>
 
 
 </body>
