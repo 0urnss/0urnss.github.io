@@ -16,86 +16,41 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            color: #4d3c40;
+            color: #59484d;
             background: #f7e8ec;
+            overflow-x: hidden;
         }
 
 
         /* =========================
-           NAVBAR
+           BACKGROUND
         ========================= */
 
-        header {
-            height: 75px;
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255,255,255,.7),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 85% 75%,
+                    rgba(226,177,190,.22),
+                    transparent 30%
+                );
 
-            padding: 0 7%;
-
-            background: white;
-
-            position: sticky;
-            top: 0;
-
-            z-index: 100;
-
-            border-bottom: 1px solid #ead9de;
-        }
-
-        .logo {
-            font-family: Georgia, serif;
-
-            font-size: 20px;
-
-            letter-spacing: 2px;
-
-            color: #4d3c40;
-        }
-
-        nav {
-            display: flex;
-
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-
-            color: #66565a;
-
-            font-size: 13px;
-
-            transition: .2s;
-        }
-
-        nav a:hover {
-            color: #b97986;
-        }
-
-
-        /* =========================
-           ABOUT AREA
-        ========================= */
-
-        .about {
-
-            min-height: calc(100vh - 75px);
-
-            padding: 70px 25px 90px;
-
-            background: #f7e8ec;
-
-            display: flex;
-
-            justify-content: center;
-
-            position: relative;
-
-            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
         }
 
 
@@ -104,49 +59,66 @@
         ========================= */
 
         .floating {
+            position: fixed;
 
-            position: absolute;
+            color: #c98b9b;
 
-            color: #c98f9c;
+            opacity: .5;
 
-            opacity: .55;
+            font-family: Georgia, serif;
 
             pointer-events: none;
 
-            animation: float 4s ease-in-out infinite;
+            z-index: 0;
+
+            animation: floaty 5s ease-in-out infinite;
         }
 
-        .float1 {
-            top: 100px;
-            left: 9%;
+        .float-1 {
+            top: 120px;
+            left: 4%;
             font-size: 25px;
         }
 
-        .float2 {
-            top: 180px;
-            right: 10%;
-            font-size: 20px;
-            animation-delay: .8s;
-        }
-
-        .float3 {
-            bottom: 130px;
-            left: 12%;
+        .float-2 {
+            top: 300px;
+            right: 4%;
             font-size: 18px;
-            animation-delay: 1.5s;
+            animation-delay: 1s;
         }
 
-        .float4 {
-            bottom: 170px;
-            right: 12%;
-            font-size: 25px;
+        .float-3 {
+            top: 620px;
+            left: 6%;
+            font-size: 17px;
             animation-delay: 2s;
         }
 
-        @keyframes float {
+        .float-4 {
+            top: 760px;
+            right: 6%;
+            font-size: 28px;
+            animation-delay: 1.5s;
+        }
+
+        .float-5 {
+            top: 1050px;
+            left: 4%;
+            font-size: 15px;
+            animation-delay: .7s;
+        }
+
+        .float-6 {
+            top: 980px;
+            right: 4%;
+            font-size: 19px;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes floaty {
 
             0%, 100% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(-5deg);
             }
 
             50% {
@@ -157,95 +129,475 @@
 
 
         /* =========================
-           BOARD
+           TOP HEADER / SIGN
+           SAME AS HOME
         ========================= */
 
-        .about-board {
+        .top-area {
+            width: 100%;
+            padding: 28px 20px 0;
 
-            width: min(900px, 100%);
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .main-board {
+            width: 100%;
+            max-width: 1050px;
+            margin: auto;
+
+            padding: 10px;
 
             background: #d9aeb9;
 
-            padding: 22px;
+            border: 2px solid #a97682;
 
-            border-radius: 10px;
+            border-radius: 28px;
 
             box-shadow:
-                0 15px 35px rgba(110, 70, 80, .12);
+                0 8px 0 #bd8d99,
+                0 18px 35px rgba(120,70,85,.12);
 
             position: relative;
         }
 
 
-        .about-board::before {
+        /* BOARD DECORATIONS */
 
-            content: "";
+        .board-sticker {
+            position: absolute;
+
+            z-index: 5;
+
+            pointer-events: none;
+
+            font-family: Georgia, serif;
+
+            color: #9e6978;
+        }
+
+        .board-sticker.flower {
+            top: -18px;
+            left: 30px;
+
+            font-size: 30px;
+
+            transform: rotate(-12deg);
+        }
+
+        .board-sticker.heart {
+            top: -14px;
+            right: 38px;
+
+            font-size: 27px;
+
+            transform: rotate(10deg);
+        }
+
+        .board-sticker.sparkle {
+            bottom: -17px;
+            left: 13%;
+
+            font-size: 22px;
+        }
+
+        .board-sticker.star {
+            bottom: -18px;
+            right: 17%;
+
+            font-size: 20px;
+        }
+
+
+        .board-inner {
+            background: #f6dce2;
+
+            border: 2px solid #c28c99;
+
+            border-radius: 21px;
+
+            padding: 25px 30px 18px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .board-inner::before {
+            content: "✿  ˚₊‧  ♡  ‧₊˚  ✿";
 
             position: absolute;
 
-            width: 90px;
-            height: 25px;
+            top: 7px;
+            left: 0;
+            right: 0;
 
-            background: rgba(255,255,255,.55);
+            text-align: center;
 
-            top: -9px;
-            left: 50%;
+            color: #bd8795;
 
-            transform: translateX(-50%) rotate(-2deg);
+            font-size: 14px;
 
-            border-radius: 3px;
+            opacity: .75;
+        }
+
+        .board-inner::after {
+            content: "· · · · · · · · · · · · · · · · ·";
+
+            position: absolute;
+
+            bottom: 2px;
+            left: 0;
+            right: 0;
+
+            text-align: center;
+
+            color: #c996a3;
+
+            font-size: 12px;
+
+            letter-spacing: 5px;
+
+            opacity: .55;
         }
 
 
-        .about-inner {
+        /* =========================
+           LOGO
+        ========================= */
 
-            background: #f6dce2;
+        .logo {
+            text-align: center;
 
-            border-radius: 7px;
+            font-family: Georgia, serif;
 
-            padding: 60px 50px 55px;
+            font-size: 38px;
+
+            color: #805965;
+
+            letter-spacing: 3px;
+
+            margin-top: 8px;
+            margin-bottom: 22px;
+
+            text-shadow:
+                1px 1px 0 #fff;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+
+            color: #6c5159;
+
+            font-family: Georgia, serif;
+
+            font-size: 14px;
+
+            padding: 13px 28px;
+
+            min-width: 120px;
+
+            text-align: center;
+
+            background: #f8edf0;
+
+            border: 2px solid #c28f9b;
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 4px 0 #c28f9b;
+
+            transition: .25s ease;
+        }
+
+        nav a:hover {
+            color: white;
+
+            background: #c48696;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 7px 0 #a86c7b;
+        }
+
+
+        /* =========================
+           ABOUT AREA
+        ========================= */
+
+        .about {
+
+            padding: 65px 20px 80px;
 
             position: relative;
+
+            z-index: 1;
+        }
+
+
+        .about-board {
+
+            width: 100%;
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 15px;
+
+            background: #d9aeb9;
+
+            border: 2px solid #a97682;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 8px 0 #bd8d99,
+                0 20px 45px rgba(120,70,85,.13);
+
+            position: relative;
+        }
+
+
+        /* =========================
+           ABOUT BOARD DECORATIONS
+        ========================= */
+
+        .about-sticker {
+            position: absolute;
+
+            z-index: 8;
+
+            pointer-events: none;
+
+            font-family: Georgia, serif;
+        }
+
+        .about-flower {
+            top: -24px;
+            left: 7%;
+
+            color: #b97688;
+
+            font-size: 32px;
+
+            transform: rotate(-12deg);
+        }
+
+        .about-heart {
+            top: -20px;
+            right: 8%;
+
+            color: #c78696;
+
+            font-size: 29px;
+
+            transform: rotate(9deg);
+        }
+
+        .about-star {
+            bottom: -22px;
+            left: 13%;
+
+            color: #bd8291;
+
+            font-size: 24px;
+
+            transform: rotate(-8deg);
+        }
+
+        .about-sparkle {
+            bottom: -20px;
+            right: 12%;
+
+            color: #b87384;
+
+            font-size: 22px;
+
+            transform: rotate(12deg);
+        }
+
+
+        /* =========================
+           ABOUT INNER
+        ========================= */
+
+        .about-inner {
+
+            background: #fff8f9;
+
+            border: 2px solid #c998a4;
+
+            border-radius: 17px;
+
+            padding: 50px 42px 55px;
+
+            position: relative;
+
+            overflow: hidden;
 
             text-align: center;
         }
 
 
         /* =========================
-           SMALL LABEL
+           TAPE
         ========================= */
 
-        .about small {
+        .tape {
+            position: absolute;
 
-            color: #a86675;
+            width: 92px;
+            height: 25px;
 
-            font-size: 10px;
+            background: rgba(235,190,201,.72);
 
-            letter-spacing: 4px;
+            border: 1px solid rgba(188,137,150,.35);
 
-            font-weight: bold;
+            z-index: 4;
+
+            opacity: .8;
+        }
+
+        .tape-left {
+            top: -9px;
+            left: 45px;
+
+            transform: rotate(-6deg);
+        }
+
+        .tape-right {
+            top: -8px;
+            right: 45px;
+
+            transform: rotate(7deg);
         }
 
 
         /* =========================
-           TITLE
+           DECORATIONS
         ========================= */
+
+        .decoration {
+            position: absolute;
+
+            color: #d49aa8;
+
+            opacity: .55;
+
+            font-size: 24px;
+
+            pointer-events: none;
+        }
+
+        .decoration.one {
+            top: 18px;
+            left: 25px;
+        }
+
+        .decoration.two {
+            top: 25px;
+            right: 30px;
+        }
+
+        .decoration.three {
+            bottom: 22px;
+            left: 28px;
+        }
+
+        .decoration.four {
+            bottom: 25px;
+            right: 30px;
+        }
+
+        .tiny-doodle {
+            position: absolute;
+
+            color: #d39aa8;
+
+            opacity: .55;
+
+            pointer-events: none;
+        }
+
+        .doodle-one {
+            top: 115px;
+            left: 35px;
+
+            font-size: 16px;
+        }
+
+        .doodle-two {
+            top: 125px;
+            right: 38px;
+
+            font-size: 14px;
+        }
+
+        .doodle-three {
+            bottom: 115px;
+            left: 45%;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           ABOUT CONTENT
+        ========================= */
+
+        .about-label {
+
+            color: #b97888;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+        }
 
         .about h1 {
 
             font-family: Georgia, serif;
 
-            font-weight: 400;
+            font-size: 43px;
 
-            font-size: 46px;
+            font-weight: 400;
 
             line-height: 1.25;
 
-            color: #49383c;
+            color: #754f5a;
 
             max-width: 650px;
 
-            margin: 18px auto 30px;
+            margin: 12px auto 28px;
+        }
+
+        .about-line {
+
+            color: #c28b98;
+
+            letter-spacing: 5px;
+
+            font-size: 12px;
+
+            margin-bottom: 30px;
         }
 
 
@@ -260,33 +612,35 @@
             margin: auto;
         }
 
-        .about p {
+        .about-text p {
 
-            color: #756468;
+            color: #856e75;
 
-            font-size: 14px;
+            font-size: 13px;
 
-            line-height: 1.9;
+            line-height: 1.8;
 
-            margin: 14px auto;
+            margin-bottom: 18px;
         }
 
 
         /* =========================
-           QUOTE CARD
+           QUOTE
         ========================= */
 
         .quote {
 
-            margin: 35px auto 0 !important;
+            margin: 30px auto 0 !important;
 
             max-width: 500px;
 
             padding: 17px 25px;
 
-            background: #fff8f9;
+            background: #f6dce2;
 
-            border-radius: 6px;
+            border: 1px solid #d3a0ac;
+
+            border-radius: 10px;
 
             font-family: Georgia, serif;
 
@@ -294,7 +648,8 @@
 
             color: #9b777e !important;
 
-            box-shadow: 0 5px 15px rgba(100, 60, 70, .06);
+            box-shadow:
+                0 5px 15px rgba(100,60,70,.06);
         }
 
 
@@ -304,9 +659,9 @@
 
         .instagram {
 
-            margin: 50px auto 0;
+            max-width: 620px;
 
-            max-width: 600px;
+            margin: 45px auto 0;
 
             padding-top: 35px;
 
@@ -317,23 +672,29 @@
 
             font-family: Georgia, serif;
 
+            font-size: 29px;
+
             font-weight: 400;
 
-            font-size: 30px;
-
-            color: #49383c;
+            color: #785460;
 
             margin-bottom: 10px;
         }
 
         .instagram > p {
 
-            margin-bottom: 20px;
+            color: #856e75;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 22px;
         }
 
 
         /* =========================
-           INSTAGRAM CARDS
+           SOCIAL CARDS
         ========================= */
 
         .social-box {
@@ -345,32 +706,32 @@
             gap: 15px;
 
             flex-wrap: wrap;
-
-            margin-top: 25px;
         }
 
         .social-card {
 
-            background: #fff8f9;
+            background: #fff;
 
-            border: 1px solid #ead3d9;
+            border: 2px solid #d5a5b0;
 
-            border-radius: 7px;
+            border-radius: 12px;
 
             padding: 18px 25px;
 
             min-width: 210px;
 
-            box-shadow: 0 5px 15px rgba(100, 60, 70, .06);
+            box-shadow:
+                0 4px 0 #d5a5b0;
 
             transition: .25s;
         }
 
         .social-card:hover {
 
-            transform: translateY(-5px);
+            transform: translateY(-3px);
 
-            box-shadow: 0 10px 20px rgba(100, 60, 70, .10);
+            box-shadow:
+                0 7px 0 #c28f9b;
         }
 
         .social-card span {
@@ -392,15 +753,19 @@
 
             padding: 10px 20px;
 
+            background: #f8edf0;
+
             border: 1px solid #b97986;
 
             color: #b97986;
 
             text-decoration: none;
 
+            font-family: Georgia, serif;
+
             font-size: 12px;
 
-            border-radius: 3px;
+            border-radius: 8px;
 
             transition: .2s;
         }
@@ -414,60 +779,6 @@
 
 
         /* =========================
-           STICKERS
-        ========================= */
-
-        .sticker {
-
-            position: absolute;
-
-            z-index: 5;
-
-            pointer-events: none;
-        }
-
-        .sticker-flower {
-
-            top: 25px;
-            left: 25px;
-
-            font-size: 28px;
-
-            transform: rotate(-12deg);
-        }
-
-        .sticker-heart {
-
-            top: 25px;
-            right: 28px;
-
-            font-size: 23px;
-
-            transform: rotate(10deg);
-        }
-
-        .sticker-star {
-
-            bottom: 25px;
-            left: 28px;
-
-            font-size: 22px;
-
-            transform: rotate(-8deg);
-        }
-
-        .sticker-sparkle {
-
-            bottom: 25px;
-            right: 28px;
-
-            font-size: 25px;
-
-            transform: rotate(8deg);
-        }
-
-
-        /* =========================
            FOOTER
         ========================= */
 
@@ -475,26 +786,30 @@
 
             text-align: center;
 
-            padding: 30px;
+            padding: 25px;
 
-            background: white;
+            background: #f3dce2;
 
-            color: #888;
+            border-top: 1px solid #d3a4af;
+
+            color: #96747d;
 
             font-size: 11px;
 
-            border-top: 1px solid #e8dddd;
+            position: relative;
         }
 
-        .footer-line {
+        footer::before {
 
-            width: 50px;
+            content: "♡  ✿  ˚₊‧  ✦  ‧₊˚  ✿  ♡";
 
-            height: 1px;
+            display: block;
 
-            background: #d3a4ae;
+            margin-bottom: 8px;
 
-            margin: 0 auto 15px;
+            color: #bf8492;
+
+            letter-spacing: 3px;
         }
 
 
@@ -504,87 +819,179 @@
 
         @media (max-width: 700px) {
 
-            header {
+            .floating {
+                opacity: .35;
+            }
 
-                padding: 0 20px;
+            .float-1 {
+                left: 2%;
+            }
+
+            .float-2 {
+                right: 2%;
+            }
+
+            .float-3,
+            .float-5 {
+                left: 2%;
+            }
+
+            .float-4,
+            .float-6 {
+                right: 2%;
+            }
+
+            .top-area {
+                padding: 18px 12px 0;
+            }
+
+            .main-board {
+                border-radius: 21px;
+
+                box-shadow:
+                    0 6px 0 #bd8d99,
+                    0 12px 25px rgba(120,70,85,.12);
+            }
+
+            .board-inner {
+                padding: 23px 15px 15px;
+            }
+
+            .logo {
+                font-size: 29px;
+
+                margin-bottom: 20px;
             }
 
             nav {
-
-                gap: 15px;
+                gap: 8px;
             }
 
             nav a {
+                min-width: 85px;
 
-                font-size: 11px;
+                padding: 11px 14px;
+
+                font-size: 12px;
+            }
+
+            .board-sticker.flower {
+                left: 18px;
+            }
+
+            .board-sticker.heart {
+                right: 20px;
             }
 
             .about {
-
-                padding: 55px 15px 70px;
+                padding: 45px 12px 60px;
             }
 
             .about-board {
+                padding: 9px;
 
-                padding: 14px;
+                border-radius: 19px;
             }
 
             .about-inner {
+                padding: 35px 20px 40px;
 
-                padding: 50px 22px 40px;
+                border-radius: 14px;
             }
 
             .about h1 {
-
-                font-size: 36px;
+                font-size: 34px;
             }
 
-            .instagram h2 {
+            .about-flower {
+                left: 4%;
+            }
 
-                font-size: 25px;
+            .about-heart {
+                right: 5%;
             }
 
             .social-card {
-
                 width: 100%;
 
                 min-width: unset;
             }
 
-            .floating {
-
-                display: none;
+            .doodle-three {
+                left: 48%;
             }
 
         }
 
 
+        /* =========================
+           HP KECIL
+        ========================= */
+
         @media (max-width: 400px) {
 
-            .logo {
-
-                font-size: 16px;
+            .floating {
+                display: none;
             }
 
-            nav {
+            .logo {
+                font-size: 25px;
 
-                gap: 10px;
+                letter-spacing: 2px;
             }
 
             nav a {
+                min-width: 72px;
+
+                padding: 10px 9px;
 
                 font-size: 10px;
             }
 
             .about h1 {
-
-                font-size: 31px;
+                font-size: 29px;
             }
 
             .about-inner {
-
                 padding-left: 17px;
                 padding-right: 17px;
+            }
+
+            .board-sticker.flower,
+            .board-sticker.heart {
+                font-size: 22px;
+            }
+
+            .about-flower,
+            .about-heart {
+                font-size: 23px;
+            }
+
+            .tape {
+                width: 65px;
+
+                height: 20px;
+            }
+
+        }
+
+
+        /* =========================
+           REDUCE MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: .01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: .01ms !important;
+
             }
 
         }
@@ -598,33 +1005,72 @@
 
 
 <!-- =========================
-     NAVBAR
+     FLOATING DECORATIONS
 ========================= -->
 
-<header>
+<span class="floating float-1">✿</span>
+<span class="floating float-2">♡</span>
+<span class="floating float-3">✦</span>
+<span class="floating float-4">✿</span>
+<span class="floating float-5">˚₊‧</span>
+<span class="floating float-6">♡</span>
 
-    <div class="logo">
-        ART GALLERY
+
+
+<!-- =========================
+     TOP BOARD
+     SAME AS HOME
+========================= -->
+
+<div class="top-area">
+
+    <div class="main-board">
+
+        <span class="board-sticker flower">
+            ✿
+        </span>
+
+        <span class="board-sticker heart">
+            ♡
+        </span>
+
+        <span class="board-sticker sparkle">
+            ✦
+        </span>
+
+        <span class="board-sticker star">
+            ˚✧
+        </span>
+
+
+        <div class="board-inner">
+
+            <div class="logo">
+                ART GALLERY
+            </div>
+
+
+            <nav>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="gallery.html">
+                    Gallery
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </nav>
+
+        </div>
+
     </div>
 
-
-    <nav>
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="gallery.html">
-            Gallery
-        </a>
-
-        <a href="about.html">
-            About
-        </a>
-
-    </nav>
-
-</header>
+</div>
 
 
 
@@ -634,98 +1080,113 @@
 
 <section class="about">
 
-
-    <!-- Floating decorations -->
-
-    <div class="floating float1">✿</div>
-
-    <div class="floating float2">♡</div>
-
-    <div class="floating float3">✦</div>
-
-    <div class="floating float4">˚₊‧</div>
-
-
-
     <div class="about-board">
+
+        <span class="about-sticker about-flower">
+            ✿
+        </span>
+
+        <span class="about-sticker about-heart">
+            ♡
+        </span>
+
+        <span class="about-sticker about-star">
+            ✦
+        </span>
+
+        <span class="about-sticker about-sparkle">
+            ˚✧
+        </span>
 
 
         <div class="about-inner">
 
 
-            <!-- Stickers -->
+            <span class="tape tape-left"></span>
+            <span class="tape tape-right"></span>
 
-            <div class="sticker sticker-flower">
+
+            <span class="decoration one">
                 ✿
-            </div>
+            </span>
 
-            <div class="sticker sticker-heart">
+            <span class="decoration two">
                 ♡
-            </div>
+            </span>
 
-            <div class="sticker sticker-star">
+            <span class="decoration three">
+                ✿
+            </span>
+
+            <span class="decoration four">
+                ♡
+            </span>
+
+
+            <span class="tiny-doodle doodle-one">
                 ✦
-            </div>
+            </span>
 
-            <div class="sticker sticker-sparkle">
-                ✧
-            </div>
+            <span class="tiny-doodle doodle-two">
+                ˚₊‧
+            </span>
+
+            <span class="tiny-doodle doodle-three">
+                ♡
+            </span>
 
 
 
-            <small>
+            <!-- ABOUT TITLE -->
+
+            <div class="about-label">
                 ABOUT ME
-            </small>
+            </div>
 
 
             <h1>
-
                 A little space for
                 the things I love to create.
-
             </h1>
 
 
+            <div class="about-line">
+                ˚₊‧ ♡ ‧₊˚
+            </div>
+
+
+
+            <!-- ABOUT TEXT -->
 
             <div class="about-text">
 
-
                 <p>
-
                     Hi! I'm an artist who enjoys
                     creating drawings, paintings,
                     digital art, and other little
                     creative projects.
-
                 </p>
 
 
                 <p>
-
                     This website is my personal space
                     to collect and share the artworks
                     I've made.
-
                 </p>
 
 
                 <p>
-
                     Some pieces are simple studies,
                     some are experiments, and others
                     are just things I made because
                     I enjoyed creating them.
-
                 </p>
 
 
                 <p class="quote">
-
                     Made with a little creativity
                     and lots of love for art.
-
                 </p>
-
 
             </div>
 
@@ -737,17 +1198,14 @@
 
             <div class="instagram">
 
-
                 <h2>
                     Find me on Instagram
                 </h2>
 
 
                 <p>
-
                     See more of my artwork and
                     creative projects on Instagram.
-
                 </p>
 
 
@@ -766,9 +1224,7 @@
                             target="_blank"
                             class="instagram-button"
                         >
-
                             @0urnss
-
                         </a>
 
                     </div>
@@ -786,9 +1242,7 @@
                             target="_blank"
                             class="instagram-button"
                         >
-
                             @sipswipie
-
                         </a>
 
                     </div>
@@ -796,14 +1250,12 @@
 
                 </div>
 
-
             </div>
 
 
         </div>
 
     </div>
-
 
 </section>
 
@@ -814,8 +1266,6 @@
 ========================= -->
 
 <footer>
-
-    <div class="footer-line"></div>
 
     © 2026 ART GALLERY · Personal artwork archive
 
