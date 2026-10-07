@@ -1,174 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gallery — Art Gallery</title>
+    <title>Gallery · Art Gallery</title>
 
     <style>
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5eeee;
-            color: #222;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #fff;
         }
 
-        /* NAVBAR UTAMA */
+
+        /* =========================
+           NAVBAR UTAMA
+        ========================= */
+
         header {
-            width: 100%;
-            padding: 24px 50px;
+            height: 75px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #e8dddd;
-            background: #f5eeee;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: white;
 
             position: sticky;
             top: 0;
+
             z-index: 100;
+
+            border-bottom: 1px solid #eee;
         }
 
         .logo {
+            font-family: Georgia, serif;
+
             font-size: 20px;
-            font-weight: 600;
+
             letter-spacing: 2px;
         }
 
         nav {
             display: flex;
-            gap: 35px;
+
+            gap: 30px;
         }
 
         nav a {
             text-decoration: none;
-            color: #222;
-            font-size: 15px;
-            transition: 0.3s;
+
+            color: #555;
+
+            font-size: 13px;
+
+            transition: .2s;
         }
 
         nav a:hover {
-            opacity: 0.5;
-        }
-
-        nav a.active {
-            font-weight: 600;
+            color: #b97986;
         }
 
 
-        /* JUDUL GALLERY */
+        /* =========================
+           JUDUL GALLERY
+        ========================= */
+
         .gallery-header {
+
             text-align: center;
+
             padding: 80px 20px 45px;
         }
 
-        .gallery-header h1 {
-            font-size: 42px;
-            font-weight: 500;
+        .gallery-header small {
+
+            color: #b97986;
+
+            font-size: 10px;
+
             letter-spacing: 3px;
-            margin-bottom: 15px;
         }
 
-        .gallery-header p {
-            font-size: 16px;
-            color: #777;
+        .gallery-header h1 {
+
+            font-family: Georgia, serif;
+
+            font-size: 46px;
+
+            font-weight: 400;
+
+            margin-top: 10px;
         }
 
 
-        /* NAVBAR KATEGORI */
+        /* =========================
+           KATEGORI NAVBAR
+        ========================= */
+
         .category-nav {
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             gap: 35px;
 
             padding: 18px 20px;
+
             margin: 0 auto 80px;
 
-            border-top: 1px solid #e8dddd;
-            border-bottom: 1px solid #e8dddd;
+            border-top: 1px solid #eee;
+
+            border-bottom: 1px solid #eee;
 
             position: sticky;
+
             top: 75px;
 
-            background: rgba(245, 238, 238, 0.96);
+            background: rgba(255,255,255,.96);
+
             backdrop-filter: blur(8px);
 
             z-index: 90;
         }
 
         .category-nav a {
+
             text-decoration: none;
-            color: #333;
 
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            color: #777;
 
-            transition: 0.3s;
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            transition: .2s;
+
         }
 
         .category-nav a:hover {
-            opacity: 0.5;
+
+            color: #b97986;
         }
 
 
-        /* BAGIAN KATEGORI */
-        .category-section {
-            width: 90%;
-            max-width: 1000px;
-            margin: 0 auto 100px;
+        /* =========================
+           CATEGORY
+        ========================= */
 
-            scroll-margin-top: 150px;
+        .category {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto 110px;
+
+            padding: 0 25px;
+        }
+
+        .category-heading {
+
+            display: flex;
+
+            align-items: baseline;
+
+            gap: 15px;
+
+            margin-bottom: 10px;
+
+            border-bottom: 1px solid #e5e0dc;
+
+            padding-bottom: 14px;
+        }
+
+        .category-number {
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color: #b97986;
         }
 
         .category-title {
-            text-align: center;
-            margin-bottom: 45px;
+
+            font-family: Georgia, serif;
+
+            font-size: 30px;
+
+            font-weight: 400;
         }
 
-        .category-title h2 {
-            font-size: 28px;
-            font-weight: 500;
-            letter-spacing: 2px;
+        .category-description {
+
+            color: #888;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 35px;
         }
 
 
-        /* ARTWORK */
+        /* =========================
+           ARTWORK
+        ========================= */
+
         .artwork {
+
             width: 100%;
+
             max-width: 720px;
 
             margin: 0 auto 70px;
 
             position: relative;
+
             overflow: hidden;
 
             border-radius: 22px;
+
             background: #eee;
         }
 
         .artwork img {
+
             width: 100%;
+
             height: auto;
 
             display: block;
 
-            transition: transform 0.5s ease;
+            transition: transform .5s ease;
         }
 
         .artwork:hover img {
+
             transform: scale(1.025);
         }
 
 
-        /* INFO DI ATAS GAMBAR */
+        /* =========================
+           TEXT DI ATAS FOTO
+        ========================= */
+
         .artwork-info {
+
             position: absolute;
 
             left: 0;
@@ -181,220 +280,419 @@
 
             background: linear-gradient(
                 transparent,
-                rgba(0, 0, 0, 0.72)
+                rgba(0,0,0,.72)
             );
 
             opacity: 0;
 
             transform: translateY(10px);
 
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .artwork:hover .artwork-info {
+
             opacity: 1;
+
             transform: translateY(0);
         }
 
         .artwork-info small {
-            font-size: 12px;
-            letter-spacing: 1.5px;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            opacity: .85;
         }
 
         .artwork-info h2 {
-            font-size: 22px;
-            font-weight: 500;
-            margin-top: 6px;
+
+            font-family: Georgia, serif;
+
+            font-size: 26px;
+
+            font-weight: 400;
+
+            margin-top: 7px;
         }
 
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
+
             text-align: center;
 
-            padding: 50px 20px;
+            padding: 30px;
 
-            border-top: 1px solid #e8dddd;
+            background: #f5eeee;
 
             color: #888;
 
-            font-size: 14px;
+            font-size: 11px;
         }
 
 
-        /* HP */
+        /* =========================
+           TABLET
+        ========================= */
+
         @media (max-width: 700px) {
 
             header {
-                padding: 20px;
-            }
 
-            .logo {
-                font-size: 17px;
+                padding: 0 20px;
             }
 
             nav {
-                gap: 18px;
+
+                gap: 15px;
             }
 
             nav a {
-                font-size: 14px;
+
+                font-size: 11px;
             }
 
             .gallery-header {
-                padding: 60px 20px 35px;
+
+                padding: 65px 20px 35px;
             }
 
             .gallery-header h1 {
-                font-size: 32px;
+
+                font-size: 38px;
             }
 
             .category-nav {
-                gap: 18px;
-                padding: 18px 10px;
-                top: 63px;
+
+                top: 75px;
+
+                gap: 20px;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+
+                white-space: nowrap;
+
+                padding-left: 25px;
+
+                padding-right: 25px;
+
+                margin-bottom: 60px;
             }
 
-            .category-nav a {
-                font-size: 13px;
+            .category {
+
+                padding: 0 20px;
+
+                margin-bottom: 80px;
             }
 
-            .category-section {
-                width: 92%;
-            }
+            .category-title {
 
-            .category-title h2 {
-                font-size: 24px;
+                font-size: 25px;
             }
 
             .artwork {
+
                 border-radius: 18px;
+
+                margin-bottom: 50px;
+            }
+
+            .artwork-info {
+
+                padding: 60px 20px 20px;
             }
 
             .artwork-info h2 {
-                font-size: 20px;
+
+                font-size: 22px;
             }
+
         }
+
+
+        /* =========================
+           HP KECIL
+        ========================= */
+
+        @media (max-width: 400px) {
+
+            .logo {
+
+                font-size: 16px;
+            }
+
+            nav {
+
+                gap: 10px;
+            }
+
+            nav a {
+
+                font-size: 10px;
+            }
+
+            .gallery-header h1 {
+
+                font-size: 34px;
+            }
+
+            .category-nav {
+
+                gap: 17px;
+            }
+
+            .category-nav a {
+
+                font-size: 10px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVBAR UTAMA -->
-    <header>
 
-        <div class="logo">
-            ART GALLERY
-        </div>
+<!-- =========================
+     NAVBAR UTAMA
+========================= -->
 
-        <nav>
-            <a href="index.html">
-                Home
-            </a>
+<header>
 
-            <a href="gallery.html" class="active">
-                Gallery
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-        </nav>
-
-    </header>
+    <div class="logo">
+        ART GALLERY
+    </div>
 
 
-    <!-- JUDUL -->
-    <section class="gallery-header">
+    <nav>
 
-        <h1>My Works</h1>
-
-        <p>
-            A collection of my artworks
-        </p>
-
-    </section>
-
-
-    <!-- NAVBAR KATEGORI -->
-    <div class="category-nav">
-
-        <a href="#pencil">
-            B&amp;W / PENCIL
+        <a href="index.html">
+            Home
         </a>
 
-        <a href="#painting">
-            PAINTING
+        <a href="gallery.html">
+            Gallery
         </a>
 
-        <a href="#digital">
-            DIGITAL ART
+        <a href="about.html">
+            About
         </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     JUDUL
+========================= -->
+
+<section class="gallery-header">
+
+    <small>
+        MY WORKS
+    </small>
+
+    <h1>
+        Gallery
+    </h1>
+
+</section>
+
+
+
+<!-- =========================
+     KATEGORI NAVBAR
+========================= -->
+
+<div class="category-nav">
+
+    <a href="#pencil">
+        B&W / PENCIL
+    </a>
+
+    <a href="#painting">
+        PAINTING
+    </a>
+
+    <a href="#digital">
+        DIGITAL ART
+    </a>
+
+</div>
+
+
+
+<!-- =========================
+     B&W / PENCIL
+========================= -->
+
+<section
+    class="category"
+    id="pencil"
+>
+
+
+    <div class="category-heading">
+
+        <span class="category-number">
+            01
+        </span>
+
+        <h2 class="category-title">
+            B&W / Pencil
+        </h2>
 
     </div>
 
 
-    <!-- B&W / PENCIL -->
-    <section class="category-section" id="pencil">
+    <p class="category-description">
 
-        <div class="category-title">
-            <h2>B&amp;W / PENCIL</h2>
+        Black and white drawings,
+        sketches, and pencil studies.
+
+    </p>
+
+
+
+    <!-- ARTWORK -->
+
+    <div class="artwork">
+
+
+        <img
+            src="foto1.jpeg"
+            alt="Portrait Study"
+        >
+
+
+        <div class="artwork-info">
+
+            <small>
+                B&W / PENCIL
+            </small>
+
+            <h2>
+                Portrait Study
+            </h2>
+
         </div>
 
-        <div class="artwork">
 
-            <img
-                src="foto1.jpeg"
-                alt="Portrait Study"
-            >
-
-            <div class="artwork-info">
-
-                <small>
-                    B&amp;W / PENCIL
-                </small>
-
-                <h2>
-                    Portrait Study
-                </h2>
-
-            </div>
-
-        </div>
-
-    </section>
+    </div>
 
 
-    <!-- PAINTING -->
-    <section class="category-section" id="painting">
-
-        <div class="category-title">
-            <h2>PAINTING</h2>
-        </div>
-
-        <!-- Tambahkan karya painting di sini -->
-
-    </section>
+</section>
 
 
-    <!-- DIGITAL ART -->
-    <section class="category-section" id="digital">
 
-        <div class="category-title">
-            <h2>DIGITAL ART</h2>
-        </div>
+<!-- =========================
+     PAINTING
+========================= -->
 
-        <!-- Tambahkan karya digital art di sini -->
+<section
+    class="category"
+    id="painting"
+>
 
-    </section>
+
+    <div class="category-heading">
+
+        <span class="category-number">
+            02
+        </span>
+
+        <h2 class="category-title">
+            Painting
+        </h2>
+
+    </div>
 
 
-    <!-- FOOTER -->
-    <footer>
+    <p class="category-description">
 
-        © 2026 Art Gallery
+        Acrylic paintings, canvas works,
+        and traditional paintings.
 
-    </footer>
+    </p>
+
+
+    <!--
+        NANTI KALAU SUDAH ADA
+        FOTO PAINTING, TAMBAHKAN
+        ARTWORK DI SINI.
+    -->
+
+
+</section>
+
+
+
+<!-- =========================
+     DIGITAL ART
+========================= -->
+
+<section
+    class="category"
+    id="digital"
+>
+
+
+    <div class="category-heading">
+
+        <span class="category-number">
+            03
+        </span>
+
+        <h2 class="category-title">
+            Digital Art
+        </h2>
+
+    </div>
+
+
+    <p class="category-description">
+
+        Digital illustrations, experiments,
+        and creative digital works.
+
+    </p>
+
+
+    <!--
+        NANTI KALAU SUDAH ADA
+        FOTO DIGITAL ART, TAMBAHKAN
+        ARTWORK DI SINI.
+    -->
+
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 ART GALLERY · Personal artwork archive
+
+</footer>
+
 
 </body>
+
 </html>
