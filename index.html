@@ -2,13 +2,10 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Art Gallery</title>
-
 
     <style>
 
@@ -28,51 +25,36 @@
             background: #fff;
         }
 
-
-        /* =========================
-           NAVBAR
-        ========================= */
+        /* NAVBAR */
 
         header {
             height: 75px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 0 7%;
-
             background: white;
-
             position: sticky;
             top: 0;
-
             z-index: 100;
-
             border-bottom: 1px solid #eee;
         }
 
         .logo {
             font-family: Georgia, serif;
-
             font-size: 20px;
-
             letter-spacing: 2px;
         }
 
         nav {
             display: flex;
-
             gap: 30px;
         }
 
         nav a {
             text-decoration: none;
-
             color: #555;
-
             font-size: 13px;
-
             transition: .2s;
         }
 
@@ -80,558 +62,152 @@
             color: #b97986;
         }
 
+        /* HOME */
 
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-
-            min-height: 560px;
-
+        .home {
+            min-height: calc(100vh - 75px);
             background: #f5eeee;
-
             display: flex;
-
             align-items: center;
-
-            justify-content: space-between;
-
-            padding: 70px 10%;
-
-            gap: 60px;
-
-            border-radius: 0 0 40px 40px;
+            justify-content: center;
+            padding: 70px 8%;
         }
 
-        .hero-text {
+        .home-content {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 70px;
+        }
+
+        .home-text {
             max-width: 500px;
         }
 
         .tag {
-
             font-size: 10px;
-
             letter-spacing: 3px;
-
             color: #b97986;
-
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
-        .hero h1 {
-
+        .home h1 {
             font-family: Georgia, serif;
-
             font-size: 58px;
-
             font-weight: 400;
-
             line-height: 1.1;
-
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
-        .hero p {
-
+        .home p {
             color: #777;
-
-            line-height: 1.8;
-
             font-size: 14px;
-
+            line-height: 1.8;
             margin-bottom: 30px;
+            max-width: 430px;
         }
 
-        .hero-button {
-
+        .gallery-button {
             display: inline-block;
-
-            padding: 13px 22px;
-
+            padding: 14px 24px;
             background: #b97986;
-
             color: white;
-
             text-decoration: none;
-
             font-size: 11px;
-
-            letter-spacing: 1px;
-
+            letter-spacing: 1.5px;
             border-radius: 3px;
-
             transition: .2s;
         }
 
-        .hero-button:hover {
-
+        .gallery-button:hover {
             background: #a76674;
         }
 
-        .hero-image {
-
-            width: 380px;
-
-            height: 450px;
-
+        .home-image {
+            width: 390px;
+            height: 480px;
             overflow: hidden;
-
             border-radius: 5px;
         }
 
-        .hero-image img {
-
+        .home-image img {
             width: 100%;
-
             height: 100%;
-
             object-fit: cover;
         }
 
-
-        /* =========================
-           GALLERY
-        ========================= */
-
-        .gallery-section {
-
-            padding: 100px 7%;
-        }
-
-        .section-title {
-
-            text-align: center;
-
-            margin-bottom: 70px;
-        }
-
-        .section-title small {
-
-            color: #b97986;
-
-            font-size: 10px;
-
-            letter-spacing: 3px;
-        }
-
-        .section-title h2 {
-
-            font-family: Georgia, serif;
-
-            font-weight: 400;
-
-            font-size: 42px;
-
-            margin-top: 10px;
-        }
-
-
-        /* =========================
-           CATEGORY
-        ========================= */
-
-        .category {
-
-            margin-bottom: 90px;
-        }
-
-        .category-heading {
-
-            display: flex;
-
-            align-items: baseline;
-
-            gap: 18px;
-
-            margin-bottom: 12px;
-
-            border-bottom: 1px solid #e5e0dc;
-
-            padding-bottom: 14px;
-        }
-
-        .category-number {
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            color: #b97986;
-        }
-
-        .category-title {
-
-            font-family: Georgia, serif;
-
-            font-size: 30px;
-
-            font-weight: 400;
-        }
-
-        .category-description {
-
-            color: #888;
-
-            font-size: 13px;
-
-            margin-bottom: 25px;
-        }
-
-
-        /* =========================
-           MASONRY GALLERY
-        ========================= */
-
-        .gallery-grid {
-
-            columns: 3 250px;
-
-            column-gap: 18px;
-        }
-
-
-        /* =========================
-           ARTWORK CARD
-        ========================= */
-
-        .card {
-
-            background: #eee;
-
-            overflow: hidden;
-
-            position: relative;
-
-            border-radius: 4px;
-
-            margin-bottom: 18px;
-
-            break-inside: avoid;
-        }
-
-        .card img {
-
-            width: 100%;
-
-            height: auto;
-
-            display: block;
-
-            transition: .5s;
-        }
-
-        .card:hover img {
-
-            transform: scale(1.03);
-        }
-
-
-        /* =========================
-           ARTWORK INFO
-        ========================= */
-
-        .card-info {
-
-            position: absolute;
-
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            padding: 45px 20px 18px;
-
-            color: white;
-
-            background: linear-gradient(
-                transparent,
-                rgba(0,0,0,.7)
-            );
-
-            opacity: 0;
-
-            transform: translateY(10px);
-
-            transition: .3s;
-        }
-
-        .card:hover .card-info {
-
-            opacity: 1;
-
-            transform: translateY(0);
-        }
-
-        .card-info small {
-
-            font-size: 10px;
-
-            letter-spacing: 1.5px;
-
-            opacity: .8;
-        }
-
-        .card-info h3 {
-
-            margin-top: 5px;
-
-            font-family: Georgia, serif;
-
-            font-size: 20px;
-
-            font-weight: 400;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-
-            background: #eee7e3;
-
-            padding: 100px 10%;
-
-            text-align: center;
-        }
-
-        .about small {
-
-            color: #b97986;
-
-            font-size: 10px;
-
-            letter-spacing: 3px;
-        }
-
-        .about h2 {
-
-            font-family: Georgia, serif;
-
-            font-weight: 400;
-
-            font-size: 42px;
-
-            max-width: 700px;
-
-            margin: 15px auto 25px;
-        }
-
-        .about p {
-
-            max-width: 650px;
-
-            margin: 12px auto;
-
-            color: #777;
-
-            font-size: 14px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           INSTAGRAM
-        ========================= */
-
-        .instagram {
-
-            text-align: center;
-
-            padding: 90px 20px;
-        }
-
-        .instagram h2 {
-
-            font-family: Georgia, serif;
-
-            font-weight: 400;
-
-            font-size: 35px;
-
-            margin-bottom: 20px;
-        }
-
-        .instagram p {
-
-            color: #888;
-
-            font-size: 14px;
-
-            margin-bottom: 25px;
-        }
-
-        .instagram-button {
-
-            display: inline-block;
-
-            padding: 12px 25px;
-
-            border: 1px solid #b97986;
-
-            color: #b97986;
-
-            text-decoration: none;
-
-            font-size: 12px;
-
-            transition: .2s;
-        }
-
-        .instagram-button:hover {
-
-            background: #b97986;
-
-            color: white;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
-
             text-align: center;
-
-            padding: 30px;
-
-            background: #f5eeee;
-
-            color: #888;
-
+            padding: 25px;
+            background: #fff;
+            color: #999;
             font-size: 11px;
         }
 
-
-        /* =========================
-           MOBILE
-        ========================= */
+        /* MOBILE */
 
         @media (max-width: 700px) {
 
             header {
-
                 padding: 0 20px;
             }
 
             nav {
-
-                gap: 12px;
+                gap: 15px;
             }
 
             nav a {
-
                 font-size: 11px;
             }
 
+            .home {
+                min-height: auto;
+                padding: 60px 25px 70px;
+            }
 
-            /* HERO */
-
-            .hero {
-
+            .home-content {
                 flex-direction: column;
-
-                padding: 60px 25px;
-
                 text-align: center;
+                gap: 45px;
             }
 
-            .hero h1 {
-
-                font-size: 42px;
+            .home h1 {
+                font-size: 43px;
             }
 
-            .hero-image {
+            .home p {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
+            .home-image {
                 width: 100%;
-
                 max-width: 350px;
-
-                height: 400px;
+                height: 420px;
             }
-
-
-            /* GALLERY */
-
-            .gallery-section {
-
-                padding: 70px 20px;
-            }
-
-            .section-title h2 {
-
-                font-size: 34px;
-            }
-
-            .category-title {
-
-                font-size: 24px;
-            }
-
-            .gallery-grid {
-
-                columns: 2 150px;
-
-                column-gap: 10px;
-            }
-
-            .card {
-
-                margin-bottom: 10px;
-            }
-
-
-            /* ABOUT */
-
-            .about {
-
-                padding: 70px 25px;
-            }
-
-            .about h2 {
-
-                font-size: 32px;
-            }
-
         }
-
-
-        /* =========================
-           VERY SMALL PHONE
-        ========================= */
 
         @media (max-width: 400px) {
 
             .logo {
-
                 font-size: 16px;
             }
 
             nav {
-
-                gap: 8px;
+                gap: 10px;
             }
 
             nav a {
-
                 font-size: 10px;
             }
 
-            .hero h1 {
-
-                font-size: 36px;
+            .home h1 {
+                font-size: 37px;
             }
-
-            .gallery-grid {
-
-                columns: 2 120px;
-
-                column-gap: 8px;
-            }
-
         }
 
     </style>
@@ -642,33 +218,24 @@
 <body>
 
 
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <header>
 
     <div class="logo">
         ART GALLERY
     </div>
 
-
     <nav>
 
-        <a href="#home">
+        <a href="index.html">
             Home
         </a>
 
-        <a href="#gallery">
+        <a href="gallery.html">
             Gallery
         </a>
 
-        <a href="#about">
+        <a href="about.html">
             About
-        </a>
-
-        <a href="#instagram">
-            Instagram
         </a>
 
     </nav>
@@ -677,282 +244,60 @@
 
 
 
-<!-- =========================
-     HOME
-========================= -->
+<section class="home">
 
-<section class="hero" id="home">
+    <div class="home-content">
 
 
-    <div class="hero-text">
+        <div class="home-text">
 
-        <div class="tag">
-            MY PERSONAL COLLECTION
-        </div>
-
-
-        <h1>
-
-            A Collection
-            <br>
-            of My Works
-
-        </h1>
-
-
-        <p>
-
-            A little space where I collect
-            drawings, paintings, digital art,
-            and other creative things I've made.
-
-        </p>
-
-
-        <a
-            href="#gallery"
-            class="hero-button"
-        >
-
-            EXPLORE MY WORKS
-
-        </a>
-
-    </div>
-
-
-
-    <div class="hero-image">
-
-        <img
-            src="download.jfif"
-            alt="Art supplies"
-        >
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =========================
-     GALLERY
-========================= -->
-
-<section
-    class="gallery-section"
-    id="gallery"
->
-
-
-    <div class="section-title">
-
-        <small>
-            MY WORKS
-        </small>
-
-
-        <h2>
-            Gallery
-        </h2>
-
-    </div>
-
-
-
-    <!-- =====================
-         B&W / PENCIL
-    ====================== -->
-
-    <div class="category">
-
-
-        <div class="category-heading">
-
-            <span class="category-number">
-                01
-            </span>
-
-
-            <h3 class="category-title">
-                B&W / Pencil
-            </h3>
-
-        </div>
-
-
-        <p class="category-description">
-
-            Black and white drawings,
-            sketches, and pencil studies.
-
-        </p>
-
-
-
-        <div class="gallery-grid">
-
-
-            <!-- ARTWORK 1 -->
-
-            <div class="card">
-
-
-                <img
-                    src="foto1.jpeg"
-                    alt="Portrait Study"
-                >
-
-
-                <div class="card-info">
-
-                    <small>
-                        B&W / PENCIL
-                    </small>
-
-
-                    <h3>
-                        Portrait Study
-                    </h3>
-
-                </div>
-
-
+            <div class="tag">
+                MY PERSONAL COLLECTION
             </div>
 
+            <h1>
+                A Little Space
+                <br>
+                for My Art
+            </h1>
+
+            <p>
+                Welcome to my little art gallery.
+                A collection of drawings, paintings,
+                digital art, and other creative works
+                that I've made.
+            </p>
+
+            <a
+                href="gallery.html"
+                class="gallery-button"
+            >
+                VIEW MY GALLERY
+            </a>
 
         </div>
 
+
+
+        <div class="home-image">
+
+            <img
+                src="download.jfif"
+                alt="Art supplies"
+            >
+
+        </div>
+
+
     </div>
 
-
-
-    <!-- =====================
-         PAINTING
-    ====================== -->
-
-    <!--
-    KALAU NANTI SUDAH PUNYA
-    KARYA PAINTING, TAMBAHKAN
-    KATEGORI DI SINI.
-    -->
-
-
-
-    <!-- =====================
-         DIGITAL ART
-    ====================== -->
-
-    <!--
-    KALAU NANTI SUDAH PUNYA
-    DIGITAL ART, TAMBAHKAN
-    KATEGORI DI SINI.
-    -->
-
-
 </section>
 
 
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section
-    class="about"
-    id="about"
->
-
-
-    <small>
-        ABOUT ME
-    </small>
-
-
-    <h2>
-
-        A little space for the
-        things I love to create.
-
-    </h2>
-
-
-    <p>
-
-        Hi! I'm an artist who enjoys
-        creating drawings, paintings,
-        and other little creative projects.
-
-    </p>
-
-
-    <p>
-
-        This website is my personal space
-        to collect and share the artworks
-        I've made.
-
-    </p>
-
-
-    <p>
-
-        New works will be added
-        as I continue creating.
-
-    </p>
-
-
-</section>
-
-
-
-<!-- =========================
-     INSTAGRAM
-========================= -->
-
-<section
-    class="instagram"
-    id="instagram"
->
-
-
-    <h2>
-        More on Instagram
-    </h2>
-
-
-    <p>
-
-        See more of my artwork
-        and creative projects.
-
-    </p>
-
-
-    <a
-        href="#"
-        class="instagram-button"
-    >
-
-        @yourinstagram
-
-    </a>
-
-
-</section>
-
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
-    © 2026 ART GALLERY ·
-    Personal artwork archive
+    © 2026 ART GALLERY · Personal artwork archive
 
 </footer>
 
