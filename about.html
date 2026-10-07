@@ -22,36 +22,50 @@
             background: #fff;
         }
 
-        /* NAVBAR */
+        /* =========================
+           NAVBAR
+        ========================= */
 
         header {
             height: 75px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 0 7%;
+
             background: white;
+
             position: sticky;
             top: 0;
+
             z-index: 100;
+
             border-bottom: 1px solid #eee;
         }
 
         .logo {
             font-family: Georgia, serif;
+
             font-size: 20px;
+
             letter-spacing: 2px;
         }
 
         nav {
             display: flex;
+
             gap: 30px;
         }
 
         nav a {
             text-decoration: none;
+
             color: #555;
+
             font-size: 13px;
+
             transition: .2s;
         }
 
@@ -59,102 +73,206 @@
             color: #b97986;
         }
 
-        /* ABOUT */
+
+        /* =========================
+           ABOUT
+        ========================= */
 
         .about {
+
             min-height: calc(100vh - 75px);
+
             background: #eee7e3;
-            padding: 110px 25px;
+
+            padding: 100px 25px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
         }
 
         .about-content {
+
             max-width: 700px;
         }
 
         .about small {
+
             color: #b97986;
+
             font-size: 10px;
+
             letter-spacing: 3px;
         }
 
         .about h1 {
+
             font-family: Georgia, serif;
+
             font-weight: 400;
+
             font-size: 48px;
+
             line-height: 1.2;
+
             margin: 18px auto 30px;
         }
 
         .about p {
+
             max-width: 620px;
+
             margin: 14px auto;
+
             color: #777;
+
             font-size: 14px;
+
             line-height: 1.9;
         }
 
         .quote {
+
             margin-top: 40px !important;
+
             font-family: Georgia, serif;
+
             font-style: italic;
+
             color: #9b777e !important;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           INSTAGRAM
+        ========================= */
+
+        .instagram {
+
+            margin-top: 50px;
+        }
+
+        .instagram h2 {
+
+            font-family: Georgia, serif;
+
+            font-weight: 400;
+
+            font-size: 28px;
+
+            margin-bottom: 12px;
+        }
+
+        .instagram p {
+
+            margin-bottom: 20px;
+        }
+
+        .instagram-button {
+
+            display: inline-block;
+
+            padding: 12px 24px;
+
+            border: 1px solid #b97986;
+
+            color: #b97986;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            transition: .2s;
+        }
+
+        .instagram-button:hover {
+
+            background: #b97986;
+
+            color: white;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
+
             text-align: center;
+
             padding: 30px;
+
             background: white;
+
             color: #888;
+
             font-size: 11px;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 700px) {
 
             header {
+
                 padding: 0 20px;
             }
 
             nav {
+
                 gap: 15px;
             }
 
             nav a {
+
                 font-size: 11px;
             }
 
             .about {
+
                 padding: 80px 25px;
             }
 
             .about h1 {
+
                 font-size: 36px;
+            }
+
+            .instagram h2 {
+
+                font-size: 25px;
             }
 
         }
 
+
         @media (max-width: 400px) {
 
             .logo {
+
                 font-size: 16px;
             }
 
             nav {
+
                 gap: 10px;
             }
 
             nav a {
+
                 font-size: 10px;
             }
 
             .about h1 {
+
                 font-size: 32px;
             }
 
@@ -168,11 +286,16 @@
 <body>
 
 
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <header>
 
     <div class="logo">
         ART GALLERY
     </div>
+
 
     <nav>
 
@@ -194,49 +317,109 @@
 
 
 
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section class="about">
 
     <div class="about-content">
+
 
         <small>
             ABOUT ME
         </small>
 
+
         <h1>
+
             A little space for
             the things I love to create.
+
         </h1>
 
+
         <p>
+
             Hi! I'm an artist who enjoys
             creating drawings, paintings,
             digital art, and other little
             creative projects.
+
         </p>
 
+
         <p>
+
             This website is my personal space
             to collect and share the artworks
             I've made.
+
         </p>
 
+
         <p>
+
             Some pieces are simple studies,
             some are experiments, and others
             are just things I made because
             I enjoyed creating them.
+
         </p>
 
+
         <p class="quote">
+
             Made with a little creativity
             and lots of love for art.
+
         </p>
+
+
+
+        <!-- =====================
+             INSTAGRAM
+        ====================== -->
+
+        <div class="instagram">
+
+
+            <h2>
+                Find me on Instagram
+            </h2>
+
+
+            <p>
+
+                See more of my artwork and
+                creative projects on Instagram.
+
+            </p>
+
+
+            <a
+                href="https://www.instagram.com/USERNAME/"
+                target="_blank"
+                class="instagram-button"
+            >
+
+                @0urnss
+
+            </a>
+
+
+        </div>
+
 
     </div>
 
 </section>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
