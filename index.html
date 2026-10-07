@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +84,6 @@
 
         .home-text {
             max-width: 500px;
-            animation: textAppear 1.2s ease-out forwards;
         }
 
         .tag {
@@ -135,6 +133,7 @@
             overflow: hidden;
             border-radius: 5px;
 
+            /* Membuat sisi gambar lebih menyatu dengan background */
             -webkit-mask-image: radial-gradient(
                 ellipse at center,
                 black 55%,
@@ -159,136 +158,7 @@
             object-fit: cover;
         }
 
-        /* DECORATION */
-
-        .decoration {
-            position: absolute;
-            color: #c9959f;
-            font-size: 18px;
-            opacity: .55;
-            pointer-events: none;
-        }
-
-        .decoration.one {
-            top: 150px;
-            left: 7%;
-        }
-
-        .decoration.two {
-            bottom: 90px;
-            right: 8%;
-            font-size: 14px;
-        }
-
-        /* FEATURED WORKS */
-
-        .featured {
-            background: #f5eeee;
-            padding: 90px 8% 110px;
-            text-align: center;
-        }
-
-        .featured-label {
-            font-size: 10px;
-            letter-spacing: 3px;
-            color: #b97986;
-            margin-bottom: 15px;
-        }
-
-        .featured h2 {
-            font-family: Georgia, serif;
-            font-size: 38px;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-
-        .featured-intro {
-            color: #777;
-            font-size: 13px;
-            line-height: 1.7;
-            margin: 0 auto 45px;
-            max-width: 450px;
-        }
-
-        .featured-grid {
-            max-width: 900px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .featured-item {
-            text-decoration: none;
-            color: #333;
-            display: block;
-        }
-
-        .featured-image {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
-            background: #eee;
-        }
-
-        .featured-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform .4s ease;
-        }
-
-        .featured-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .featured-title {
-            margin-top: 14px;
-            font-family: Georgia, serif;
-            font-size: 17px;
-        }
-
-        .featured-category {
-            margin-top: 6px;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            color: #999;
-        }
-
-        .see-gallery {
-            display: inline-block;
-            margin-top: 45px;
-            padding: 13px 23px;
-            border: 1px solid #b97986;
-            color: #b97986;
-            text-decoration: none;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            transition: .2s;
-        }
-
-        .see-gallery:hover {
-            background: #b97986;
-            color: white;
-        }
-
-        /* ANIMATIONS */
-
-        @keyframes textAppear {
-
-            0% {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
+        /* ANIMASI GAMBAR */
 
         @keyframes imageAppear {
 
@@ -369,32 +239,6 @@
                 max-width: 350px;
                 height: 420px;
             }
-
-            .featured {
-                padding: 70px 25px 80px;
-            }
-
-            .featured h2 {
-                font-size: 32px;
-            }
-
-            .featured-grid {
-                grid-template-columns: 1fr;
-                max-width: 350px;
-                gap: 35px;
-            }
-
-            .featured-image {
-                height: 380px;
-            }
-
-            .decoration.one {
-                left: 10%;
-            }
-
-            .decoration.two {
-                right: 10%;
-            }
         }
 
         @media (max-width: 400px) {
@@ -414,7 +258,6 @@
             .home h1 {
                 font-size: 37px;
             }
-
         }
 
     </style>
@@ -450,13 +293,6 @@
 </header>
 
 
-<!-- DECORATION -->
-
-<div class="decoration one">✦</div>
-<div class="decoration two">✧</div>
-
-
-<!-- HOME -->
 
 <section class="home">
 
@@ -492,6 +328,7 @@
         </div>
 
 
+
         <div class="home-image">
 
             <img
@@ -507,105 +344,6 @@
 </section>
 
 
-<!-- FEATURED WORKS -->
-
-<section class="featured">
-
-    <div class="featured-label">
-        A GLIMPSE OF MY WORK
-    </div>
-
-    <h2>
-        Featured Works
-    </h2>
-
-    <p class="featured-intro">
-        A few pieces from my personal collection,
-        created through different styles and mediums.
-    </p>
-
-
-    <div class="featured-grid">
-
-
-        <a href="gallery.html#pencil" class="featured-item">
-
-            <div class="featured-image">
-
-                <img
-                    src="foto1.jpeg"
-                    alt="Portrait Study"
-                >
-
-            </div>
-
-            <div class="featured-title">
-                Portrait Study
-            </div>
-
-            <div class="featured-category">
-                B&W / PENCIL
-            </div>
-
-        </a>
-
-
-        <a href="gallery.html#painting" class="featured-item">
-
-            <div class="featured-image">
-
-                <img
-                    src="Picsart_26-10-06_17-27-05-079_image_repair_1791282548302.jpg"
-                    alt="My Painting"
-                >
-
-            </div>
-
-            <div class="featured-title">
-                My Painting
-            </div>
-
-            <div class="featured-category">
-                PAINTING
-            </div>
-
-        </a>
-
-
-        <a href="gallery.html#digital" class="featured-item">
-
-            <div class="featured-image">
-
-                <img
-                    src="Tak berjudul22 (2).jpg"
-                    alt="Untitled"
-                >
-
-            </div>
-
-            <div class="featured-title">
-                Untitled
-            </div>
-
-            <div class="featured-category">
-                DIGITAL ART
-            </div>
-
-        </a>
-
-
-    </div>
-
-
-    <a
-        href="gallery.html"
-        class="see-gallery"
-    >
-        VIEW ALL WORKS
-    </a>
-
-</section>
-
 
 <footer>
 
@@ -617,8 +355,3 @@
 </body>
 
 </html>
-```
-
-**Catatan:** aku pakai nama file karya yang memang sudah ada di gallery kamu: `foto1.jpeg`, `Picsart...jpg`, dan `Tak berjudul22 (2).jpg`.
-
-Kalau menurutmu bagian **Featured Works** ini malah terlalu ramai, bisa kita bikin versi yang lebih elegan/minimal tanpa mengubah hero yang sekarang.
