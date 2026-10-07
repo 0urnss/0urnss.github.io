@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -328,9 +329,6 @@
                 transform .9s ease,
                 box-shadow .4s ease;
 
-            /*
-             * FOTO SELALU DI ATAS ANIMASI
-             */
             z-index: 20;
         }
 
@@ -372,6 +370,7 @@
 
         /* =========================
            TEXT DI FOTO
+           SELALU TERLIHAT
         ========================= */
 
         .artwork-info {
@@ -391,20 +390,15 @@
                 rgba(0,0,0,.72)
             );
 
-            opacity: 0;
+            opacity: 1;
 
-            transform: translateY(10px);
+            transform: translateY(0);
 
             transition: .35s ease;
 
             z-index: 21;
-        }
 
-        .artwork:hover .artwork-info {
-
-            opacity: 1;
-
-            transform: translateY(0);
+            pointer-events: none;
         }
 
         .artwork-info small {
@@ -443,11 +437,6 @@
 
             pointer-events: none;
 
-            /*
-             * PENTING:
-             * animasi berada DI BELAKANG
-             * seluruh isi gallery
-             */
             z-index: 1;
 
             overflow: hidden;
@@ -1428,3 +1417,12 @@
 </body>
 
 </html>
+```
+
+Yang berubah cuma bagian penting ini:
+
+* **Judul karya selalu terlihat**
+* **Kategori selalu terlihat**
+* Gradient hitam tetap ada sebagai background tulisan → jadi terasa seperti **watermark**
+* Hover sekarang cuma memperbesar foto sedikit, **bukan memunculkan tulisan**
+* 🍀🍓 tetap berada **di belakang foto**, seperti versi yang sebelumnya kamu bilang sudah benar.
