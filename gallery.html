@@ -404,156 +404,135 @@
 
 
         /* =========================
+           🍀 CONTAINER DAUN
+        ========================= */
+
+        #clover-container {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+
+            z-index: 150;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
            🍀 DAUN SEMANGGI
         ========================= */
 
         .clover {
 
-            position: fixed;
+            position: absolute;
 
-            top: 0;
+            width: 48px;
+            height: 48px;
 
-            z-index: 150;
+            font-size: 48px;
 
-            pointer-events: none;
-
-            width: 24px;
-            height: 24px;
+            line-height: 1;
 
             opacity: 0;
 
-            font-size: 24px;
+            filter:
+                drop-shadow(
+                    0 4px 7px rgba(70, 100, 70, .16)
+                );
 
-            filter: drop-shadow(
-                0 3px 5px rgba(70, 100, 70, .15)
-            );
-
-            animation-timing-function: linear;
-            animation-fill-mode: forwards;
+            will-change:
+                transform,
+                opacity;
         }
 
 
-        /* DAUN DARI KIRI */
+        /* =========================
+           ANIMASI DARI KIRI
+        ========================= */
 
-        .clover.left {
+        .clover.from-left {
 
-            left: -35px;
+            left: -70px;
 
-            animation-name: cloverLeft;
-
-            animation-duration: 9s;
+            animation:
+                floatFromLeft var(--duration)
+                linear forwards;
         }
 
 
-        /* DAUN DARI KANAN */
+        /* =========================
+           ANIMASI DARI KANAN
+        ========================= */
 
-        .clover.right {
+        .clover.from-right {
 
-            right: -35px;
+            right: -70px;
 
-            animation-name: cloverRight;
-
-            animation-duration: 10s;
+            animation:
+                floatFromRight var(--duration)
+                linear forwards;
         }
 
 
-        @keyframes cloverLeft {
+        @keyframes floatFromLeft {
 
             0% {
 
                 opacity: 0;
 
                 transform:
-                    translate(-30px, 10vh)
-                    rotate(0deg)
-                    scale(.7);
-            }
-
-            10% {
-
-                opacity: .65;
-            }
-
-            30% {
-
-                transform:
-                    translate(25vw, 25vh)
-                    rotate(100deg)
-                    scale(1);
-            }
-
-            55% {
-
-                transform:
-                    translate(50vw, 12vh)
-                    rotate(210deg)
-                    scale(.85);
-            }
-
-            80% {
-
-                opacity: .5;
-
-                transform:
-                    translate(78vw, 35vh)
-                    rotate(310deg)
-                    scale(.9);
-            }
-
-            100% {
-
-                opacity: 0;
-
-                transform:
-                    translate(110vw, 20vh)
-                    rotate(420deg)
-                    scale(.6);
-            }
-
-        }
-
-
-        @keyframes cloverRight {
-
-            0% {
-
-                opacity: 0;
-
-                transform:
-                    translate(30px, 45vh)
+                    translate(
+                        -40px,
+                        var(--start-y)
+                    )
                     rotate(0deg)
                     scale(.65);
             }
 
             10% {
 
-                opacity: .6;
+                opacity: .72;
             }
 
-            30% {
+            35% {
 
                 transform:
-                    translate(-22vw, 30vh)
-                    rotate(-100deg)
-                    scale(.95);
+                    translate(
+                        25vw,
+                        calc(var(--start-y) - 40px)
+                    )
+                    rotate(130deg)
+                    scale(1);
             }
 
             55% {
 
                 transform:
-                    translate(-48vw, 48vh)
-                    rotate(-210deg)
-                    scale(.8);
+                    translate(
+                        50vw,
+                        calc(var(--start-y) + 55px)
+                    )
+                    rotate(230deg)
+                    scale(.9);
             }
 
-            80% {
+            75% {
 
-                opacity: .45;
+                opacity: .58;
 
                 transform:
-                    translate(-75vw, 25vh)
-                    rotate(-320deg)
-                    scale(.9);
+                    translate(
+                        75vw,
+                        calc(var(--start-y) - 25px)
+                    )
+                    rotate(320deg)
+                    scale(1.05);
             }
 
             100% {
@@ -561,9 +540,83 @@
                 opacity: 0;
 
                 transform:
-                    translate(-110vw, 40vh)
-                    rotate(-430deg)
-                    scale(.6);
+                    translate(
+                        115vw,
+                        calc(var(--start-y) + 40px)
+                    )
+                    rotate(460deg)
+                    scale(.65);
+            }
+
+        }
+
+
+        @keyframes floatFromRight {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        40px,
+                        var(--start-y)
+                    )
+                    rotate(0deg)
+                    scale(.65);
+            }
+
+            10% {
+
+                opacity: .72;
+            }
+
+            35% {
+
+                transform:
+                    translate(
+                        -25vw,
+                        calc(var(--start-y) + 45px)
+                    )
+                    rotate(-130deg)
+                    scale(1);
+            }
+
+            55% {
+
+                transform:
+                    translate(
+                        -50vw,
+                        calc(var(--start-y) - 50px)
+                    )
+                    rotate(-240deg)
+                    scale(.9);
+            }
+
+            75% {
+
+                opacity: .58;
+
+                transform:
+                    translate(
+                        -75vw,
+                        calc(var(--start-y) + 30px)
+                    )
+                    rotate(-330deg)
+                    scale(1.05);
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        -115vw,
+                        calc(var(--start-y) - 35px)
+                    )
+                    rotate(-470deg)
+                    scale(.65);
             }
 
         }
@@ -594,7 +647,7 @@
 
 
         /* =========================
-           ANIMATIONS
+           ANIMATIONS UMUM
         ========================= */
 
         @keyframes fadeUp {
@@ -737,14 +790,14 @@
             }
 
 
-            /* CLOVER HP */
+            /* DAUN DI HP */
 
             .clover {
 
-                font-size: 19px;
+                width: 38px;
+                height: 38px;
 
-                width: 19px;
-                height: 19px;
+                font-size: 38px;
             }
 
         }
@@ -786,6 +839,14 @@
                 font-size: 10px;
 
                 padding: 15px 17px;
+            }
+
+            .clover {
+
+                width: 34px;
+                height: 34px;
+
+                font-size: 34px;
             }
 
         }
@@ -850,32 +911,10 @@
 
 
 <!-- =========================
-     🍀 DAUN SEMANGGI
+     🍀 CONTAINER DAUN
 ========================= -->
 
-<div class="clover left" style="animation-delay: 2s;">
-    🍀
-</div>
-
-<div class="clover right" style="animation-delay: 5s;">
-    🍀
-</div>
-
-<div class="clover left" style="animation-delay: 9s;">
-    🍀
-</div>
-
-<div class="clover right" style="animation-delay: 13s;">
-    🍀
-</div>
-
-<div class="clover left" style="animation-delay: 17s;">
-    🍀
-</div>
-
-<div class="clover right" style="animation-delay: 21s;">
-    🍀
-</div>
+<div id="clover-container"></div>
 
 
 <!-- =========================
@@ -1095,29 +1134,36 @@
 
 <script>
 
-    const sections = document.querySelectorAll(".category");
+    /* =========================
+       ANIMASI CATEGORY
+    ========================= */
 
-    const observer = new IntersectionObserver(
+    const sections =
+        document.querySelectorAll(".category");
 
-        (entries) => {
 
-            entries.forEach((entry) => {
+    const observer =
+        new IntersectionObserver(
 
-                if (entry.isIntersecting) {
+            (entries) => {
 
-                    entry.target.classList.add("show");
+                entries.forEach((entry) => {
 
-                }
+                    if (entry.isIntersecting) {
 
-            });
+                        entry.target.classList.add("show");
 
-        },
+                    }
 
-        {
-            threshold: 0.12
-        }
+                });
 
-    );
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
 
 
     sections.forEach((section) => {
@@ -1125,6 +1171,140 @@
         observer.observe(section);
 
     });
+
+
+    /* =========================
+       🍀 ANIMASI DAUN SEMANGGI
+    ========================= */
+
+    const cloverContainer =
+        document.getElementById("clover-container");
+
+
+    function createClover() {
+
+        const clover =
+            document.createElement("div");
+
+
+        clover.classList.add("clover");
+
+
+        /* Bentuk daun */
+
+        clover.textContent = "🍀";
+
+
+        /* Pilih arah secara acak */
+
+        const fromLeft =
+            Math.random() < 0.5;
+
+
+        if (fromLeft) {
+
+            clover.classList.add("from-left");
+
+        } else {
+
+            clover.classList.add("from-right");
+
+        }
+
+
+        /* Posisi vertikal acak */
+
+        const startY =
+            Math.floor(
+                Math.random() * 75
+            ) + 10;
+
+
+        clover.style.setProperty(
+            "--start-y",
+            startY + "vh"
+        );
+
+
+        /* Kecepatan acak */
+
+        const duration =
+            Math.floor(
+                Math.random() * 5
+            ) + 9;
+
+
+        clover.style.setProperty(
+            "--duration",
+            duration + "s"
+        );
+
+
+        /* Ukuran sedikit acak */
+
+        const size =
+            Math.floor(
+                Math.random() * 18
+            ) + 38;
+
+
+        clover.style.fontSize =
+            size + "px";
+
+
+        clover.style.width =
+            size + "px";
+
+
+        clover.style.height =
+            size + "px";
+
+
+        cloverContainer.appendChild(
+            clover
+        );
+
+
+        /* Hapus setelah selesai */
+
+        setTimeout(() => {
+
+            clover.remove();
+
+        }, (duration + 1) * 1000);
+
+    }
+
+
+    /* Daun pertama */
+
+    setTimeout(() => {
+
+        createClover();
+
+    }, 1000);
+
+
+    /* Daun berikutnya terus muncul */
+
+    setInterval(() => {
+
+        createClover();
+
+    }, 3200);
+
+
+    /* Tambahkan satu lagi sesekali */
+
+    setTimeout(() => {
+
+        setInterval(() => {
+
+            createClover();
+
+        }, 5200);
+
+    }, 1800);
 
 
 </script>
