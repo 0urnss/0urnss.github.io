@@ -3,11 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ART GALLERY — Temporary</title>
 
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+  scroll-behavior:smooth
+}
 
 body{
   margin:0;
@@ -122,7 +126,7 @@ nav a:hover{
   transform:translateY(-2px)
 }
 
-/* GENERAL SECTION */
+/* SECTION */
 section{
   padding:90px 7%
 }
@@ -167,7 +171,8 @@ h2{
   background:#eee;
   aspect-ratio:4/5;
   overflow:hidden;
-  position:relative
+  position:relative;
+  border-radius:3px
 }
 
 .card img{
@@ -212,11 +217,9 @@ h2{
 footer{
   text-align:center;
   padding:55px 20px;
-  border-top:1px solid #e9e5e1
-}
-
-footer a{
-  color:#333
+  border-top:1px solid #e9e5e1;
+  color:#777;
+  font-size:13px
 }
 
 /* MOBILE */
@@ -300,6 +303,7 @@ footer a{
 <body>
 
 <header>
+
   <div class="logo">ART GALLERY</div>
 
   <nav>
@@ -308,7 +312,9 @@ footer a{
     <a href="#about">About</a>
     <a href="#instagram">Instagram</a>
   </nav>
+
 </header>
+
 
 <main>
 
@@ -316,20 +322,33 @@ footer a{
 <section class="hero" id="home">
 
   <div class="hero-text">
+
     <span class="tag">MY PERSONAL COLLECTION</span>
 
-    <h1>A Collection<br>of My Works</h1>
+    <h1>
+      A Collection<br>
+      of My Works
+    </h1>
 
     <p>
       Drawings, paintings & little things I create.
       A simple space to keep and share my artwork.
     </p>
 
-    <a class="button" href="#gallery">EXPLORE MY WORKS</a>
+    <a class="button" href="#gallery">
+      EXPLORE MY WORKS
+    </a>
+
   </div>
 
+
   <div class="hero-img">
-    <img src="download.jfif" alt="Palette and brushes">
+
+    <img
+      src="download.jfif"
+      alt="Palette and brushes"
+    >
+
   </div>
 
 </section>
@@ -339,41 +358,62 @@ footer a{
 <section id="gallery">
 
   <div class="title">
+
     <h2>Selected Works</h2>
-    <span class="small">2026 — present</span>
+
+    <span class="small">
+      2026 — present
+    </span>
+
   </div>
 
+
   <div class="filters">
+
     <span>ALL</span>
     <span>DIGITAL ART</span>
     <span>CANVAS</span>
     <span>PORTRAIT</span>
+
   </div>
+
 
   <div class="grid">
 
     <div class="card">
-      <img src="download.jfif" alt="Palette and brushes">
+      <div class="placeholder">
+        NEW ARTWORK
+      </div>
     </div>
 
     <div class="card">
-      <div class="placeholder">NEW ARTWORK</div>
+      <div class="placeholder">
+        NEW ARTWORK
+      </div>
     </div>
 
     <div class="card">
-      <div class="placeholder">NEW ARTWORK</div>
+      <div class="placeholder">
+        NEW ARTWORK
+      </div>
     </div>
 
     <div class="card">
-      <div class="placeholder">NEW ARTWORK</div>
+      <div class="placeholder">
+        NEW ARTWORK
+      </div>
     </div>
 
     <div class="card">
-      <div class="placeholder">NEW ARTWORK</div>
+      <div class="placeholder">
+        NEW ARTWORK
+      </div>
     </div>
 
     <div class="card">
-      <div class="placeholder">NEW ARTWORK</div>
+      <div class="placeholder">
+        NEW ARTWORK
+      </div>
     </div>
 
   </div>
@@ -385,20 +425,29 @@ footer a{
 <section class="about" id="about">
 
   <div>
+
     <span class="tag">ABOUT</span>
-    <h2>A little space for my art.</h2>
+
+    <h2>
+      A little space for my art.
+    </h2>
+
   </div>
 
+
   <div>
+
     <p>
-      Hi! This is my personal art gallery. I made this website
-      to collect the drawings and paintings I've created over time
-      and to share them with anyone who wants to see them.
+      Hi! This is my personal art gallery.
+      I made this website to collect the drawings
+      and paintings I've created over time and to
+      share them with anyone who wants to see them.
     </p>
 
     <p>
       More works will be added here as I create them.
     </p>
+
   </div>
 
 </section>
@@ -407,23 +456,31 @@ footer a{
 <!-- INSTAGRAM -->
 <section id="instagram" style="text-align:center">
 
-  <span class="tag">FIND ME</span>
+  <span class="tag">
+    FIND ME
+  </span>
 
-  <h2>More on Instagram</h2>
+  <h2>
+    More on Instagram
+  </h2>
 
   <p class="small">
     Follow along to see new works and updates.
   </p>
 
-  <a class="button" href="#">@yourinstagram</a>
+  <a class="button" href="#">
+    @yourinstagram
+  </a>
 
 </section>
 
 </main>
 
+
 <footer>
   © 2026 ART GALLERY · Personal artwork archive
 </footer>
+
 
 </body>
 </html>
