@@ -15,22 +15,19 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #ffffff;
+            background: #f5eeee;
             color: #222;
         }
 
-        /* =========================
-           NAVBAR UTAMA
-        ========================= */
-
+        /* NAVBAR UTAMA */
         header {
             width: 100%;
             padding: 24px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #eee;
-            background: #ffffff;
+            border-bottom: 1px solid #e8dddd;
+            background: #f5eeee;
 
             position: sticky;
             top: 0;
@@ -51,9 +48,7 @@
         nav a {
             text-decoration: none;
             color: #222;
-            font-size: 17px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            font-size: 15px;
             transition: 0.3s;
         }
 
@@ -62,14 +57,11 @@
         }
 
         nav a.active {
-            font-weight: 700;
+            font-weight: 600;
         }
 
 
-        /* =========================
-           JUDUL GALLERY
-        ========================= */
-
+        /* JUDUL GALLERY */
         .gallery-header {
             text-align: center;
             padding: 80px 20px 45px;
@@ -88,26 +80,23 @@
         }
 
 
-        /* =========================
-           NAVBAR KATEGORI
-        ========================= */
-
+        /* NAVBAR KATEGORI */
         .category-nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 45px;
+            gap: 35px;
 
-            padding: 20px;
+            padding: 18px 20px;
             margin: 0 auto 80px;
 
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+            border-top: 1px solid #e8dddd;
+            border-bottom: 1px solid #e8dddd;
 
             position: sticky;
-            top: 73px;
+            top: 75px;
 
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(245, 238, 238, 0.96);
             backdrop-filter: blur(8px);
 
             z-index: 90;
@@ -117,9 +106,9 @@
             text-decoration: none;
             color: #333;
 
-            font-size: 17px;
-            font-weight: 600;
-            letter-spacing: 0.7px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
 
             transition: 0.3s;
         }
@@ -129,14 +118,12 @@
         }
 
 
-        /* =========================
-           BAGIAN KATEGORI
-        ========================= */
-
+        /* BAGIAN KATEGORI */
         .category-section {
             width: 90%;
             max-width: 1000px;
             margin: 0 auto 100px;
+
             scroll-margin-top: 150px;
         }
 
@@ -152,10 +139,7 @@
         }
 
 
-        /* =========================
-           ARTWORK
-        ========================= */
-
+        /* ARTWORK */
         .artwork {
             width: 100%;
             max-width: 720px;
@@ -183,10 +167,7 @@
         }
 
 
-        /* =========================
-           INFO DI ATAS GAMBAR
-        ========================= */
-
+        /* INFO DI ATAS GAMBAR */
         .artwork-info {
             position: absolute;
 
@@ -216,27 +197,24 @@
         }
 
         .artwork-info small {
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 1.5px;
         }
 
         .artwork-info h2 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 500;
             margin-top: 6px;
         }
 
 
-        /* =========================
-           FOOTER
-        ========================= */
-
+        /* FOOTER */
         footer {
             text-align: center;
 
             padding: 50px 20px;
 
-            border-top: 1px solid #eee;
+            border-top: 1px solid #e8dddd;
 
             color: #888;
 
@@ -244,10 +222,7 @@
         }
 
 
-        /* =========================
-           RESPONSIVE HP
-        ========================= */
-
+        /* HP */
         @media (max-width: 700px) {
 
             header {
@@ -263,7 +238,7 @@
             }
 
             nav a {
-                font-size: 15px;
+                font-size: 14px;
             }
 
             .gallery-header {
@@ -275,13 +250,13 @@
             }
 
             .category-nav {
-                gap: 22px;
+                gap: 18px;
                 padding: 18px 10px;
                 top: 63px;
             }
 
             .category-nav a {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .category-section {
@@ -305,11 +280,7 @@
 
 <body>
 
-
-    <!-- =========================
-         NAVBAR UTAMA
-    ========================= -->
-
+    <!-- NAVBAR UTAMA -->
     <header>
 
         <div class="logo">
@@ -317,7 +288,9 @@
         </div>
 
         <nav>
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
             <a href="gallery.html" class="active">
                 Gallery
@@ -331,11 +304,7 @@
     </header>
 
 
-
-    <!-- =========================
-         JUDUL
-    ========================= -->
-
+    <!-- JUDUL -->
     <section class="gallery-header">
 
         <h1>My Works</h1>
@@ -347,11 +316,7 @@
     </section>
 
 
-
-    <!-- =========================
-         NAVBAR KATEGORI
-    ========================= -->
-
+    <!-- NAVBAR KATEGORI -->
     <div class="category-nav">
 
         <a href="#pencil">
@@ -369,17 +334,12 @@
     </div>
 
 
-
-    <!-- =========================
-         B&W / PENCIL
-    ========================= -->
-
+    <!-- B&W / PENCIL -->
     <section class="category-section" id="pencil">
 
         <div class="category-title">
             <h2>B&amp;W / PENCIL</h2>
         </div>
-
 
         <div class="artwork">
 
@@ -405,11 +365,7 @@
     </section>
 
 
-
-    <!-- =========================
-         PAINTING
-    ========================= -->
-
+    <!-- PAINTING -->
     <section class="category-section" id="painting">
 
         <div class="category-title">
@@ -421,11 +377,7 @@
     </section>
 
 
-
-    <!-- =========================
-         DIGITAL ART
-    ========================= -->
-
+    <!-- DIGITAL ART -->
     <section class="category-section" id="digital">
 
         <div class="category-title">
@@ -437,17 +389,12 @@
     </section>
 
 
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
+    <!-- FOOTER -->
     <footer>
 
         © 2026 Art Gallery
 
     </footer>
-
 
 </body>
 </html>
