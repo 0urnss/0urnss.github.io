@@ -1,703 +1,837 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ART GALLERY — Temporary</title>
+    <title>Art Gallery</title>
 
-<style>
-*{
-  box-sizing:border-box
-}
+    <style>
 
-html{
-  scroll-behavior:smooth
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body{
-  margin:0;
-  background:#faf9f7;
-  color:#202020;
-  font-family:Arial,Helvetica,sans-serif
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* HEADER */
-header{
-  padding:24px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #e9e5e1;
-  position:sticky;
-  top:0;
-  background:rgba(250,249,247,.94);
-  backdrop-filter:blur(8px);
-  z-index:5
-}
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #fff;
+        }
 
-.logo{
-  font-size:18px;
-  font-weight:700;
-  letter-spacing:3px
-}
+        /* =========================
+           NAVBAR
+        ========================= */
 
-nav a{
-  margin-left:24px;
-  text-decoration:none;
-  color:#333;
-  font-size:13px;
-  transition:.3s
-}
+        header {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
 
-nav a:hover{
-  color:#b97986
-}
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
 
-/* HOME */
-.hero{
-  min-height:75vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:60px;
-  padding:80px 8%;
-  background:#f5eeee;
-  border-radius:0 0 40px 40px
-}
+        nav {
+            display: flex;
+            gap: 30px;
+        }
 
-.hero-text{
-  max-width:560px
-}
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+        }
 
-.hero h1{
-  font-family:Georgia,serif;
-  font-size:58px;
-  line-height:1.05;
-  margin:18px 0;
-  font-weight:400
-}
+        nav a:hover {
+            color: #b97986;
+        }
 
-.hero p{
-  font-size:17px;
-  color:#666;
-  max-width:500px;
-  line-height:1.7;
-  margin-bottom:30px
-}
 
-.tag{
-  display:inline-block;
-  margin-bottom:20px;
-  background:#ead3d8;
-  padding:8px 14px;
-  border-radius:30px;
-  font-size:11px;
-  letter-spacing:2px
-}
+        /* =========================
+           HERO
+        ========================= */
 
-.hero-img{
-  width:430px;
-  height:430px;
-  display:flex;
-  align-items:center;
-  justify-content:center
-}
+        .hero {
+            min-height: 560px;
+            background: #f5eeee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 70px 10%;
+            gap: 60px;
+            border-radius: 0 0 40px 40px;
+        }
 
-.hero-img img{
-  width:100%;
-  height:100%;
-  object-fit:contain
-}
+        .hero-text {
+            max-width: 500px;
+        }
 
-/* BUTTON */
-.button{
-  display:inline-block;
-  padding:13px 22px;
-  background:#202020;
-  color:#fff;
-  text-decoration:none;
-  border-radius:30px;
-  font-size:12px;
-  letter-spacing:1.5px;
-  transition:.3s
-}
+        .tag {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #b97986;
+            margin-bottom: 20px;
+        }
 
-.button:hover{
-  background:#b97986;
-  transform:translateY(-2px)
-}
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
 
-/* SECTION */
-section{
-  padding:90px 7%
-}
+        .hero p {
+            color: #777;
+            line-height: 1.8;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
 
-.title{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin-bottom:55px
-}
+        .hero-button {
+            display: inline-block;
+            padding: 13px 22px;
+            background: #b97986;
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+            border-radius: 3px;
+        }
 
-h2{
-  font-family:Georgia,serif;
-  font-size:42px;
-  font-weight:400;
-  margin:0
-}
+        .hero-button:hover {
+            background: #a76674;
+        }
 
-.small{
-  color:#888;
-  font-size:13px
-}
+        .hero-image {
+            width: 380px;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
 
-/* CATEGORY */
-.category{
-  margin-bottom:90px
-}
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.category:last-child{
-  margin-bottom:0
-}
 
-.category-heading{
-  display:flex;
-  align-items:baseline;
-  gap:18px;
-  margin-bottom:25px;
-  border-bottom:1px solid #e5e0dc;
-  padding-bottom:14px
-}
+        /* =========================
+           GALLERY
+        ========================= */
 
-.category-number{
-  font-size:11px;
-  letter-spacing:2px;
-  color:#b97986
-}
+        .gallery-section {
+            padding: 100px 7%;
+        }
 
-.category-title{
-  font-family:Georgia,serif;
-  font-size:30px;
-  font-weight:400;
-  margin:0
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
 
-.category-description{
-  color:#888;
-  font-size:13px;
-  margin:0 0 25px
-}
+        .section-title small {
+            color: #b97986;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
 
-/* GALLERY GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px
-}
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            font-size: 42px;
+            margin-top: 10px;
+        }
 
-.card{
-  background:#eee;
-  aspect-ratio:4/5;
-  overflow:hidden;
-  position:relative;
-  border-radius:4px
-}
 
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s
-}
+        /* CATEGORY */
 
-.card:hover img{
-  transform:scale(1.05)
-}
+        .category {
+            margin-bottom: 90px;
+        }
 
-.card-info{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:35px 20px 18px;
-  color:#fff;
-  background:linear-gradient(transparent,rgba(0,0,0,.65));
-  opacity:0;
-  transform:translateY(10px);
-  transition:.3s
-}
+        .category-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 18px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e5e0dc;
+            padding-bottom: 14px;
+        }
 
-.card:hover .card-info{
-  opacity:1;
-  transform:translateY(0)
-}
+        .category-number {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #b97986;
+        }
 
-.card-info small{
-  font-size:10px;
-  letter-spacing:1.5px;
-  opacity:.8
-}
+        .category-title {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            font-weight: 400;
+        }
 
-.card-info h3{
-  margin:5px 0 0;
-  font-family:Georgia,serif;
-  font-size:20px;
-  font-weight:400
-}
+        .category-description {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
 
-.placeholder{
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#aaa;
-  font-size:12px;
-  letter-spacing:1px;
-  background:#eee
-}
 
-/* ABOUT */
-.about{
-  background:#eee7e3;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center
-}
+        /* GRID */
 
-.about h2{
-  max-width:450px;
-  line-height:1.2
-}
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
 
-.about p{
-  line-height:1.9;
-  color:#666;
-  max-width:500px
-}
 
-/* INSTAGRAM */
-#instagram{
-  text-align:center
-}
+        /* CARD */
 
-#instagram .button{
-  margin-top:15px
-}
+        .card {
+            background: #eee;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            position: relative;
+            border-radius: 4px;
+        }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:55px 20px;
-  border-top:1px solid #e9e5e1;
-  color:#777;
-  font-size:13px
-}
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
 
-/* MOBILE */
-@media(max-width:700px){
+        .card:hover img {
+            transform: scale(1.05);
+        }
 
-  header{
-    padding:18px 5%;
-    flex-direction:column;
-    gap:15px
-  }
 
-  .logo{
-    font-size:16px
-  }
+        /* INFO */
 
-  nav{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px
-  }
+        .card-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 35px 20px 18px;
+            color: white;
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.65)
+            );
 
-  nav a{
-    margin-left:0;
-    font-size:11px
-  }
+            opacity: 0;
+            transform: translateY(10px);
+            transition: .3s;
+        }
 
-  .hero{
-    min-height:auto;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:30px;
-    padding:60px 7% 50px;
-    border-radius:0 0 30px 30px
-  }
+        .card:hover .card-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-  .hero h1{
-    font-size:43px
-  }
+        .card-info small {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            opacity: .8;
+        }
 
-  .hero p{
-    font-size:15px
-  }
+        .card-info h3 {
+            margin-top: 5px;
+            font-family: Georgia, serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
 
-  .hero-img{
-    width:100%;
-    height:300px
-  }
 
-  section{
-    padding:65px 5%
-  }
+        /* =========================
+           EMPTY SLOT
+        ========================= */
 
-  .title{
-    display:block;
-    margin-bottom:45px
-  }
+        .empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 11px;
+            letter-spacing: 2px;
+            background: #f4f2f1;
+        }
 
-  .title .small{
-    display:block;
-    margin-top:10px
-  }
 
-  .category{
-    margin-bottom:65px
-  }
+        /* =========================
+           ABOUT
+        ========================= */
 
-  .category-heading{
-    gap:12px
-  }
+        .about {
+            background: #eee7e3;
+            padding: 100px 10%;
+            text-align: center;
+        }
 
-  .category-title{
-    font-size:25px
-  }
+        .about small {
+            color: #b97986;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
 
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px
-  }
+        .about h2 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            font-size: 42px;
+            max-width: 700px;
+            margin: 15px auto 25px;
+        }
 
-  .about{
-    grid-template-columns:1fr;
-    gap:20px
-  }
+        .about p {
+            max-width: 650px;
+            margin: 12px auto;
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+        }
 
-  .about h2{
-    font-size:34px
-  }
 
-  h2{
-    font-size:34px
-  }
-}
-</style>
+        /* =========================
+           INSTAGRAM
+        ========================= */
+
+        .instagram {
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .instagram h2 {
+            font-family: Georgia, serif;
+            font-weight: 400;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .instagram p {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .instagram-button {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 1px solid #b97986;
+            color: #b97986;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .instagram-button:hover {
+            background: #b97986;
+            color: white;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f5eeee;
+            color: #888;
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 60px 25px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 350px;
+                height: 400px;
+            }
+
+            .gallery-section {
+                padding: 70px 20px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+
+            .category-title {
+                font-size: 24px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .about {
+                padding: 70px 25px;
+            }
+
+            .about h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <header>
 
-  <div class="logo">ART GALLERY</div>
+    <div class="logo">
+        ART GALLERY
+    </div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#instagram">Instagram</a>
-  </nav>
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#about">About</a>
+
+        <a href="#instagram">Instagram</a>
+
+    </nav>
 
 </header>
 
 
-<main>
 
-<!-- HOME -->
+<!-- =========================
+     HOME
+========================= -->
+
 <section class="hero" id="home">
 
-  <div class="hero-text">
+    <div class="hero-text">
 
-    <span class="tag">MY PERSONAL COLLECTION</span>
+        <div class="tag">
+            MY PERSONAL COLLECTION
+        </div>
 
-    <h1>
-      A Collection<br>
-      of My Works
-    </h1>
+        <h1>
+            A Collection<br>
+            of My Works
+        </h1>
 
-    <p>
-      Drawings, paintings & little things I create.
-      A simple space to keep and share my artwork.
-    </p>
+        <p>
+            A little space where I collect
+            drawings, paintings, digital art,
+            and other creative things I've made.
+        </p>
 
-    <a class="button" href="#gallery">
-      EXPLORE MY WORKS
-    </a>
-
-  </div>
-
-  <div class="hero-img">
-
-    <img
-      src="download.jfif"
-      alt="Palette and brushes"
-    >
-
-  </div>
-
-</section>
-
-
-<!-- GALLERY -->
-<section id="gallery">
-
-  <div class="title">
-
-    <div>
-
-      <span class="tag">MY WORKS</span>
-
-      <h2>Selected Works</h2>
+        <a href="#gallery" class="hero-button">
+            EXPLORE MY WORKS
+        </a>
 
     </div>
 
-    <span class="small">
-      2026 — present
-    </span>
 
-  </div>
-
-
-  <!-- B&W / PENCIL -->
-  <div class="category">
-
-    <div class="category-heading">
-
-      <span class="category-number">
-        01
-      </span>
-
-      <h3 class="category-title">
-        B&W / Pencil
-      </h3>
-
-    </div>
-
-    <p class="category-description">
-      Black and white drawings made with pencil.
-    </p>
-
-    <div class="grid">
-
-      <!-- ARTWORK 1 -->
-      <div class="card">
+    <div class="hero-image">
 
         <img
-          src="foto1.jpeg"
-          alt="Portrait drawing"
+            src="download.jfif"
+            alt="Art supplies"
         >
 
-        <div class="card-info">
-
-          <small>B&W / PENCIL</small>
-
-          <h3>Portrait Study</h3>
-
-        </div>
-
-      </div>
-
-
-      <!-- PLACEHOLDER -->
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
     </div>
-
-  </div>
-
-
-  <!-- PAINTING -->
-  <div class="category">
-
-    <div class="category-heading">
-
-      <span class="category-number">
-        02
-      </span>
-
-      <h3 class="category-title">
-        Painting
-      </h3>
-
-    </div>
-
-    <p class="category-description">
-      Traditional paintings and canvas works.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- DIGITAL ART -->
-  <div class="category">
-
-    <div class="category-heading">
-
-      <span class="category-number">
-        03
-      </span>
-
-      <h3 class="category-title">
-        Digital Art
-      </h3>
-
-    </div>
-
-    <p class="category-description">
-      Digital illustrations and artworks created digitally.
-    </p>
-
-    <div class="grid">
-
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="placeholder">
-          YOUR ARTWORK
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- ABOUT -->
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery-section" id="gallery">
+
+
+    <div class="section-title">
+
+        <small>
+            MY WORKS
+        </small>
+
+        <h2>
+            Gallery
+        </h2>
+
+    </div>
+
+
+
+    <!-- =====================
+         B&W / PENCIL
+    ====================== -->
+
+    <div class="category">
+
+        <div class="category-heading">
+
+            <span class="category-number">
+                01
+            </span>
+
+            <h3 class="category-title">
+                B&W / Pencil
+            </h3>
+
+        </div>
+
+        <p class="category-description">
+            Black and white drawings, sketches, and pencil studies.
+        </p>
+
+
+        <div class="gallery-grid">
+
+
+            <!-- SLOT 1 - SUDAH TERISI -->
+
+            <div class="card">
+
+                <img
+                    src="foto1.jpeg"
+                    alt="Portrait Study"
+                >
+
+                <div class="card-info">
+
+                    <small>
+                        B&W / PENCIL
+                    </small>
+
+                    <h3>
+                        Portrait Study
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <!-- SLOT 2 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 3 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 4 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 5 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 6 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================
+         PAINTING
+    ====================== -->
+
+    <div class="category">
+
+        <div class="category-heading">
+
+            <span class="category-number">
+                02
+            </span>
+
+            <h3 class="category-title">
+                Painting
+            </h3>
+
+        </div>
+
+        <p class="category-description">
+            Acrylic paintings, canvas works, and traditional paintings.
+        </p>
+
+
+        <div class="gallery-grid">
+
+
+            <!-- SLOT 1 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 2 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 3 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 4 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 5 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 6 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================
+         DIGITAL ART
+    ====================== -->
+
+    <div class="category">
+
+        <div class="category-heading">
+
+            <span class="category-number">
+                03
+            </span>
+
+            <h3 class="category-title">
+                Digital Art
+            </h3>
+
+        </div>
+
+        <p class="category-description">
+            Digital illustrations, edits, and other digital creations.
+        </p>
+
+
+        <div class="gallery-grid">
+
+
+            <!-- SLOT 1 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 2 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 3 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 4 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 5 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+            <!-- SLOT 6 -->
+
+            <div class="card empty">
+                EMPTY
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section class="about" id="about">
 
-  <div>
-
-    <span class="tag">
-      ABOUT ME
-    </span>
+    <small>
+        ABOUT ME
+    </small>
 
     <h2>
-      A little space
-      for the things
-      I love to create.
+        A little space for the things I love to create.
     </h2>
 
-  </div>
-
-  <div>
-
     <p>
-      Hi! I'm an artist who enjoys creating drawings,
-      paintings, and other little creative projects.
+        Hi! I'm an artist who enjoys creating
+        drawings, paintings, and other little
+        creative projects.
     </p>
 
     <p>
-      This website is my personal space to collect
-      and share the artworks I've made.
+        This website is my personal space to
+        collect and share the artworks I've made.
     </p>
 
     <p>
-      New works will be added as I continue creating.
+        New works will be added as I continue creating.
     </p>
-
-  </div>
 
 </section>
 
 
-<!-- INSTAGRAM -->
-<section id="instagram">
 
-  <span class="tag">
-    FIND ME
-  </span>
+<!-- =========================
+     INSTAGRAM
+========================= -->
 
-  <h2>
-    More on Instagram
-  </h2>
+<section class="instagram" id="instagram">
 
-  <p class="small">
-    Follow along to see new works and updates.
-  </p>
+    <h2>
+        More on Instagram
+    </h2>
 
-  <a class="button" href="#">
-    @yourinstagram
-  </a>
+    <p>
+        See more of my artwork and creative projects.
+    </p>
+
+    <a
+        href="#"
+        class="instagram-button"
+    >
+        @yourinstagram
+    </a>
 
 </section>
 
-</main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
-  © 2026 ART GALLERY · Personal artwork archive
+
+    © 2026 ART GALLERY · Personal artwork archive
+
 </footer>
 
+
 </body>
+
 </html>
