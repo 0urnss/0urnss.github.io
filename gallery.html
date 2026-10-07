@@ -1,400 +1,1125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery — 0urnss</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f5eeee;
-    color: #222;
-}
-
-/* ================= HEADER ================= */
-
-header {
-    height: 75px;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid #eee;
-}
-
-nav {
-    display: flex;
-    gap: 45px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #222;
-    font-size: 14px;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #a88989;
-}
-
-/* ================= GALLERY HEADER ================= */
-
-.gallery-header {
-    text-align: center;
-    padding: 70px 20px 35px;
-    position: relative;
-    z-index: 10;
-}
-
-.gallery-header h1 {
-    font-size: 38px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-}
-
-.gallery-header p {
-    font-size: 14px;
-    color: #777;
-}
-
-/* ================= CATEGORY NAV ================= */
-
-.category-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px auto 60px;
-    position: relative;
-    z-index: 10;
-}
-
-.category-nav a {
-    color: #555;
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 1px;
-    padding: 0 22px;
-    transition: 0.3s;
-}
-
-.category-nav a:hover {
-    color: #111;
-}
-
-.category-nav span {
-    color: #bbb;
-}
-
-/* ================= CATEGORY ================= */
-
-.category {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto 100px;
-    position: relative;
-    z-index: 10;
-}
-
-.category-title {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.category-title h2 {
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-/* ================= ARTWORK ================= */
-
-.artwork {
-    position: relative;
-    width: 100%;
-    margin: 0 auto 55px;
-    z-index: 20;
-}
-
-.artwork img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 850px;
-    object-fit: contain;
-    border-radius: 16px;
-}
-
-/* ================= INFO SELALU TERLIHAT ================= */
-
-.artwork-info {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    padding: 90px 30px 28px;
-
-    color: white;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0),
-        rgba(0,0,0,0.72)
-    );
-
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-
-    z-index: 21;
-    pointer-events: none;
-    border-radius: 0 0 16px 16px;
-}
-
-.artwork-info small {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 2px;
-    margin-bottom: 7px;
-    opacity: 0.9;
-}
-
-.artwork-info h2 {
-    font-size: 22px;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-/* ================= DECORATION ================= */
-
-#clover-container {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.decoration {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    animation: float 7s linear forwards;
-    opacity: 0.6;
-}
-
-/* DAUN / CLOVER */
-
-.leaf {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #9aaa82;
-    border-radius: 50%;
-}
-
-.leaf.one {
-    top: 2px;
-    left: 6px;
-}
-
-.leaf.two {
-    top: 7px;
-    left: 1px;
-}
-
-.leaf.three {
-    top: 7px;
-    right: 1px;
-}
-
-.leaf.four {
-    top: 12px;
-    left: 6px;
-}
-
-.leaf-stem {
-    position: absolute;
-    width: 2px;
-    height: 8px;
-    background: #71835d;
-    left: 9px;
-    top: 14px;
-    transform: rotate(15deg);
-    border-radius: 2px;
-}
-
-/* STRAWBERRY */
-
-.strawberry-body {
-    position: absolute;
-    width: 14px;
-    height: 16px;
-    background: #d98b8b;
-    left: 3px;
-    top: 4px;
-    border-radius: 45% 45% 50% 50%;
-    transform: rotate(45deg);
-}
-
-.strawberry-top {
-    position: absolute;
-    width: 9px;
-    height: 5px;
-    background: #78945f;
-    left: 6px;
-    top: 1px;
-    border-radius: 50%;
-    z-index: 2;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-
-    15% {
-        opacity: 0.6;
-    }
-
-    85% {
-        opacity: 0.6;
-    }
-
-    100% {
-        transform: translateY(-120px) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-/* ================= FOOTER ================= */
-
-footer {
-    background: white;
-    text-align: center;
-    padding: 35px 20px;
-    color: #888;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    position: relative;
-    z-index: 10;
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 600px) {
-
-    header {
-        height: 65px;
-    }
-
-    nav {
-        gap: 25px;
-    }
-
-    nav a {
-        font-size: 12px;
-    }
-
-    .gallery-header {
-        padding-top: 50px;
-    }
-
-    .gallery-header h1 {
-        font-size: 30px;
-    }
-
-    .category-nav a {
-        padding: 0 10px;
-        font-size: 11px;
-    }
-
-    .category {
-        width: 92%;
-    }
-
-    .artwork-info {
-        padding: 55px 18px 18px;
-    }
-
-    .artwork-info small {
-        font-size: 9px;
-    }
-
-    .artwork-info h2 {
-        font-size: 17px;
-    }
-}
-</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery · Art Gallery</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #f5eeee;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: white;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            border-bottom: 1px solid #e8dddd;
+
+            animation: navAppear .8s ease both;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+
+            font-size: 20px;
+
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+
+            color: #555;
+
+            font-size: 13px;
+
+            transition: .25s ease;
+
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -6px;
+
+            width: 0;
+            height: 1px;
+
+            background: #b97986;
+
+            transition: width .3s ease;
+        }
+
+        nav a:hover {
+            color: #b97986;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+           GALLERY HEADER
+        ========================= */
+
+        .gallery-header {
+
+            text-align: center;
+
+            padding: 80px 20px 45px;
+
+            animation: fadeUp 1s ease .15s both;
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .gallery-header small {
+
+            color: #b97986;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            display: block;
+
+            animation: fadeUp .8s ease .25s both;
+        }
+
+        .gallery-header h1 {
+
+            font-family: Georgia, serif;
+
+            font-size: 46px;
+
+            font-weight: 400;
+
+            margin-top: 10px;
+
+            animation: titleReveal 1s ease .35s both;
+        }
+
+
+        /* =========================
+           CATEGORY NAV
+        ========================= */
+
+        .category-nav {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            width: fit-content;
+
+            margin: 0 auto 80px;
+
+            border-top: 1px solid #e8dddd;
+
+            border-bottom: 1px solid #e8dddd;
+
+            background: rgba(245, 238, 238, .96);
+
+            backdrop-filter: blur(8px);
+
+            animation: fadeUp .9s ease .5s both;
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .category-nav a {
+
+            text-decoration: none;
+
+            color: #777;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            padding: 16px 28px;
+
+            transition: .25s ease;
+
+            border-right: 1px solid #e8dddd;
+        }
+
+        .category-nav a:last-child {
+            border-right: none;
+        }
+
+        .category-nav a:hover {
+
+            color: #b97986;
+
+            background: rgba(255, 255, 255, .35);
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================
+           CATEGORY
+        ========================= */
+
+        .category {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto 110px;
+
+            padding: 0 25px;
+
+            scroll-margin-top: 100px;
+
+            opacity: 0;
+
+            transform: translateY(45px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+        .category.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .category-heading {
+
+            display: flex;
+
+            align-items: baseline;
+
+            gap: 15px;
+
+            margin-bottom: 10px;
+
+            border-bottom: 1px solid #e5e0dc;
+
+            padding-bottom: 14px;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+        .category-number {
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color: #b97986;
+        }
+
+        .category-title {
+
+            font-family: Georgia, serif;
+
+            font-size: 30px;
+
+            font-weight: 400;
+        }
+
+        .category-description {
+
+            color: #888;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 35px;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+        /* =========================
+           ARTWORK
+        ========================= */
+
+        .artwork {
+
+            width: 100%;
+
+            max-width: 720px;
+
+            margin: 0 auto 70px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 22px;
+
+            background: #eee;
+
+            box-shadow:
+                0 10px 35px rgba(120, 80, 80, .08);
+
+            opacity: 0;
+
+            transform: translateY(35px) scale(.98);
+
+            transition:
+                opacity .9s ease,
+                transform .9s ease,
+                box-shadow .4s ease;
+
+            /*
+             * FOTO SELALU DI ATAS ANIMASI
+             */
+            z-index: 20;
+        }
+
+        .category.show .artwork {
+
+            opacity: 1;
+
+            transform: translateY(0) scale(1);
+
+            transition-delay: .2s;
+        }
+
+        .artwork:hover {
+
+            box-shadow:
+                0 18px 45px rgba(120, 80, 80, .14);
+        }
+
+        .artwork img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            transition:
+                transform .7s ease,
+                filter .5s ease;
+        }
+
+        .artwork:hover img {
+
+            transform: scale(1.025);
+
+            filter: brightness(.96);
+        }
+
+
+        /* =========================
+           TEXT DI FOTO
+        ========================= */
+
+        .artwork-info {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 80px 30px 25px;
+
+            color: white;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.72)
+            );
+
+            opacity: 0;
+
+            transform: translateY(10px);
+
+            transition: .35s ease;
+
+            z-index: 21;
+        }
+
+        .artwork:hover .artwork-info {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .artwork-info small {
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            opacity: .85;
+        }
+
+        .artwork-info h2 {
+
+            font-family: Georgia, serif;
+
+            font-size: 26px;
+
+            font-weight: 400;
+
+            margin-top: 7px;
+        }
+
+
+        /* =========================
+           🍀🍓 ANIMATION CONTAINER
+        ========================= */
+
+        #clover-container {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+
+            /*
+             * PENTING:
+             * animasi berada DI BELAKANG
+             * seluruh isi gallery
+             */
+            z-index: 1;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           🍀 / 🍓
+        ========================= */
+
+        .clover {
+
+            position: fixed;
+
+            width: 90px;
+            height: 90px;
+
+            font-size: 90px;
+
+            line-height: 1;
+
+            opacity: 0;
+
+            user-select: none;
+
+            pointer-events: none;
+
+            filter:
+                drop-shadow(
+                    0 4px 7px rgba(70, 100, 70, .12)
+                );
+
+            will-change:
+                transform,
+                opacity;
+        }
+
+
+        .strawberry {
+
+            width: 82px;
+
+            height: 82px;
+
+            font-size: 82px;
+
+            filter:
+                drop-shadow(
+                    0 4px 7px rgba(120, 70, 70, .12)
+                );
+        }
+
+
+        /* =========================
+           DARI KIRI
+        ========================= */
+
+        .clover.from-left {
+
+            left: -100px;
+
+            animation:
+                floatFromLeft var(--duration)
+                linear forwards;
+        }
+
+
+        /* =========================
+           DARI KANAN
+        ========================= */
+
+        .clover.from-right {
+
+            right: -100px;
+
+            animation:
+                floatFromRight var(--duration)
+                linear forwards;
+        }
+
+
+        /* =========================
+           ANIMASI KIRI
+        ========================= */
+
+        @keyframes floatFromLeft {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        -40px,
+                        var(--start-y)
+                    )
+                    rotate(0deg)
+                    scale(.65);
+            }
+
+            10% {
+
+                opacity: .42;
+            }
+
+            35% {
+
+                transform:
+                    translate(
+                        25vw,
+                        calc(var(--start-y) - 40px)
+                    )
+                    rotate(130deg)
+                    scale(1);
+            }
+
+            55% {
+
+                transform:
+                    translate(
+                        50vw,
+                        calc(var(--start-y) + 55px)
+                    )
+                    rotate(230deg)
+                    scale(.9);
+            }
+
+            75% {
+
+                opacity: .34;
+
+                transform:
+                    translate(
+                        75vw,
+                        calc(var(--start-y) - 25px)
+                    )
+                    rotate(320deg)
+                    scale(1.05);
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        115vw,
+                        calc(var(--start-y) + 40px)
+                    )
+                    rotate(460deg)
+                    scale(.65);
+            }
+
+        }
+
+
+        /* =========================
+           ANIMASI KANAN
+        ========================= */
+
+        @keyframes floatFromRight {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        40px,
+                        var(--start-y)
+                    )
+                    rotate(0deg)
+                    scale(.65);
+            }
+
+            10% {
+
+                opacity: .42;
+            }
+
+            35% {
+
+                transform:
+                    translate(
+                        -25vw,
+                        calc(var(--start-y) + 45px)
+                    )
+                    rotate(-130deg)
+                    scale(1);
+            }
+
+            55% {
+
+                transform:
+                    translate(
+                        -50vw,
+                        calc(var(--start-y) - 50px)
+                    )
+                    rotate(-240deg)
+                    scale(.9);
+            }
+
+            75% {
+
+                opacity: .34;
+
+                transform:
+                    translate(
+                        -75vw,
+                        calc(var(--start-y) + 30px)
+                    )
+                    rotate(-330deg)
+                    scale(1.05);
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(
+                        -115vw,
+                        calc(var(--start-y) - 35px)
+                    )
+                    rotate(-470deg)
+                    scale(.65);
+            }
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: white;
+
+            color: #888;
+
+            font-size: 11px;
+
+            border-top: 1px solid #e8dddd;
+
+            opacity: 0;
+
+            animation:
+                fadeUp .8s ease 1s forwards;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes titleReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(18px);
+
+                letter-spacing: 5px;
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+                letter-spacing: normal;
+            }
+
+        }
+
+
+        @keyframes navAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(-15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           TABLET / HP
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+
+                padding: 0 20px;
+            }
+
+            nav {
+
+                gap: 15px;
+            }
+
+            nav a {
+
+                font-size: 11px;
+            }
+
+            .gallery-header {
+
+                padding: 65px 20px 35px;
+            }
+
+            .gallery-header h1 {
+
+                font-size: 38px;
+            }
+
+            .category-nav {
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: center;
+
+                margin-bottom: 60px;
+            }
+
+            .category-nav a {
+
+                padding: 15px 20px;
+
+                white-space: nowrap;
+            }
+
+            .category {
+
+                padding: 0 20px;
+
+                margin-bottom: 80px;
+            }
+
+            .category-title {
+
+                font-size: 25px;
+            }
+
+            .artwork {
+
+                border-radius: 18px;
+
+                margin-bottom: 50px;
+            }
+
+            .artwork-info {
+
+                padding: 60px 20px 20px;
+            }
+
+            .artwork-info h2 {
+
+                font-size: 22px;
+            }
+
+
+            /* 🍀🍓 */
+
+            .clover {
+
+                width: 65px;
+
+                height: 65px;
+
+                font-size: 65px;
+            }
+
+            .strawberry {
+
+                width: 60px;
+
+                height: 60px;
+
+                font-size: 60px;
+            }
+
+        }
+
+
+        /* =========================
+           HP KECIL
+        ========================= */
+
+        @media (max-width: 400px) {
+
+            .logo {
+
+                font-size: 16px;
+            }
+
+            nav {
+
+                gap: 10px;
+            }
+
+            nav a {
+
+                font-size: 10px;
+            }
+
+            .gallery-header h1 {
+
+                font-size: 34px;
+            }
+
+            .category-nav {
+
+                justify-content: flex-start;
+            }
+
+            .category-nav a {
+
+                font-size: 10px;
+
+                padding: 15px 17px;
+            }
+
+            .clover {
+
+                width: 58px;
+
+                height: 58px;
+
+                font-size: 58px;
+            }
+
+            .strawberry {
+
+                width: 53px;
+
+                height: 53px;
+
+                font-size: 53px;
+            }
+
+        }
+
+
+        /* =========================
+           REDUCE MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: .01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: .01ms !important;
+
+                scroll-behavior: auto !important;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div id="clover-container"></div>
+
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <header>
+
+    <div class="logo">
+        ART GALLERY
+    </div>
+
     <nav>
-        <a href="index.html">HOME</a>
-        <a href="gallery.html">GALLERY</a>
-        <a href="about.html">ABOUT</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="gallery.html">
+            Gallery
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
     </nav>
+
 </header>
 
+
+<!-- =========================
+     🍀🍓 ANIMATION
+========================= -->
+
+<div id="clover-container"></div>
+
+
+<!-- =========================
+     GALLERY HEADER
+========================= -->
+
 <section class="gallery-header">
-    <h1>My Gallery</h1>
-    <p>A collection of my artworks.</p>
+
+    <small>
+        MY WORKS
+    </small>
+
+    <h1>
+        Gallery
+    </h1>
+
 </section>
 
+
+<!-- =========================
+     CATEGORY NAV
+========================= -->
+
 <div class="category-nav">
-    <a href="#bw">B&W / PENCIL</a>
-    <span>|</span>
-    <a href="#painting">PAINTING</a>
-    <span>|</span>
-    <a href="#digital">DIGITAL ART</a>
+
+    <a href="#pencil">
+        B&amp;W / PENCIL
+    </a>
+
+    <a href="#painting">
+        PAINTING
+    </a>
+
+    <a href="#digital">
+        DIGITAL ART
+    </a>
+
 </div>
 
-<section class="category" id="bw">
 
-    <div class="category-title">
-        <h2>B&W / Pencil</h2>
+<!-- =========================
+     B&W / PENCIL
+========================= -->
+
+<section
+    class="category"
+    id="pencil"
+>
+
+    <div class="category-heading">
+
+        <span class="category-number">
+            01
+        </span>
+
+        <h2 class="category-title">
+            B&amp;W / Pencil
+        </h2>
+
     </div>
+
+
+    <p class="category-description">
+
+        Black and white drawings,
+        sketches, and pencil studies.
+
+    </p>
+
 
     <div class="artwork">
 
-        <img src="foto1.jpeg" alt="Portrait Study">
+        <img
+            src="foto1.jpeg"
+            alt="Portrait Study"
+        >
 
         <div class="artwork-info">
-            <small>B&W / PENCIL</small>
-            <h2>Portrait Study</h2>
+
+            <small>
+                B&amp;W / PENCIL
+            </small>
+
+            <h2>
+                Portrait Study
+            </h2>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="category" id="painting">
 
-    <div class="category-title">
-        <h2>Painting</h2>
+<!-- =========================
+     PAINTING
+========================= -->
+
+<section
+    class="category"
+    id="painting"
+>
+
+    <div class="category-heading">
+
+        <span class="category-number">
+            02
+        </span>
+
+        <h2 class="category-title">
+            Painting
+        </h2>
+
     </div>
+
+
+    <p class="category-description">
+
+        Acrylic paintings, canvas works,
+        and traditional paintings.
+
+    </p>
+
 
     <div class="artwork">
 
@@ -404,85 +1129,302 @@ footer {
         >
 
         <div class="artwork-info">
-            <small>PAINTING</small>
-            <h2>My Painting</h2>
+
+            <small>
+                PAINTING
+            </small>
+
+            <h2>
+                My Painting
+            </h2>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="category" id="digital">
 
-    <div class="category-title">
-        <h2>Digital Art</h2>
+<!-- =========================
+     DIGITAL ART
+========================= -->
+
+<section
+    class="category"
+    id="digital"
+>
+
+    <div class="category-heading">
+
+        <span class="category-number">
+            03
+        </span>
+
+        <h2 class="category-title">
+            Digital Art
+        </h2>
+
     </div>
+
+
+    <p class="category-description">
+
+        Digital illustrations, experiments,
+        and creative digital works.
+
+    </p>
+
 
     <div class="artwork">
 
-        <img src="Tak berjudul22 (2).jpg" alt="Untitled">
+        <img
+            src="Tak berjudul22 (2).jpg"
+            alt="Digital Artwork"
+        >
 
         <div class="artwork-info">
-            <small>DIGITAL ART</small>
-            <h2>Untitled</h2>
+
+            <small>
+                DIGITAL ART
+            </small>
+
+            <h2>
+                Untitled
+            </h2>
+
         </div>
 
     </div>
 
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    © 2026 0urnss — All artworks are my own.
+
+    © 2026 ART GALLERY · Personal artwork archive
+
 </footer>
+
 
 <script>
 
-const container = document.getElementById("clover-container");
+    /* =========================
+       SCROLL ANIMATION
+    ========================= */
 
-function createDecoration() {
+    const sections =
+        document.querySelectorAll(".category");
 
-    const item = document.createElement("div");
-    item.classList.add("decoration");
 
-    const isLeaf = Math.random() > 0.5;
+    const observer =
+        new IntersectionObserver(
 
-    if (isLeaf) {
+            (entries) => {
 
-        item.innerHTML = `
-            <span class="leaf one"></span>
-            <span class="leaf two"></span>
-            <span class="leaf three"></span>
-            <span class="leaf four"></span>
-            <span class="leaf-stem"></span>
-        `;
+                entries.forEach((entry) => {
 
-    } else {
+                    if (entry.isIntersecting) {
 
-        item.innerHTML = `
-            <span class="strawberry-body"></span>
-            <span class="strawberry-top"></span>
-        `;
+                        entry.target.classList.add("show");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    sections.forEach((section) => {
+
+        observer.observe(section);
+
+    });
+
+
+    /* =========================
+       🍀🍓 CREATE DECORATION
+    ========================= */
+
+    const cloverContainer =
+        document.getElementById(
+            "clover-container"
+        );
+
+
+    function createDecoration() {
+
+        const decoration =
+            document.createElement("div");
+
+
+        decoration.classList.add("clover");
+
+
+        /* RANDOM 🍀 / 🍓 */
+
+        const isStrawberry =
+            Math.random() < 0.5;
+
+
+        if (isStrawberry) {
+
+            decoration.textContent = "🍓";
+
+            decoration.classList.add(
+                "strawberry"
+            );
+
+        } else {
+
+            decoration.textContent = "🍀";
+
+        }
+
+
+        /* RANDOM ARAH */
+
+        const fromLeft =
+            Math.random() < 0.5;
+
+
+        if (fromLeft) {
+
+            decoration.classList.add(
+                "from-left"
+            );
+
+        } else {
+
+            decoration.classList.add(
+                "from-right"
+            );
+
+        }
+
+
+        /* POSISI VERTIKAL */
+
+        const startY =
+            Math.floor(
+                Math.random() * 75
+            ) + 10;
+
+
+        decoration.style.setProperty(
+            "--start-y",
+            startY + "vh"
+        );
+
+
+        /* KECEPATAN */
+
+        const duration =
+            Math.floor(
+                Math.random() * 5
+            ) + 9;
+
+
+        decoration.style.setProperty(
+            "--duration",
+            duration + "s"
+        );
+
+
+        /* UKURAN */
+
+        let size;
+
+
+        if (isStrawberry) {
+
+            size =
+                Math.floor(
+                    Math.random() * 20
+                ) + 68;
+
+        } else {
+
+            size =
+                Math.floor(
+                    Math.random() * 25
+                ) + 75;
+
+        }
+
+
+        decoration.style.fontSize =
+            size + "px";
+
+
+        decoration.style.width =
+            size + "px";
+
+
+        decoration.style.height =
+            size + "px";
+
+
+        cloverContainer.appendChild(
+            decoration
+        );
+
+
+        /* HAPUS SETELAH SELESAI */
+
+        setTimeout(() => {
+
+            decoration.remove();
+
+        }, (duration + 1) * 1000);
+
     }
 
-    const fromLeft = Math.random() > 0.5;
 
-    item.style.left = fromLeft
-        ? Math.random() * 20 + "%"
-        : 80 + Math.random() * 20 + "%";
-
-    item.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
-
-    container.appendChild(item);
+    /* =========================
+       🍀🍓 MUNCUL PERTAMA
+    ========================= */
 
     setTimeout(() => {
-        item.remove();
-    }, 10000);
-}
 
-setInterval(createDecoration, 1200);
+        createDecoration();
+
+    }, 1000);
+
+
+    /* =========================
+       🍀🍓 MUNCUL BERULANG
+    ========================= */
+
+    setInterval(() => {
+
+        createDecoration();
+
+    }, 3200);
+
+
+    setTimeout(() => {
+
+        setInterval(() => {
+
+            createDecoration();
+
+        }, 5200);
+
+    }, 1800);
 
 </script>
 
+
 </body>
+
 </html>
