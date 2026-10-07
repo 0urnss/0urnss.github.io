@@ -159,9 +159,6 @@ nav a:hover {
         rgba(0,0,0,0.72)
     );
 
-    /* PENTING:
-       INFO SELALU MUNCUL
-       TANPA HOVER / KLIK */
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -195,13 +192,66 @@ nav a:hover {
     overflow: hidden;
 }
 
+/* Bentuk dekorasi CSS */
 .clover {
     position: absolute;
-    font-size: 20px;
-    opacity: 0.6;
+    width: 18px;
+    height: 18px;
+    opacity: 0.55;
     animation: float 7s linear forwards;
 }
 
+/* Bentuk daun 4 bagian */
+.clover::before,
+.clover::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #9caf88;
+    border-radius: 50%;
+}
+
+.clover::before {
+    left: 0;
+    top: 4px;
+    box-shadow:
+        9px 0 #9caf88,
+        4.5px -4px #9caf88,
+        4.5px 4px #9caf88;
+}
+
+/* Batang kecil */
+.clover::after {
+    width: 2px;
+    height: 7px;
+    background: #71855f;
+    border-radius: 2px;
+    left: 8px;
+    top: 13px;
+}
+
+/* Variasi strawberry */
+.strawberry::before {
+    background: #d98b8b;
+    width: 13px;
+    height: 15px;
+    left: 2px;
+    top: 3px;
+    border-radius: 45% 45% 50% 50%;
+    box-shadow: none;
+}
+
+.strawberry::after {
+    width: 10px;
+    height: 5px;
+    background: #78945f;
+    left: 4px;
+    top: 0;
+    border-radius: 50%;
+}
+
+/* Animasi */
 @keyframes float {
     0% {
         transform: translateY(100vh) rotate(0deg);
@@ -209,11 +259,11 @@ nav a:hover {
     }
 
     15% {
-        opacity: 0.6;
+        opacity: 0.55;
     }
 
     85% {
-        opacity: 0.6;
+        opacity: 0.55;
     }
 
     100% {
@@ -390,16 +440,16 @@ footer {
 
 const container = document.getElementById("clover-container");
 
-const decorations = ["🍀", "🍓"];
-
 function createDecoration() {
 
     const item = document.createElement("div");
 
-    item.classList.add("clover");
-
-    item.textContent =
-        decorations[Math.floor(Math.random() * decorations.length)];
+    /* Acak antara daun dan strawberry */
+    if (Math.random() > 0.5) {
+        item.classList.add("clover");
+    } else {
+        item.classList.add("clover", "strawberry");
+    }
 
     const fromLeft = Math.random() > 0.5;
 
@@ -409,9 +459,6 @@ function createDecoration() {
 
     item.style.animationDuration =
         (5 + Math.random() * 5) + "s";
-
-    item.style.fontSize =
-        (15 + Math.random() * 12) + "px";
 
     container.appendChild(item);
 
