@@ -10,8 +10,6 @@
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 html{
@@ -19,10 +17,10 @@ html{
 }
 
 body{
-    font-family:Arial,sans-serif;
+    margin:0;
     background:#f7e8ec;
     color:#59484d;
-    min-height:100vh;
+    font-family:Arial,sans-serif;
     overflow-x:hidden;
 }
 
@@ -32,42 +30,47 @@ body::before{
     inset:0;
     pointer-events:none;
     background:
-        radial-gradient(circle at 10% 15%,rgba(255,255,255,.65),transparent 18%),
-        radial-gradient(circle at 90% 80%,rgba(255,255,255,.5),transparent 20%);
+        radial-gradient(circle at 10% 20%,rgba(255,255,255,.55),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(255,255,255,.45),transparent 25%);
     z-index:-2;
 }
+
 
 /* FLOATING DECOR */
 
 .decor{
     position:fixed;
-    font-size:24px;
-    opacity:.45;
     pointer-events:none;
-    z-index:0;
-    animation:float 5s ease-in-out infinite;
+    color:#c28c99;
+    opacity:.55;
+    z-index:-1;
+    animation:float 6s ease-in-out infinite;
 }
 
-.decor1{
+.decor.one{
     top:18%;
     left:4%;
+    font-size:25px;
 }
 
-.decor2{
-    top:70%;
+.decor.two{
+    top:65%;
     right:5%;
+    font-size:22px;
     animation-delay:1s;
 }
 
-.decor3{
-    top:42%;
-    right:3%;
+.decor.three{
+    top:40%;
+    left:8%;
+    font-size:17px;
     animation-delay:2s;
 }
 
-.decor4{
-    top:85%;
-    left:7%;
+.decor.four{
+    bottom:8%;
+    right:10%;
+    font-size:18px;
     animation-delay:3s;
 }
 
@@ -81,6 +84,7 @@ body::before{
     }
 }
 
+
 /* TOP BOARD */
 
 .top-area{
@@ -88,44 +92,46 @@ body::before{
 }
 
 .main-board{
+    width:100%;
     max-width:1050px;
     margin:auto;
     background:#d9aeb9;
     border:2px solid #a97682;
     border-radius:28px;
     padding:12px;
-    box-shadow:0 8px 0 rgba(169,118,130,.35);
-    position:relative;
+    box-shadow:0 12px 0 rgba(169,118,130,.18);
 }
 
 .board-inner{
     background:#f6dce2;
     border:2px solid #c28c99;
     border-radius:21px;
-    padding:25px 20px 18px;
+    padding:20px 22px 18px;
     position:relative;
     overflow:hidden;
 }
 
 .board-inner::before{
-    content:"✦";
+    content:"";
     position:absolute;
-    top:10px;
-    left:18px;
-    font-size:22px;
-    color:#a97682;
-    opacity:.7;
+    width:90px;
+    height:90px;
+    border:2px dashed #c28c99;
+    border-radius:50%;
+    top:-45px;
+    left:-25px;
+    opacity:.45;
 }
 
 .board-inner::after{
-    content:"♡";
+    content:"✦";
     position:absolute;
-    top:8px;
-    right:20px;
-    font-size:25px;
-    color:#a97682;
-    opacity:.7;
+    right:25px;
+    top:18px;
+    color:#b87988;
+    font-size:22px;
 }
+
 
 /* LOGO */
 
@@ -133,23 +139,25 @@ body::before{
     text-align:center;
     font-family:Georgia,serif;
     font-size:38px;
-    letter-spacing:3px;
     color:#805965;
-    margin-bottom:20px;
+    letter-spacing:1px;
+    margin:0 0 17px;
 }
 
-/* NAV */
 
-nav{
+/* NAVBAR */
+
+.navbar{
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
+    align-items:center;
     gap:12px;
+    flex-wrap:wrap;
 }
 
-nav a{
+.navbar a{
     text-decoration:none;
-    color:#684c54;
+    color:#76515c;
     background:#f8edf0;
     border:2px solid #c28f9b;
     padding:10px 20px;
@@ -157,198 +165,223 @@ nav a{
     font-size:14px;
     font-weight:bold;
     box-shadow:0 4px 0 #c28f9b;
-    transition:.2s ease;
+    transition:.2s;
 }
 
-nav a:hover{
-    background:#efc6d0;
+.navbar a:hover{
+    background:#efc5d0;
     transform:translateY(-3px);
-    box-shadow:0 7px 0 #b87f8c;
+    box-shadow:0 7px 0 #b87988;
 }
 
-nav a.active{
-    background:#edc3ce;
+.navbar a.active{
+    background:#efc5d0;
+    color:#714b57;
 }
 
-/* HEADER */
 
-.game-header{
-    text-align:center;
-    padding:70px 20px 35px;
-    position:relative;
-    z-index:2;
-}
+/* PAGE */
 
-.game-header h1{
-    font-family:Georgia,serif;
-    font-size:42px;
-    color:#805965;
-    margin-bottom:10px;
-}
-
-.game-header p{
-    font-size:15px;
-    color:#806b71;
-}
-
-/* CATEGORY NAV */
-
-.game-category{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
+.page{
+    width:100%;
     max-width:900px;
-    margin:0 auto 45px;
-    padding:15px 10px;
-    border-top:1px solid #d5adb7;
-    border-bottom:1px solid #d5adb7;
-    position:relative;
-    z-index:3;
-}
-
-.game-category button{
-    border:2px solid #c28f9b;
-    background:#fff8f9;
-    color:#684c54;
-    border-radius:13px;
-    padding:10px 18px;
-    font-weight:bold;
-    font-size:13px;
-    cursor:pointer;
-    box-shadow:0 3px 0 #c28f9b;
-    transition:.2s ease;
-}
-
-.game-category button:hover{
-    background:#f1ccd5;
-    transform:translateY(-2px);
-}
-
-.game-category button.active{
-    background:#d9aeb9;
-    color:#fff;
-}
-
-/* GAME SECTION */
-
-.game-section{
-    max-width:900px;
-    margin:0 auto 80px;
+    margin:35px auto 60px;
     padding:0 20px;
-    display:none;
 }
 
-.game-section.active{
-    display:block;
-}
 
-/* GAME CARD */
+/* GAME BOARD */
 
-.game-card{
+.game-board{
     background:#d9aeb9;
     border:2px solid #a97682;
     border-radius:28px;
     padding:12px;
-    box-shadow:0 8px 0 rgba(169,118,130,.35);
+    box-shadow:0 12px 0 rgba(169,118,130,.18);
 }
 
 .game-inner{
     background:#fff8f9;
     border:2px solid #c28c99;
     border-radius:21px;
-    padding:28px;
+    padding:28px 25px 35px;
     position:relative;
+    overflow:hidden;
 }
 
-.game-title{
+.game-inner::before{
+    content:"♡";
+    position:absolute;
+    left:20px;
+    top:15px;
+    font-size:22px;
+    color:#c28c99;
+    opacity:.6;
+}
+
+.game-inner::after{
+    content:"✦";
+    position:absolute;
+    right:22px;
+    bottom:20px;
+    font-size:22px;
+    color:#c28c99;
+    opacity:.6;
+}
+
+
+/* TITLE */
+
+.page-title{
     text-align:center;
+    margin:5px 0 8px;
     font-family:Georgia,serif;
     color:#805965;
-    font-size:27px;
-    margin-bottom:7px;
+    font-size:34px;
 }
 
-.game-description{
+.page-subtitle{
     text-align:center;
-    color:#806b71;
+    margin:0 0 25px;
+    color:#876873;
     font-size:14px;
-    margin-bottom:25px;
 }
 
-/* COMMON BUTTON */
+
+/* GAME TABS */
+
+.game-tabs{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:28px;
+}
+
+.game-tab{
+    border:2px solid #c28f9b;
+    background:#f8edf0;
+    color:#76515c;
+    border-radius:13px;
+    padding:10px 15px;
+    font-weight:bold;
+    font-size:13px;
+    cursor:pointer;
+    box-shadow:0 4px 0 #c28f99;
+    transition:.2s;
+}
+
+.game-tab:hover{
+    background:#efc5d0;
+    transform:translateY(-2px);
+}
+
+.game-tab.active{
+    background:#efc5d0;
+    color:#714b57;
+}
+
+
+/* GAME SECTION */
+
+.game-section{
+    display:none;
+    animation:fade .35s ease;
+}
+
+.game-section.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* BUTTON */
 
 .game-btn{
-    border:none;
-    background:#c28c99;
-    color:white;
+    border:2px solid #b87988;
+    background:#d9aeb9;
+    color:#684852;
+    padding:10px 18px;
+    border-radius:12px;
     font-weight:bold;
-    padding:11px 25px;
-    border-radius:13px;
     cursor:pointer;
-    box-shadow:0 4px 0 #a97682;
-    transition:.2s ease;
+    box-shadow:0 4px 0 #b87988;
+    transition:.2s;
 }
 
 .game-btn:hover{
-    background:#b77d8a;
     transform:translateY(-2px);
+    background:#efc5d0;
 }
 
 .game-btn:active{
     transform:translateY(2px);
-    box-shadow:0 2px 0 #a97682;
+    box-shadow:0 2px 0 #b87988;
 }
 
-/* =========================
+
+/* =================================
    MEMORY CARD
-========================= */
+================================= */
+
+.game-heading{
+    text-align:center;
+    color:#805965;
+    font-family:Georgia,serif;
+    font-size:25px;
+    margin:0 0 7px;
+}
+
+.game-description{
+    text-align:center;
+    font-size:13px;
+    color:#876873;
+    margin-bottom:18px;
+}
 
 .memory-info{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:10px;
     flex-wrap:wrap;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .info-box{
     background:#f6dce2;
     border:2px solid #c28c99;
-    border-radius:13px;
-    padding:9px 20px;
-    text-align:center;
-    min-width:105px;
-}
-
-.info-box span{
-    display:block;
-    font-size:11px;
-    color:#806b71;
-}
-
-.info-box strong{
-    display:block;
-    color:#805965;
-    font-size:20px;
-    margin-top:2px;
+    border-radius:12px;
+    padding:8px 14px;
+    font-size:13px;
+    font-weight:bold;
+    color:#76515c;
 }
 
 .memory-grid{
-    max-width:500px;
-    margin:0 auto 22px;
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
+    grid-template-columns:repeat(6,70px);
+    justify-content:center;
+    gap:9px;
+    max-width:520px;
+    margin:auto;
 }
 
 .memory-card{
-    aspect-ratio:1/1;
-    border:none;
-    background:transparent;
-    padding:0;
+    width:70px;
+    height:70px;
+    perspective:700px;
     cursor:pointer;
-    perspective:800px;
 }
 
 .memory-card-inner{
@@ -356,7 +389,7 @@ nav a.active{
     height:100%;
     position:relative;
     transform-style:preserve-3d;
-    transition:.45s ease;
+    transition:.4s;
 }
 
 .memory-card.flipped .memory-card-inner,
@@ -364,313 +397,335 @@ nav a.active{
     transform:rotateY(180deg);
 }
 
-.card-front,
-.card-back{
+.memory-front,
+.memory-back{
     position:absolute;
     inset:0;
-    backface-visibility:hidden;
     border-radius:14px;
+    backface-visibility:hidden;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     border:2px solid #c28c99;
 }
 
-.card-front{
-    background:#e7bbc6;
-    color:white;
-    font-size:26px;
+.memory-front{
+    background:#d9aeb9;
+    color:#fff8f9;
+    font-size:25px;
 }
 
-.card-back{
+.memory-front::after{
+    content:"♡";
+}
+
+.memory-back{
     background:#fff;
     transform:rotateY(180deg);
-    font-size:34px;
+    font-size:28px;
+}
+
+.memory-card.matched .memory-back{
+    background:#f1d8df;
+}
+
+.memory-controls{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
 }
 
 .memory-message{
     text-align:center;
-    color:#806b71;
-    min-height:25px;
-}
-
-/* =========================
-   COLOR MATCH
-========================= */
-
-.color-info{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.color-score{
-    font-size:18px;
-    color:#805965;
+    margin-top:15px;
+    font-size:14px;
     font-weight:bold;
-    margin-bottom:15px;
+    color:#805965;
+    min-height:20px;
+}
+
+
+/* =================================
+   COLOR MATCH
+================================= */
+
+.color-target-wrap{
+    text-align:center;
+}
+
+.target-label{
+    font-size:14px;
+    color:#76515c;
+    font-weight:bold;
 }
 
 .target-color{
-    width:130px;
-    height:130px;
-    margin:0 auto 15px;
+    width:95px;
+    height:95px;
     border-radius:50%;
-    border:7px solid #f6dce2;
+    margin:12px auto 8px;
+    border:5px solid #f6dce2;
     box-shadow:0 0 0 2px #c28c99;
 }
 
-.color-question{
-    text-align:center;
-    color:#806b71;
-    margin-bottom:18px;
+.color-info{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin:15px 0 20px;
+}
+
+.color-stat{
+    background:#f6dce2;
+    border:2px solid #c28c99;
+    padding:8px 15px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:bold;
 }
 
 .color-options{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    max-width:500px;
-    margin:auto;
+    grid-template-columns:repeat(3,100px);
+    justify-content:center;
+    gap:13px;
 }
 
 .color-choice{
-    height:65px;
-    border:3px solid white;
+    width:100px;
+    height:75px;
     border-radius:15px;
+    border:3px solid #fff;
+    outline:2px solid #c28c99;
     cursor:pointer;
-    box-shadow:0 2px 0 #c28c99;
-    transition:.15s ease;
+    transition:.2s;
 }
 
 .color-choice:hover{
-    transform:scale(1.05);
+    transform:scale(1.06);
 }
 
-.color-result{
+.color-choice.correct{
+    outline:3px solid #7cad83;
+}
+
+.color-choice.wrong{
+    outline:3px solid #d47777;
+}
+
+.color-message{
     text-align:center;
-    min-height:30px;
-    margin:20px 0 12px;
+    min-height:25px;
+    margin-top:18px;
     font-weight:bold;
     color:#805965;
 }
 
 .color-controls{
     text-align:center;
+    margin-top:15px;
 }
 
-/* =========================
+
+/* =================================
    DRAWING CHALLENGE
-========================= */
+================================= */
 
 .challenge-box{
+    text-align:center;
+}
+
+.challenge-name{
+    display:inline-block;
     background:#f6dce2;
     border:2px solid #c28c99;
-    border-radius:15px;
-    padding:15px;
-    text-align:center;
-    margin-bottom:18px;
+    border-radius:13px;
+    padding:8px 15px;
+    font-weight:bold;
+    color:#76515c;
+    margin-bottom:14px;
 }
 
-.challenge-box span{
-    font-size:12px;
-    color:#806b71;
-}
-
-.challenge-box strong{
-    display:block;
-    color:#805965;
-    font-size:20px;
-    margin-top:5px;
-}
-
-.draw-tools{
+.challenge-canvas-wrap{
     display:flex;
     justify-content:center;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:15px;
-}
-
-.draw-tools label{
-    font-size:13px;
-    color:#806b71;
-}
-
-#brushSize{
-    accent-color:#b77d8a;
 }
 
 #drawingCanvas{
-    display:block;
-    width:100%;
-    max-width:700px;
-    height:400px;
-    margin:auto;
+    width:min(100%,550px);
+    height:330px;
     background:white;
-    border:2px dashed #c28c99;
+    border:3px solid #c28c99;
     border-radius:18px;
     cursor:crosshair;
     touch-action:none;
 }
 
-.draw-actions{
+
+/* DRAWING TOOLS */
+
+.drawing-tools{
     display:flex;
     justify-content:center;
+    align-items:center;
+    gap:12px;
     flex-wrap:wrap;
-    gap:10px;
-    margin-top:18px;
+    margin-top:16px;
 }
 
-.rating-area{
-    text-align:center;
-    margin-top:25px;
-    padding-top:22px;
-    border-top:1px solid #e2c0c8;
-    display:none;
+.tool-label{
+    background:#f6dce2;
+    border:2px solid #c28c99;
+    border-radius:11px;
+    padding:8px 12px;
+    font-size:13px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
-.rating-area.show{
-    display:block;
+#brushSize{
+    accent-color:#a97682;
 }
 
-.rating-area h3{
-    font-family:Georgia,serif;
-    color:#805965;
-    margin-bottom:8px;
+.color-picker{
+    width:32px;
+    height:30px;
+    border:none;
+    padding:0;
+    background:transparent;
+    cursor:pointer;
 }
 
-.rating-stars{
+
+/* COLOR PALETTE */
+
+.palette-title{
+    margin:18px 0 10px;
+    font-size:13px;
+    color:#76515c;
+    font-weight:bold;
+}
+
+.color-palette{
     display:flex;
     justify-content:center;
-    gap:5px;
-    margin:12px 0;
+    gap:9px;
+    flex-wrap:wrap;
+    max-width:480px;
+    margin:auto;
 }
 
-.rating-star{
-    border:none;
-    background:none;
-    font-size:34px;
+.palette-color{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    border:3px solid white;
+    outline:2px solid #c28c99;
     cursor:pointer;
-    color:#d5b4bc;
-    transition:.15s ease;
+    transition:.2s;
 }
 
-.rating-star:hover,
-.rating-star.selected{
-    color:#e3a9b8;
+.palette-color:hover{
     transform:scale(1.12);
 }
 
-.rating-result{
-    color:#806b71;
-    min-height:24px;
-    font-size:14px;
+.palette-color.selected{
+    outline:3px solid #805965;
+    transform:scale(1.12);
 }
+
+
+/* DRAWING BUTTONS */
+
+.challenge-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
 
 /* FOOTER */
 
 footer{
     text-align:center;
-    padding:30px 20px 40px;
-    color:#8a7077;
-    font-size:13px;
+    margin-top:30px;
+    color:#96717b;
+    font-size:12px;
 }
 
-/* RESPONSIVE */
 
-@media(max-width:700px){
+/* MOBILE */
+
+@media(max-width:600px){
 
     .top-area{
         padding:18px 12px 0;
     }
 
     .main-board{
-        border-radius:22px;
+        border-radius:23px;
+        padding:9px;
     }
 
     .board-inner{
-        padding:22px 12px 15px;
+        padding:18px 12px 16px;
     }
 
     .logo{
         font-size:29px;
-        letter-spacing:2px;
     }
 
-    nav{
+    .navbar{
         gap:8px;
     }
 
-    nav a{
-        padding:8px 13px;
+    .navbar a{
+        padding:8px 12px;
         font-size:12px;
     }
 
-    .game-header{
-        padding:50px 15px 30px;
-    }
-
-    .game-header h1{
-        font-size:32px;
-    }
-
-    .game-section{
+    .page{
+        margin-top:25px;
         padding:0 12px;
     }
 
     .game-inner{
-        padding:18px 13px;
+        padding:25px 13px 30px;
+    }
+
+    .page-title{
+        font-size:28px;
     }
 
     .memory-grid{
-        gap:7px;
-    }
-
-    .card-front{
-        font-size:21px;
-    }
-
-    .card-back{
-        font-size:27px;
-    }
-
-    .color-options{
+        grid-template-columns:repeat(4,62px);
         gap:8px;
     }
 
+    .memory-card{
+        width:62px;
+        height:62px;
+    }
+
+    .memory-back{
+        font-size:24px;
+    }
+
+    .color-options{
+        grid-template-columns:repeat(3,80px);
+        gap:11px;
+    }
+
     .color-choice{
-        height:55px;
-    }
-
-    #drawingCanvas{
-        height:330px;
-    }
-
-}
-
-@media(max-width:400px){
-
-    .logo{
-        font-size:25px;
-    }
-
-    nav a{
-        padding:7px 10px;
-        font-size:11px;
-    }
-
-    .game-header h1{
-        font-size:29px;
-    }
-
-    .game-category button{
-        padding:8px 11px;
-        font-size:11px;
-    }
-
-    .memory-grid{
-        gap:5px;
+        width:80px;
+        height:65px;
     }
 
     #drawingCanvas{
@@ -679,29 +734,20 @@ footer{
 
 }
 
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation:none !important;
-        transition:none !important;
-    }
-
-}
-
 </style>
 </head>
 
+
 <body>
 
-<div class="decor decor1">✿</div>
-<div class="decor decor2">♡</div>
-<div class="decor decor3">✦</div>
-<div class="decor decor4">˚₊‧</div>
+
+<div class="decor one">✿</div>
+<div class="decor two">♡</div>
+<div class="decor three">✦</div>
+<div class="decor four">˚₊‧</div>
 
 
-<!-- NAVBAR -->
+<!-- TOP BOARD -->
 
 <div class="top-area">
 
@@ -709,15 +755,18 @@ footer{
 
         <div class="board-inner">
 
-            <div class="logo">
-                ART GALLERY
-            </div>
+            <h1 class="logo">ART GALLERY</h1>
 
-            <nav>
+            <nav class="navbar">
+
                 <a href="index.html">Home</a>
+
                 <a href="gallery.html">Gallery</a>
+
                 <a href="about.html">About</a>
+
                 <a href="game.html" class="active">🎮 Game</a>
+
             </nav>
 
         </div>
@@ -727,452 +776,621 @@ footer{
 </div>
 
 
-<!-- HEADER -->
 
-<section class="game-header">
+<!-- MAIN -->
 
-    <h1>MINI GAMES</h1>
+<main class="page">
 
-    <p>
-        Take a little break and have fun ♡
-    </p>
-
-</section>
-
-
-<!-- CATEGORY -->
-
-<div class="game-category">
-
-    <button class="game-tab active" data-game="memory">
-        🃏 Memory Card
-    </button>
-
-    <button class="game-tab" data-game="color">
-        🎨 Color Match
-    </button>
-
-    <button class="game-tab" data-game="drawing">
-        ✏️ Drawing Challenge
-    </button>
-
-</div>
-
-
-<!-- =========================
-     MEMORY CARD
-========================= -->
-
-<section class="game-section active" id="memory">
-
-    <div class="game-card">
+    <div class="game-board">
 
         <div class="game-inner">
 
-            <h2 class="game-title">
-                🃏 Memory Card
-            </h2>
 
-            <p class="game-description">
-                Find all matching pairs of cards!
+            <h1 class="page-title">MINI GAMES</h1>
+
+            <p class="page-subtitle">
+                Take a little break and play some cute mini games ♡
             </p>
 
 
-            <div class="memory-info">
+            <!-- GAME TABS -->
 
-                <div class="info-box">
-                    <span>Moves</span>
-                    <strong id="moves">0</strong>
-                </div>
+            <div class="game-tabs">
 
-                <div class="info-box">
-                    <span>Pairs</span>
-                    <strong id="pairs">0 / 8</strong>
-                </div>
-
-                <div class="info-box">
-                    <span>Time</span>
-                    <strong id="memoryTime">0</strong>
-                </div>
-
-            </div>
-
-
-            <div class="memory-grid" id="memoryGrid"></div>
-
-
-            <div class="memory-message" id="memoryMessage">
-                Find the matching pairs ♡
-            </div>
-
-
-            <div style="text-align:center;margin-top:15px;">
-
-                <button class="game-btn" id="memoryRestart">
-                    Restart Game
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     COLOR MATCH
-========================= -->
-
-<section class="game-section" id="color">
-
-    <div class="game-card">
-
-        <div class="game-inner">
-
-            <h2 class="game-title">
-                🎨 Color Match
-            </h2>
-
-            <p class="game-description">
-                Choose the color that matches the target.
-            </p>
-
-
-            <div class="color-score">
-                Score: <span id="colorScore">0</span>
-            </div>
-
-
-            <div
-                class="target-color"
-                id="targetColor">
-            </div>
-
-
-            <p class="color-question">
-                Which color is the closest?
-            </p>
-
-
-            <div
-                class="color-options"
-                id="colorOptions">
-            </div>
-
-
-            <div
-                class="color-result"
-                id="colorResult">
-                Choose one color ✦
-            </div>
-
-
-            <div class="color-controls">
-
-                <button class="game-btn" id="newColor">
-                    New Color
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     DRAWING CHALLENGE
-========================= -->
-
-<section class="game-section" id="drawing">
-
-    <div class="game-card">
-
-        <div class="game-inner">
-
-            <h2 class="game-title">
-                ✏️ Drawing Challenge
-            </h2>
-
-            <p class="game-description">
-                Draw the challenge and give yourself a rating!
-            </p>
-
-
-            <div class="challenge-box">
-
-                <span>Your challenge:</span>
-
-                <strong id="challengeText">
-                    Draw a flower 🌸
-                </strong>
-
-            </div>
-
-
-            <div class="draw-tools">
-
-                <label>
-                    Brush:
-                </label>
-
-                <input
-                    type="range"
-                    id="brushSize"
-                    min="2"
-                    max="20"
-                    value="5"
+                <button
+                    class="game-tab active"
+                    onclick="showGame('memory',this)"
                 >
-
-                <span id="brushValue">
-                    5
-                </span>
-
-            </div>
-
-
-            <canvas id="drawingCanvas"></canvas>
-
-
-            <div class="draw-actions">
-
-                <button class="game-btn" id="clearCanvas">
-                    Clear
+                    🃏 Memory Card
                 </button>
 
-                <button class="game-btn" id="newChallenge">
-                    New Challenge
+
+                <button
+                    class="game-tab"
+                    onclick="showGame('color',this)"
+                >
+                    🎨 Color Match
                 </button>
 
-                <button class="game-btn" id="finishDrawing">
-                    I'm Done ✦
+
+                <button
+                    class="game-tab"
+                    onclick="showGame('drawing',this)"
+                >
+                    ✏️ Drawing Challenge
                 </button>
 
             </div>
 
 
-            <!-- RATING -->
 
-            <div class="rating-area" id="ratingArea">
+            <!-- =================================
+                 MEMORY CARD
+            ================================== -->
 
-                <h3>
-                    Rate your drawing
-                </h3>
+            <section
+                id="memory"
+                class="game-section active"
+            >
 
-                <p style="font-size:13px;color:#806b71;">
-                    How happy are you with your artwork?
+                <h2 class="game-heading">
+                    🃏 Memory Card
+                </h2>
+
+
+                <p class="game-description">
+                    Selesaikan semua 10 level sebelum waktunya habis!
                 </p>
 
 
-                <div class="rating-stars">
+                <div class="memory-info">
 
-                    <button class="rating-star" data-rating="1">
-                        ★
-                    </button>
+                    <div class="info-box">
+                        Level:
+                        <span id="memoryLevel">1</span>/10
+                    </div>
 
-                    <button class="rating-star" data-rating="2">
-                        ★
-                    </button>
 
-                    <button class="rating-star" data-rating="3">
-                        ★
-                    </button>
+                    <div class="info-box">
+                        Time:
+                        <span id="memoryTime">30</span>s
+                    </div>
 
-                    <button class="rating-star" data-rating="4">
-                        ★
-                    </button>
 
-                    <button class="rating-star" data-rating="5">
-                        ★
+                    <div class="info-box">
+                        Moves:
+                        <span id="memoryMoves">0</span>
+                    </div>
+
+
+                    <div class="info-box">
+                        Pairs:
+                        <span id="memoryPairs">0</span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="memoryGrid"
+                    class="memory-grid"
+                ></div>
+
+
+                <div class="memory-controls">
+
+                    <button
+                        class="game-btn"
+                        onclick="startMemoryGame()"
+                    >
+                        ▶ Start / Restart
                     </button>
 
                 </div>
 
 
                 <div
-                    class="rating-result"
-                    id="ratingResult">
+                    id="memoryMessage"
+                    class="memory-message"
+                >
+                    Tekan Start untuk memulai!
                 </div>
 
-            </div>
+            </section>
+
+
+
+            <!-- =================================
+                 COLOR MATCH
+            ================================== -->
+
+            <section
+                id="color"
+                class="game-section"
+            >
+
+                <h2 class="game-heading">
+                    🎨 Color Match
+                </h2>
+
+
+                <p class="game-description">
+                    Pilih warna yang paling tepat dari 6 warna yang hampir sama!
+                </p>
+
+
+                <div class="color-target-wrap">
+
+                    <div class="target-label">
+                        Find this color:
+                    </div>
+
+
+                    <div
+                        id="targetColor"
+                        class="target-color"
+                    ></div>
+
+                </div>
+
+
+                <div class="color-info">
+
+                    <div class="color-stat">
+                        Score:
+                        <span id="colorScore">0</span>
+                    </div>
+
+
+                    <div class="color-stat">
+                        Time:
+                        <span id="colorTime">60</span>s
+                    </div>
+
+
+                    <div class="color-stat">
+                        Round:
+                        <span id="colorRound">0</span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="colorOptions"
+                    class="color-options"
+                ></div>
+
+
+                <div
+                    id="colorMessage"
+                    class="color-message"
+                >
+                    Tekan Start untuk mulai!
+                </div>
+
+
+                <div class="color-controls">
+
+                    <button
+                        class="game-btn"
+                        onclick="startColorGame()"
+                    >
+                        ▶ Start / Restart
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 DRAWING CHALLENGE
+            ================================== -->
+
+            <section
+                id="drawing"
+                class="game-section"
+            >
+
+                <h2 class="game-heading">
+                    ✏️ Drawing Challenge
+                </h2>
+
+
+                <p class="game-description">
+                    Gambar sesuai tantangan yang muncul!
+                </p>
+
+
+                <div class="challenge-box">
+
+
+                    <div
+                        id="challengeName"
+                        class="challenge-name"
+                    >
+                        🌸 Draw a flower
+                    </div>
+
+
+                    <div class="challenge-canvas-wrap">
+
+                        <canvas
+                            id="drawingCanvas"
+                        ></canvas>
+
+                    </div>
+
+
+                    <!-- BRUSH -->
+
+                    <div class="drawing-tools">
+
+                        <div class="tool-label">
+
+                            Brush
+
+                            <input
+                                type="range"
+                                id="brushSize"
+                                min="2"
+                                max="25"
+                                value="6"
+                            >
+
+                        </div>
+
+
+                        <div class="tool-label">
+
+                            Color
+
+                            <input
+                                type="color"
+                                id="brushColor"
+                                class="color-picker"
+                                value="#805965"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PALETTE -->
+
+                    <div class="palette-title">
+                        Choose a color ♡
+                    </div>
+
+
+                    <div
+                        id="colorPalette"
+                        class="color-palette"
+                    ></div>
+
+
+                    <div class="challenge-buttons">
+
+                        <button
+                            class="game-btn"
+                            onclick="clearCanvas()"
+                        >
+                            🗑 Clear
+                        </button>
+
+
+                        <button
+                            class="game-btn"
+                            onclick="newChallenge()"
+                        >
+                            🔄 New Challenge
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <footer>
+                made with ♡ for my art gallery
+            </footer>
+
 
         </div>
 
     </div>
 
-</section>
+</main>
 
-
-<footer>
-    Made with ♡ for my art gallery
-</footer>
 
 
 <script>
 
-/* =========================
-   GAME CATEGORY
-========================= */
 
-const tabs = document.querySelectorAll(".game-tab");
-const sections = document.querySelectorAll(".game-section");
+/* =================================
+   GAME TABS
+================================= */
 
-tabs.forEach(function(tab){
+function showGame(gameId,button){
 
-    tab.addEventListener("click",function(){
+    document.querySelectorAll(".game-section")
+        .forEach(section => {
 
-        tabs.forEach(function(item){
-            item.classList.remove("active");
-        });
-
-        sections.forEach(function(section){
             section.classList.remove("active");
+
         });
 
-        tab.classList.add("active");
 
-        const gameName = tab.dataset.game;
-
-        document
-            .getElementById(gameName)
-            .classList.add("active");
-
-    });
-
-});
+    document.getElementById(gameId)
+        .classList.add("active");
 
 
-/* =========================
-   MEMORY CARD
-========================= */
+    document.querySelectorAll(".game-tab")
+        .forEach(tab => {
 
-const memoryGrid = document.getElementById("memoryGrid");
-const movesElement = document.getElementById("moves");
-const pairsElement = document.getElementById("pairs");
-const memoryTimeElement = document.getElementById("memoryTime");
-const memoryMessage = document.getElementById("memoryMessage");
-const memoryRestart = document.getElementById("memoryRestart");
+            tab.classList.remove("active");
 
-const memorySymbols = [
-    "🌸","🌸",
-    "🍓","🍓",
-    "🎨","🎨",
-    "🦋","🦋",
-    "🌈","🌈",
-    "🍀","🍀",
-    "⭐","⭐",
-    "🎀","🎀"
-];
-
-let memoryCards = [];
-let firstCard = null;
-let secondCard = null;
-let lockBoard = false;
-let moves = 0;
-let pairs = 0;
-let memoryTime = 0;
-let memoryTimer = null;
+        });
 
 
-function shuffle(array){
-
-    const newArray = [...array];
-
-    for(let i = newArray.length - 1; i > 0; i--){
-
-        const random =
-            Math.floor(Math.random() * (i + 1));
-
-        [newArray[i],newArray[random]] =
-        [newArray[random],newArray[i]];
-
-    }
-
-    return newArray;
+    button.classList.add("active");
 
 }
 
 
-function startMemory(){
+
+/* =================================
+   MEMORY CARD — 10 LEVELS
+================================= */
+
+
+/*
+    Level
+    Pairs
+    Time
+
+    Level 1  = 3 pairs
+    Level 2  = 4 pairs
+    Level 3  = 5 pairs
+    ...
+    Level 10 = 12 pairs
+*/
+
+
+const memoryLevels = [
+
+    {level:1,pairs:3,time:30},
+
+    {level:2,pairs:4,time:35},
+
+    {level:3,pairs:5,time:40},
+
+    {level:4,pairs:6,time:45},
+
+    {level:5,pairs:7,time:50},
+
+    {level:6,pairs:8,time:55},
+
+    {level:7,pairs:9,time:60},
+
+    {level:8,pairs:10,time:65},
+
+    {level:9,pairs:11,time:70},
+
+    {level:10,pairs:12,time:75}
+
+];
+
+
+const memoryEmojis = [
+
+    "🌸",
+    "🎨",
+    "🦋",
+    "🍓",
+    "🌷",
+    "⭐",
+    "🍀",
+    "🎀",
+    "🌙",
+    "🩷",
+    "🍒",
+    "🧸",
+    "🌻",
+    "🍰",
+    "🎧",
+    "🪻",
+    "🍉",
+    "🐻"
+
+];
+
+
+let memoryLevel = 1;
+
+let firstCard = null;
+
+let secondCard = null;
+
+let memoryLock = false;
+
+let memoryMoves = 0;
+
+let memoryPairs = 0;
+
+let memoryTimer = null;
+
+let memoryTimeLeft = 30;
+
+let memoryRunning = false;
+
+
+
+function startMemoryGame(){
 
     clearInterval(memoryTimer);
 
-    memoryCards = shuffle(memorySymbols);
+    memoryLevel = 1;
 
-    firstCard = null;
-    secondCard = null;
-
-    lockBoard = false;
-
-    moves = 0;
-    pairs = 0;
-    memoryTime = 0;
-
-    movesElement.textContent = moves;
-    pairsElement.textContent = "0 / 8";
-    memoryTimeElement.textContent = memoryTime;
-
-    memoryMessage.textContent =
-        "Find the matching pairs ♡";
-
-    memoryGrid.innerHTML = "";
-
-
-    memoryCards.forEach(function(symbol,index){
-
-        const card = document.createElement("button");
-
-        card.className = "memory-card";
-        card.dataset.symbol = symbol;
-        card.dataset.index = index;
-
-        card.innerHTML = `
-            <div class="memory-card-inner">
-
-                <div class="card-front">
-                    ?
-                </div>
-
-                <div class="card-back">
-                    ${symbol}
-                </div>
-
-            </div>
-        `;
-
-        card.addEventListener("click",function(){
-            flipCard(card);
-        });
-
-        memoryGrid.appendChild(card);
-
-    });
-
-
-    memoryTimer = setInterval(function(){
-
-        memoryTime++;
-
-        memoryTimeElement.textContent = memoryTime;
-
-    },1000);
+    createMemoryLevel();
 
 }
 
 
-function flipCard(card){
+
+function createMemoryLevel(){
+
+    const levelData =
+        memoryLevels[memoryLevel - 1];
+
+
+    firstCard = null;
+
+    secondCard = null;
+
+    memoryLock = false;
+
+    memoryMoves = 0;
+
+    memoryPairs = 0;
+
+    memoryTimeLeft = levelData.time;
+
+    memoryRunning = true;
+
+
+    document.getElementById("memoryLevel")
+        .textContent = memoryLevel;
+
+
+    document.getElementById("memoryTime")
+        .textContent = memoryTimeLeft;
+
+
+    document.getElementById("memoryMoves")
+        .textContent = 0;
+
+
+    document.getElementById("memoryPairs")
+        .textContent =
+        "0/" + levelData.pairs;
+
+
+    document.getElementById("memoryMessage")
+        .textContent =
+        "Level " + memoryLevel +
+        " dimulai! Cari semua pasangan ♡";
+
+
+    let selected =
+        memoryEmojis
+        .slice(0,levelData.pairs)
+        .concat(
+            memoryEmojis.slice(0,levelData.pairs)
+        );
+
+
+    selected.sort(() => Math.random() - .5);
+
+
+    const grid =
+        document.getElementById("memoryGrid");
+
+
+    grid.innerHTML = "";
+
+
+    selected.forEach(emoji => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "memory-card";
+
+
+        card.dataset.value =
+            emoji;
+
+
+        card.innerHTML = `
+
+            <div class="memory-card-inner">
+
+                <div class="memory-front"></div>
+
+                <div class="memory-back">
+                    ${emoji}
+                </div>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            () => flipMemoryCard(card)
+        );
+
+
+        grid.appendChild(card);
+
+    });
+
+
+    memoryTimer =
+        setInterval(() => {
+
+            memoryTimeLeft--;
+
+
+            document.getElementById("memoryTime")
+                .textContent =
+                memoryTimeLeft;
+
+
+            if(memoryTimeLeft <= 0){
+
+                clearInterval(memoryTimer);
+
+                memoryRunning = false;
+
+                memoryLock = true;
+
+
+                document.getElementById("memoryMessage")
+                    .textContent =
+                    "⏰ Waktu habis! Kamu harus mulai lagi dari Level 1.";
+
+            }
+
+        },1000);
+
+}
+
+
+
+function flipMemoryCard(card){
 
     if(
-        lockBoard ||
-        card === firstCard ||
+        !memoryRunning ||
+        memoryLock ||
+        card.classList.contains("flipped") ||
         card.classList.contains("matched")
     ){
+
         return;
+
     }
+
 
     card.classList.add("flipped");
 
@@ -1180,6 +1398,7 @@ function flipCard(card){
     if(!firstCard){
 
         firstCard = card;
+
         return;
 
     }
@@ -1187,57 +1406,84 @@ function flipCard(card){
 
     secondCard = card;
 
-    moves++;
-
-    movesElement.textContent = moves;
-
-    checkMatch();
-
-}
+    memoryMoves++;
 
 
-function checkMatch(){
-
-    const isMatch =
-        firstCard.dataset.symbol ===
-        secondCard.dataset.symbol;
+    document.getElementById("memoryMoves")
+        .textContent =
+        memoryMoves;
 
 
-    if(isMatch){
+    memoryLock = true;
+
+
+    if(
+        firstCard.dataset.value ===
+        secondCard.dataset.value
+    ){
 
         firstCard.classList.add("matched");
+
         secondCard.classList.add("matched");
 
-        pairs++;
-
-        pairsElement.textContent =
-            pairs + " / 8";
-
-        resetCards();
+        memoryPairs++;
 
 
-        if(pairs === 8){
+        const totalPairs =
+            memoryLevels[memoryLevel - 1].pairs;
+
+
+        document.getElementById("memoryPairs")
+            .textContent =
+            memoryPairs + "/" + totalPairs;
+
+
+        resetMemoryTurn();
+
+
+        if(memoryPairs === totalPairs){
 
             clearInterval(memoryTimer);
 
-            memoryMessage.textContent =
-                "You found them all! 🎉 " +
-                "Finished in " +
-                moves +
-                " moves.";
+
+            if(memoryLevel < 10){
+
+                document.getElementById("memoryMessage")
+                    .textContent =
+                    "🎉 Level " +
+                    memoryLevel +
+                    " selesai!";
+
+
+                setTimeout(() => {
+
+                    memoryLevel++;
+
+                    createMemoryLevel();
+
+                },1200);
+
+            }else{
+
+                memoryRunning = false;
+
+                document.getElementById("memoryMessage")
+                    .textContent =
+                    "🏆 CONGRATS! Kamu berhasil menyelesaikan 10 level!";
+
+            }
 
         }
 
     }else{
 
-        lockBoard = true;
-
-        setTimeout(function(){
+        setTimeout(() => {
 
             firstCard.classList.remove("flipped");
+
             secondCard.classList.remove("flipped");
 
-            resetCards();
+            resetMemoryTurn();
 
         },700);
 
@@ -1246,542 +1492,636 @@ function checkMatch(){
 }
 
 
-function resetCards(){
+
+function resetMemoryTurn(){
 
     firstCard = null;
+
     secondCard = null;
-    lockBoard = false;
+
+    memoryLock = false;
 
 }
 
 
-memoryRestart.addEventListener(
-    "click",
-    startMemory
-);
 
-startMemory();
-
-
-/* =========================
+/* =================================
    COLOR MATCH
-========================= */
+================================= */
 
-const targetColor =
-    document.getElementById("targetColor");
-
-const colorOptions =
-    document.getElementById("colorOptions");
-
-const colorScoreElement =
-    document.getElementById("colorScore");
-
-const colorResult =
-    document.getElementById("colorResult");
-
-const newColor =
-    document.getElementById("newColor");
 
 let colorScore = 0;
-let targetRGB = null;
+
+let colorRound = 0;
+
+let colorTimeLeft = 60;
+
+let colorTimer = null;
+
+let colorRunning = false;
 
 
-function randomColor(){
+const colorFamilies = [
 
-    return {
-        r:Math.floor(Math.random()*256),
-        g:Math.floor(Math.random()*256),
-        b:Math.floor(Math.random()*256)
-    };
+    [
+        [35,75,120],
+        [42,83,130],
+        [50,90,138],
+        [55,96,145],
+        [62,101,150],
+        [68,108,157]
+    ],
+
+    [
+        [175,105,125],
+        [181,111,130],
+        [187,117,135],
+        [193,123,140],
+        [199,129,145],
+        [205,135,150]
+    ],
+
+    [
+        [80,120,105],
+        [86,126,111],
+        [92,132,117],
+        [98,138,123],
+        [104,144,129],
+        [110,150,135]
+    ],
+
+    [
+        [135,105,150],
+        [141,111,156],
+        [147,117,162],
+        [153,123,168],
+        [159,129,174],
+        [165,135,180]
+    ]
+
+];
+
+
+function randomColorFamily(){
+
+    return colorFamilies[
+        Math.floor(
+            Math.random() *
+            colorFamilies.length
+        )
+    ];
 
 }
 
 
-function rgbString(color){
 
-    return `rgb(${color.r},${color.g},${color.b})`;
+function rgbToString(rgb){
 
-}
-
-
-function colorDistance(a,b){
-
-    return Math.sqrt(
-        Math.pow(a.r-b.r,2) +
-        Math.pow(a.g-b.g,2) +
-        Math.pow(a.b-b.b,2)
-    );
+    return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
 
 }
 
 
-function createColorGame(){
 
-    targetRGB = randomColor();
+function startColorGame(){
 
-    targetColor.style.background =
-        rgbString(targetRGB);
+    clearInterval(colorTimer);
 
-    colorOptions.innerHTML = "";
+    colorScore = 0;
 
-    const colors = [];
+    colorRound = 0;
 
-    colors.push(targetRGB);
+    colorTimeLeft = 60;
 
-
-    for(let i=0;i<3;i++){
-
-        colors.push(randomColor());
-
-    }
+    colorRunning = true;
 
 
-    const shuffledColors =
-        shuffle(colors);
+    document.getElementById("colorScore")
+        .textContent = 0;
 
 
-    shuffledColors.forEach(function(color){
+    document.getElementById("colorRound")
+        .textContent = 0;
+
+
+    document.getElementById("colorTime")
+        .textContent = 60;
+
+
+    document.getElementById("colorMessage")
+        .textContent =
+        "Pilih warna yang paling tepat!";
+
+
+    newColorRound();
+
+
+    colorTimer =
+        setInterval(() => {
+
+            colorTimeLeft--;
+
+
+            document.getElementById("colorTime")
+                .textContent =
+                colorTimeLeft;
+
+
+            if(colorTimeLeft <= 0){
+
+                clearInterval(colorTimer);
+
+                colorRunning = false;
+
+
+                document.getElementById("colorOptions")
+                    .innerHTML = "";
+
+
+                document.getElementById("colorMessage")
+                    .textContent =
+                    "⏰ Waktu habis! Score kamu: " +
+                    colorScore;
+
+            }
+
+        },1000);
+
+}
+
+
+
+function newColorRound(){
+
+    if(!colorRunning) return;
+
+
+    colorRound++;
+
+
+    document.getElementById("colorRound")
+        .textContent =
+        colorRound;
+
+
+    const family =
+        randomColorFamily();
+
+
+    const targetIndex =
+        Math.floor(
+            Math.random() * family.length
+        );
+
+
+    const target =
+        family[targetIndex];
+
+
+    document.getElementById("targetColor")
+        .style.background =
+        rgbToString(target);
+
+
+    const shuffled =
+        family
+        .map((color,index) => ({
+            color,
+            index
+        }))
+        .sort(() => Math.random() - .5);
+
+
+    const container =
+        document.getElementById("colorOptions");
+
+
+    container.innerHTML = "";
+
+
+    shuffled.forEach(item => {
 
         const button =
             document.createElement("button");
 
-        button.className = "color-choice";
+
+        button.className =
+            "color-choice";
+
 
         button.style.background =
-            rgbString(color);
-
-        button.dataset.r =
-            color.r;
-
-        button.dataset.g =
-            color.g;
-
-        button.dataset.b =
-            color.b;
+            rgbToString(item.color);
 
 
         button.addEventListener(
             "click",
-            function(){
+            () => {
 
-                const selected = {
-                    r:Number(button.dataset.r),
-                    g:Number(button.dataset.g),
-                    b:Number(button.dataset.b)
-                };
+                if(!colorRunning) return;
 
 
-                const distance =
-                    colorDistance(
-                        targetRGB,
-                        selected
-                    );
-
-
-                if(distance === 0){
+                if(item.index === targetIndex){
 
                     colorScore += 10;
 
-                    colorResult.textContent =
-                        "Perfect match! 🎨 +10";
+                    button.classList.add("correct");
+
+
+                    document.getElementById("colorMessage")
+                        .textContent =
+                        "✓ Benar! +10 points";
 
                 }else{
 
-                    const points =
+                    colorScore =
                         Math.max(
-                            1,
-                            Math.round(
-                                10 -
-                                distance / 40
-                            )
+                            0,
+                            colorScore - 3
                         );
 
-                    colorScore += points;
 
-                    colorResult.textContent =
-                        "Nice choice! +" +
-                        points +
-                        " points ✦";
+                    button.classList.add("wrong");
+
+
+                    document.getElementById("colorMessage")
+                        .textContent =
+                        "✗ Salah! -3 points";
 
                 }
 
 
-                colorScoreElement.textContent =
+                document.getElementById("colorScore")
+                    .textContent =
                     colorScore;
 
 
                 setTimeout(
-                    createColorGame,
-                    700
+                    newColorRound,
+                    350
                 );
 
             }
         );
 
 
-        colorOptions.appendChild(button);
+        container.appendChild(button);
 
     });
 
 }
 
 
-newColor.addEventListener(
-    "click",
-    function(){
 
-        colorResult.textContent =
-            "Choose one color ✦";
-
-        createColorGame();
-
-    }
-);
-
-createColorGame();
-
-
-/* =========================
+/* =================================
    DRAWING CHALLENGE
-========================= */
+================================= */
+
 
 const canvas =
-    document.getElementById("drawingCanvas");
+    document.getElementById(
+        "drawingCanvas"
+    );
+
 
 const ctx =
     canvas.getContext("2d");
 
-const brushSize =
-    document.getElementById("brushSize");
-
-const brushValue =
-    document.getElementById("brushValue");
-
-const clearCanvas =
-    document.getElementById("clearCanvas");
-
-const newChallenge =
-    document.getElementById("newChallenge");
-
-const finishDrawing =
-    document.getElementById("finishDrawing");
-
-const challengeText =
-    document.getElementById("challengeText");
-
-const ratingArea =
-    document.getElementById("ratingArea");
-
-const ratingStars =
-    document.querySelectorAll(".rating-star");
-
-const ratingResult =
-    document.getElementById("ratingResult");
-
-
-const challenges = [
-    "Draw a flower 🌸",
-    "Draw a cute cat 🐱",
-    "Draw a butterfly 🦋",
-    "Draw a little house 🏠",
-    "Draw a strawberry 🍓",
-    "Draw a cloud ☁️",
-    "Draw a tree 🌳",
-    "Draw a rainbow 🌈"
-];
-
 
 let drawing = false;
-let lastX = 0;
-let lastY = 0;
 
 
-function resizeCanvas(){
+
+function setupCanvas(){
 
     const rect =
         canvas.getBoundingClientRect();
 
-    const oldImage =
-        canvas.width > 0 && canvas.height > 0
-        ? canvas.toDataURL()
-        : null;
 
-
-    const ratio =
+    const dpr =
         window.devicePixelRatio || 1;
 
 
     canvas.width =
-        rect.width * ratio;
+        rect.width * dpr;
+
 
     canvas.height =
-        rect.height * ratio;
+        rect.height * dpr;
 
 
-    ctx.scale(ratio,ratio);
+    ctx.scale(dpr,dpr);
+
 
     ctx.lineCap = "round";
+
     ctx.lineJoin = "round";
-    ctx.strokeStyle = "#805965";
-    ctx.lineWidth =
-        Number(brushSize.value);
 
 
-    if(oldImage){
-
-        const image =
-            new Image();
-
-        image.onload = function(){
-
-            ctx.drawImage(
-                image,
-                0,
-                0,
-                rect.width,
-                rect.height
-            );
-
-        };
-
-        image.src = oldImage;
-
-    }
+    clearCanvas();
 
 }
 
 
-function getPosition(event){
+setupCanvas();
+
+
+
+function getCanvasPosition(event){
 
     const rect =
         canvas.getBoundingClientRect();
 
+
     return {
+
         x:event.clientX - rect.left,
+
         y:event.clientY - rect.top
+
     };
 
 }
 
 
+
 canvas.addEventListener(
     "pointerdown",
-    function(event){
+    event => {
 
         drawing = true;
 
-        const position =
-            getPosition(event);
-
-        lastX = position.x;
-        lastY = position.y;
-
-        canvas.setPointerCapture(
-            event.pointerId
-        );
-
-    }
-);
-
-
-canvas.addEventListener(
-    "pointermove",
-    function(event){
-
-        if(!drawing){
-            return;
-        }
-
-        const position =
-            getPosition(event);
+        const pos =
+            getCanvasPosition(event);
 
 
         ctx.beginPath();
 
         ctx.moveTo(
-            lastX,
-            lastY
+            pos.x,
+            pos.y
         );
-
-        ctx.lineTo(
-            position.x,
-            position.y
-        );
-
-        ctx.stroke();
-
-
-        lastX = position.x;
-        lastY = position.y;
 
     }
 );
 
 
-function stopDrawing(){
 
-    drawing = false;
+canvas.addEventListener(
+    "pointermove",
+    event => {
 
-}
+        if(!drawing) return;
+
+
+        const pos =
+            getCanvasPosition(event);
+
+
+        ctx.lineWidth =
+            document.getElementById(
+                "brushSize"
+            ).value;
+
+
+        ctx.strokeStyle =
+            document.getElementById(
+                "brushColor"
+            ).value;
+
+
+        ctx.lineTo(
+            pos.x,
+            pos.y
+        );
+
+
+        ctx.stroke();
+
+    }
+);
+
 
 
 canvas.addEventListener(
     "pointerup",
-    stopDrawing
-);
+    () => {
 
-canvas.addEventListener(
-    "pointercancel",
-    stopDrawing
-);
+        drawing = false;
 
-canvas.addEventListener(
-    "pointerleave",
-    stopDrawing
-);
-
-
-brushSize.addEventListener(
-    "input",
-    function(){
-
-        brushValue.textContent =
-            brushSize.value;
-
-        ctx.lineWidth =
-            Number(brushSize.value);
+        ctx.closePath();
 
     }
 );
 
 
-function clearDrawing(){
 
-    const rect =
-        canvas.getBoundingClientRect();
+canvas.addEventListener(
+    "pointerleave",
+    () => {
+
+        drawing = false;
+
+        ctx.closePath();
+
+    }
+);
+
+
+
+function clearCanvas(){
 
     ctx.clearRect(
         0,
         0,
-        rect.width,
-        rect.height
+        canvas.clientWidth,
+        canvas.clientHeight
     );
-
-    ratingArea.classList.remove("show");
-
-    ratingResult.textContent = "";
-
-    ratingStars.forEach(function(star){
-        star.classList.remove("selected");
-    });
 
 }
 
 
-clearCanvas.addEventListener(
-    "click",
-    clearDrawing
-);
+
+const drawingChallenges = [
+
+    "🌸 Draw a flower",
+
+    "🐱 Draw a cute cat",
+
+    "🦋 Draw a butterfly",
+
+    "🍓 Draw a strawberry",
+
+    "🌈 Draw a rainbow",
+
+    "☁️ Draw a cloud",
+
+    "🍄 Draw a mushroom",
+
+    "🌙 Draw a moon"
+
+];
 
 
-newChallenge.addEventListener(
-    "click",
-    function(){
 
-        const random =
+function newChallenge(){
+
+    const random =
+        drawingChallenges[
             Math.floor(
                 Math.random() *
-                challenges.length
-            );
-
-        challengeText.textContent =
-            challenges[random];
-
-        clearDrawing();
-
-    }
-);
+                drawingChallenges.length
+            )
+        ];
 
 
-finishDrawing.addEventListener(
-    "click",
-    function(){
-
-        ratingArea.classList.add("show");
-
-        ratingResult.textContent =
-            "Choose a rating above ⭐";
-
-        ratingArea.scrollIntoView({
-            behavior:"smooth",
-            block:"center"
-        });
-
-    }
-);
+    document.getElementById(
+        "challengeName"
+    ).textContent =
+        random;
 
 
-ratingStars.forEach(function(star){
+    clearCanvas();
 
-    star.addEventListener(
-        "click",
-        function(){
-
-            const rating =
-                Number(star.dataset.rating);
+}
 
 
-            ratingStars.forEach(function(item){
 
-                const itemRating =
-                    Number(
-                        item.dataset.rating
-                    );
-
-                if(itemRating <= rating){
-
-                    item.classList.add(
-                        "selected"
-                    );
-
-                }else{
-
-                    item.classList.remove(
-                        "selected"
-                    );
-
-                }
-
-            });
+/* =================================
+   DRAWING COLOR PALETTE
+================================= */
 
 
-            const messages = {
-                1:"Keep practicing! 🌱",
-                2:"Not bad! Keep drawing ✏️",
-                3:"Nice drawing! 🎨",
-                4:"Looks great! ✨",
-                5:"Amazing artwork! 🌟"
-            };
+const drawingColors = [
+
+    "#000000",
+    "#805965",
+    "#c45b76",
+    "#e88ba3",
+    "#f3b6c5",
+    "#f6dce2",
+
+    "#8b4513",
+    "#c9825b",
+    "#e8b27d",
+
+    "#e8c547",
+    "#f4d58a",
+
+    "#7a9e65",
+    "#a8c98a",
+    "#c9d9a8",
+
+    "#4c7da8",
+    "#78a8d1",
+    "#a8c8e5",
+
+    "#7d65a8",
+    "#a88cc9",
+    "#c9b5df"
+
+];
 
 
-            ratingResult.textContent =
-                "You rated it " +
-                rating +
-                "/5 ⭐ — " +
-                messages[rating];
-
-        }
+const palette =
+    document.getElementById(
+        "colorPalette"
     );
 
-});
+
+const colorInput =
+    document.getElementById(
+        "brushColor"
+    );
 
 
-window.addEventListener(
-    "resize",
-    resizeCanvas
+drawingColors.forEach(
+    (color,index) => {
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.className =
+            "palette-color";
+
+
+        button.style.background =
+            color;
+
+
+        if(index === 1){
+
+            button.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        button.title =
+            color;
+
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                colorInput.value =
+                    color;
+
+
+                document.querySelectorAll(
+                    ".palette-color"
+                ).forEach(
+                    item => {
+                        item.classList.remove(
+                            "selected"
+                        );
+                    }
+                );
+
+
+                button.classList.add(
+                    "selected"
+                );
+
+            }
+        );
+
+
+        palette.appendChild(
+            button
+        );
+
+    }
 );
 
-resizeCanvas();
+
+
+/*
+    Kalau user memilih warna
+    melalui color picker manual,
+    pilihan palette akan dilepas.
+*/
+
+colorInput.addEventListener(
+    "input",
+    () => {
+
+        document.querySelectorAll(
+            ".palette-color"
+        ).forEach(
+            item => {
+                item.classList.remove(
+                    "selected"
+                );
+            }
+        );
+
+    }
+);
 
 
 </script>
