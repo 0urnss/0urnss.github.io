@@ -309,9 +309,6 @@
                 opacity .9s ease,
                 transform .9s ease,
                 box-shadow .4s ease;
-
-            /* FOTO BERADA DI ATAS DEKORASI */
-            z-index: 30;
         }
 
         .category.show .artwork {
@@ -421,11 +418,7 @@
 
             pointer-events: none;
 
-            /*
-             * Di belakang artwork
-             * supaya daun tidak menutupi foto
-             */
-            z-index: 10;
+            z-index: 150;
 
             overflow: hidden;
         }
@@ -437,16 +430,20 @@
 
         .clover {
 
-            position: absolute;
+            position: fixed;
 
-            width: 85px;
-            height: 85px;
+            width: 90px;
+            height: 90px;
 
-            font-size: 85px;
+            font-size: 90px;
 
             line-height: 1;
 
             opacity: 0;
+
+            user-select: none;
+
+            pointer-events: none;
 
             filter:
                 drop-shadow(
@@ -457,18 +454,22 @@
                 transform,
                 opacity;
 
-            user-select: none;
+            transition:
+                opacity .25s ease;
         }
 
 
-        /* 🍓 */
+        /* =========================
+           🍓 STRAWBERRY
+        ========================= */
 
         .strawberry {
 
-            width: 78px;
-            height: 78px;
+            width: 82px;
 
-            font-size: 78px;
+            height: 82px;
+
+            font-size: 82px;
 
             filter:
                 drop-shadow(
@@ -478,7 +479,7 @@
 
 
         /* =========================
-           🍀 DARI KIRI
+           DARI KIRI
         ========================= */
 
         .clover.from-left {
@@ -492,7 +493,7 @@
 
 
         /* =========================
-           🍀 DARI KANAN
+           DARI KANAN
         ========================= */
 
         .clover.from-right {
@@ -676,10 +677,6 @@
             opacity: 0;
 
             animation: fadeUp .8s ease 1s forwards;
-
-            position: relative;
-
-            z-index: 20;
         }
 
 
@@ -832,6 +829,7 @@
             .clover {
 
                 width: 65px;
+
                 height: 65px;
 
                 font-size: 65px;
@@ -840,6 +838,7 @@
             .strawberry {
 
                 width: 60px;
+
                 height: 60px;
 
                 font-size: 60px;
@@ -889,6 +888,7 @@
             .clover {
 
                 width: 58px;
+
                 height: 58px;
 
                 font-size: 58px;
@@ -897,6 +897,7 @@
             .strawberry {
 
                 width: 53px;
+
                 height: 53px;
 
                 font-size: 53px;
@@ -1262,7 +1263,7 @@
         }
 
 
-        /* Pilih arah secara acak */
+        /* Pilih arah */
 
         const fromLeft =
             Math.random() < 0.5;
@@ -1279,7 +1280,7 @@
         }
 
 
-        /* Posisi vertikal acak */
+        /* Posisi vertikal */
 
         const startY =
             Math.floor(
@@ -1293,7 +1294,7 @@
         );
 
 
-        /* Kecepatan acak */
+        /* Kecepatan */
 
         const duration =
             Math.floor(
@@ -1307,7 +1308,7 @@
         );
 
 
-        /* Ukuran sedikit acak */
+        /* Ukuran */
 
         let size;
 
@@ -1343,8 +1344,16 @@
 
         /* Transparansi */
 
+        const baseOpacity =
+            0.28 + Math.random() * 0.15;
+
+
+        decoration.dataset.opacity =
+            baseOpacity;
+
+
         decoration.style.opacity =
-            (Math.random() * 0.15 + 0.28);
+            baseOpacity;
 
 
         cloverContainer.appendChild(
@@ -1363,7 +1372,101 @@
     }
 
 
-    /* Dekorasi pertama */
+    /* =========================
+       🍀🍓 CEK APAKAH MASUK FOTO
+    ========================= */
+
+    function checkArtworkCollision() {
+
+        const artworks =
+            document.querySelectorAll(".artwork");
+
+
+        const decorations =
+            document.querySelectorAll(".clover");
+
+
+        decorations.forEach((decoration) => {
+
+            const decorationRect =
+                decoration.getBoundingClientRect();
+
+
+            let insideArtwork = false;
+
+
+            artworks.forEach((artwork) => {
+
+                const artworkRect =
+                    artwork.getBoundingClientRect();
+
+
+                /*
+                 * Cek apakah dekorasi
+                 * sedang berada di area foto
+                 */
+
+                const horizontal =
+                    decorationRect.right >
+                    artworkRect.left &&
+                    decorationRect.left <
+                    artworkRect.right;
+
+
+                const vertical =
+                    decorationRect.bottom >
+                    artworkRect.top &&
+                    decorationRect.top <
+                    artworkRect.bottom;
+
+
+                if (
+                    horizontal &&
+                    vertical
+                ) {
+
+                    insideArtwork = true;
+
+                }
+
+            });
+
+
+            /*
+             * Kalau masuk foto:
+             * langsung menghilang
+             */
+
+            if (insideArtwork) {
+
+                decoration.style.opacity = "0";
+
+            } else {
+
+                decoration.style.opacity =
+                    decoration.dataset.opacity;
+
+            }
+
+        });
+
+        requestAnimationFrame(
+            checkArtworkCollision
+        );
+
+    }
+
+
+    /* Mulai pengecekan */
+
+    requestAnimationFrame(
+        checkArtworkCollision
+    );
+
+
+    /* =========================
+       DAUN / BUAH PERTAMA
+    ========================= */
 
     setTimeout(() => {
 
@@ -1372,7 +1475,9 @@
     }, 1000);
 
 
-    /* Muncul terus */
+    /* =========================
+       MUNCUL TERUS
+    ========================= */
 
     setInterval(() => {
 
@@ -1381,7 +1486,9 @@
     }, 3200);
 
 
-    /* Tambahan sesekali */
+    /* =========================
+       TAMBAHAN SESekali
+    ========================= */
 
     setTimeout(() => {
 
