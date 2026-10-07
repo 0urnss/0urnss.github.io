@@ -192,66 +192,79 @@ nav a:hover {
     overflow: hidden;
 }
 
-/* Bentuk dekorasi CSS */
-.clover {
+.decoration {
     position: absolute;
-    width: 18px;
-    height: 18px;
-    opacity: 0.55;
+    width: 20px;
+    height: 20px;
     animation: float 7s linear forwards;
+    opacity: 0.6;
 }
 
-/* Bentuk daun 4 bagian */
-.clover::before,
-.clover::after {
-    content: "";
+/* DAUN / CLOVER */
+
+.leaf {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #9aaa82;
+    border-radius: 50%;
+}
+
+.leaf.one {
+    top: 2px;
+    left: 6px;
+}
+
+.leaf.two {
+    top: 7px;
+    left: 1px;
+}
+
+.leaf.three {
+    top: 7px;
+    right: 1px;
+}
+
+.leaf.four {
+    top: 12px;
+    left: 6px;
+}
+
+.leaf-stem {
+    position: absolute;
+    width: 2px;
+    height: 8px;
+    background: #71835d;
+    left: 9px;
+    top: 14px;
+    transform: rotate(15deg);
+    border-radius: 2px;
+}
+
+/* STRAWBERRY */
+
+.strawberry-body {
+    position: absolute;
+    width: 14px;
+    height: 16px;
+    background: #d98b8b;
+    left: 3px;
+    top: 4px;
+    border-radius: 45% 45% 50% 50%;
+    transform: rotate(45deg);
+}
+
+.strawberry-top {
     position: absolute;
     width: 9px;
-    height: 9px;
-    background: #9caf88;
-    border-radius: 50%;
-}
-
-.clover::before {
-    left: 0;
-    top: 4px;
-    box-shadow:
-        9px 0 #9caf88,
-        4.5px -4px #9caf88,
-        4.5px 4px #9caf88;
-}
-
-/* Batang kecil */
-.clover::after {
-    width: 2px;
-    height: 7px;
-    background: #71855f;
-    border-radius: 2px;
-    left: 8px;
-    top: 13px;
-}
-
-/* Variasi strawberry */
-.strawberry::before {
-    background: #d98b8b;
-    width: 13px;
-    height: 15px;
-    left: 2px;
-    top: 3px;
-    border-radius: 45% 45% 50% 50%;
-    box-shadow: none;
-}
-
-.strawberry::after {
-    width: 10px;
     height: 5px;
     background: #78945f;
-    left: 4px;
-    top: 0;
+    left: 6px;
+    top: 1px;
     border-radius: 50%;
+    z-index: 2;
 }
 
-/* Animasi */
 @keyframes float {
     0% {
         transform: translateY(100vh) rotate(0deg);
@@ -259,11 +272,11 @@ nav a:hover {
     }
 
     15% {
-        opacity: 0.55;
+        opacity: 0.6;
     }
 
     85% {
-        opacity: 0.55;
+        opacity: 0.6;
     }
 
     100% {
@@ -335,10 +348,8 @@ footer {
 
 <body>
 
-<!-- DECORATION -->
 <div id="clover-container"></div>
 
-<!-- HEADER -->
 <header>
     <nav>
         <a href="index.html">HOME</a>
@@ -347,13 +358,11 @@ footer {
     </nav>
 </header>
 
-<!-- GALLERY HEADER -->
 <section class="gallery-header">
     <h1>My Gallery</h1>
     <p>A collection of my artworks.</p>
 </section>
 
-<!-- CATEGORY NAV -->
 <div class="category-nav">
     <a href="#bw">B&W / PENCIL</a>
     <span>|</span>
@@ -361,8 +370,6 @@ footer {
     <span>|</span>
     <a href="#digital">DIGITAL ART</a>
 </div>
-
-<!-- ================= B&W / PENCIL ================= -->
 
 <section class="category" id="bw">
 
@@ -382,8 +389,6 @@ footer {
     </div>
 
 </section>
-
-<!-- ================= PAINTING ================= -->
 
 <section class="category" id="painting">
 
@@ -407,8 +412,6 @@ footer {
 
 </section>
 
-<!-- ================= DIGITAL ART ================= -->
-
 <section class="category" id="digital">
 
     <div class="category-title">
@@ -428,27 +431,37 @@ footer {
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
     © 2026 0urnss — All artworks are my own.
 </footer>
 
 <script>
 
-/* ================= FLOATING DECORATION ================= */
-
 const container = document.getElementById("clover-container");
 
 function createDecoration() {
 
     const item = document.createElement("div");
+    item.classList.add("decoration");
 
-    /* Acak antara daun dan strawberry */
-    if (Math.random() > 0.5) {
-        item.classList.add("clover");
+    const isLeaf = Math.random() > 0.5;
+
+    if (isLeaf) {
+
+        item.innerHTML = `
+            <span class="leaf one"></span>
+            <span class="leaf two"></span>
+            <span class="leaf three"></span>
+            <span class="leaf four"></span>
+            <span class="leaf-stem"></span>
+        `;
+
     } else {
-        item.classList.add("clover", "strawberry");
+
+        item.innerHTML = `
+            <span class="strawberry-body"></span>
+            <span class="strawberry-top"></span>
+        `;
     }
 
     const fromLeft = Math.random() > 0.5;
