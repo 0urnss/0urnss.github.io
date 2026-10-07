@@ -7,7 +7,9 @@
 <title>ART GALLERY — Temporary</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box
+}
 
 html{
   scroll-behavior:smooth
@@ -135,7 +137,7 @@ section{
   display:flex;
   justify-content:space-between;
   align-items:end;
-  margin-bottom:35px
+  margin-bottom:55px
 }
 
 h2{
@@ -150,17 +152,44 @@ h2{
   font-size:13px
 }
 
-/* GALLERY */
-.filters{
-  margin-bottom:28px
+/* CATEGORY */
+.category{
+  margin-bottom:90px
 }
 
-.filters span{
-  margin-right:18px;
-  font-size:12px;
-  color:#777
+.category:last-child{
+  margin-bottom:0
 }
 
+.category-heading{
+  display:flex;
+  align-items:baseline;
+  gap:18px;
+  margin-bottom:25px;
+  border-bottom:1px solid #e5e0dc;
+  padding-bottom:14px
+}
+
+.category-number{
+  font-size:11px;
+  letter-spacing:2px;
+  color:#b97986
+}
+
+.category-title{
+  font-family:Georgia,serif;
+  font-size:30px;
+  font-weight:400;
+  margin:0
+}
+
+.category-description{
+  color:#888;
+  font-size:13px;
+  margin:0 0 25px
+}
+
+/* GALLERY GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -320,12 +349,25 @@ footer{
   }
 
   .title{
-    display:block
+    display:block;
+    margin-bottom:45px
   }
 
   .title .small{
     display:block;
     margin-top:10px
+  }
+
+  .category{
+    margin-bottom:65px
+  }
+
+  .category-heading{
+    gap:12px
+  }
+
+  .category-title{
+    font-size:25px
   }
 
   .grid{
@@ -363,6 +405,7 @@ footer{
   </nav>
 
 </header>
+
 
 <main>
 
@@ -420,81 +463,167 @@ footer{
 
   </div>
 
-  <div class="filters">
 
-    <span>ALL</span>
-    <span>DIGITAL ART</span>
-    <span>CANVAS</span>
-    <span>PORTRAIT</span>
+  <!-- B&W / PENCIL -->
+  <div class="category">
+
+    <div class="category-heading">
+
+      <span class="category-number">
+        01
+      </span>
+
+      <h3 class="category-title">
+        B&W / Pencil
+      </h3>
+
+    </div>
+
+    <p class="category-description">
+      Black and white drawings made with pencil.
+    </p>
+
+    <div class="grid">
+
+      <!-- ARTWORK 1 -->
+      <div class="card">
+
+        <img
+          src="foto1.jpeg"
+          alt="Portrait drawing"
+        >
+
+        <div class="card-info">
+
+          <small>B&W / PENCIL</small>
+
+          <h3>Portrait Study</h3>
+
+        </div>
+
+      </div>
+
+
+      <!-- PLACEHOLDER -->
+      <div class="card">
+
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
 
-  <div class="grid">
 
-    <!-- ARTWORK 1 -->
-    <div class="card">
+  <!-- PAINTING -->
+  <div class="category">
 
-      <img
-        src="foto1.jpeg"
-        alt="Portrait drawing"
-      >
+    <div class="category-heading">
 
-      <div class="card-info">
+      <span class="category-number">
+        02
+      </span>
 
-        <small>PORTRAIT</small>
+      <h3 class="category-title">
+        Painting
+      </h3>
 
-        <h3>Portrait Study</h3>
+    </div>
+
+    <p class="category-description">
+      Traditional paintings and canvas works.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
 
       </div>
 
     </div>
 
-
-    <!-- PLACEHOLDER 2 -->
-    <div class="card">
-
-      <div class="placeholder">
-        YOUR ARTWORK
-      </div>
-
-    </div>
+  </div>
 
 
-    <!-- PLACEHOLDER 3 -->
-    <div class="card">
+  <!-- DIGITAL ART -->
+  <div class="category">
 
-      <div class="placeholder">
-        YOUR ARTWORK
-      </div>
+    <div class="category-heading">
+
+      <span class="category-number">
+        03
+      </span>
+
+      <h3 class="category-title">
+        Digital Art
+      </h3>
 
     </div>
 
+    <p class="category-description">
+      Digital illustrations and artworks created digitally.
+    </p>
 
-    <!-- PLACEHOLDER 4 -->
-    <div class="card">
+    <div class="grid">
 
-      <div class="placeholder">
-        YOUR ARTWORK
+      <div class="card">
+
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
+
       </div>
 
-    </div>
 
+      <div class="card">
 
-    <!-- PLACEHOLDER 5 -->
-    <div class="card">
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
 
-      <div class="placeholder">
-        YOUR ARTWORK
       </div>
 
-    </div>
 
+      <div class="card">
 
-    <!-- PLACEHOLDER 6 -->
-    <div class="card">
+        <div class="placeholder">
+          YOUR ARTWORK
+        </div>
 
-      <div class="placeholder">
-        YOUR ARTWORK
       </div>
 
     </div>
@@ -509,7 +638,9 @@ footer{
 
   <div>
 
-    <span class="tag">ABOUT ME</span>
+    <span class="tag">
+      ABOUT ME
+    </span>
 
     <h2>
       A little space
