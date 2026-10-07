@@ -4,56 +4,317 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ART GALLERY — Temporary</title>
+
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#faf9f7;color:#202020;font-family:Arial,Helvetica,sans-serif}
-header{padding:24px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e9e5e1;position:sticky;top:0;background:rgba(250,249,247,.94);backdrop-filter:blur(8px);z-index:5}
-.logo{font-size:18px;font-weight:700;letter-spacing:3px}
-nav a{margin-left:24px;text-decoration:none;color:#333;font-size:13px}
-.hero{min-height:75vh;display:flex;align-items:center;justify-content:space-between;gap:60px;padding:80px 8%;background:#f5eeee;border-radius:0 0 40px 40px}
-.hero h1{font-family:Georgia,serif;font-size:58px;line-height:1.05;margin:18px 0;font-weight:400}
-.hero p{font-size:17px;color:#666;max-width:500px;line-height:1.7;margin-bottom:30px}
-.tag{display:inline-block;margin-bottom:20px;background:#ead3d8;padding:8px 14px;border-radius:30px;font-size:11px;letter-spacing:2px}
-.hero-img{width:430px;height:430px;display:flex;align-items:center;justify-content:center}
-.hero-img img{width:100%;height:100%;object-fit:cover}
-section{padding:90px 7%}
-.title{display:flex;justify-content:space-between;align-items:end;margin-bottom:35px}
-h2{font-family:Georgia,serif;font-size:42px;font-weight:400;margin:0}
-.small{color:#888;font-size:13px}
-.filters{margin-bottom:28px}
-.filters span{margin-right:18px;font-size:12px;color:#777}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#eee;aspect-ratio:4/5;overflow:hidden;position:relative}
-.card img{width:100%;height:100%;object-fit:cover;transition:.3s}
-.card:hover img{transform:scale(1.03)}
-.placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:12px;letter-spacing:1px;background:#eee}
-.about{background:#eee7e3;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.about p{line-height:1.9;color:#666;max-width:500px}
-.button{display:inline-block;padding:13px 22px;background:#202020;color:#fff;text-decoration:none;border-radius:30px;font-size:12px;letter-spacing:1.5px;transition:.3s}
-.button:hover{background:#b97986;transform:translateY(-2px)}
-footer{text-align:center;padding:55px 20px;border-top:1px solid #e9e5e1}
-footer a{color:#333}
+
+body{
+  margin:0;
+  background:#faf9f7;
+  color:#202020;
+  font-family:Arial,Helvetica,sans-serif
+}
+
+/* HEADER */
+header{
+  padding:24px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #e9e5e1;
+  position:sticky;
+  top:0;
+  background:rgba(250,249,247,.94);
+  backdrop-filter:blur(8px);
+  z-index:5
+}
+
+.logo{
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:3px
+}
+
+nav a{
+  margin-left:24px;
+  text-decoration:none;
+  color:#333;
+  font-size:13px;
+  transition:.3s
+}
+
+nav a:hover{
+  color:#b97986
+}
+
+/* HOME */
+.hero{
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:60px;
+  padding:80px 8%;
+  background:#f5eeee;
+  border-radius:0 0 40px 40px
+}
+
+.hero-text{
+  max-width:560px
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:58px;
+  line-height:1.05;
+  margin:18px 0;
+  font-weight:400
+}
+
+.hero p{
+  font-size:17px;
+  color:#666;
+  max-width:500px;
+  line-height:1.7;
+  margin-bottom:30px
+}
+
+.tag{
+  display:inline-block;
+  margin-bottom:20px;
+  background:#ead3d8;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:11px;
+  letter-spacing:2px
+}
+
+.hero-img{
+  width:430px;
+  height:430px;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain
+}
+
+/* BUTTON */
+.button{
+  display:inline-block;
+  padding:13px 22px;
+  background:#202020;
+  color:#fff;
+  text-decoration:none;
+  border-radius:30px;
+  font-size:12px;
+  letter-spacing:1.5px;
+  transition:.3s
+}
+
+.button:hover{
+  background:#b97986;
+  transform:translateY(-2px)
+}
+
+/* GENERAL SECTION */
+section{
+  padding:90px 7%
+}
+
+.title{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:35px
+}
+
+h2{
+  font-family:Georgia,serif;
+  font-size:42px;
+  font-weight:400;
+  margin:0
+}
+
+.small{
+  color:#888;
+  font-size:13px
+}
+
+/* GALLERY */
+.filters{
+  margin-bottom:28px
+}
+
+.filters span{
+  margin-right:18px;
+  font-size:12px;
+  color:#777
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px
+}
+
+.card{
+  background:#eee;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  position:relative
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.3s
+}
+
+.card:hover img{
+  transform:scale(1.03)
+}
+
+.placeholder{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#aaa;
+  font-size:12px;
+  letter-spacing:1px;
+  background:#eee
+}
+
+/* ABOUT */
+.about{
+  background:#eee7e3;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center
+}
+
+.about p{
+  line-height:1.9;
+  color:#666;
+  max-width:500px
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:55px 20px;
+  border-top:1px solid #e9e5e1
+}
+
+footer a{
+  color:#333
+}
+
+/* MOBILE */
 @media(max-width:700px){
-header{padding:18px 5%} nav a{margin-left:12px;font-size:11px}
-.hero{grid-template-columns:1fr;padding:55px 5%;min-height:auto}.hero-img{height:380px}
-section{padding:65px 5%}.title{display:block}.title .small{display:block;margin-top:10px}
-.grid{grid-template-columns:repeat(2,1fr);gap:10px}
-.about{grid-template-columns:1fr;gap:20px}
-h2{font-size:34px}
+
+  header{
+    padding:18px 5%;
+    flex-direction:column;
+    gap:15px
+  }
+
+  .logo{
+    font-size:16px
+  }
+
+  nav{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px
+  }
+
+  nav a{
+    margin-left:0;
+    font-size:11px
+  }
+
+  .hero{
+    min-height:auto;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:30px;
+    padding:60px 7% 50px;
+    border-radius:0 0 30px 30px
+  }
+
+  .hero h1{
+    font-size:43px
+  }
+
+  .hero p{
+    font-size:15px
+  }
+
+  .hero-img{
+    width:100%;
+    height:300px
+  }
+
+  section{
+    padding:65px 5%
+  }
+
+  .title{
+    display:block
+  }
+
+  .title .small{
+    display:block;
+    margin-top:10px
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px
+  }
+
+  .about{
+    grid-template-columns:1fr;
+    gap:20px
+  }
+
+  h2{
+    font-size:34px
+  }
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">ART GALLERY</div>
+
   <nav>
-    <a href="#home">Home</a><a href="#gallery">Gallery</a><a href="#about">About</a><a href="#instagram">Instagram</a>
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#instagram">Instagram</a>
   </nav>
 </header>
 
 <main>
+
+<!-- HOME -->
 <section class="hero" id="home">
+
   <div class="hero-text">
     <span class="tag">MY PERSONAL COLLECTION</span>
 
@@ -70,37 +331,99 @@ h2{font-size:34px}
   <div class="hero-img">
     <img src="download.jfif" alt="Palette and brushes">
   </div>
+
 </section>
 
+
+<!-- GALLERY -->
 <section id="gallery">
-  <div class="title"><h2>Selected Works</h2><span class="small">2026 — present</span></div>
-  <div class="filters"><span>ALL</span><span>DIGITAL ART</span><span>CANVAS</span><span>PORTRAIT</span></div>
+
+  <div class="title">
+    <h2>Selected Works</h2>
+    <span class="small">2026 — present</span>
+  </div>
+
+  <div class="filters">
+    <span>ALL</span>
+    <span>DIGITAL ART</span>
+    <span>CANVAS</span>
+    <span>PORTRAIT</span>
+  </div>
+
   <div class="grid">
-    <div class="card"><img src="download.jfif" alt="Palette and brushes"></div>
-    <div class="card"><div class="placeholder">NEW ARTWORK</div></div>
-    <div class="card"><div class="placeholder">NEW ARTWORK</div></div>
-    <div class="card"><div class="placeholder">NEW ARTWORK</div></div>
-    <div class="card"><div class="placeholder">NEW ARTWORK</div></div>
-    <div class="card"><div class="placeholder">NEW ARTWORK</div></div>
+
+    <div class="card">
+      <img src="download.jfif" alt="Palette and brushes">
+    </div>
+
+    <div class="card">
+      <div class="placeholder">NEW ARTWORK</div>
+    </div>
+
+    <div class="card">
+      <div class="placeholder">NEW ARTWORK</div>
+    </div>
+
+    <div class="card">
+      <div class="placeholder">NEW ARTWORK</div>
+    </div>
+
+    <div class="card">
+      <div class="placeholder">NEW ARTWORK</div>
+    </div>
+
+    <div class="card">
+      <div class="placeholder">NEW ARTWORK</div>
+    </div>
+
   </div>
+
 </section>
 
+
+<!-- ABOUT -->
 <section class="about" id="about">
-  <div><span class="tag">ABOUT</span><h2>A little space for my art.</h2></div>
+
   <div>
-    <p>Hi! This is my personal art gallery. I made this website to collect the drawings and paintings I've created over time and to share them with anyone who wants to see them.</p>
-    <p>More works will be added here as I create them.</p>
+    <span class="tag">ABOUT</span>
+    <h2>A little space for my art.</h2>
   </div>
+
+  <div>
+    <p>
+      Hi! This is my personal art gallery. I made this website
+      to collect the drawings and paintings I've created over time
+      and to share them with anyone who wants to see them.
+    </p>
+
+    <p>
+      More works will be added here as I create them.
+    </p>
+  </div>
+
 </section>
 
+
+<!-- INSTAGRAM -->
 <section id="instagram" style="text-align:center">
+
   <span class="tag">FIND ME</span>
+
   <h2>More on Instagram</h2>
-  <p class="small">Follow along to see new works and updates.</p>
+
+  <p class="small">
+    Follow along to see new works and updates.
+  </p>
+
   <a class="button" href="#">@yourinstagram</a>
+
 </section>
+
 </main>
 
-<footer>© 2026 ART GALLERY · Personal artwork archive</footer>
+<footer>
+  © 2026 ART GALLERY · Personal artwork archive
+</footer>
+
 </body>
 </html>
