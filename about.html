@@ -18,8 +18,8 @@
 
         body {
             font-family: Arial, sans-serif;
-            color: #333;
-            background: #f5eeee;
+            color: #4d3c40;
+            background: #f7e8ec;
         }
 
 
@@ -43,7 +43,7 @@
 
             z-index: 100;
 
-            border-bottom: 1px solid #e8dddd;
+            border-bottom: 1px solid #ead9de;
         }
 
         .logo {
@@ -52,6 +52,8 @@
             font-size: 20px;
 
             letter-spacing: 2px;
+
+            color: #4d3c40;
         }
 
         nav {
@@ -63,7 +65,7 @@
         nav a {
             text-decoration: none;
 
-            color: #555;
+            color: #66565a;
 
             font-size: 13px;
 
@@ -76,39 +78,158 @@
 
 
         /* =========================
-           ABOUT
+           ABOUT AREA
         ========================= */
 
         .about {
 
             min-height: calc(100vh - 75px);
 
-            background: #f5eeee;
+            padding: 70px 25px 90px;
 
-            padding: 100px 25px;
+            background: #f7e8ec;
 
             display: flex;
 
-            align-items: center;
-
             justify-content: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           FLOATING DECORATIONS
+        ========================= */
+
+        .floating {
+
+            position: absolute;
+
+            color: #c98f9c;
+
+            opacity: .55;
+
+            pointer-events: none;
+
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .float1 {
+            top: 100px;
+            left: 9%;
+            font-size: 25px;
+        }
+
+        .float2 {
+            top: 180px;
+            right: 10%;
+            font-size: 20px;
+            animation-delay: .8s;
+        }
+
+        .float3 {
+            bottom: 130px;
+            left: 12%;
+            font-size: 18px;
+            animation-delay: 1.5s;
+        }
+
+        .float4 {
+            bottom: 170px;
+            right: 12%;
+            font-size: 25px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(5deg);
+            }
+
+        }
+
+
+        /* =========================
+           BOARD
+        ========================= */
+
+        .about-board {
+
+            width: min(900px, 100%);
+
+            background: #d9aeb9;
+
+            padding: 22px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 15px 35px rgba(110, 70, 80, .12);
+
+            position: relative;
+        }
+
+
+        .about-board::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 90px;
+            height: 25px;
+
+            background: rgba(255,255,255,.55);
+
+            top: -9px;
+            left: 50%;
+
+            transform: translateX(-50%) rotate(-2deg);
+
+            border-radius: 3px;
+        }
+
+
+        .about-inner {
+
+            background: #f6dce2;
+
+            border-radius: 7px;
+
+            padding: 60px 50px 55px;
+
+            position: relative;
 
             text-align: center;
         }
 
-        .about-content {
 
-            max-width: 700px;
-        }
+        /* =========================
+           SMALL LABEL
+        ========================= */
 
         .about small {
 
-            color: #b97986;
+            color: #a86675;
 
             font-size: 10px;
 
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+
+            font-weight: bold;
         }
+
+
+        /* =========================
+           TITLE
+        ========================= */
 
         .about h1 {
 
@@ -116,35 +237,64 @@
 
             font-weight: 400;
 
-            font-size: 48px;
+            font-size: 46px;
 
-            line-height: 1.2;
+            line-height: 1.25;
+
+            color: #49383c;
+
+            max-width: 650px;
 
             margin: 18px auto 30px;
         }
 
-        .about p {
+
+        /* =========================
+           TEXT
+        ========================= */
+
+        .about-text {
 
             max-width: 620px;
 
-            margin: 14px auto;
+            margin: auto;
+        }
 
-            color: #777;
+        .about p {
+
+            color: #756468;
 
             font-size: 14px;
 
             line-height: 1.9;
+
+            margin: 14px auto;
         }
+
+
+        /* =========================
+           QUOTE CARD
+        ========================= */
 
         .quote {
 
-            margin-top: 40px !important;
+            margin: 35px auto 0 !important;
+
+            max-width: 500px;
+
+            padding: 17px 25px;
+
+            background: #fff8f9;
+
+            border-radius: 6px;
 
             font-family: Georgia, serif;
 
             font-style: italic;
 
             color: #9b777e !important;
+
+            box-shadow: 0 5px 15px rgba(100, 60, 70, .06);
         }
 
 
@@ -154,7 +304,13 @@
 
         .instagram {
 
-            margin-top: 50px;
+            margin: 50px auto 0;
+
+            max-width: 600px;
+
+            padding-top: 35px;
+
+            border-top: 1px dashed #c998a3;
         }
 
         .instagram h2 {
@@ -163,21 +319,78 @@
 
             font-weight: 400;
 
-            font-size: 28px;
+            font-size: 30px;
 
-            margin-bottom: 12px;
+            color: #49383c;
+
+            margin-bottom: 10px;
         }
 
-        .instagram p {
+        .instagram > p {
 
             margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           INSTAGRAM CARDS
+        ========================= */
+
+        .social-box {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+        }
+
+        .social-card {
+
+            background: #fff8f9;
+
+            border: 1px solid #ead3d9;
+
+            border-radius: 7px;
+
+            padding: 18px 25px;
+
+            min-width: 210px;
+
+            box-shadow: 0 5px 15px rgba(100, 60, 70, .06);
+
+            transition: .25s;
+        }
+
+        .social-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 20px rgba(100, 60, 70, .10);
+        }
+
+        .social-card span {
+
+            display: block;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            color: #a9828a;
+
+            margin-bottom: 10px;
         }
 
         .instagram-button {
 
             display: inline-block;
 
-            padding: 12px 24px;
+            padding: 10px 20px;
 
             border: 1px solid #b97986;
 
@@ -187,6 +400,8 @@
 
             font-size: 12px;
 
+            border-radius: 3px;
+
             transition: .2s;
         }
 
@@ -195,6 +410,60 @@
             background: #b97986;
 
             color: white;
+        }
+
+
+        /* =========================
+           STICKERS
+        ========================= */
+
+        .sticker {
+
+            position: absolute;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+        .sticker-flower {
+
+            top: 25px;
+            left: 25px;
+
+            font-size: 28px;
+
+            transform: rotate(-12deg);
+        }
+
+        .sticker-heart {
+
+            top: 25px;
+            right: 28px;
+
+            font-size: 23px;
+
+            transform: rotate(10deg);
+        }
+
+        .sticker-star {
+
+            bottom: 25px;
+            left: 28px;
+
+            font-size: 22px;
+
+            transform: rotate(-8deg);
+        }
+
+        .sticker-sparkle {
+
+            bottom: 25px;
+            right: 28px;
+
+            font-size: 25px;
+
+            transform: rotate(8deg);
         }
 
 
@@ -215,6 +484,17 @@
             font-size: 11px;
 
             border-top: 1px solid #e8dddd;
+        }
+
+        .footer-line {
+
+            width: 50px;
+
+            height: 1px;
+
+            background: #d3a4ae;
+
+            margin: 0 auto 15px;
         }
 
 
@@ -241,7 +521,17 @@
 
             .about {
 
-                padding: 80px 25px;
+                padding: 55px 15px 70px;
+            }
+
+            .about-board {
+
+                padding: 14px;
+            }
+
+            .about-inner {
+
+                padding: 50px 22px 40px;
             }
 
             .about h1 {
@@ -252,6 +542,18 @@
             .instagram h2 {
 
                 font-size: 25px;
+            }
+
+            .social-card {
+
+                width: 100%;
+
+                min-width: unset;
+            }
+
+            .floating {
+
+                display: none;
             }
 
         }
@@ -276,7 +578,13 @@
 
             .about h1 {
 
-                font-size: 32px;
+                font-size: 31px;
+            }
+
+            .about-inner {
+
+                padding-left: 17px;
+                padding-right: 17px;
             }
 
         }
@@ -326,114 +634,176 @@
 
 <section class="about">
 
-    <div class="about-content">
 
+    <!-- Floating decorations -->
 
-        <small>
-            ABOUT ME
-        </small>
+    <div class="floating float1">✿</div>
 
+    <div class="floating float2">♡</div>
 
-        <h1>
+    <div class="floating float3">✦</div>
 
-            A little space for
-            the things I love to create.
-
-        </h1>
-
-
-        <p>
-
-            Hi! I'm an artist who enjoys
-            creating drawings, paintings,
-            digital art, and other little
-            creative projects.
-
-        </p>
-
-
-        <p>
-
-            This website is my personal space
-            to collect and share the artworks
-            I've made.
-
-        </p>
-
-
-        <p>
-
-            Some pieces are simple studies,
-            some are experiments, and others
-            are just things I made because
-            I enjoyed creating them.
-
-        </p>
-
-
-        <p class="quote">
-
-            -
-            Made with a little creativity
-            and lots of love for art.
-
-        </p>
+    <div class="floating float4">˚₊‧</div>
 
 
 
-        <!-- =====================
-             INSTAGRAM
-        ====================== -->
-
-        <div class="instagram">
+    <div class="about-board">
 
 
-            <h2>
-                Find me on Instagram
-            </h2>
+        <div class="about-inner">
 
 
-            <p>
+            <!-- Stickers -->
 
-                See more of my artwork and
-                creative projects on Instagram.
+            <div class="sticker sticker-flower">
+                ✿
+            </div>
 
-            </p>
+            <div class="sticker sticker-heart">
+                ♡
+            </div>
 
+            <div class="sticker sticker-star">
+                ✦
+            </div>
 
-            <a
-                href="https://www.instagram.com/0urnss/"
-                target="_blank"
-                class="instagram-button"
-            >
-
-                @0urnss
-
-            </a>
-
-
-            <p>
-
-                My Second Account
-
-            </p>
+            <div class="sticker sticker-sparkle">
+                ✧
+            </div>
 
 
-            <a
-                href="https://www.instagram.com/sipswipie/"
-                target="_blank"
-                class="instagram-button"
-            >
 
-                @sipswipie
+            <small>
+                ABOUT ME
+            </small>
 
-            </a>
+
+            <h1>
+
+                A little space for
+                the things I love to create.
+
+            </h1>
+
+
+
+            <div class="about-text">
+
+
+                <p>
+
+                    Hi! I'm an artist who enjoys
+                    creating drawings, paintings,
+                    digital art, and other little
+                    creative projects.
+
+                </p>
+
+
+                <p>
+
+                    This website is my personal space
+                    to collect and share the artworks
+                    I've made.
+
+                </p>
+
+
+                <p>
+
+                    Some pieces are simple studies,
+                    some are experiments, and others
+                    are just things I made because
+                    I enjoyed creating them.
+
+                </p>
+
+
+                <p class="quote">
+
+                    Made with a little creativity
+                    and lots of love for art.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =====================
+                 INSTAGRAM
+            ====================== -->
+
+            <div class="instagram">
+
+
+                <h2>
+                    Find me on Instagram
+                </h2>
+
+
+                <p>
+
+                    See more of my artwork and
+                    creative projects on Instagram.
+
+                </p>
+
+
+
+                <div class="social-box">
+
+
+                    <div class="social-card">
+
+                        <span>
+                            MAIN ACCOUNT
+                        </span>
+
+                        <a
+                            href="https://www.instagram.com/0urnss/"
+                            target="_blank"
+                            class="instagram-button"
+                        >
+
+                            @0urnss
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="social-card">
+
+                        <span>
+                            SECOND ACCOUNT
+                        </span>
+
+                        <a
+                            href="https://www.instagram.com/sipswipie/"
+                            target="_blank"
+                            class="instagram-button"
+                        >
+
+                            @sipswipie
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
 
 
         </div>
 
-
     </div>
+
 
 </section>
 
@@ -444,6 +814,8 @@
 ========================= -->
 
 <footer>
+
+    <div class="footer-line"></div>
 
     © 2026 ART GALLERY · Personal artwork archive
 
