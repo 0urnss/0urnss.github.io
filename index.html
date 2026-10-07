@@ -2,10 +2,13 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Art Gallery</title>
+
 
     <style>
 
@@ -25,38 +28,52 @@
             background: #fff;
         }
 
+
         /* =========================
            NAVBAR
         ========================= */
 
         header {
             height: 75px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 0 7%;
+
             background: white;
+
             position: sticky;
             top: 0;
+
             z-index: 100;
+
             border-bottom: 1px solid #eee;
         }
 
         .logo {
             font-family: Georgia, serif;
+
             font-size: 20px;
+
             letter-spacing: 2px;
         }
 
         nav {
             display: flex;
+
             gap: 30px;
         }
 
         nav a {
             text-decoration: none;
+
             color: #555;
+
             font-size: 13px;
+
+            transition: .2s;
         }
 
         nav a:hover {
@@ -69,13 +86,21 @@
         ========================= */
 
         .hero {
+
             min-height: 560px;
+
             background: #f5eeee;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 70px 10%;
+
             gap: 60px;
+
             border-radius: 0 0 40px 40px;
         }
 
@@ -84,52 +109,83 @@
         }
 
         .tag {
+
             font-size: 10px;
+
             letter-spacing: 3px;
+
             color: #b97986;
+
             margin-bottom: 20px;
         }
 
         .hero h1 {
+
             font-family: Georgia, serif;
+
             font-size: 58px;
+
             font-weight: 400;
+
             line-height: 1.1;
+
             margin-bottom: 20px;
         }
 
         .hero p {
+
             color: #777;
+
             line-height: 1.8;
+
             font-size: 14px;
+
             margin-bottom: 30px;
         }
 
         .hero-button {
+
             display: inline-block;
+
             padding: 13px 22px;
+
             background: #b97986;
+
             color: white;
+
             text-decoration: none;
+
             font-size: 11px;
+
             letter-spacing: 1px;
+
             border-radius: 3px;
+
+            transition: .2s;
         }
 
         .hero-button:hover {
+
             background: #a76674;
         }
 
         .hero-image {
+
             width: 380px;
+
             height: 450px;
+
             overflow: hidden;
+
             border-radius: 5px;
         }
 
         .hero-image img {
+
             width: 100%;
+
             height: 100%;
+
             object-fit: cover;
         }
 
@@ -139,143 +195,191 @@
         ========================= */
 
         .gallery-section {
+
             padding: 100px 7%;
         }
 
         .section-title {
+
             text-align: center;
+
             margin-bottom: 70px;
         }
 
         .section-title small {
+
             color: #b97986;
+
             font-size: 10px;
+
             letter-spacing: 3px;
         }
 
         .section-title h2 {
+
             font-family: Georgia, serif;
+
             font-weight: 400;
+
             font-size: 42px;
+
             margin-top: 10px;
         }
 
 
-        /* CATEGORY */
+        /* =========================
+           CATEGORY
+        ========================= */
 
         .category {
+
             margin-bottom: 90px;
         }
 
         .category-heading {
+
             display: flex;
+
             align-items: baseline;
+
             gap: 18px;
+
             margin-bottom: 12px;
+
             border-bottom: 1px solid #e5e0dc;
+
             padding-bottom: 14px;
         }
 
         .category-number {
+
             font-size: 11px;
+
             letter-spacing: 2px;
+
             color: #b97986;
         }
 
         .category-title {
+
             font-family: Georgia, serif;
+
             font-size: 30px;
+
             font-weight: 400;
         }
 
         .category-description {
+
             color: #888;
+
             font-size: 13px;
+
             margin-bottom: 25px;
         }
 
 
-        /* GRID */
+        /* =========================
+           MASONRY GALLERY
+        ========================= */
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
 
+            columns: 3 250px;
 
-        /* CARD */
-
-        .card {
-            background: #eee;
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
-            position: relative;
-            border-radius: 4px;
-        }
-
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: .5s;
-        }
-
-        .card:hover img {
-            transform: scale(1.05);
-        }
-
-
-        /* INFO */
-
-        .card-info {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 35px 20px 18px;
-            color: white;
-            background: linear-gradient(
-                transparent,
-                rgba(0,0,0,.65)
-            );
-
-            opacity: 0;
-            transform: translateY(10px);
-            transition: .3s;
-        }
-
-        .card:hover .card-info {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .card-info small {
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            opacity: .8;
-        }
-
-        .card-info h3 {
-            margin-top: 5px;
-            font-family: Georgia, serif;
-            font-size: 20px;
-            font-weight: 400;
+            column-gap: 18px;
         }
 
 
         /* =========================
-           EMPTY SLOT
+           ARTWORK CARD
         ========================= */
 
-        .empty {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            font-size: 11px;
-            letter-spacing: 2px;
-            background: #f4f2f1;
+        .card {
+
+            background: #eee;
+
+            overflow: hidden;
+
+            position: relative;
+
+            border-radius: 4px;
+
+            margin-bottom: 18px;
+
+            break-inside: avoid;
+        }
+
+        .card img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            transition: .5s;
+        }
+
+        .card:hover img {
+
+            transform: scale(1.03);
+        }
+
+
+        /* =========================
+           ARTWORK INFO
+        ========================= */
+
+        .card-info {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 45px 20px 18px;
+
+            color: white;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.7)
+            );
+
+            opacity: 0;
+
+            transform: translateY(10px);
+
+            transition: .3s;
+        }
+
+        .card:hover .card-info {
+
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .card-info small {
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            opacity: .8;
+        }
+
+        .card-info h3 {
+
+            margin-top: 5px;
+
+            font-family: Georgia, serif;
+
+            font-size: 20px;
+
+            font-weight: 400;
         }
 
 
@@ -284,30 +388,46 @@
         ========================= */
 
         .about {
+
             background: #eee7e3;
+
             padding: 100px 10%;
+
             text-align: center;
         }
 
         .about small {
+
             color: #b97986;
+
             font-size: 10px;
+
             letter-spacing: 3px;
         }
 
         .about h2 {
+
             font-family: Georgia, serif;
+
             font-weight: 400;
+
             font-size: 42px;
+
             max-width: 700px;
+
             margin: 15px auto 25px;
         }
 
         .about p {
+
             max-width: 650px;
+
             margin: 12px auto;
+
             color: #777;
+
             font-size: 14px;
+
             line-height: 1.8;
         }
 
@@ -317,34 +437,53 @@
         ========================= */
 
         .instagram {
+
             text-align: center;
+
             padding: 90px 20px;
         }
 
         .instagram h2 {
+
             font-family: Georgia, serif;
+
             font-weight: 400;
+
             font-size: 35px;
+
             margin-bottom: 20px;
         }
 
         .instagram p {
+
             color: #888;
+
             font-size: 14px;
+
             margin-bottom: 25px;
         }
 
         .instagram-button {
+
             display: inline-block;
+
             padding: 12px 25px;
+
             border: 1px solid #b97986;
+
             color: #b97986;
+
             text-decoration: none;
+
             font-size: 12px;
+
+            transition: .2s;
         }
 
         .instagram-button:hover {
+
             background: #b97986;
+
             color: white;
         }
 
@@ -354,10 +493,15 @@
         ========================= */
 
         footer {
+
             text-align: center;
+
             padding: 30px;
+
             background: #f5eeee;
+
             color: #888;
+
             font-size: 11px;
         }
 
@@ -369,56 +513,123 @@
         @media (max-width: 700px) {
 
             header {
+
                 padding: 0 20px;
             }
 
             nav {
+
                 gap: 12px;
             }
 
             nav a {
+
                 font-size: 11px;
             }
 
+
+            /* HERO */
+
             .hero {
+
                 flex-direction: column;
+
                 padding: 60px 25px;
+
                 text-align: center;
             }
 
             .hero h1 {
+
                 font-size: 42px;
             }
 
             .hero-image {
+
                 width: 100%;
+
                 max-width: 350px;
+
                 height: 400px;
             }
 
+
+            /* GALLERY */
+
             .gallery-section {
+
                 padding: 70px 20px;
             }
 
             .section-title h2 {
+
                 font-size: 34px;
             }
 
             .category-title {
+
                 font-size: 24px;
             }
 
             .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+
+                columns: 2 150px;
+
+                column-gap: 10px;
             }
 
+            .card {
+
+                margin-bottom: 10px;
+            }
+
+
+            /* ABOUT */
+
             .about {
+
                 padding: 70px 25px;
             }
 
             .about h2 {
+
                 font-size: 32px;
+            }
+
+        }
+
+
+        /* =========================
+           VERY SMALL PHONE
+        ========================= */
+
+        @media (max-width: 400px) {
+
+            .logo {
+
+                font-size: 16px;
+            }
+
+            nav {
+
+                gap: 8px;
+            }
+
+            nav a {
+
+                font-size: 10px;
+            }
+
+            .hero h1 {
+
+                font-size: 36px;
+            }
+
+            .gallery-grid {
+
+                columns: 2 120px;
+
+                column-gap: 8px;
             }
 
         }
@@ -441,15 +652,24 @@
         ART GALLERY
     </div>
 
+
     <nav>
 
-        <a href="#home">Home</a>
+        <a href="#home">
+            Home
+        </a>
 
-        <a href="#gallery">Gallery</a>
+        <a href="#gallery">
+            Gallery
+        </a>
 
-        <a href="#about">About</a>
+        <a href="#about">
+            About
+        </a>
 
-        <a href="#instagram">Instagram</a>
+        <a href="#instagram">
+            Instagram
+        </a>
 
     </nav>
 
@@ -463,28 +683,43 @@
 
 <section class="hero" id="home">
 
+
     <div class="hero-text">
 
         <div class="tag">
             MY PERSONAL COLLECTION
         </div>
 
+
         <h1>
-            A Collection<br>
+
+            A Collection
+            <br>
             of My Works
+
         </h1>
 
+
         <p>
+
             A little space where I collect
             drawings, paintings, digital art,
             and other creative things I've made.
+
         </p>
 
-        <a href="#gallery" class="hero-button">
+
+        <a
+            href="#gallery"
+            class="hero-button"
+        >
+
             EXPLORE MY WORKS
+
         </a>
 
     </div>
+
 
 
     <div class="hero-image">
@@ -496,6 +731,7 @@
 
     </div>
 
+
 </section>
 
 
@@ -504,7 +740,10 @@
      GALLERY
 ========================= -->
 
-<section class="gallery-section" id="gallery">
+<section
+    class="gallery-section"
+    id="gallery"
+>
 
 
     <div class="section-title">
@@ -512,6 +751,7 @@
         <small>
             MY WORKS
         </small>
+
 
         <h2>
             Gallery
@@ -527,11 +767,13 @@
 
     <div class="category">
 
+
         <div class="category-heading">
 
             <span class="category-number">
                 01
             </span>
+
 
             <h3 class="category-title">
                 B&W / Pencil
@@ -539,22 +781,29 @@
 
         </div>
 
+
         <p class="category-description">
-            Black and white drawings, sketches, and pencil studies.
+
+            Black and white drawings,
+            sketches, and pencil studies.
+
         </p>
+
 
 
         <div class="gallery-grid">
 
 
-            <!-- SLOT 1 - SUDAH TERISI -->
+            <!-- ARTWORK 1 -->
 
             <div class="card">
+
 
                 <img
                     src="foto1.jpeg"
                     alt="Portrait Study"
                 >
+
 
                 <div class="card-info">
 
@@ -562,47 +811,14 @@
                         B&W / PENCIL
                     </small>
 
+
                     <h3>
                         Portrait Study
                     </h3>
 
                 </div>
 
-            </div>
 
-
-            <!-- SLOT 2 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 3 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 4 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 5 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 6 -->
-
-            <div class="card empty">
-                EMPTY
             </div>
 
 
@@ -616,73 +832,11 @@
          PAINTING
     ====================== -->
 
-    <div class="category">
-
-        <div class="category-heading">
-
-            <span class="category-number">
-                02
-            </span>
-
-            <h3 class="category-title">
-                Painting
-            </h3>
-
-        </div>
-
-        <p class="category-description">
-            Acrylic paintings, canvas works, and traditional paintings.
-        </p>
-
-
-        <div class="gallery-grid">
-
-
-            <!-- SLOT 1 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 2 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 3 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 4 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 5 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 6 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-        </div>
-
-    </div>
+    <!--
+    KALAU NANTI SUDAH PUNYA
+    KARYA PAINTING, TAMBAHKAN
+    KATEGORI DI SINI.
+    -->
 
 
 
@@ -690,73 +844,11 @@
          DIGITAL ART
     ====================== -->
 
-    <div class="category">
-
-        <div class="category-heading">
-
-            <span class="category-number">
-                03
-            </span>
-
-            <h3 class="category-title">
-                Digital Art
-            </h3>
-
-        </div>
-
-        <p class="category-description">
-            Digital illustrations, edits, and other digital creations.
-        </p>
-
-
-        <div class="gallery-grid">
-
-
-            <!-- SLOT 1 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 2 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 3 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 4 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 5 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-            <!-- SLOT 6 -->
-
-            <div class="card empty">
-                EMPTY
-            </div>
-
-
-        </div>
-
-    </div>
+    <!--
+    KALAU NANTI SUDAH PUNYA
+    DIGITAL ART, TAMBAHKAN
+    KATEGORI DI SINI.
+    -->
 
 
 </section>
@@ -767,30 +859,50 @@
      ABOUT
 ========================= -->
 
-<section class="about" id="about">
+<section
+    class="about"
+    id="about"
+>
+
 
     <small>
         ABOUT ME
     </small>
 
+
     <h2>
-        A little space for the things I love to create.
+
+        A little space for the
+        things I love to create.
+
     </h2>
 
-    <p>
-        Hi! I'm an artist who enjoys creating
-        drawings, paintings, and other little
-        creative projects.
-    </p>
 
     <p>
-        This website is my personal space to
-        collect and share the artworks I've made.
+
+        Hi! I'm an artist who enjoys
+        creating drawings, paintings,
+        and other little creative projects.
+
     </p>
 
+
     <p>
-        New works will be added as I continue creating.
+
+        This website is my personal space
+        to collect and share the artworks
+        I've made.
+
     </p>
+
+
+    <p>
+
+        New works will be added
+        as I continue creating.
+
+    </p>
+
 
 </section>
 
@@ -800,22 +912,34 @@
      INSTAGRAM
 ========================= -->
 
-<section class="instagram" id="instagram">
+<section
+    class="instagram"
+    id="instagram"
+>
+
 
     <h2>
         More on Instagram
     </h2>
 
+
     <p>
-        See more of my artwork and creative projects.
+
+        See more of my artwork
+        and creative projects.
+
     </p>
+
 
     <a
         href="#"
         class="instagram-button"
     >
+
         @yourinstagram
+
     </a>
+
 
 </section>
 
@@ -827,7 +951,8 @@
 
 <footer>
 
-    © 2026 ART GALLERY · Personal artwork archive
+    © 2026 ART GALLERY ·
+    Personal artwork archive
 
 </footer>
 
