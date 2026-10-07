@@ -123,9 +123,7 @@
 
             align-items: center;
 
-            gap: 35px;
-
-            padding: 18px 20px;
+            width: fit-content;
 
             margin: 0 auto 80px;
 
@@ -154,12 +152,23 @@
 
             letter-spacing: 1px;
 
+            padding: 16px 28px;
+
             transition: .2s;
+
+            border-right: 1px solid #e8dddd;
+        }
+
+        .category-nav a:last-child {
+
+            border-right: none;
         }
 
         .category-nav a:hover {
 
             color: #b97986;
+
+            background: rgba(255,255,255,.35);
         }
 
 
@@ -374,19 +383,20 @@
 
                 top: 75px;
 
-                gap: 20px;
+                width: 100%;
 
                 overflow-x: auto;
 
-                justify-content: flex-start;
-
-                white-space: nowrap;
-
-                padding-left: 25px;
-
-                padding-right: 25px;
+                justify-content: center;
 
                 margin-bottom: 60px;
+            }
+
+            .category-nav a {
+
+                padding: 15px 20px;
+
+                white-space: nowrap;
             }
 
             .category {
@@ -449,12 +459,14 @@
 
             .category-nav {
 
-                gap: 17px;
+                justify-content: flex-start;
             }
 
             .category-nav a {
 
                 font-size: 10px;
+
+                padding: 15px 17px;
             }
 
         }
@@ -466,10 +478,6 @@
 
 <body>
 
-
-<!-- =========================
-     NAVBAR UTAMA
-========================= -->
 
 <header>
 
@@ -495,10 +503,6 @@
 
 </header>
 
-
-<!-- =========================
-     JUDUL
-========================= -->
 
 <section class="gallery-header">
 
@@ -672,8 +676,6 @@
     </p>
 
 
-    <!-- DIGITAL ARTWORK -->
-
     <div class="artwork">
 
         <img
@@ -698,10 +700,6 @@
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
     © 2026 ART GALLERY · Personal artwork archive
@@ -711,4 +709,4 @@
 
 </body>
 
-        </html>
+</html>
