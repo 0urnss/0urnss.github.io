@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery · Art Gallery</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: #fff;
+        }
+
+        /* NAVBAR */
+
+        header {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 13px;
+            transition: .2s;
+        }
+
+        nav a:hover {
+            color: #b97986;
+        }
+
+        /* GALLERY */
+
+        .gallery-section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-title small {
+            color: #b97986;
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .section-title h1 {
+            font-family: Georgia, serif;
+            font-size: 45px;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        .category {
+            margin-bottom: 80px;
+        }
+
+        .category-heading {
+            display: flex;
+            align-items: baseline;
+            gap: 18px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e5e0dc;
+            padding-bottom: 14px;
+        }
+
+        .category-number {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #b97986;
+        }
+
+        .category-title {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .category-description {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* MASONRY */
+
+        .gallery-grid {
+            columns: 3 250px;
+            column-gap: 18px;
+        }
+
+        .card {
+            background: #eee;
+            overflow: hidden;
+            position: relative;
+            border-radius: 4px;
+            margin-bottom: 18px;
+            break-inside: avoid;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: .5s;
+        }
+
+        .card:hover img {
+            transform: scale(1.03);
+        }
+
+        .card-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 45px 20px 18px;
+            color: white;
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.7)
+            );
+            opacity: 0;
+            transform: translateY(10px);
+            transition: .3s;
+        }
+
+        .card:hover .card-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-info small {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            opacity: .8;
+        }
+
+        .card-info h3 {
+            margin-top: 5px;
+            font-family: Georgia, serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f5eeee;
+            color: #888;
+            font-size: 11px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .gallery-section {
+                padding: 65px 20px;
+            }
+
+            .section-title {
+                margin-bottom: 50px;
+            }
+
+            .section-title h1 {
+                font-size: 36px;
+            }
+
+            .category-title {
+                font-size: 24px;
+            }
+
+            .gallery-grid {
+                columns: 2 150px;
+                column-gap: 10px;
+            }
+
+            .card {
+                margin-bottom: 10px;
+            }
+
+        }
+
+        @media (max-width: 400px) {
+
+            .logo {
+                font-size: 16px;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .gallery-grid {
+                columns: 2 120px;
+                column-gap: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        ART GALLERY
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="gallery.html">
+            Gallery
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<section class="gallery-section">
+
+
+    <div class="section-title">
+
+        <small>
+            MY WORKS
+        </small>
+
+        <h1>
+            Gallery
+        </h1>
+
+    </div>
+
+
+
+    <!-- B&W / PENCIL -->
+
+    <div class="category">
+
+        <div class="category-heading">
+
+            <span class="category-number">
+                01
+            </span>
+
+            <h2 class="category-title">
+                B&W / Pencil
+            </h2>
+
+        </div>
+
+        <p class="category-description">
+            Black and white drawings, sketches,
+            and pencil studies.
+        </p>
+
+
+        <div class="gallery-grid">
+
+
+            <div class="card">
+
+                <img
+                    src="foto1.jpeg"
+                    alt="Portrait Study"
+                >
+
+                <div class="card-info">
+
+                    <small>
+                        B&W / PENCIL
+                    </small>
+
+                    <h3>
+                        Portrait Study
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PAINTING -->
+
+    <!--
+    NANTI KALAU SUDAH ADA
+    KARYA PAINTING, MASUKKAN
+    DI SINI.
+    -->
+
+
+    <!-- DIGITAL ART -->
+
+    <!--
+    NANTI KALAU SUDAH ADA
+    KARYA DIGITAL ART, MASUKKAN
+    DI SINI.
+    -->
+
+
+</section>
+
+
+
+<footer>
+
+    © 2026 ART GALLERY · Personal artwork archive
+
+</footer>
+
+
+</body>
+
+</html>
