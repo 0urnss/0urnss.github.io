@@ -2657,12 +2657,15 @@ let dinoSpeed = 5;
 let dinoFrame = 0;
 let dinoGroundY = 0;
 
+
+/* UKURAN DINO DIBESARKAN */
+
 let dinoPlayer = {
 
     x:65,
     y:0,
-    width:85,
-    height:85,
+    width:130,
+    height:130,
     velocityY:0,
     gravity:.65,
     jumpPower:-12,
@@ -2773,8 +2776,10 @@ function startDinoGame(){
         100 +
         Math.random() * 100;
 
-    dinoPlayer.width = 85;
-    dinoPlayer.height = 85;
+    /* DINO 130x130 */
+
+    dinoPlayer.width = 130;
+    dinoPlayer.height = 130;
     dinoPlayer.x = 65;
 
     dinoPlayer.y =
@@ -3011,7 +3016,9 @@ function updateDino(){
 
 function checkDinoCollision(){
 
-    const padding = 12;
+    /* HITBOX DISESUAIKAN UNTUK DINO BESAR */
+
+    const padding = 16;
 
     const playerLeft =
         dinoPlayer.x +
