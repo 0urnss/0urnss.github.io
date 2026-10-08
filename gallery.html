@@ -135,6 +135,7 @@ body::before{
     color:#805965;
     letter-spacing:1px;
     margin-bottom:18px;
+    cursor:default;
 }
 
 
@@ -530,7 +531,7 @@ footer{
 
         <div class="board-inner">
 
-            <div class="logo">
+            <div class="logo" id="secretLogo">
                 ART GALLERY
             </div>
 
@@ -645,21 +646,88 @@ let artworks = [];
 
 
 /* =====================================================
+   SECRET ADMIN LOGIN
+   Klik ART GALLERY 5x dengan cepat
+   ===================================================== */
+
+let logoClicks = 0;
+let logoTimer;
+
+document
+    .getElementById("secretLogo")
+    .addEventListener(
+        "click",
+        function(){
+
+            logoClicks++;
+
+            clearTimeout(
+                logoTimer
+            );
+
+            logoTimer =
+                setTimeout(
+                    function(){
+
+                        logoClicks = 0;
+
+                    },
+                    1500
+                );
+
+
+            if(
+                logoClicks >= 5
+            ){
+
+                logoClicks = 0;
+
+                window.location.href =
+                    "admin.html";
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
    ESCAPE HTML
    ===================================================== */
 
 function escapeHTML(value){
 
-    if(value === null || value === undefined){
+    if(
+        value === null ||
+        value === undefined
+    ){
+
         return "";
+
     }
 
+
     return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
@@ -671,7 +739,9 @@ function escapeHTML(value){
 function categoryIcon(category){
 
     const text =
-        String(category).toLowerCase();
+        String(category)
+            .toLowerCase();
+
 
     if(
         text.includes("pencil") ||
@@ -679,21 +749,30 @@ function categoryIcon(category){
         text.includes("black") ||
         text.includes("drawing")
     ){
+
         return "✏️";
+
     }
+
 
     if(
         text.includes("paint") ||
         text.includes("acrylic")
     ){
+
         return "🎨";
+
     }
+
 
     if(
         text.includes("digital")
     ){
+
         return "🖥️";
+
     }
+
 
     return "🖼️";
 
@@ -707,17 +786,26 @@ function categoryIcon(category){
 async function loadArtworks(){
 
     const galleryContent =
-        document.getElementById("galleryContent");
+        document.getElementById(
+            "galleryContent"
+        );
 
     const categoryNav =
-        document.getElementById("categoryNav");
+        document.getElementById(
+            "categoryNav"
+        );
 
 
     galleryContent.innerHTML =
-        '<div class="loading">Memuat karya...</div>';
+        '<div class="loading">' +
+        'Memuat karya...' +
+        '</div>';
+
 
     categoryNav.innerHTML =
-        '<div class="loading">Memuat kategori...</div>';
+        '<div class="loading">' +
+        'Memuat kategori...' +
+        '</div>';
 
 
     try{
@@ -734,18 +822,24 @@ async function loadArtworks(){
                 );
 
 
-        if(response.error){
+        if(
+            response.error
+        ){
 
             console.error(
                 response.error
             );
+
 
             galleryContent.innerHTML =
                 '<div class="error-gallery">' +
                 'Gagal memuat karya dari database.' +
                 '</div>';
 
-            categoryNav.innerHTML = "";
+
+            categoryNav.innerHTML =
+                "";
+
 
             return;
 
@@ -756,14 +850,19 @@ async function loadArtworks(){
             response.data || [];
 
 
-        if(artworks.length === 0){
+        if(
+            artworks.length === 0
+        ){
 
-            categoryNav.innerHTML = "";
+            categoryNav.innerHTML =
+                "";
+
 
             galleryContent.innerHTML =
                 '<div class="empty-gallery">' +
                 'Belum ada karya di gallery ♡' +
                 '</div>';
+
 
             return;
 
@@ -776,9 +875,14 @@ async function loadArtworks(){
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
 
-        categoryNav.innerHTML = "";
+
+        categoryNav.innerHTML =
+            "";
+
 
         galleryContent.innerHTML =
             '<div class="error-gallery">' +
@@ -797,42 +901,61 @@ async function loadArtworks(){
 function renderCategories(){
 
     const categoryNav =
-        document.getElementById("categoryNav");
+        document.getElementById(
+            "categoryNav"
+        );
 
 
     const categories = [];
 
 
-    artworks.forEach(artwork => {
+    artworks.forEach(
+        artwork => {
 
-        const category =
-            artwork.category || "Other";
+            const category =
+                artwork.category ||
+                "Other";
 
 
-        if(
-            !categories.includes(category)
-        ){
+            if(
+                !categories.includes(
+                    category
+                )
+            ){
 
-            categories.push(category);
+                categories.push(
+                    category
+                );
+
+            }
 
         }
+    );
 
-    });
 
-
-    categoryNav.innerHTML = "";
+    categoryNav.innerHTML =
+        "";
 
 
     categories.forEach(
-        (category,index) => {
+        (
+            category,
+            index
+        ) => {
 
             const button =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
+
 
             button.className =
                 "category-btn";
 
-            if(index === 0){
+
+            if(
+                index === 0
+            ){
 
                 button.classList.add(
                     "active"
@@ -842,9 +965,13 @@ function renderCategories(){
 
 
             button.innerHTML =
-                categoryIcon(category) +
+                categoryIcon(
+                    category
+                ) +
                 " " +
-                escapeHTML(category);
+                escapeHTML(
+                    category
+                );
 
 
             button.addEventListener(
@@ -888,24 +1015,30 @@ function showCategory(
         .querySelectorAll(
             ".category-content"
         )
-        .forEach(section => {
+        .forEach(
+            section => {
 
-            section.classList.remove(
-                "active"
-            );
+                section.classList.remove(
+                    "active"
+                );
 
-        });
+            }
+        );
 
 
     const selected =
         document.querySelector(
             '[data-category="' +
-            CSS.escape(category) +
+            CSS.escape(
+                category
+            ) +
             '"]'
         );
 
 
-    if(selected){
+    if(
+        selected
+    ){
 
         selected.classList.add(
             "active"
@@ -918,13 +1051,15 @@ function showCategory(
         .querySelectorAll(
             ".category-btn"
         )
-        .forEach(btn => {
+        .forEach(
+            btn => {
 
-            btn.classList.remove(
-                "active"
-            );
+                btn.classList.remove(
+                    "active"
+                );
 
-        });
+            }
+        );
 
 
     button.classList.add(
@@ -948,27 +1083,35 @@ function renderArtworkCategories(
         );
 
 
-    galleryContent.innerHTML = "";
+    galleryContent.innerHTML =
+        "";
 
 
     const categories = [];
 
 
-    artworks.forEach(artwork => {
+    artworks.forEach(
+        artwork => {
 
-        const category =
-            artwork.category || "Other";
+            const category =
+                artwork.category ||
+                "Other";
 
 
-        if(
-            !categories.includes(category)
-        ){
+            if(
+                !categories.includes(
+                    category
+                )
+            ){
 
-            categories.push(category);
+                categories.push(
+                    category
+                );
+
+            }
 
         }
-
-    });
+    );
 
 
     categories.forEach(
@@ -1060,8 +1203,12 @@ function createArtworkCard(
         <div class="art-image-wrap">
 
             <img
-                src="${escapeHTML(artwork.image_url)}"
-                alt="${escapeHTML(artwork.title)}"
+                src="${escapeHTML(
+                    artwork.image_url
+                )}"
+                alt="${escapeHTML(
+                    artwork.title
+                )}"
                 class="art-image"
                 loading="lazy">
 
@@ -1069,18 +1216,26 @@ function createArtworkCard(
 
 
         <h2 class="art-title">
-            ${escapeHTML(artwork.title)}
+            ${escapeHTML(
+                artwork.title
+            )}
         </h2>
 
 
         <p class="art-description">
-            ${escapeHTML(artwork.description || artwork.category || "")}
+            ${escapeHTML(
+                artwork.description ||
+                artwork.category ||
+                ""
+            )}
         </p>
 
 
         <div
             class="rating-box"
-            data-artwork="${escapeHTML(artworkId)}">
+            data-artwork="${escapeHTML(
+                artworkId
+            )}">
 
             <div class="rating-title">
                 ⭐ Rate this artwork
@@ -1147,18 +1302,25 @@ function createArtworkCard(
    SETUP RATING
    ===================================================== */
 
-function setupRating(box){
+function setupRating(
+    box
+){
 
     const artwork =
         box.dataset.artwork;
 
+
     const stars =
-        box.querySelectorAll(".star");
+        box.querySelectorAll(
+            ".star"
+        );
+
 
     const result =
         box.querySelector(
             ".rating-result"
         );
+
 
     const message =
         box.querySelector(
@@ -1172,79 +1334,78 @@ function setupRating(box){
     );
 
 
-    stars.forEach(star => {
+    stars.forEach(
+        star => {
 
+            star.addEventListener(
+                "mouseenter",
+                function(){
 
-        /* HOVER */
-
-        star.addEventListener(
-            "mouseenter",
-            function(){
-
-                const value =
-                    Number(
-                        this.dataset.rating
-                    );
-
-
-                stars.forEach(s => {
-
-                    const starValue =
+                    const value =
                         Number(
-                            s.dataset.rating
+                            this.dataset.rating
                         );
 
 
-                    s.classList.toggle(
-                        "hovered",
-                        starValue <= value
+                    stars.forEach(
+                        s => {
+
+                            const starValue =
+                                Number(
+                                    s.dataset.rating
+                                );
+
+
+                            s.classList.toggle(
+                                "hovered",
+                                starValue <= value
+                            );
+
+                        }
                     );
 
-                });
-
-            }
-        );
+                }
+            );
 
 
-        /* CLICK */
+            star.addEventListener(
+                "click",
+                async function(){
 
-        star.addEventListener(
-            "click",
-            async function(){
+                    const value =
+                        Number(
+                            this.dataset.rating
+                        );
 
-                const value =
-                    Number(
-                        this.dataset.rating
+
+                    await submitRating(
+                        artwork,
+                        value,
+                        stars,
+                        result,
+                        message
                     );
 
+                }
+            );
 
-                await submitRating(
-                    artwork,
-                    value,
-                    stars,
-                    result,
-                    message
-                );
+        }
+    );
 
-            }
-        );
-
-    });
-
-
-    /* REMOVE HOVER */
 
     box.addEventListener(
         "mouseleave",
         function(){
 
-            stars.forEach(star => {
+            stars.forEach(
+                star => {
 
-                star.classList.remove(
-                    "hovered"
-                );
+                    star.classList.remove(
+                        "hovered"
+                    );
 
-            });
+                }
+            );
 
         }
     );
@@ -1273,14 +1434,18 @@ async function loadRating(
                 );
 
 
-        if(response.error){
+        if(
+            response.error
+        ){
 
             console.error(
                 response.error
             );
 
+
             result.textContent =
                 "Rating belum tersedia";
+
 
             return;
 
@@ -1299,6 +1464,7 @@ async function loadRating(
             result.textContent =
                 "Belum ada rating";
 
+
             return;
 
         }
@@ -1307,18 +1473,21 @@ async function loadRating(
         let total = 0;
 
 
-        data.forEach(item => {
+        data.forEach(
+            item => {
 
-            total +=
-                Number(
-                    item.rating
-                );
+                total +=
+                    Number(
+                        item.rating
+                    );
 
-        });
+            }
+        );
 
 
         const average =
-            total / data.length;
+            total /
+            data.length;
 
 
         result.textContent =
@@ -1332,7 +1501,10 @@ async function loadRating(
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
+
 
         result.textContent =
             "Rating belum tersedia";
@@ -1359,8 +1531,6 @@ async function submitRating(
         artwork;
 
 
-    /* CEK SUDAH PERNAH RATING */
-
     if(
         localStorage.getItem(
             storageKey
@@ -1370,27 +1540,28 @@ async function submitRating(
         message.textContent =
             "Kamu sudah memberi rating untuk karya ini ♡";
 
+
         return;
 
     }
 
 
-    /* TAMPILKAN BINTANG */
+    stars.forEach(
+        star => {
 
-    stars.forEach(star => {
+            const starValue =
+                Number(
+                    star.dataset.rating
+                );
 
-        const starValue =
-            Number(
-                star.dataset.rating
+
+            star.classList.toggle(
+                "selected",
+                starValue <= value
             );
 
-
-        star.classList.toggle(
-            "selected",
-            starValue <= value
-        );
-
-    });
+        }
+    );
 
 
     message.textContent =
@@ -1410,7 +1581,9 @@ async function submitRating(
                 ]);
 
 
-        if(response.error){
+        if(
+            response.error
+        ){
 
             console.error(
                 response.error
@@ -1420,12 +1593,11 @@ async function submitRating(
             message.textContent =
                 "Rating gagal disimpan.";
 
+
             return;
 
         }
 
-
-        /* SIMPAN STATUS DI BROWSER */
 
         localStorage.setItem(
             storageKey,
@@ -1437,8 +1609,6 @@ async function submitRating(
             "Rating kamu berhasil disimpan ♡";
 
 
-        /* UPDATE HASIL RATING */
-
         await loadRating(
             artwork,
             result
@@ -1448,7 +1618,10 @@ async function submitRating(
 
     catch(error){
 
-        console.error(error);
+        console.error(
+            error
+        );
+
 
         message.textContent =
             "Terjadi kesalahan.";
