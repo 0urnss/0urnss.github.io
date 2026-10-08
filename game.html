@@ -101,6 +101,7 @@ body::before{
 
 .main-board{
     max-width:1050px;
+    width:100%;
     margin:auto;
 
     background:#d9aeb9;
@@ -237,6 +238,7 @@ body::before{
 ========================= */
 
 .page{
+    width:100%;
     max-width:900px;
 
     margin:40px auto;
@@ -250,6 +252,8 @@ body::before{
 ========================= */
 
 .game-board{
+    width:100%;
+
     background:#d9aeb9;
 
     border:2px solid #a97682;
@@ -264,6 +268,8 @@ body::before{
 
 .game-inner{
     position:relative;
+
+    width:100%;
 
     background:#fff8f9;
 
@@ -961,12 +967,16 @@ footer{
     }
 
     .page{
+        width:100%;
+
         margin:30px auto;
 
         padding:0 12px;
     }
 
     .game-board{
+        width:100%;
+
         border-radius:23px;
 
         padding:9px;
@@ -1060,10 +1070,6 @@ footer{
 <div class="decor four">˚₊‧</div>
 
 
-<!-- =========================
-     TOP BOARD
-========================= -->
-
 <div class="top-area">
 
     <div class="main-board">
@@ -1073,7 +1079,6 @@ footer{
             <div class="logo">
                 ART GALLERY
             </div>
-
 
             <nav class="navbar">
 
@@ -1102,16 +1107,11 @@ footer{
 </div>
 
 
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="page">
 
     <div class="game-board">
 
         <div class="game-inner">
-
 
             <h1 class="page-title">
                 MINI GAMES
@@ -1122,8 +1122,6 @@ footer{
             </p>
 
 
-            <!-- GAME TABS -->
-
             <div class="game-tabs">
 
                 <button
@@ -1133,14 +1131,12 @@ footer{
                     🃏 Memory Card
                 </button>
 
-
                 <button
                     class="game-tab"
                     onclick="showGame('color',this)"
                 >
                     🎨 Color Match
                 </button>
-
 
                 <button
                     class="game-tab"
@@ -1151,8 +1147,6 @@ footer{
 
             </div>
 
-
-            <!-- MEMORY -->
 
             <section
                 id="memory"
@@ -1166,7 +1160,6 @@ footer{
                 <p class="game-description">
                     Selesaikan semua 10 level sebelum waktunya habis!
                 </p>
-
 
                 <div class="memory-info">
 
@@ -1220,8 +1213,6 @@ footer{
 
             </section>
 
-
-            <!-- COLOR MATCH -->
 
             <section
                 id="color"
@@ -1298,8 +1289,6 @@ footer{
 
             </section>
 
-
-            <!-- DRAWING CHALLENGE -->
 
             <section
                 id="drawing"
@@ -1416,35 +1405,22 @@ footer{
 
 <script>
 
-
-/* =========================
-   GAME TABS
-========================= */
-
 function showGame(gameId,button){
 
     document.querySelectorAll(".game-section")
         .forEach(section => {
-
             section.classList.remove("active");
-
         });
-
 
     document.getElementById(gameId)
         .classList.add("active");
 
-
     document.querySelectorAll(".game-tab")
         .forEach(tab => {
-
             tab.classList.remove("active");
-
         });
 
-
     button.classList.add("active");
-
 }
 
 
@@ -1453,7 +1429,6 @@ function showGame(gameId,button){
 ========================= */
 
 const memoryLevels = [
-
     {level:1,pairs:3,time:30},
     {level:2,pairs:4,time:35},
     {level:3,pairs:5,time:40},
@@ -1464,12 +1439,9 @@ const memoryLevels = [
     {level:8,pairs:10,time:65},
     {level:9,pairs:11,time:70},
     {level:10,pairs:12,time:75}
-
 ];
 
-
 const memoryEmojis = [
-
     "🌸",
     "🎨",
     "🦋",
@@ -1488,9 +1460,7 @@ const memoryEmojis = [
     "🪻",
     "🍉",
     "🐻"
-
 ];
-
 
 let memoryLevel = 1;
 let firstCard = null;
@@ -1519,7 +1489,6 @@ function createMemoryLevel(){
     const levelData =
         memoryLevels[memoryLevel - 1];
 
-
     firstCard = null;
     secondCard = null;
     memoryLock = false;
@@ -1528,28 +1497,22 @@ function createMemoryLevel(){
     memoryTimeLeft = levelData.time;
     memoryRunning = true;
 
-
     document.getElementById("memoryLevel")
         .textContent = memoryLevel;
-
 
     document.getElementById("memoryTime")
         .textContent = memoryTimeLeft;
 
-
     document.getElementById("memoryMoves")
         .textContent = 0;
 
-
     document.getElementById("memoryPairs")
         .textContent = "0/" + levelData.pairs;
-
 
     document.getElementById("memoryMessage")
         .textContent =
         "Level " + memoryLevel +
         " dimulai! Cari semua pasangan ♡";
-
 
     let selected =
         memoryEmojis
@@ -1558,65 +1521,45 @@ function createMemoryLevel(){
             memoryEmojis.slice(0,levelData.pairs)
         );
 
-
     selected.sort(() => Math.random() - .5);
-
 
     const grid =
         document.getElementById("memoryGrid");
 
-
     grid.innerHTML = "";
-
 
     selected.forEach(emoji => {
 
         const card =
             document.createElement("div");
 
-
         card.className = "memory-card";
-
 
         card.dataset.value = emoji;
 
-
         card.innerHTML = `
-
             <div class="memory-card-inner">
-
                 <div class="memory-front"></div>
-
-                <div class="memory-back">
-                    ${emoji}
-                </div>
-
+                <div class="memory-back">${emoji}</div>
             </div>
-
         `;
-
 
         card.addEventListener(
             "click",
             () => flipMemoryCard(card)
         );
 
-
         grid.appendChild(card);
 
     });
-
 
     memoryTimer =
         setInterval(() => {
 
             memoryTimeLeft--;
 
-
             document.getElementById("memoryTime")
-                .textContent =
-                memoryTimeLeft;
-
+                .textContent = memoryTimeLeft;
 
             if(memoryTimeLeft <= 0){
 
@@ -1625,7 +1568,6 @@ function createMemoryLevel(){
                 memoryRunning = false;
 
                 memoryLock = true;
-
 
                 document.getElementById("memoryMessage")
                     .textContent =
@@ -1646,14 +1588,10 @@ function flipMemoryCard(card){
         card.classList.contains("flipped") ||
         card.classList.contains("matched")
     ){
-
         return;
-
     }
 
-
     card.classList.add("flipped");
-
 
     if(!firstCard){
 
@@ -1663,18 +1601,14 @@ function flipMemoryCard(card){
 
     }
 
-
     secondCard = card;
 
     memoryMoves++;
 
-
     document.getElementById("memoryMoves")
         .textContent = memoryMoves;
 
-
     memoryLock = true;
-
 
     if(
         firstCard.dataset.value ===
@@ -1687,23 +1621,18 @@ function flipMemoryCard(card){
 
         memoryPairs++;
 
-
         const totalPairs =
             memoryLevels[memoryLevel - 1].pairs;
-
 
         document.getElementById("memoryPairs")
             .textContent =
             memoryPairs + "/" + totalPairs;
 
-
         resetMemoryTurn();
-
 
         if(memoryPairs === totalPairs){
 
             clearInterval(memoryTimer);
-
 
             if(memoryLevel < 10){
 
@@ -1712,7 +1641,6 @@ function flipMemoryCard(card){
                     "🎉 Level " +
                     memoryLevel +
                     " selesai!";
-
 
                 setTimeout(() => {
 
@@ -1842,37 +1770,29 @@ function startColorGame(){
     colorTimeLeft = 60;
     colorRunning = true;
 
-
     document.getElementById("colorScore")
         .textContent = 0;
-
 
     document.getElementById("colorRound")
         .textContent = 0;
 
-
     document.getElementById("colorTime")
         .textContent = 60;
-
 
     document.getElementById("colorMessage")
         .textContent =
         "Pilih warna yang paling tepat!";
 
-
     newColorRound();
-
 
     colorTimer =
         setInterval(() => {
 
             colorTimeLeft--;
 
-
             document.getElementById("colorTime")
                 .textContent =
                 colorTimeLeft;
-
 
             if(colorTimeLeft <= 0){
 
@@ -1880,10 +1800,8 @@ function startColorGame(){
 
                 colorRunning = false;
 
-
                 document.getElementById("colorOptions")
                     .innerHTML = "";
-
 
                 document.getElementById("colorMessage")
                     .textContent =
@@ -1901,33 +1819,26 @@ function newColorRound(){
 
     if(!colorRunning) return;
 
-
     colorRound++;
-
 
     document.getElementById("colorRound")
         .textContent =
         colorRound;
 
-
     const family =
         randomColorFamily();
-
 
     const targetIndex =
         Math.floor(
             Math.random() * family.length
         );
 
-
     const target =
         family[targetIndex];
-
 
     document.getElementById("targetColor")
         .style.background =
         rgbToString(target);
-
 
     const shuffled =
         family
@@ -1937,27 +1848,21 @@ function newColorRound(){
         }))
         .sort(() => Math.random() - .5);
 
-
     const container =
         document.getElementById("colorOptions");
 
-
     container.innerHTML = "";
-
 
     shuffled.forEach(item => {
 
         const button =
             document.createElement("button");
 
-
         button.className =
             "color-choice";
 
-
         button.style.background =
             rgbToString(item.color);
-
 
         button.addEventListener(
             "click",
@@ -1965,13 +1870,11 @@ function newColorRound(){
 
                 if(!colorRunning) return;
 
-
                 if(item.index === targetIndex){
 
                     colorScore += 10;
 
                     button.classList.add("correct");
-
 
                     document.getElementById("colorMessage")
                         .textContent =
@@ -1985,9 +1888,7 @@ function newColorRound(){
                             colorScore - 3
                         );
 
-
                     button.classList.add("wrong");
-
 
                     document.getElementById("colorMessage")
                         .textContent =
@@ -1995,11 +1896,9 @@ function newColorRound(){
 
                 }
 
-
                 document.getElementById("colorScore")
                     .textContent =
                     colorScore;
-
 
                 setTimeout(
                     newColorRound,
@@ -2008,7 +1907,6 @@ function newColorRound(){
 
             }
         );
-
 
         container.appendChild(button);
 
@@ -2024,10 +1922,8 @@ function newColorRound(){
 const canvas =
     document.getElementById("drawingCanvas");
 
-
 const ctx =
     canvas.getContext("2d");
-
 
 let drawing = false;
 
@@ -2037,26 +1933,20 @@ function setupCanvas(){
     const rect =
         canvas.getBoundingClientRect();
 
-
     const dpr =
         window.devicePixelRatio || 1;
-
 
     canvas.width =
         rect.width * dpr;
 
-
     canvas.height =
         rect.height * dpr;
 
-
     ctx.scale(dpr,dpr);
-
 
     ctx.lineCap = "round";
 
     ctx.lineJoin = "round";
-
 
     clearCanvas();
 
@@ -2070,7 +1960,6 @@ function getCanvasPosition(event){
 
     const rect =
         canvas.getBoundingClientRect();
-
 
     return {
 
@@ -2092,7 +1981,6 @@ canvas.addEventListener(
         const pos =
             getCanvasPosition(event);
 
-
         ctx.beginPath();
 
         ctx.moveTo(
@@ -2110,28 +1998,23 @@ canvas.addEventListener(
 
         if(!drawing) return;
 
-
         const pos =
             getCanvasPosition(event);
-
 
         ctx.lineWidth =
             document.getElementById(
                 "brushSize"
             ).value;
 
-
         ctx.strokeStyle =
             document.getElementById(
                 "brushColor"
             ).value;
 
-
         ctx.lineTo(
             pos.x,
             pos.y
         );
-
 
         ctx.stroke();
 
@@ -2199,12 +2082,10 @@ function newChallenge(){
             )
         ];
 
-
     document.getElementById(
         "challengeName"
     ).textContent =
         random;
-
 
     clearCanvas();
 
@@ -2266,14 +2147,11 @@ drawingColors.forEach(
                 "button"
             );
 
-
         button.className =
             "palette-color";
 
-
         button.style.background =
             color;
-
 
         if(index === 1){
 
@@ -2283,10 +2161,8 @@ drawingColors.forEach(
 
         }
 
-
         button.title =
             color;
-
 
         button.addEventListener(
             "click",
@@ -2294,7 +2170,6 @@ drawingColors.forEach(
 
                 colorInput.value =
                     color;
-
 
                 document.querySelectorAll(
                     ".palette-color"
@@ -2308,14 +2183,12 @@ drawingColors.forEach(
                     }
                 );
 
-
                 button.classList.add(
                     "selected"
                 );
 
             }
         );
-
 
         palette.appendChild(
             button
