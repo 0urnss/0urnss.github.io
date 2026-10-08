@@ -562,6 +562,140 @@ body::before{
 
 
 /* =========================
+   ANONYMOUS MESSAGE
+========================= */
+
+.anonymous-message{
+    margin-top:28px;
+    padding-top:25px;
+
+    border-top:1px dashed #d2a1ac;
+}
+
+.anonymous-title{
+    font-family:Georgia,serif;
+
+    color:#805965;
+
+    font-size:20px;
+
+    font-weight:400;
+
+    margin-bottom:6px;
+}
+
+.anonymous-description{
+    color:#a77c86;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    margin-bottom:12px;
+}
+
+.anonymous-form{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.anonymous-form textarea{
+    width:100%;
+
+    min-height:100px;
+
+    resize:vertical;
+
+    padding:12px 13px;
+
+    border:2px solid #dfb7c0;
+
+    border-radius:13px;
+
+    background:#fff8f9;
+
+    color:#59484d;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    outline:none;
+
+    transition:.2s;
+}
+
+.anonymous-form textarea::placeholder{
+    color:#b9959d;
+}
+
+.anonymous-form textarea:focus{
+    border-color:#c28c99;
+
+    box-shadow:
+        0 0 0 3px rgba(194,140,153,.12);
+}
+
+.anonymous-send{
+    align-self:flex-end;
+
+    padding:10px 17px;
+
+    border:2px solid #a96e7d;
+
+    border-radius:10px;
+
+    background:#c48696;
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+    font-size:11px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 0 #a96e7d;
+
+    transition:.2s;
+}
+
+.anonymous-send:hover{
+    background:#b87586;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 0 #955c6b;
+}
+
+.anonymous-send:disabled{
+    opacity:.6;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:
+        0 3px 0 #a96e7d;
+}
+
+.message-status{
+    min-height:16px;
+
+    color:#a56878;
+
+    font-size:11px;
+
+    text-align:right;
+}
+
+
+/* =========================
    SMALL TEXT
 ========================= */
 
@@ -720,6 +854,27 @@ footer::before{
 
     .home-text h2{
         font-size:27px;
+    }
+
+    .anonymous-message{
+        text-align:left;
+    }
+
+    .anonymous-title{
+        text-align:center;
+        font-size:18px;
+    }
+
+    .anonymous-description{
+        text-align:center;
+    }
+
+    .anonymous-send{
+        align-self:center;
+    }
+
+    .message-status{
+        text-align:center;
     }
 
 }
@@ -916,6 +1071,51 @@ footer::before{
                         VIEW MY GALLERY
                     </a>
 
+
+                    <!-- ANONYMOUS MESSAGE -->
+
+                    <div class="anonymous-message">
+
+                        <h3 class="anonymous-title">
+                            💌 Leave me a message ♡
+                        </h3>
+
+                        <p class="anonymous-description">
+                            Have something to say?
+                            You can send it anonymously.
+                        </p>
+
+                        <form
+                            class="anonymous-form"
+                            id="anonymousMessageForm"
+                        >
+
+                            <textarea
+                                id="anonymousMessage"
+                                maxlength="1000"
+                                placeholder="Write something for me... ♡"
+                                required
+                            ></textarea>
+
+                            <button
+                                type="submit"
+                                class="anonymous-send"
+                                id="anonymousSend"
+                            >
+                                Send ♡
+                            </button>
+
+                            <div
+                                class="message-status"
+                                id="messageStatus"
+                                aria-live="polite"
+                            ></div>
+
+                        </form>
+
+                    </div>
+
+
                     <div class="mini-text">
                         thank you for visiting ♡
                     </div>
@@ -939,6 +1139,109 @@ footer::before{
     made with ♡ by 0urnss
 
 </footer>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+    "https://ojjpssupaoputowjvokm.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_dFkIBbLpaQmH28VrkyQqLw_TTsrC_fy";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+const anonymousMessageForm =
+    document.getElementById("anonymousMessageForm");
+
+const anonymousMessage =
+    document.getElementById("anonymousMessage");
+
+const anonymousSend =
+    document.getElementById("anonymousSend");
+
+const messageStatus =
+    document.getElementById("messageStatus");
+
+
+anonymousMessageForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        const message =
+            anonymousMessage.value.trim();
+
+
+        if(!message){
+
+            messageStatus.textContent =
+                "Please write a message first ♡";
+
+            return;
+        }
+
+
+        anonymousSend.disabled = true;
+
+        anonymousSend.textContent =
+            "Sending...";
+
+
+        messageStatus.textContent =
+            "";
+
+
+        const { error } =
+            await supabaseClient
+                .from("anonymous_messages")
+                .insert([
+                    {
+                        message:message
+                    }
+                ]);
+
+
+        if(error){
+
+            console.error(error);
+
+            messageStatus.textContent =
+                "Something went wrong. Please try again ♡";
+
+            anonymousSend.disabled = false;
+
+            anonymousSend.textContent =
+                "Send ♡";
+
+            return;
+        }
+
+
+        anonymousMessage.value = "";
+
+        messageStatus.textContent =
+            "Message sent successfully ♡";
+
+        anonymousSend.disabled = false;
+
+        anonymousSend.textContent =
+            "Send ♡";
+
+    }
+);
+
+</script>
 
 
 </body>
