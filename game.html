@@ -103,60 +103,39 @@ body::before{
     max-width:1050px;
     width:100%;
     margin:auto;
-
     background:#d9aeb9;
-
     border:2px solid #a97682;
-
     border-radius:28px;
-
     padding:12px;
-
-    box-shadow:
-        0 8px 0 rgba(169,118,130,.35);
+    box-shadow:0 8px 0 rgba(169,118,130,.35);
 }
 
 .board-inner{
     position:relative;
-
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:21px;
-
     padding:22px 20px 18px;
-
     overflow:hidden;
 }
 
 .board-inner::before{
     content:"✿";
-
     position:absolute;
-
     top:12px;
     left:18px;
-
     font-size:25px;
-
     color:#b47786;
-
     transform:rotate(-15deg);
 }
 
 .board-inner::after{
     content:"♡";
-
     position:absolute;
-
     top:13px;
     right:20px;
-
     font-size:26px;
-
     color:#b47786;
-
     transform:rotate(10deg);
 }
 
@@ -167,15 +146,10 @@ body::before{
 
 .logo{
     text-align:center;
-
     font-family:Georgia,serif;
-
     font-size:38px;
-
     color:#805965;
-
     letter-spacing:1px;
-
     margin-bottom:18px;
 }
 
@@ -186,46 +160,29 @@ body::before{
 
 .navbar{
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     gap:10px;
-
     flex-wrap:wrap;
 }
 
 .navbar a{
     text-decoration:none;
-
     color:#805965;
-
     background:#f8edf0;
-
     border:2px solid #c28f9b;
-
     border-radius:13px;
-
     padding:9px 17px;
-
     font-size:14px;
-
     font-weight:bold;
-
-    box-shadow:
-        0 4px 0 #c28f9b;
-
+    box-shadow:0 4px 0 #c28f9b;
     transition:.2s;
 }
 
 .navbar a:hover{
     background:#edc4ce;
-
     transform:translateY(-2px);
-
-    box-shadow:
-        0 6px 0 #c28f9b;
+    box-shadow:0 6px 0 #c28f9b;
 }
 
 .navbar a.active{
@@ -240,9 +197,7 @@ body::before{
 .page{
     width:100%;
     max-width:900px;
-
     margin:40px auto;
-
     padding:0 20px;
 }
 
@@ -253,62 +208,40 @@ body::before{
 
 .game-board{
     width:100%;
-
     background:#d9aeb9;
-
     border:2px solid #a97682;
-
     border-radius:28px;
-
     padding:12px;
-
-    box-shadow:
-        0 8px 0 rgba(169,118,130,.35);
+    box-shadow:0 8px 0 rgba(169,118,130,.35);
 }
 
 .game-inner{
     position:relative;
-
     width:100%;
-
     background:#fff8f9;
-
     border:2px solid #c28c99;
-
     border-radius:21px;
-
     padding:32px 25px 35px;
-
     overflow:hidden;
 }
 
 .game-inner::before{
     content:"♡";
-
     position:absolute;
-
     left:20px;
     top:15px;
-
     font-size:22px;
-
     color:#c28c99;
-
     opacity:.6;
 }
 
 .game-inner::after{
     content:"✦";
-
     position:absolute;
-
     right:22px;
     bottom:20px;
-
     font-size:22px;
-
     color:#c28c99;
-
     opacity:.6;
 }
 
@@ -319,23 +252,16 @@ body::before{
 
 .page-title{
     text-align:center;
-
     margin:0 0 8px;
-
     font-family:Georgia,serif;
-
     color:#805965;
-
     font-size:32px;
 }
 
 .page-subtitle{
     text-align:center;
-
     margin:0 0 25px;
-
     color:#9b737d;
-
     font-size:14px;
 }
 
@@ -346,51 +272,33 @@ body::before{
 
 .game-tabs{
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:10px;
-
     margin-bottom:28px;
 }
 
 .game-tab{
     border:2px solid #c28f9b;
-
     background:#f8edf0;
-
     color:#805965;
-
     border-radius:13px;
-
     padding:9px 15px;
-
     font-weight:bold;
-
     font-size:13px;
-
     cursor:pointer;
-
-    box-shadow:
-        0 4px 0 #c28f9b;
-
+    box-shadow:0 4px 0 #c28f9b;
     transition:.2s;
 }
 
 .game-tab:hover{
     background:#edc4ce;
-
     transform:translateY(-2px);
-
-    box-shadow:
-        0 6px 0 #c28f9b;
+    box-shadow:0 6px 0 #c28f9b;
 }
 
 .game-tab.active{
     background:#e9bdc8;
-
     color:#714b57;
 }
 
@@ -401,7 +309,6 @@ body::before{
 
 .game-section{
     display:none;
-
     animation:fade .35s ease;
 }
 
@@ -430,39 +337,25 @@ body::before{
 
 .game-btn{
     border:2px solid #c28f9b;
-
     background:#f6dce2;
-
     color:#805965;
-
     padding:10px 18px;
-
     border-radius:12px;
-
     font-weight:bold;
-
     cursor:pointer;
-
-    box-shadow:
-        0 4px 0 #c28f9b;
-
+    box-shadow:0 4px 0 #c28f9b;
     transition:.2s;
 }
 
 .game-btn:hover{
     transform:translateY(-2px);
-
     background:#edc4ce;
-
-    box-shadow:
-        0 6px 0 #c28f9b;
+    box-shadow:0 6px 0 #c28f9b;
 }
 
 .game-btn:active{
     transform:translateY(2px);
-
-    box-shadow:
-        0 2px 0 #c28f9b;
+    box-shadow:0 2px 0 #c28f9b;
 }
 
 
@@ -472,23 +365,16 @@ body::before{
 
 .game-heading{
     text-align:center;
-
     color:#805965;
-
     font-family:Georgia,serif;
-
     font-size:25px;
-
     margin:0 0 7px;
 }
 
 .game-description{
     text-align:center;
-
     font-size:13px;
-
     color:#9b737d;
-
     margin-bottom:18px;
 }
 
@@ -499,65 +385,43 @@ body::before{
 
 .memory-info{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     flex-wrap:wrap;
-
     margin-bottom:18px;
 }
 
 .info-box{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:12px;
-
     padding:8px 14px;
-
     font-size:13px;
-
     font-weight:bold;
-
     color:#76515c;
 }
 
 .memory-grid{
     display:grid;
-
     grid-template-columns:repeat(6,70px);
-
     justify-content:center;
-
     gap:9px;
-
     max-width:520px;
-
     margin:auto;
 }
 
 .memory-card{
     width:70px;
-
     height:70px;
-
     perspective:700px;
-
     cursor:pointer;
 }
 
 .memory-card-inner{
     width:100%;
-
     height:100%;
-
     position:relative;
-
     transform-style:preserve-3d;
-
     transition:.4s;
 }
 
@@ -569,27 +433,18 @@ body::before{
 .memory-front,
 .memory-back{
     position:absolute;
-
     inset:0;
-
     border-radius:14px;
-
     backface-visibility:hidden;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     border:2px solid #c28c99;
 }
 
 .memory-front{
     background:#d9aeb9;
-
     color:#fff8f9;
-
     font-size:25px;
 }
 
@@ -599,9 +454,7 @@ body::before{
 
 .memory-back{
     background:#fff;
-
     transform:rotateY(180deg);
-
     font-size:28px;
 }
 
@@ -611,27 +464,18 @@ body::before{
 
 .memory-controls{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     margin-top:20px;
-
     flex-wrap:wrap;
 }
 
 .memory-message{
     text-align:center;
-
     margin-top:15px;
-
     font-size:14px;
-
     font-weight:bold;
-
     color:#805965;
-
     min-height:20px;
 }
 
@@ -646,76 +490,50 @@ body::before{
 
 .target-label{
     font-size:14px;
-
     color:#76515c;
-
     font-weight:bold;
 }
 
 .target-color{
     width:95px;
-
     height:95px;
-
     border-radius:50%;
-
     margin:12px auto 8px;
-
     border:5px solid #f6dce2;
-
-    box-shadow:
-        0 0 0 2px #c28c99;
+    box-shadow:0 0 0 2px #c28c99;
 }
 
 .color-info{
     display:flex;
-
     justify-content:center;
-
     gap:12px;
-
     flex-wrap:wrap;
-
     margin:15px 0 20px;
 }
 
 .color-stat{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     padding:8px 15px;
-
     border-radius:12px;
-
     font-size:13px;
-
     font-weight:bold;
 }
 
 .color-options{
     display:grid;
-
     grid-template-columns:repeat(3,100px);
-
     justify-content:center;
-
     gap:13px;
 }
 
 .color-choice{
     width:100px;
-
     height:75px;
-
     border-radius:15px;
-
     border:3px solid #fff;
-
     outline:2px solid #c28c99;
-
     cursor:pointer;
-
     transition:.2s;
 }
 
@@ -733,102 +551,70 @@ body::before{
 
 .color-message{
     text-align:center;
-
     min-height:25px;
-
     margin-top:18px;
-
     font-weight:bold;
-
     color:#805965;
 }
 
 .color-controls{
     text-align:center;
-
     margin-top:15px;
 }
 
 
 /* =========================
-   DRAWING
+   DRAW YOUR DINO
 ========================= */
 
-.challenge-box{
+.dino-draw-box{
     text-align:center;
 }
 
-.challenge-name{
+.dino-instruction{
     display:inline-block;
-
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:13px;
-
-    padding:8px 15px;
-
+    padding:9px 15px;
     font-weight:bold;
-
     color:#76515c;
-
-    margin-bottom:14px;
+    margin-bottom:15px;
 }
 
-.challenge-canvas-wrap{
+.dino-canvas-wrap{
     display:flex;
-
     justify-content:center;
 }
 
 #drawingCanvas{
     width:min(100%,550px);
-
     height:330px;
-
     background:white;
-
     border:3px solid #c28c99;
-
     border-radius:18px;
-
     cursor:crosshair;
-
     touch-action:none;
 }
 
 .drawing-tools{
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     gap:12px;
-
     flex-wrap:wrap;
-
     margin-top:16px;
 }
 
 .tool-label{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:11px;
-
     padding:8px 12px;
-
     font-size:13px;
-
     font-weight:bold;
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
@@ -838,55 +624,36 @@ body::before{
 
 .color-picker{
     width:32px;
-
     height:30px;
-
     border:none;
-
     padding:0;
-
     background:transparent;
-
     cursor:pointer;
 }
 
 .palette-title{
     margin:18px 0 10px;
-
     font-size:13px;
-
     color:#76515c;
-
     font-weight:bold;
 }
 
 .color-palette{
     display:flex;
-
     justify-content:center;
-
     gap:9px;
-
     flex-wrap:wrap;
-
     max-width:480px;
-
     margin:auto;
 }
 
 .palette-color{
     width:34px;
-
     height:34px;
-
     border-radius:50%;
-
     border:3px solid white;
-
     outline:2px solid #c28c99;
-
     cursor:pointer;
-
     transition:.2s;
 }
 
@@ -896,508 +663,97 @@ body::before{
 
 .palette-color.selected{
     outline:3px solid #805965;
-
     transform:scale(1.12);
 }
 
 .challenge-buttons{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     margin-top:20px;
-
     flex-wrap:wrap;
 }
 
 
 /* =========================
-   DINO RUNNER
+   DINO RUN
 ========================= */
 
-.dino-info{
+.dino-run{
+    display:none;
+    text-align:center;
+}
+
+.dino-run.show{
+    display:block;
+}
+
+.dino-score{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     flex-wrap:wrap;
-
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
 .dino-stat{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:12px;
-
     padding:8px 15px;
-
     font-size:13px;
-
     font-weight:bold;
-
     color:#76515c;
 }
 
 .dino-game-wrap{
+    width:100%;
     display:flex;
-
     justify-content:center;
-
-    width:100%;
 }
 
-.dino-game{
-    position:relative;
-
-    width:min(100%,650px);
-
-    height:260px;
-
+#dinoCanvas{
+    width:min(100%,700px);
+    height:300px;
     background:
-        radial-gradient(circle at 20% 25%,#ffffff 0 5px,transparent 6px),
-        radial-gradient(circle at 75% 18%,#ffffff 0 4px,transparent 5px),
-        #fff8f9;
-
+        linear-gradient(
+            to bottom,
+            #fff8f9 0%,
+            #fff8f9 72%,
+            #f6dce2 72%,
+            #f6dce2 100%
+        );
     border:3px solid #c28c99;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    cursor:pointer;
-
+    border-radius:18px;
     touch-action:none;
-
-    user-select:none;
-}
-
-.dino-game::before{
-    content:"✦   ♡   ✿";
-
-    position:absolute;
-
-    top:22px;
-
-    left:0;
-
-    width:100%;
-
-    text-align:center;
-
-    color:#e3b3c0;
-
-    font-size:17px;
-
-    letter-spacing:65px;
-
-    opacity:.7;
-}
-
-.dino-ground{
-    position:absolute;
-
-    left:0;
-
-    bottom:32px;
-
-    width:100%;
-
-    height:3px;
-
-    background:#c28c99;
-}
-
-.dino{
-    position:absolute;
-
-    left:70px;
-
-    bottom:35px;
-
-    width:48px;
-
-    height:55px;
-
-    z-index:5;
-
-    transition:none;
-}
-
-.dino-body{
-    position:absolute;
-
-    left:5px;
-
-    bottom:0;
-
-    width:38px;
-
-    height:42px;
-
-    background:#e88ba3;
-
-    border:3px solid #a97682;
-
-    border-radius:18px 18px 10px 10px;
-}
-
-.dino-head{
-    position:absolute;
-
-    right:-8px;
-
-    top:-15px;
-
-    width:35px;
-
-    height:32px;
-
-    background:#f09ab0;
-
-    border:3px solid #a97682;
-
-    border-radius:13px 15px 10px 10px;
-
-    z-index:2;
-}
-
-.dino-eye{
-    position:absolute;
-
-    right:7px;
-
-    top:8px;
-
-    width:5px;
-
-    height:5px;
-
-    background:#59484d;
-
-    border-radius:50%;
-}
-
-.dino-snout{
-    position:absolute;
-
-    right:-8px;
-
-    top:17px;
-
-    width:10px;
-
-    height:6px;
-
-    background:#e88ba3;
-
-    border-right:3px solid #a97682;
-
-    border-bottom:3px solid #a97682;
-
-    border-radius:0 5px 5px 0;
-}
-
-.dino-leg{
-    position:absolute;
-
-    bottom:-8px;
-
-    width:8px;
-
-    height:14px;
-
-    background:#d47791;
-
-    border:2px solid #a97682;
-
-    border-radius:5px;
-
-}
-
-.dino-leg.left{
-    left:10px;
-}
-
-.dino-leg.right{
-    left:28px;
-}
-
-.dino-tail{
-    position:absolute;
-
-    left:-13px;
-
-    bottom:7px;
-
-    width:18px;
-
-    height:14px;
-
-    background:#e88ba3;
-
-    border-left:3px solid #a97682;
-
-    border-bottom:3px solid #a97682;
-
-    transform:skewX(-25deg);
-
-    border-radius:5px;
-}
-
-.dino-bow{
-    position:absolute;
-
-    right:0;
-
-    top:-23px;
-
-    width:25px;
-
-    height:20px;
-
-    z-index:8;
-}
-
-.dino-bow::before,
-.dino-bow::after{
-    content:"";
-
-    position:absolute;
-
-    top:3px;
-
-    width:13px;
-
-    height:15px;
-
-    background:#e88ba3;
-
-    border:2px solid #a97682;
-
-}
-
-.dino-bow::before{
-    left:0;
-
-    transform:rotate(-28deg);
-
-    border-radius:8px 3px 8px 5px;
-}
-
-.dino-bow::after{
-    right:0;
-
-    transform:rotate(28deg);
-
-    border-radius:3px 8px 5px 8px;
-}
-
-.dino-bow span{
-    position:absolute;
-
-    left:8px;
-
-    top:6px;
-
-    width:9px;
-
-    height:9px;
-
-    background:#c45b76;
-
-    border:2px solid #a97682;
-
-    border-radius:50%;
-
-    z-index:2;
-}
-
-.dino-obstacle{
-    position:absolute;
-
-    bottom:35px;
-
-    right:-80px;
-
-    z-index:4;
-
-    animation:none;
-}
-
-.dino-palette{
-    width:48px;
-
-    height:42px;
-
-    background:#e88ba3;
-
-    border:3px solid #a97682;
-
-    border-radius:50% 45% 50% 40%;
-
-    transform:rotate(-12deg);
-}
-
-.dino-palette::before{
-    content:"";
-
-    position:absolute;
-
-    left:9px;
-
-    top:8px;
-
-    width:9px;
-
-    height:9px;
-
-    background:#f3b6c5;
-
-    border-radius:50%;
-
-    box-shadow:
-        16px -3px 0 #e8c547,
-        25px 9px 0 #7a9e65,
-        9px 20px 0 #7d65a8;
-}
-
-.dino-brush{
-    width:18px;
-
-    height:70px;
-
-    background:#e8b27d;
-
-    border:3px solid #8b5a3c;
-
-    border-radius:5px;
-
-    transform:rotate(25deg);
-
-}
-
-.dino-brush::before{
-    content:"";
-
-    position:absolute;
-
-    top:-17px;
-
-    left:-4px;
-
-    width:20px;
-
-    height:22px;
-
-    background:#e88ba3;
-
-    border:3px solid #a97682;
-
-    border-radius:50% 50% 8px 8px;
-}
-
-.dino-brush::after{
-    content:"";
-
-    position:absolute;
-
-    bottom:-8px;
-
-    left:3px;
-
-    width:6px;
-
-    height:10px;
-
-    background:#805965;
+    cursor:pointer;
+    display:block;
 }
 
 .dino-message{
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-direction:column;
-
-    gap:8px;
-
-    background:rgba(255,248,249,.82);
-
-    z-index:10;
-
-    text-align:center;
-
+    min-height:24px;
+    margin-top:14px;
     color:#805965;
-
     font-weight:bold;
-
-}
-
-.dino-message-title{
-    font-family:Georgia,serif;
-
-    font-size:25px;
-}
-
-.dino-message-text{
-    font-size:13px;
-
-    color:#9b737d;
+    font-size:14px;
 }
 
 .dino-controls{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     flex-wrap:wrap;
-
-    margin-top:18px;
+    margin-top:15px;
 }
 
-.dino-hint{
-    text-align:center;
-
-    margin-top:12px;
-
+.dino-help{
+    margin-top:13px;
     font-size:12px;
-
     color:#9b737d;
 }
 
-.dino-jump{
-    animation:dinoJump .55s ease-out;
-}
-
-@keyframes dinoJump{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    45%{
-        transform:translateY(-115px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-
+.dino-hidden{
+    display:none;
 }
 
 
@@ -1407,11 +763,8 @@ body::before{
 
 footer{
     text-align:center;
-
     margin-top:30px;
-
     color:#9b737d;
-
     font-size:12px;
 }
 
@@ -1428,19 +781,16 @@ footer{
 
     .main-board{
         border-radius:23px;
-
         padding:9px;
     }
 
     .board-inner{
         border-radius:17px;
-
         padding:18px 12px 15px;
     }
 
     .logo{
         font-size:29px;
-
         margin-bottom:15px;
     }
 
@@ -1450,29 +800,23 @@ footer{
 
     .navbar a{
         font-size:12px;
-
         padding:8px 11px;
     }
 
     .page{
         width:100%;
-
         margin:30px auto;
-
         padding:0 12px;
     }
 
     .game-board{
         width:100%;
-
         border-radius:23px;
-
         padding:9px;
     }
 
     .game-inner{
         border-radius:17px;
-
         padding:25px 13px 30px;
     }
 
@@ -1486,19 +830,16 @@ footer{
 
     .game-tab{
         font-size:12px;
-
         padding:8px 11px;
     }
 
     .memory-grid{
         grid-template-columns:repeat(4,62px);
-
         gap:8px;
     }
 
     .memory-card{
         width:62px;
-
         height:62px;
     }
 
@@ -1508,13 +849,11 @@ footer{
 
     .color-options{
         grid-template-columns:repeat(3,80px);
-
         gap:11px;
     }
 
     .color-choice{
         width:80px;
-
         height:65px;
     }
 
@@ -1522,12 +861,8 @@ footer{
         height:280px;
     }
 
-    .dino-game{
+    #dinoCanvas{
         height:230px;
-    }
-
-    .dino{
-        left:45px;
     }
 
 }
@@ -1636,20 +971,17 @@ footer{
 
                 <button
                     class="game-tab"
-                    onclick="showGame('drawing',this)"
+                    onclick="showGame('drawrun',this)"
                 >
-                    ✏️ Drawing Challenge
-                </button>
-
-                <button
-                    class="game-tab"
-                    onclick="showGame('dino',this)"
-                >
-                    🎀 Dino Runner
+                    🦖 Draw & Run
                 </button>
 
             </div>
 
+
+            <!-- =========================
+                 MEMORY
+            ========================= -->
 
             <section
                 id="memory"
@@ -1716,6 +1048,10 @@ footer{
 
             </section>
 
+
+            <!-- =========================
+                 COLOR
+            ========================= -->
 
             <section
                 id="color"
@@ -1793,197 +1129,101 @@ footer{
             </section>
 
 
+            <!-- =========================
+                 DRAW & RUN
+            ========================= -->
+
             <section
-                id="drawing"
+                id="drawrun"
                 class="game-section"
             >
 
-                <h2 class="game-heading">
-                    ✏️ Drawing Challenge
-                </h2>
+                <div id="drawPart">
 
-                <p class="game-description">
-                    Gambar sesuai tantangan yang muncul!
-                </p>
+                    <h2 class="game-heading">
+                        🎨 Draw Your Dino
+                    </h2>
 
-
-                <div class="challenge-box">
-
-                    <div
-                        id="challengeName"
-                        class="challenge-name"
-                    >
-                        🌸 Draw a flower
-                    </div>
+                    <p class="game-description">
+                        Gambar Dino versimu sendiri, lalu pakai untuk bermain!
+                    </p>
 
 
-                    <div class="challenge-canvas-wrap">
+                    <div class="dino-draw-box">
 
-                        <canvas
-                            id="drawingCanvas"
-                        ></canvas>
-
-                    </div>
+                        <div class="dino-instruction">
+                            ✏️ Gambar karakter Dino kamu di bawah
+                        </div>
 
 
-                    <div class="drawing-tools">
+                        <div class="dino-canvas-wrap">
 
-                        <div class="tool-label">
-
-                            Brush
-
-                            <input
-                                type="range"
-                                id="brushSize"
-                                min="2"
-                                max="25"
-                                value="6"
-                            >
+                            <canvas
+                                id="drawingCanvas"
+                            ></canvas>
 
                         </div>
 
 
-                        <div class="tool-label">
+                        <div class="drawing-tools">
 
-                            Color
+                            <div class="tool-label">
 
-                            <input
-                                type="color"
-                                id="brushColor"
-                                class="color-picker"
-                                value="#805965"
-                            >
+                                Brush
 
-                        </div>
-
-                    </div>
-
-
-                    <div class="palette-title">
-                        Choose a color ♡
-                    </div>
-
-
-                    <div
-                        id="colorPalette"
-                        class="color-palette"
-                    ></div>
-
-
-                    <div class="challenge-buttons">
-
-                        <button
-                            class="game-btn"
-                            onclick="clearCanvas()"
-                        >
-                            🗑 Clear
-                        </button>
-
-
-                        <button
-                            class="game-btn"
-                            onclick="newChallenge()"
-                        >
-                            🔄 New Challenge
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <section
-                id="dino"
-                class="game-section"
-            >
-
-                <h2 class="game-heading">
-                    🎀 Pinky Dino Runner
-                </h2>
-
-                <p class="game-description">
-                    Bantu dino pink melewati rintangan seni tanpa menabrak!
-                </p>
-
-
-                <div class="dino-info">
-
-                    <div class="dino-stat">
-                        Score:
-                        <span id="dinoScore">0</span>
-                    </div>
-
-                    <div class="dino-stat">
-                        Best:
-                        <span id="dinoBest">0</span>
-                    </div>
-
-                </div>
-
-
-                <div class="dino-game-wrap">
-
-                    <div
-                        id="dinoGame"
-                        class="dino-game"
-                    >
-
-                        <div class="dino-ground"></div>
-
-
-                        <div
-                            id="dinoPlayer"
-                            class="dino"
-                        >
-
-                            <div class="dino-tail"></div>
-
-                            <div class="dino-body">
-
-                                <div class="dino-head">
-                                    <div class="dino-eye"></div>
-                                    <div class="dino-snout"></div>
-                                </div>
-
-                                <div class="dino-leg left"></div>
-                                <div class="dino-leg right"></div>
+                                <input
+                                    type="range"
+                                    id="brushSize"
+                                    min="2"
+                                    max="25"
+                                    value="6"
+                                >
 
                             </div>
 
 
-                            <div class="dino-bow">
-                                <span></span>
+                            <div class="tool-label">
+
+                                Color
+
+                                <input
+                                    type="color"
+                                    id="brushColor"
+                                    class="color-picker"
+                                    value="#805965"
+                                >
+
                             </div>
 
                         </div>
 
 
+                        <div class="palette-title">
+                            Choose a color ♡
+                        </div>
+
+
                         <div
-                            id="dinoObstacle"
-                            class="dino-obstacle"
+                            id="colorPalette"
+                            class="color-palette"
                         ></div>
 
 
-                        <div
-                            id="dinoMessage"
-                            class="dino-message"
-                        >
-
-                            <div class="dino-message-title">
-                                🎀 Pinky Dino
-                            </div>
-
-                            <div class="dino-message-text">
-                                Hindari palet dan kuas!
-                            </div>
+                        <div class="challenge-buttons">
 
                             <button
                                 class="game-btn"
-                                onclick="startDinoGame()"
+                                onclick="clearCanvas()"
                             >
-                                ▶ Start Game
+                                🗑 Clear
+                            </button>
+
+
+                            <button
+                                class="game-btn"
+                                onclick="useMyDino()"
+                            >
+                                ✨ Use My Dino & Run
                             </button>
 
                         </div>
@@ -1993,20 +1233,80 @@ footer{
                 </div>
 
 
-                <div class="dino-controls">
+                <!-- =========================
+                     DINO RUN
+                ========================= -->
 
-                    <button
-                        class="game-btn"
-                        onclick="startDinoGame()"
+                <div
+                    id="dinoPart"
+                    class="dino-run"
+                >
+
+                    <h2 class="game-heading">
+                        🦖 Dino Art Run
+                    </h2>
+
+                    <p class="game-description">
+                        Lompat dan hindari rintangan seni!
+                    </p>
+
+
+                    <div class="dino-score">
+
+                        <div class="dino-stat">
+                            Score:
+                            <span id="dinoScore">0</span>
+                        </div>
+
+                        <div class="dino-stat">
+                            Best:
+                            <span id="dinoBest">0</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dino-game-wrap">
+
+                        <canvas
+                            id="dinoCanvas"
+                        ></canvas>
+
+                    </div>
+
+
+                    <div
+                        id="dinoMessage"
+                        class="dino-message"
                     >
-                        🔄 Start / Restart
-                    </button>
-
-                </div>
+                        Tekan Start untuk mulai!
+                    </div>
 
 
-                <div class="dino-hint">
-                    Tekan SPACE / ↑ atau tap layar untuk melompat ♡
+                    <div class="dino-controls">
+
+                        <button
+                            class="game-btn"
+                            onclick="startDinoGame()"
+                        >
+                            ▶ Start / Restart
+                        </button>
+
+
+                        <button
+                            class="game-btn"
+                            onclick="drawAgain()"
+                        >
+                            🎨 Draw Again
+                        </button>
+
+                    </div>
+
+
+                    <div class="dino-help">
+                        Space / ↑ / tap layar untuk lompat ♡
+                    </div>
+
                 </div>
 
             </section>
@@ -2026,6 +1326,11 @@ footer{
 
 <script>
 
+
+/* =========================
+   GAME TABS
+========================= */
+
 function showGame(gameId,button){
 
     document.querySelectorAll(".game-section")
@@ -2042,6 +1347,15 @@ function showGame(gameId,button){
         });
 
     button.classList.add("active");
+
+    if(gameId === "drawrun"){
+
+        setTimeout(() => {
+            setupCanvas();
+        },50);
+
+    }
+
 }
 
 
@@ -2537,7 +1851,7 @@ function newColorRound(){
 
 
 /* =========================
-   DRAWING CHALLENGE
+   DRAWING
 ========================= */
 
 const canvas =
@@ -2554,6 +1868,10 @@ function setupCanvas(){
     const rect =
         canvas.getBoundingClientRect();
 
+    if(rect.width === 0 || rect.height === 0){
+        return;
+    }
+
     const dpr =
         window.devicePixelRatio || 1;
 
@@ -2563,7 +1881,14 @@ function setupCanvas(){
     canvas.height =
         rect.height * dpr;
 
-    ctx.scale(dpr,dpr);
+    ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
 
     ctx.lineCap = "round";
 
@@ -2572,9 +1897,6 @@ function setupCanvas(){
     clearCanvas();
 
 }
-
-
-setupCanvas();
 
 
 function getCanvasPosition(event){
@@ -2598,6 +1920,8 @@ canvas.addEventListener(
     event => {
 
         drawing = true;
+
+        canvas.setPointerCapture(event.pointerId);
 
         const pos =
             getCanvasPosition(event);
@@ -2645,18 +1969,22 @@ canvas.addEventListener(
 
 canvas.addEventListener(
     "pointerup",
-    () => {
+    event => {
 
         drawing = false;
 
         ctx.closePath();
+
+        if(canvas.hasPointerCapture(event.pointerId)){
+            canvas.releasePointerCapture(event.pointerId);
+        }
 
     }
 );
 
 
 canvas.addEventListener(
-    "pointerleave",
+    "pointercancel",
     () => {
 
         drawing = false;
@@ -2675,40 +2003,6 @@ function clearCanvas(){
         canvas.clientWidth,
         canvas.clientHeight
     );
-
-}
-
-
-const drawingChallenges = [
-
-    "🌸 Draw a flower",
-    "🐱 Draw a cute cat",
-    "🦋 Draw a butterfly",
-    "🍓 Draw a strawberry",
-    "🌈 Draw a rainbow",
-    "☁️ Draw a cloud",
-    "🍄 Draw a mushroom",
-    "🌙 Draw a moon"
-
-];
-
-
-function newChallenge(){
-
-    const random =
-        drawingChallenges[
-            Math.floor(
-                Math.random() *
-                drawingChallenges.length
-            )
-        ];
-
-    document.getElementById(
-        "challengeName"
-    ).textContent =
-        random;
-
-    clearCanvas();
 
 }
 
@@ -2840,323 +2134,220 @@ colorInput.addEventListener(
 
 
 /* =========================
-   DINO RUNNER
+   DRAW → DINO RUN
 ========================= */
 
-const dinoGame =
-    document.getElementById("dinoGame");
+const dinoCanvas =
+    document.getElementById("dinoCanvas");
 
-const dinoPlayer =
-    document.getElementById("dinoPlayer");
+const dinoCtx =
+    dinoCanvas.getContext("2d");
 
-const dinoObstacle =
-    document.getElementById("dinoObstacle");
-
-const dinoScoreElement =
-    document.getElementById("dinoScore");
-
-const dinoBestElement =
-    document.getElementById("dinoBest");
-
-const dinoMessage =
-    document.getElementById("dinoMessage");
+let myDinoImage = null;
 
 let dinoRunning = false;
-let dinoJumping = false;
+let dinoGameOver = false;
+let dinoAnimation = null;
+
+let dinoPlayer = {
+    x:70,
+    y:0,
+    width:58,
+    height:58,
+    velocityY:0,
+    jumping:false
+};
+
+let dinoObstacles = [];
+
 let dinoScore = 0;
-let dinoBest = 0;
+
 let dinoSpeed = 5;
-let dinoObstacleX = 700;
-let dinoFrame = null;
-let dinoLastTime = 0;
-let dinoNextObstacle = 0;
-let dinoObstacleType = "palette";
 
+let dinoSpawnTimer = 0;
 
-function startDinoGame(){
-
-    cancelAnimationFrame(dinoFrame);
-
-    dinoRunning = true;
-    dinoJumping = false;
-    dinoScore = 0;
-    dinoSpeed = 5;
-    dinoObstacleX = dinoGame.clientWidth + 80;
-    dinoNextObstacle = 0;
-    dinoLastTime = performance.now();
-
-    dinoScoreElement.textContent = "0";
-
-    dinoPlayer.style.transform =
-        "translateY(0)";
-
-    dinoMessage.style.display =
-        "none";
-
-    createDinoObstacle();
-
-    dinoFrame =
-        requestAnimationFrame(
-            dinoLoop
-        );
-
-}
-
-
-function createDinoObstacle(){
-
-    dinoObstacle.innerHTML = "";
-
-    const type =
-        Math.random() < .5
-        ? "palette"
-        : "brush";
-
-    dinoObstacleType = type;
-
-    if(type === "palette"){
-
-        const palette =
-            document.createElement("div");
-
-        palette.className =
-            "dino-palette";
-
-        dinoObstacle.appendChild(
-            palette
-        );
-
-    }else{
-
-        const brush =
-            document.createElement("div");
-
-        brush.className =
-            "dino-brush";
-
-        dinoObstacle.appendChild(
-            brush
-        );
-
-    }
-
-    dinoObstacleX =
-        dinoGame.clientWidth + 60;
-
-    dinoObstacle.style.right =
-        "auto";
-
-    dinoObstacle.style.left =
-        dinoObstacleX + "px";
-
-}
-
-
-function dinoJump(){
-
-    if(!dinoRunning || dinoJumping){
-        return;
-    }
-
-    dinoJumping = true;
-
-    dinoPlayer.classList.remove(
-        "dino-jump"
+let dinoBest =
+    Number(
+        localStorage.getItem("dinoBest") || 0
     );
 
-    void dinoPlayer.offsetWidth;
-
-    dinoPlayer.classList.add(
-        "dino-jump"
-    );
-
-    setTimeout(() => {
-
-        dinoPlayer.classList.remove(
-            "dino-jump"
-        );
-
-        dinoJumping = false;
-
-    },550);
-
-}
+document.getElementById("dinoBest")
+    .textContent = dinoBest;
 
 
-function getDinoRect(){
+/* =========================
+   USE DRAWING
+========================= */
 
-    const rect =
-        dinoPlayer.getBoundingClientRect();
+function useMyDino(){
 
-    return {
+    const data =
+        canvas.toDataURL("image/png");
 
-        left:rect.left + 7,
-        right:rect.right - 5,
-        top:rect.top + 7,
-        bottom:rect.bottom
+    myDinoImage =
+        new Image();
+
+    myDinoImage.onload = () => {
+
+        document.getElementById("drawPart")
+            .style.display = "none";
+
+        document.getElementById("dinoPart")
+            .classList.add("show");
+
+        resizeDinoCanvas();
+
+        startDinoGame();
 
     };
 
+    myDinoImage.src = data;
+
 }
 
 
-function getObstacleRect(){
+/* =========================
+   DINO CANVAS
+========================= */
+
+function resizeDinoCanvas(){
 
     const rect =
-        dinoObstacle.getBoundingClientRect();
+        dinoCanvas.getBoundingClientRect();
 
-    return {
+    const dpr =
+        window.devicePixelRatio || 1;
 
-        left:rect.left + 5,
-        right:rect.right - 5,
-        top:rect.top + 5,
-        bottom:rect.bottom - 3
+    dinoCanvas.width =
+        rect.width * dpr;
 
-    };
+    dinoCanvas.height =
+        rect.height * dpr;
 
-}
-
-
-function checkDinoCollision(){
-
-    const player =
-        getDinoRect();
-
-    const obstacle =
-        getObstacleRect();
-
-    return (
-        player.left < obstacle.right &&
-        player.right > obstacle.left &&
-        player.top < obstacle.bottom &&
-        player.bottom > obstacle.top
+    dinoCtx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
     );
 
 }
 
 
-function dinoLoop(timestamp){
-
-    if(!dinoRunning){
-        return;
-    }
-
-    const delta =
-        timestamp - dinoLastTime;
-
-    dinoLastTime =
-        timestamp;
-
-    dinoObstacleX -=
-        dinoSpeed * (delta / 16);
-
-    dinoObstacle.style.left =
-        dinoObstacleX + "px";
-
-
-    if(checkDinoCollision()){
-
-        endDinoGame();
-
-        return;
-
-    }
-
-
-    if(dinoObstacleX < -90){
-
-        dinoScore++;
-
-        dinoScoreElement.textContent =
-            dinoScore;
-
-        if(dinoScore > dinoBest){
-
-            dinoBest =
-                dinoScore;
-
-            dinoBestElement.textContent =
-                dinoBest;
-
-        }
-
-        dinoSpeed =
-            Math.min(
-                11,
-                5 + dinoScore * .15
-            );
-
-        createDinoObstacle();
-
-    }
-
-
-    dinoFrame =
-        requestAnimationFrame(
-            dinoLoop
-        );
-
-}
-
-
-function endDinoGame(){
-
-    dinoRunning = false;
-
-    cancelAnimationFrame(
-        dinoFrame
-    );
-
-    if(dinoScore > dinoBest){
-
-        dinoBest =
-            dinoScore;
-
-    }
-
-    dinoBestElement.textContent =
-        dinoBest;
-
-    dinoMessage.innerHTML = `
-
-        <div class="dino-message-title">
-            💕 Game Over!
-        </div>
-
-        <div class="dino-message-text">
-            Score kamu: ${dinoScore}
-        </div>
-
-        <button
-            class="game-btn"
-            onclick="startDinoGame()"
-        >
-            🔄 Play Again
-        </button>
-
-    `;
-
-    dinoMessage.style.display =
-        "flex";
-
-}
-
-
-dinoGame.addEventListener(
-    "pointerdown",
-    event => {
+window.addEventListener(
+    "resize",
+    () => {
 
         if(
-            event.target.closest(".game-btn")
+            document.getElementById("dinoPart")
+                .classList.contains("show")
         ){
-            return;
-        }
 
-        dinoJump();
+            resizeDinoCanvas();
+
+        }
 
     }
 );
 
+
+/* =========================
+   START DINO
+========================= */
+
+function startDinoGame(){
+
+    if(!myDinoImage){
+
+        document.getElementById("dinoMessage")
+            .textContent =
+            "🎨 Gambar Dino kamu dulu!";
+
+        return;
+
+    }
+
+    cancelAnimationFrame(dinoAnimation);
+
+    resizeDinoCanvas();
+
+    dinoRunning = true;
+
+    dinoGameOver = false;
+
+    dinoScore = 0;
+
+    dinoSpeed = 5;
+
+    dinoSpawnTimer = 0;
+
+    dinoObstacles = [];
+
+    dinoPlayer.x = 70;
+
+    dinoPlayer.width = 58;
+
+    dinoPlayer.height = 58;
+
+    dinoPlayer.velocityY = 0;
+
+    dinoPlayer.jumping = false;
+
+    dinoPlayer.y =
+        getDinoGround() -
+        dinoPlayer.height;
+
+    document.getElementById("dinoScore")
+        .textContent = "0";
+
+    document.getElementById("dinoMessage")
+        .textContent =
+        "Lompat! Hindari rintangan seni ♡";
+
+    dinoLoop();
+
+}
+
+
+/* =========================
+   GROUND
+========================= */
+
+function getDinoGround(){
+
+    return dinoCanvas.clientHeight - 42;
+
+}
+
+
+/* =========================
+   JUMP
+========================= */
+
+function dinoJump(){
+
+    if(!dinoRunning){
+
+        return;
+
+    }
+
+    if(!dinoPlayer.jumping){
+
+        dinoPlayer.velocityY = -12;
+
+        dinoPlayer.jumping = true;
+
+    }
+
+}
+
+
+/* =========================
+   KEYBOARD
+========================= */
 
 document.addEventListener(
     "keydown",
@@ -3169,31 +2360,77 @@ document.addEventListener(
 
             event.preventDefault();
 
-            const dinoSection =
-                document.getElementById("dino");
-
-            if(
-                dinoSection.classList.contains("active")
-            ){
-
-                if(!dinoRunning){
-
-                    startDinoGame();
-
-                }else{
-
-                    dinoJump();
-
-                }
-
-            }
+            dinoJump();
 
         }
 
     }
 );
 
-</script>
 
-</body>
-</html>
+/* =========================
+   TAP
+========================= */
+
+dinoCanvas.addEventListener(
+    "pointerdown",
+    () => {
+
+        dinoJump();
+
+    }
+);
+
+
+/* =========================
+   OBSTACLE
+========================= */
+
+function createDinoObstacle(){
+
+    const type =
+        Math.random() < .5
+        ? "palette"
+        : "brush";
+
+    let obstacle = {
+
+        type:type,
+
+        x:dinoCanvas.clientWidth + 20,
+
+        width:type === "palette" ? 48 : 32,
+
+        height:type === "palette" ? 42 : 62
+
+    };
+
+    obstacle.y =
+        getDinoGround() -
+        obstacle.height;
+
+    dinoObstacles.push(obstacle);
+
+}
+
+
+/* =========================
+   DRAW ART OBSTACLE
+========================= */
+
+function drawObstacle(obstacle){
+
+    const x = obstacle.x;
+    const y = obstacle.y;
+
+    dinoCtx.save();
+
+    if(obstacle.type === "palette"){
+
+        /* PALETTE */
+
+        dinoCtx.fillStyle = "#e9b7c4";
+
+        dinoCtx.beginPath();
+
+        dinoCtx.
