@@ -862,6 +862,7 @@ footer::before{
 
     .anonymous-title{
         text-align:center;
+
         font-size:18px;
     }
 
@@ -1214,10 +1215,13 @@ anonymousMessageForm.addEventListener(
 
         if(error){
 
-            console.error(error);
+            console.error(
+                "SUPABASE ERROR:",
+                error
+            );
 
             messageStatus.textContent =
-                "Something went wrong. Please try again ♡";
+                "Error: " + error.message;
 
             anonymousSend.disabled = false;
 
