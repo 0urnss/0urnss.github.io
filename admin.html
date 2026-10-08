@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,8 +50,6 @@
       bottom: 80px;
       left: 8%;
     }
-
-    /* TOP BOARD */
 
     .top-area {
       padding: 28px 20px 0;
@@ -127,8 +125,6 @@
       transform: translateY(-2px);
     }
 
-    /* MAIN */
-
     .container {
       max-width: 900px;
       margin: 38px auto;
@@ -165,8 +161,6 @@
       font-size: 14px;
     }
 
-    /* LOGIN */
-
     .login-box {
       max-width: 450px;
       margin: 20px auto;
@@ -177,8 +171,6 @@
       color: #805965;
       font-family: Georgia, serif;
     }
-
-    /* FORM */
 
     .form-box {
       background: #fdf0f3;
@@ -270,8 +262,6 @@
       background: #f8edf0;
     }
 
-    /* STATUS */
-
     .status {
       display: none;
       margin-top: 15px;
@@ -279,6 +269,7 @@
       border-radius: 11px;
       font-size: 14px;
       line-height: 1.5;
+      word-break: break-word;
     }
 
     .status.show {
@@ -302,7 +293,31 @@
       color: #8a4444;
     }
 
-    /* ARTWORK LIST */
+    .diagnostic {
+      margin-top: 15px;
+      background: #fff;
+      border: 2px dashed #d7adb8;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .diagnostic.show {
+      display: block;
+    }
+
+    .diagnostic strong {
+      color: #805965;
+    }
+
+    .diagnostic code {
+      background: #f5e8eb;
+      padding: 2px 5px;
+      border-radius: 5px;
+      word-break: break-all;
+    }
 
     .section-title {
       color: #805965;
@@ -457,7 +472,6 @@
   <div class="decor two">♡</div>
   <div class="decor three">✦</div>
 
-  <!-- TOP -->
   <div class="top-area">
     <div class="main-board">
       <div class="board-inner">
@@ -475,16 +489,19 @@
     </div>
   </div>
 
-  <!-- CONTENT -->
+
   <main class="container">
 
     <div class="outer-card">
       <div class="inner-card">
 
         <!-- LOGIN -->
+
         <section id="loginSection" class="login-box">
 
-          <h1 style="text-align:center;">Gallery Admin</h1>
+          <h1 style="text-align:center;">
+            Gallery Admin
+          </h1>
 
           <p class="subtitle" style="text-align:center;">
             Login untuk mengelola artwork.
@@ -492,7 +509,10 @@
 
           <div class="form-box">
 
-            <label for="loginEmail">Email</label>
+            <label for="loginEmail">
+              Email
+            </label>
+
             <input
               type="email"
               id="loginEmail"
@@ -500,7 +520,10 @@
               autocomplete="email"
             >
 
-            <label for="loginPassword">Password</label>
+            <label for="loginPassword">
+              Password
+            </label>
+
             <input
               type="password"
               id="loginPassword"
@@ -509,12 +532,20 @@
             >
 
             <div class="button-row">
-              <button id="loginBtn" type="button">
+
+              <button
+                id="loginBtn"
+                type="button"
+              >
                 Login
               </button>
+
             </div>
 
-            <div id="loginStatus" class="status"></div>
+            <div
+              id="loginStatus"
+              class="status"
+            ></div>
 
           </div>
 
@@ -522,26 +553,43 @@
 
 
         <!-- ADMIN -->
-        <section id="adminSection" style="display:none;">
+
+        <section
+          id="adminSection"
+          style="display:none;"
+        >
 
           <div class="user-bar">
+
             <span>
               Login sebagai:
               <strong id="userEmail"></strong>
             </span>
 
-            <button id="logoutBtn" class="btn-secondary" type="button">
+            <button
+              id="logoutBtn"
+              class="btn-secondary"
+              type="button"
+            >
               Logout
             </button>
+
           </div>
 
 
-          <!-- FORM ARTWORK -->
+          <!-- FORM -->
+
           <div class="form-box">
 
-            <h2 id="formTitle">Add Artwork</h2>
+            <h2 id="formTitle">
+              Add Artwork
+            </h2>
 
-            <input type="hidden" id="editingId">
+            <input
+              type="hidden"
+              id="editingId"
+            >
+
 
             <label for="title">
               Title
@@ -594,7 +642,7 @@
             >
 
             <div class="hint">
-              Foto akan otomatis dikompres agar upload lebih cepat.
+              Foto otomatis dikompres sebelum upload.
             </div>
 
             <img
@@ -616,7 +664,10 @@
 
             <div class="button-row">
 
-              <button id="saveBtn" type="button">
+              <button
+                id="saveBtn"
+                type="button"
+              >
                 Save Artwork
               </button>
 
@@ -631,17 +682,31 @@
 
             </div>
 
-            <div id="saveStatus" class="status"></div>
+
+            <div
+              id="saveStatus"
+              class="status"
+            ></div>
+
+
+            <!-- DIAGNOSTIC -->
+
+            <div
+              id="diagnostic"
+              class="diagnostic"
+            ></div>
 
           </div>
 
 
-          <!-- LIST -->
           <h2 class="section-title">
             My Artworks
           </h2>
 
-          <div id="artList" class="art-list">
+          <div
+            id="artList"
+            class="art-list"
+          >
             <div class="empty">
               Memuat artwork...
             </div>
@@ -654,6 +719,7 @@
 
   </main>
 
+
   <footer>
     made with ♡ by 0urnss
   </footer>
@@ -661,15 +727,16 @@
 
 <script>
 
-  /* =========================================
+  /* ==========================================
      SUPABASE
-  ========================================= */
+  ========================================== */
 
   const SUPABASE_URL =
     "https://ojjpssupaoputowjvokm.supabase.co";
 
   const SUPABASE_ANON_KEY =
     "sb_publishable_dFkIBbLpaQm2H8VrkyQqLw_TTsrC_fy";
+
 
   const supabaseClient =
     window.supabase.createClient(
@@ -678,9 +745,9 @@
     );
 
 
-  /* =========================================
+  /* ==========================================
      ELEMENTS
-  ========================================= */
+  ========================================== */
 
   const loginSection =
     document.getElementById("loginSection");
@@ -708,6 +775,9 @@
 
   const saveStatus =
     document.getElementById("saveStatus");
+
+  const diagnostic =
+    document.getElementById("diagnostic");
 
   const titleInput =
     document.getElementById("title");
@@ -740,37 +810,111 @@
     document.getElementById("formTitle");
 
 
-  /* =========================================
+  /* ==========================================
      STATUS
-  ========================================= */
+  ========================================== */
 
-  function showStatus(element, message, type = "info") {
+  function showStatus(
+    element,
+    message,
+    type = "info"
+  ) {
 
-    element.textContent = message;
+    element.textContent =
+      message;
 
     element.className =
       "status show " + type;
+
   }
 
 
   function hideStatus(element) {
 
-    element.textContent = "";
+    element.textContent =
+      "";
 
     element.className =
       "status";
+
   }
 
 
-  /* =========================================
+  function showDiagnostic(
+    title,
+    error,
+    extra = ""
+  ) {
+
+    let message =
+      error?.message ||
+      String(error);
+
+    let details =
+      error?.details ||
+      "";
+
+    let hint =
+      error?.hint ||
+      "";
+
+    let code =
+      error?.code ||
+      "";
+
+    diagnostic.innerHTML = `
+      <strong>${escapeHtml(title)}</strong><br><br>
+
+      <b>Message:</b>
+      ${escapeHtml(message)}
+      <br>
+
+      ${
+        code
+          ? `<b>Code:</b> ${escapeHtml(code)}<br>`
+          : ""
+      }
+
+      ${
+        details
+          ? `<b>Details:</b> ${escapeHtml(details)}<br>`
+          : ""
+      }
+
+      ${
+        hint
+          ? `<b>Hint:</b> ${escapeHtml(hint)}<br>`
+          : ""
+      }
+
+      ${
+        extra
+          ? `<br>${escapeHtml(extra)}`
+          : ""
+      }
+    `;
+
+    diagnostic.classList.add("show");
+
+    console.error(
+      "SUPABASE ERROR:",
+      error
+    );
+
+  }
+
+
+  /* ==========================================
      LOGIN
-  ========================================= */
+  ========================================== */
 
   async function checkLogin() {
 
-    const {
-      data: { session }
-    } = await supabaseClient.auth.getSession();
+    const result =
+      await supabaseClient.auth.getSession();
+
+    const session =
+      result.data.session;
 
     if (session) {
 
@@ -781,21 +925,28 @@
       showLogin();
 
     }
+
   }
 
 
   function showLogin() {
 
-    loginSection.style.display = "block";
-    adminSection.style.display = "none";
+    loginSection.style.display =
+      "block";
+
+    adminSection.style.display =
+      "none";
 
   }
 
 
   function showAdmin(session) {
 
-    loginSection.style.display = "none";
-    adminSection.style.display = "block";
+    loginSection.style.display =
+      "none";
+
+    adminSection.style.display =
+      "block";
 
     userEmail.textContent =
       session.user.email || "";
@@ -805,64 +956,88 @@
   }
 
 
-  loginBtn.addEventListener("click", async () => {
+  loginBtn.addEventListener(
+    "click",
+    async () => {
 
-    const email =
-      loginEmail.value.trim();
+      hideStatus(loginStatus);
 
-    const password =
-      loginPassword.value;
+      const email =
+        loginEmail.value.trim();
 
-    hideStatus(loginStatus);
+      const password =
+        loginPassword.value;
 
-    if (!email || !password) {
 
-      showStatus(
-        loginStatus,
-        "Email dan password harus diisi.",
-        "error"
+      if (!email || !password) {
+
+        showStatus(
+          loginStatus,
+          "Email dan password harus diisi.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      loginBtn.disabled =
+        true;
+
+      loginBtn.textContent =
+        "Logging in...";
+
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient.auth
+          .signInWithPassword({
+            email,
+            password
+          });
+
+
+      loginBtn.disabled =
+        false;
+
+      loginBtn.textContent =
+        "Login";
+
+
+      if (error) {
+
+        showStatus(
+          loginStatus,
+          "Login gagal.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      showAdmin(
+        data.session
       );
 
-      return;
     }
+  );
 
-    loginBtn.disabled = true;
-    loginBtn.textContent = "Logging in...";
 
-    const {
-      data,
-      error
-    } = await supabaseClient.auth.signInWithPassword({
-      email,
-      password
-    });
+  logoutBtn.addEventListener(
+    "click",
+    async () => {
 
-    loginBtn.disabled = false;
-    loginBtn.textContent = "Login";
+      await supabaseClient.auth.signOut();
 
-    if (error) {
+      showLogin();
 
-      showStatus(
-        loginStatus,
-        "Login gagal: " + error.message,
-        "error"
-      );
-
-      return;
     }
-
-    showAdmin(data.session);
-
-  });
-
-
-  logoutBtn.addEventListener("click", async () => {
-
-    await supabaseClient.auth.signOut();
-
-    showLogin();
-
-  });
+  );
 
 
   supabaseClient.auth.onAuthStateChange(
@@ -882,163 +1057,264 @@
   );
 
 
-  /* =========================================
+  /* ==========================================
      COMPRESS IMAGE
-  ========================================= */
+  ========================================== */
 
   function compressImage(file) {
 
-    return new Promise((resolve, reject) => {
+    return new Promise(
+      (resolve, reject) => {
 
-      const reader =
-        new FileReader();
+        const reader =
+          new FileReader();
 
-      reader.onload = event => {
 
-        const img =
-          new Image();
+        reader.onload =
+          event => {
 
-        img.onload = () => {
+            const img =
+              new Image();
 
-          let width =
-            img.width;
 
-          let height =
-            img.height;
+            img.onload =
+              () => {
 
-          const maxSize =
-            1600;
+                let width =
+                  img.width;
 
-          if (width > maxSize || height > maxSize) {
+                let height =
+                  img.height;
 
-            if (width > height) {
 
-              height =
-                Math.round(
-                  height * maxSize / width
+                const maxSize =
+                  1600;
+
+
+                if (
+                  width > maxSize ||
+                  height > maxSize
+                ) {
+
+                  if (width > height) {
+
+                    height =
+                      Math.round(
+                        height *
+                        maxSize /
+                        width
+                      );
+
+                    width =
+                      maxSize;
+
+                  } else {
+
+                    width =
+                      Math.round(
+                        width *
+                        maxSize /
+                        height
+                      );
+
+                    height =
+                      maxSize;
+
+                  }
+
+                }
+
+
+                const canvas =
+                  document.createElement(
+                    "canvas"
+                  );
+
+
+                canvas.width =
+                  width;
+
+                canvas.height =
+                  height;
+
+
+                const ctx =
+                  canvas.getContext(
+                    "2d"
+                  );
+
+
+                ctx.drawImage(
+                  img,
+                  0,
+                  0,
+                  width,
+                  height
                 );
 
-              width =
-                maxSize;
 
-            } else {
+                canvas.toBlob(
+                  blob => {
 
-              width =
-                Math.round(
-                  width * maxSize / height
+                    if (!blob) {
+
+                      reject(
+                        new Error(
+                          "Gagal membuat file hasil kompres."
+                        )
+                      );
+
+                      return;
+
+                    }
+
+
+                    resolve(blob);
+
+                  },
+                  "image/jpeg",
+                  0.82
                 );
 
-              height =
-                maxSize;
-            }
-          }
+              };
 
-          const canvas =
-            document.createElement("canvas");
 
-          canvas.width =
-            width;
-
-          canvas.height =
-            height;
-
-          const ctx =
-            canvas.getContext("2d");
-
-          ctx.drawImage(
-            img,
-            0,
-            0,
-            width,
-            height
-          );
-
-          canvas.toBlob(
-            blob => {
-
-              if (!blob) {
+            img.onerror =
+              () => {
 
                 reject(
                   new Error(
-                    "Gagal mengompres gambar."
+                    "Browser tidak bisa membaca gambar."
                   )
                 );
 
-                return;
-              }
+              };
 
-              resolve(blob);
 
-            },
-            "image/jpeg",
-            0.82
-          );
+            img.src =
+              event.target.result;
 
-        };
+          };
 
-        img.onerror = () => {
 
-          reject(
-            new Error(
-              "File gambar tidak bisa dibaca."
-            )
-          );
+        reader.onerror =
+          () => {
 
-        };
+            reject(
+              new Error(
+                "File gagal dibaca."
+              )
+            );
 
-        img.src =
-          event.target.result;
+          };
 
-      };
 
-      reader.onerror = () => {
-
-        reject(
-          new Error(
-            "Gagal membaca file."
-          )
+        reader.readAsDataURL(
+          file
         );
 
-      };
-
-      reader.readAsDataURL(file);
-
-    });
+      }
+    );
 
   }
 
 
-  /* =========================================
+  /* ==========================================
      PREVIEW
-  ========================================= */
+  ========================================== */
 
-  imageInput.addEventListener("change", () => {
+  imageInput.addEventListener(
+    "change",
+    () => {
 
-    const file =
-      imageInput.files[0];
+      const file =
+        imageInput.files[0];
+
+
+      if (!file) {
+
+        preview.src =
+          "";
+
+        preview.classList.remove(
+          "show"
+        );
+
+        return;
+
+      }
+
+
+      const url =
+        URL.createObjectURL(
+          file
+        );
+
+
+      preview.src =
+        url;
+
+      preview.classList.add(
+        "show"
+      );
+
+    }
+  );
+
+
+  /* ==========================================
+     TEST STORAGE SESSION
+  ========================================== */
+
+  async function checkStorageSession() {
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth
+        .getSession();
+
+
+    if (error) {
+
+      throw error;
+
+    }
+
+
+    if (!data.session) {
+
+      throw new Error(
+        "Tidak ada session login."
+      );
+
+    }
+
+
+    return data.session;
+
+  }
+
+
+  /* ==========================================
+     UPLOAD IMAGE
+  ========================================== */
+
+  async function uploadImage(file) {
 
     if (!file) {
 
-      preview.src = "";
-      preview.classList.remove("show");
+      throw new Error(
+        "File gambar tidak ditemukan."
+      );
 
-      return;
     }
 
-    const url =
-      URL.createObjectURL(file);
 
-    preview.src = url;
-    preview.classList.add("show");
+    const session =
+      await checkStorageSession();
 
-  });
-
-
-  /* =========================================
-     UPLOAD WITH TIMEOUT
-  ========================================= */
-
-  async function uploadImage(file) {
 
     showStatus(
       saveStatus,
@@ -1046,8 +1322,37 @@
       "info"
     );
 
+
     const compressed =
-      await compressImage(file);
+      await compressImage(
+        file
+      );
+
+
+    console.log(
+      "Original:",
+      file.size,
+      "bytes"
+    );
+
+    console.log(
+      "Compressed:",
+      compressed.size,
+      "bytes"
+    );
+
+    console.log(
+      "Logged user:",
+      session.user.email
+    );
+
+
+    showStatus(
+      saveStatus,
+      "Mengupload foto...",
+      "info"
+    );
+
 
     const fileName =
       "artwork-" +
@@ -1059,52 +1364,52 @@
       ".jpg";
 
 
-    showStatus(
-      saveStatus,
-      "Mengupload foto...",
-      "info"
-    );
-
-
-    const uploadPromise =
-      supabaseClient.storage
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.storage
         .from("artworks")
         .upload(
           fileName,
           compressed,
           {
-            contentType: "image/jpeg",
-            upsert: false
+            contentType:
+              "image/jpeg",
+
+            cacheControl:
+              "3600",
+
+            upsert:
+              false
           }
         );
 
 
-    const timeoutPromise =
-      new Promise((_, reject) => {
-
-        setTimeout(() => {
-
-          reject(
-            new Error(
-              "Upload terlalu lama. Kemungkinan koneksi atau Storage Supabase bermasalah."
-            )
-          );
-
-        }, 30000);
-
-      });
-
-
-    const {
-      data,
-      error
-    } = await Promise.race([
-      uploadPromise,
-      timeoutPromise
-    ]);
-
-
     if (error) {
+
+      showDiagnostic(
+        "UPLOAD STORAGE GAGAL",
+        error,
+        "Bucket yang digunakan: artworks"
+      );
+
+      throw error;
+
+    }
+
+
+    if (!data?.path) {
+
+      const error =
+        new Error(
+          "Supabase tidak mengembalikan path file."
+        );
+
+      showDiagnostic(
+        "PATH FILE TIDAK DITEMUKAN",
+        error
+      );
 
       throw error;
 
@@ -1116,14 +1421,27 @@
     } =
       supabaseClient.storage
         .from("artworks")
-        .getPublicUrl(data.path);
+        .getPublicUrl(
+          data.path
+        );
 
 
-    if (!publicData.publicUrl) {
+    if (
+      !publicData ||
+      !publicData.publicUrl
+    ) {
 
-      throw new Error(
-        "URL gambar gagal dibuat."
+      const error =
+        new Error(
+          "Public URL gambar tidak berhasil dibuat."
+        );
+
+      showDiagnostic(
+        "PUBLIC URL GAGAL",
+        error
       );
+
+      throw error;
 
     }
 
@@ -1133,223 +1451,269 @@
   }
 
 
-  /* =========================================
-     SAVE ARTWORK
-  ========================================= */
+  /* ==========================================
+     SAVE
+  ========================================== */
 
-  saveBtn.addEventListener("click", async () => {
+  saveBtn.addEventListener(
+    "click",
+    async () => {
 
-    hideStatus(saveStatus);
-
-    const title =
-      titleInput.value.trim();
-
-    const category =
-      categoryInput.value;
-
-    const description =
-      descriptionInput.value.trim();
-
-    const file =
-      imageInput.files[0];
-
-    const id =
-      editingId.value;
-
-
-    if (!title) {
-
-      showStatus(
-        saveStatus,
-        "Title belum diisi.",
-        "error"
+      hideStatus(
+        saveStatus
       );
 
-      return;
-    }
-
-
-    if (!category) {
-
-      showStatus(
-        saveStatus,
-        "Pilih kategori artwork.",
-        "error"
+      diagnostic.classList.remove(
+        "show"
       );
 
-      return;
-    }
+
+      const title =
+        titleInput.value.trim();
+
+      const category =
+        categoryInput.value;
+
+      const description =
+        descriptionInput.value.trim();
+
+      const file =
+        imageInput.files[0];
+
+      const id =
+        editingId.value;
 
 
-    if (!id && !file) {
-
-      showStatus(
-        saveStatus,
-        "Pilih foto artwork terlebih dahulu.",
-        "error"
-      );
-
-      return;
-    }
-
-
-    saveBtn.disabled = true;
-    cancelBtn.disabled = true;
-
-
-    try {
-
-      let imageUrl = null;
-
-
-      /* -----------------------------
-         ADD
-      ----------------------------- */
-
-      if (!id) {
-
-        imageUrl =
-          await uploadImage(file);
-
+      if (!title) {
 
         showStatus(
           saveStatus,
-          "Menyimpan data artwork...",
-          "info"
+          "Title belum diisi.",
+          "error"
         );
 
-
-        const {
-          error
-        } =
-          await supabaseClient
-            .from("artworks")
-            .insert([
-              {
-                title: title,
-                category: category,
-                image_url: imageUrl,
-                description: description || null
-              }
-            ]);
-
-
-        if (error) {
-
-          throw error;
-
-        }
-
-
-        showStatus(
-          saveStatus,
-          "Artwork berhasil ditambahkan! ♡",
-          "success"
-        );
+        return;
 
       }
 
 
-      /* -----------------------------
-         EDIT
-      ----------------------------- */
+      if (!category) {
 
-      else {
+        showStatus(
+          saveStatus,
+          "Pilih kategori artwork.",
+          "error"
+        );
 
-        const updateData = {
-          title: title,
-          category: category,
-          description: description || null
-        };
+        return;
+
+      }
 
 
-        if (file) {
+      if (!id && !file) {
+
+        showStatus(
+          saveStatus,
+          "Pilih foto artwork terlebih dahulu.",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      saveBtn.disabled =
+        true;
+
+      cancelBtn.disabled =
+        true;
+
+
+      try {
+
+        let imageUrl =
+          null;
+
+
+        /* ADD */
+
+        if (!id) {
 
           imageUrl =
-            await uploadImage(file);
+            await uploadImage(
+              file
+            );
 
-          updateData.image_url =
-            imageUrl;
+
+          showStatus(
+            saveStatus,
+            "Foto berhasil diupload. Menyimpan data artwork...",
+            "info"
+          );
+
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("artworks")
+              .insert([
+                {
+                  title:
+                    title,
+
+                  category:
+                    category,
+
+                  image_url:
+                    imageUrl,
+
+                  description:
+                    description ||
+                    null
+                }
+              ]);
+
+
+          if (error) {
+
+            showDiagnostic(
+              "DATABASE INSERT GAGAL",
+              error,
+              "Foto sudah mungkin berhasil masuk Storage, tetapi data artwork gagal masuk tabel."
+            );
+
+            throw error;
+
+          }
+
+
+          showStatus(
+            saveStatus,
+            "Artwork berhasil ditambahkan! ♡",
+            "success"
+          );
 
         }
 
 
-        showStatus(
-          saveStatus,
-          "Menyimpan perubahan...",
-          "info"
-        );
+        /* EDIT */
+
+        else {
+
+          const updateData = {
+
+            title:
+              title,
+
+            category:
+              category,
+
+            description:
+              description ||
+              null
+
+          };
 
 
-        const {
+          if (file) {
+
+            imageUrl =
+              await uploadImage(
+                file
+              );
+
+            updateData.image_url =
+              imageUrl;
+
+          }
+
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("artworks")
+              .update(
+                updateData
+              )
+              .eq(
+                "id",
+                id
+              );
+
+
+          if (error) {
+
+            showDiagnostic(
+              "DATABASE UPDATE GAGAL",
+              error
+            );
+
+            throw error;
+
+          }
+
+
+          showStatus(
+            saveStatus,
+            "Artwork berhasil diperbarui! ♡",
+            "success"
+          );
+
+        }
+
+
+        resetForm();
+
+        await loadArtworks();
+
+
+      } catch (error) {
+
+        console.error(
+          "FINAL ERROR:",
           error
-        } =
-          await supabaseClient
-            .from("artworks")
-            .update(updateData)
-            .eq("id", id);
+        );
 
 
-        if (error) {
+        if (
+          !diagnostic.classList.contains(
+            "show"
+          )
+        ) {
 
-          throw error;
+          showDiagnostic(
+            "PROSES GAGAL",
+            error
+          );
 
         }
 
 
         showStatus(
           saveStatus,
-          "Artwork berhasil diperbarui! ♡",
-          "success"
+          "Gagal. Lihat detail error di bawah.",
+          "error"
         );
 
       }
 
 
-      resetForm();
+      saveBtn.disabled =
+        false;
 
-      await loadArtworks();
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      let message =
-        error.message ||
-        "Terjadi kesalahan saat menyimpan artwork.";
-
-
-      if (
-        message.toLowerCase().includes("row-level security") ||
-        message.toLowerCase().includes("not authorized") ||
-        message.toLowerCase().includes("unauthorized")
-      ) {
-
-        message =
-          "Supabase Storage menolak upload. Kemungkinan policy Storage belum dibuat.";
-
-      }
-
-
-      showStatus(
-        saveStatus,
-        "Gagal: " + message,
-        "error"
-      );
+      cancelBtn.disabled =
+        false;
 
     }
+  );
 
 
-    saveBtn.disabled = false;
-    cancelBtn.disabled = false;
-
-  });
-
-
-  /* =========================================
+  /* ==========================================
      LOAD ARTWORKS
-  ========================================= */
+  ========================================== */
 
   async function loadArtworks() {
 
@@ -1364,114 +1728,150 @@
       await supabaseClient
         .from("artworks")
         .select("*")
-        .order("created_at", {
-          ascending: false
-        });
+        .order(
+          "created_at",
+          {
+            ascending:
+              false
+          }
+        );
 
 
     if (error) {
 
       artList.innerHTML =
-        '<div class="empty">Gagal memuat artwork: ' +
-        escapeHtml(error.message) +
-        '</div>';
+        '<div class="empty">Gagal memuat artwork.</div>';
+
+      showDiagnostic(
+        "LOAD ARTWORK GAGAL",
+        error
+      );
 
       return;
+
     }
 
 
-    if (!data || data.length === 0) {
+    if (
+      !data ||
+      data.length === 0
+    ) {
 
       artList.innerHTML =
         '<div class="empty">Belum ada artwork.</div>';
 
       return;
+
     }
 
 
     artList.innerHTML =
-      data.map(art => {
+      data.map(
+        art => {
 
-        return `
-          <div class="art-item">
+          return `
+            <div class="art-item">
 
-            <img
-              src="${escapeAttribute(art.image_url)}"
-              alt="${escapeAttribute(art.title)}"
-              loading="lazy"
-            >
-
-            <h3>
-              ${escapeHtml(art.title)}
-            </h3>
-
-            <span class="category">
-              ${escapeHtml(art.category)}
-            </span>
-
-            <div class="description">
-              ${
-                art.description
-                  ? escapeHtml(art.description)
-                  : "Tidak ada deskripsi."
-              }
-            </div>
-
-            <div class="button-row">
-
-              <button
-                type="button"
-                class="edit-btn"
-                data-id="${art.id}"
+              <img
+                src="${escapeAttribute(art.image_url)}"
+                alt="${escapeAttribute(art.title)}"
+                loading="lazy"
               >
-                Edit
-              </button>
 
-              <button
-                type="button"
-                class="btn-danger delete-btn"
-                data-id="${art.id}"
-              >
-                Delete
-              </button>
+              <h3>
+                ${escapeHtml(art.title)}
+              </h3>
+
+              <span class="category">
+                ${escapeHtml(art.category)}
+              </span>
+
+              <div class="description">
+                ${
+                  art.description
+                    ? escapeHtml(
+                        art.description
+                      )
+                    : "Tidak ada deskripsi."
+                }
+              </div>
+
+              <div class="button-row">
+
+                <button
+                  type="button"
+                  class="edit-btn"
+                  data-id="${art.id}"
+                >
+                  Edit
+                </button>
+
+                <button
+                  type="button"
+                  class="btn-danger delete-btn"
+                  data-id="${art.id}"
+                >
+                  Delete
+                </button>
+
+              </div>
 
             </div>
+          `;
 
-          </div>
-        `;
-
-      }).join("");
+        }
+      ).join("");
 
 
     document
-      .querySelectorAll(".edit-btn")
-      .forEach(button => {
+      .querySelectorAll(
+        ".edit-btn"
+      )
+      .forEach(
+        button => {
 
-        button.addEventListener(
-          "click",
-          () => editArtwork(button.dataset.id)
-        );
+          button.addEventListener(
+            "click",
+            () => {
 
-      });
+              editArtwork(
+                button.dataset.id
+              );
+
+            }
+          );
+
+        }
+      );
 
 
     document
-      .querySelectorAll(".delete-btn")
-      .forEach(button => {
+      .querySelectorAll(
+        ".delete-btn"
+      )
+      .forEach(
+        button => {
 
-        button.addEventListener(
-          "click",
-          () => deleteArtwork(button.dataset.id)
-        );
+          button.addEventListener(
+            "click",
+            () => {
 
-      });
+              deleteArtwork(
+                button.dataset.id
+              );
+
+            }
+          );
+
+        }
+      );
 
   }
 
 
-  /* =========================================
+  /* ==========================================
      EDIT
-  ========================================= */
+  ========================================== */
 
   async function editArtwork(id) {
 
@@ -1482,20 +1882,22 @@
       await supabaseClient
         .from("artworks")
         .select("*")
-        .eq("id", id)
+        .eq(
+          "id",
+          id
+        )
         .single();
 
 
     if (error) {
 
-      showStatus(
-        saveStatus,
-        "Gagal mengambil artwork: " +
-        error.message,
-        "error"
+      showDiagnostic(
+        "EDIT GAGAL",
+        error
       );
 
       return;
+
     }
 
 
@@ -1515,7 +1917,9 @@
     preview.src =
       data.image_url || "";
 
-    preview.classList.add("show");
+    preview.classList.add(
+      "show"
+    );
 
 
     formTitle.textContent =
@@ -1536,9 +1940,9 @@
   }
 
 
-  /* =========================================
+  /* ==========================================
      DELETE
-  ========================================= */
+  ========================================== */
 
   async function deleteArtwork(id) {
 
@@ -1568,19 +1972,27 @@
       await supabaseClient
         .from("artworks")
         .delete()
-        .eq("id", id);
+        .eq(
+          "id",
+          id
+        );
 
 
     if (error) {
 
+      showDiagnostic(
+        "DELETE GAGAL",
+        error
+      );
+
       showStatus(
         saveStatus,
-        "Gagal menghapus: " +
-        error.message,
+        "Gagal menghapus artwork.",
         "error"
       );
 
       return;
+
     }
 
 
@@ -1596,9 +2008,9 @@
   }
 
 
-  /* =========================================
-     CANCEL EDIT
-  ========================================= */
+  /* ==========================================
+     RESET
+  ========================================== */
 
   cancelBtn.addEventListener(
     "click",
@@ -1642,32 +2054,51 @@
   }
 
 
-  /* =========================================
-     SECURITY DISPLAY HELPERS
-  ========================================= */
+  /* ==========================================
+     ESCAPE HTML
+  ========================================== */
 
   function escapeHtml(value) {
 
-    return String(value ?? "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
+    return String(
+      value ?? ""
+    )
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+      .replace(
+        /</g,
+        "&lt;"
+      )
+      .replace(
+        />/g,
+        "&gt;"
+      )
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+      .replace(
+        /'/g,
+        "&#039;"
+      );
 
   }
 
 
   function escapeAttribute(value) {
 
-    return escapeHtml(value);
+    return escapeHtml(
+      value
+    );
 
   }
 
 
-  /* =========================================
+  /* ==========================================
      START
-  ========================================= */
+  ========================================== */
 
   checkLogin();
 
