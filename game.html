@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game ♡ Art Gallery</title>
+
+<title>Mini Games — Art Gallery</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -18,457 +25,1400 @@ body{
     color:#59484d;
     min-height:100vh;
     overflow-x:hidden;
-    background-image:
-        radial-gradient(circle at 10% 20%,rgba(255,255,255,.45) 0 2px,transparent 3px),
-        radial-gradient(circle at 90% 70%,rgba(255,255,255,.4) 0 2px,transparent 3px);
 }
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,255,255,.65),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(255,255,255,.5),transparent 25%);
+}
+
+
+/* =========================
+   DECOR
+========================= */
 
 .decor{
     position:fixed;
-    font-size:25px;
-    opacity:.55;
     pointer-events:none;
-    z-index:0;
-    animation:float 5s ease-in-out infinite;
+    z-index:-1;
+    opacity:.45;
+    animation:float 6s ease-in-out infinite;
 }
 
-.decor.one{top:14%;left:4%}
-.decor.two{top:35%;right:5%;animation-delay:1s}
-.decor.three{bottom:20%;left:7%;animation-delay:2s}
-.decor.four{bottom:10%;right:8%;animation-delay:3s}
+.decor.one{
+    top:18%;
+    left:5%;
+    font-size:28px;
+}
+
+.decor.two{
+    top:55%;
+    right:5%;
+    font-size:25px;
+    animation-delay:1.5s;
+}
+
+.decor.three{
+    bottom:10%;
+    left:8%;
+    font-size:22px;
+    animation-delay:3s;
+}
+
+.decor.four{
+    top:8%;
+    right:10%;
+    font-size:20px;
+    animation-delay:2s;
+}
 
 @keyframes float{
-    0%,100%{transform:translateY(0) rotate(0)}
-    50%{transform:translateY(-10px) rotate(8deg)}
+
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(5deg);
+    }
+
 }
 
-/* TOP */
+
+/* =========================
+   TOP BOARD
+========================= */
 
 .top-area{
     padding:28px 20px 0;
-    position:relative;
-    z-index:2;
 }
 
 .main-board{
-    width:100%;
     max-width:1050px;
+    width:100%;
     margin:auto;
+
     background:#d9aeb9;
+
     border:2px solid #a97682;
+
     border-radius:28px;
+
     padding:12px;
-    box-shadow:0 8px 0 rgba(169,118,130,.35);
+
+    box-shadow:
+        0 8px 0 rgba(169,118,130,.35);
 }
 
 .board-inner{
-    background:#f6dce2;
-    border:2px solid #c28c99;
-    border-radius:21px;
-    padding:22px 20px 18px;
     position:relative;
+
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    border-radius:21px;
+
+    padding:22px 20px 18px;
+
     overflow:hidden;
 }
 
 .board-inner::before{
     content:"✿";
+
     position:absolute;
+
+    top:12px;
     left:18px;
-    top:10px;
-    color:#c28c99;
-    font-size:24px;
-    opacity:.6;
+
+    font-size:25px;
+
+    color:#b47786;
+
+    transform:rotate(-15deg);
 }
 
 .board-inner::after{
     content:"♡";
+
     position:absolute;
+
+    top:13px;
     right:20px;
-    top:10px;
-    color:#c28c99;
-    font-size:27px;
-    opacity:.6;
+
+    font-size:26px;
+
+    color:#b47786;
+
+    transform:rotate(10deg);
 }
+
+
+/* =========================
+   LOGO
+========================= */
 
 .logo{
     text-align:center;
+
     font-family:Georgia,serif;
+
     font-size:38px;
+
     color:#805965;
+
     letter-spacing:1px;
+
     margin-bottom:18px;
 }
 
+
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar{
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    gap:12px;
+
+    gap:10px;
+
     flex-wrap:wrap;
 }
 
 .navbar a{
     text-decoration:none;
+
     color:#805965;
+
     background:#f8edf0;
+
     border:2px solid #c28f9b;
+
     border-radius:13px;
+
     padding:9px 17px;
-    font-weight:bold;
+
     font-size:14px;
-    box-shadow:0 4px 0 #c28f9b;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 4px 0 #c28f9b;
+
     transition:.2s;
 }
 
 .navbar a:hover{
     background:#edc4ce;
+
     transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 0 #c28f9b;
 }
 
 .navbar a.active{
     background:#e9bdc8;
 }
 
-/* MAIN */
+
+/* =========================
+   PAGE
+========================= */
 
 .page{
     width:100%;
     max-width:900px;
+
     margin:40px auto;
+
     padding:0 20px;
-    position:relative;
-    z-index:1;
 }
+
+
+/* =========================
+   GAME BOARD
+========================= */
 
 .game-board{
     width:100%;
+
     background:#d9aeb9;
+
     border:2px solid #a97682;
+
     border-radius:28px;
+
     padding:12px;
-    box-shadow:0 8px 0 rgba(169,118,130,.35);
+
+    box-shadow:
+        0 8px 0 rgba(169,118,130,.35);
 }
 
 .game-inner{
+    position:relative;
+
+    width:100%;
+
     background:#fff8f9;
+
     border:2px solid #c28c99;
+
     border-radius:21px;
+
     padding:32px 25px 35px;
-    min-height:500px;
+
+    overflow:hidden;
 }
 
-.game-title{
+.game-inner::before{
+    content:"♡";
+
+    position:absolute;
+
+    left:20px;
+    top:15px;
+
+    font-size:22px;
+
+    color:#c28c99;
+
+    opacity:.6;
+}
+
+.game-inner::after{
+    content:"✦";
+
+    position:absolute;
+
+    right:22px;
+    bottom:20px;
+
+    font-size:22px;
+
+    color:#c28c99;
+
+    opacity:.6;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.page-title{
     text-align:center;
+
+    margin:0 0 8px;
+
     font-family:Georgia,serif;
+
     color:#805965;
+
     font-size:32px;
-    margin-bottom:8px;
 }
 
-.game-subtitle{
+.page-subtitle{
     text-align:center;
+
+    margin:0 0 25px;
+
     color:#9b737d;
+
     font-size:14px;
-    margin-bottom:25px;
 }
 
-/* TABS */
+
+/* =========================
+   GAME TABS
+========================= */
 
 .game-tabs{
     display:flex;
+
     justify-content:center;
-    gap:10px;
+
     flex-wrap:wrap;
-    margin-bottom:25px;
+
+    gap:10px;
+
+    margin-bottom:28px;
 }
 
 .game-tab{
     border:2px solid #c28f9b;
+
     background:#f8edf0;
+
     color:#805965;
+
     border-radius:13px;
-    padding:9px 14px;
+
+    padding:9px 15px;
+
     font-weight:bold;
+
+    font-size:13px;
+
     cursor:pointer;
-    box-shadow:0 4px 0 #c28f9b;
+
+    box-shadow:
+        0 4px 0 #c28f9b;
+
     transition:.2s;
 }
 
 .game-tab:hover{
     background:#edc4ce;
+
     transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 0 #c28f9b;
 }
 
 .game-tab.active{
     background:#e9bdc8;
+
+    color:#714b57;
 }
 
-/* SECTIONS */
+
+/* =========================
+   GAME SECTION
+========================= */
 
 .game-section{
     display:none;
+
+    animation:fade .35s ease;
 }
 
 .game-section.active{
     display:block;
 }
 
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.game-btn{
+    border:2px solid #c28f9b;
+
+    background:#f6dce2;
+
+    color:#805965;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 0 #c28f9b;
+
+    transition:.2s;
+}
+
+.game-btn:hover{
+    transform:translateY(-2px);
+
+    background:#edc4ce;
+
+    box-shadow:
+        0 6px 0 #c28f9b;
+}
+
+.game-btn:active{
+    transform:translateY(2px);
+
+    box-shadow:
+        0 2px 0 #c28f9b;
+}
+
+
+/* =========================
+   GAME HEADING
+========================= */
+
 .game-heading{
     text-align:center;
+
     color:#805965;
+
     font-family:Georgia,serif;
-    font-size:23px;
-    margin-bottom:8px;
+
+    font-size:25px;
+
+    margin:0 0 7px;
 }
 
 .game-description{
     text-align:center;
+
+    font-size:13px;
+
     color:#9b737d;
-    font-size:14px;
-    margin-bottom:20px;
+
+    margin-bottom:18px;
 }
 
-/* MEMORY */
+
+/* =========================
+   MEMORY
+========================= */
+
+.memory-info{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:18px;
+}
+
+.info-box{
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    border-radius:12px;
+
+    padding:8px 14px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    color:#76515c;
+}
 
 .memory-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    max-width:500px;
-    margin:0 auto 20px;
-}
 
-.memory-card{
-    aspect-ratio:1;
-    border:none;
-    border-radius:15px;
-    background:#d9aeb9;
-    border:2px solid #a97682;
-    color:white;
-    font-size:25px;
-    cursor:pointer;
-    transition:.25s;
-    box-shadow:0 4px 0 #c28f9b;
-}
+    grid-template-columns:repeat(6,70px);
 
-.memory-card:hover{
-    transform:translateY(-2px);
-}
-
-.memory-card.flipped{
-    background:#f6dce2;
-    color:#805965;
-}
-
-.memory-card.matched{
-    background:#e9bdc8;
-    color:#805965;
-}
-
-.score{
-    text-align:center;
-    font-weight:bold;
-    color:#805965;
-    margin-bottom:15px;
-}
-
-.restart-btn{
-    display:block;
-    margin:15px auto 0;
-    border:2px solid #c28f9b;
-    background:#f8edf0;
-    color:#805965;
-    border-radius:13px;
-    padding:9px 18px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 4px 0 #c28f9b;
-}
-
-.restart-btn:hover{
-    background:#edc4ce;
-}
-
-/* COLOR */
-
-.color-box{
-    width:180px;
-    height:180px;
-    margin:0 auto 20px;
-    border-radius:25px;
-    border:4px solid #c28c99;
-    box-shadow:0 5px 0 rgba(169,118,130,.3);
-}
-
-.color-question{
-    text-align:center;
-    color:#805965;
-    font-weight:bold;
-    margin-bottom:15px;
-}
-
-.color-options{
-    display:flex;
     justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-    max-width:500px;
+
+    gap:9px;
+
+    max-width:520px;
+
     margin:auto;
 }
 
-.color-option{
-    width:60px;
-    height:60px;
-    border-radius:15px;
-    border:3px solid #fff;
-    box-shadow:0 3px 0 #c28f9b;
+.memory-card{
+    width:70px;
+
+    height:70px;
+
+    perspective:700px;
+
     cursor:pointer;
-    transition:.2s;
 }
 
-.color-option:hover{
-    transform:scale(1.08);
+.memory-card-inner{
+    width:100%;
+
+    height:100%;
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    transition:.4s;
 }
 
-/* DRAWING */
+.memory-card.flipped .memory-card-inner,
+.memory-card.matched .memory-card-inner{
+    transform:rotateY(180deg);
+}
 
-.drawing-area{
+.memory-front,
+.memory-back{
+    position:absolute;
+
+    inset:0;
+
+    border-radius:14px;
+
+    backface-visibility:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:2px solid #c28c99;
+}
+
+.memory-front{
+    background:#d9aeb9;
+
+    color:#fff8f9;
+
+    font-size:25px;
+}
+
+.memory-front::after{
+    content:"♡";
+}
+
+.memory-back{
+    background:#fff;
+
+    transform:rotateY(180deg);
+
+    font-size:28px;
+}
+
+.memory-card.matched .memory-back{
+    background:#f1d8df;
+}
+
+.memory-controls{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+}
+
+.memory-message{
+    text-align:center;
+
+    margin-top:15px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    color:#805965;
+
+    min-height:20px;
+}
+
+
+/* =========================
+   COLOR MATCH
+========================= */
+
+.color-target-wrap{
     text-align:center;
 }
 
+.target-label{
+    font-size:14px;
+
+    color:#76515c;
+
+    font-weight:bold;
+}
+
+.target-color{
+    width:95px;
+
+    height:95px;
+
+    border-radius:50%;
+
+    margin:12px auto 8px;
+
+    border:5px solid #f6dce2;
+
+    box-shadow:
+        0 0 0 2px #c28c99;
+}
+
+.color-info{
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin:15px 0 20px;
+}
+
+.color-stat{
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    padding:8px 15px;
+
+    border-radius:12px;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+.color-options{
+    display:grid;
+
+    grid-template-columns:repeat(3,100px);
+
+    justify-content:center;
+
+    gap:13px;
+}
+
+.color-choice{
+    width:100px;
+
+    height:75px;
+
+    border-radius:15px;
+
+    border:3px solid #fff;
+
+    outline:2px solid #c28c99;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.color-choice:hover{
+    transform:scale(1.06);
+}
+
+.color-choice.correct{
+    outline:3px solid #7cad83;
+}
+
+.color-choice.wrong{
+    outline:3px solid #d47777;
+}
+
+.color-message{
+    text-align:center;
+
+    min-height:25px;
+
+    margin-top:18px;
+
+    font-weight:bold;
+
+    color:#805965;
+}
+
+.color-controls{
+    text-align:center;
+
+    margin-top:15px;
+}
+
+
+/* =========================
+   DRAWING
+========================= */
+
+.challenge-box{
+    text-align:center;
+}
+
+.challenge-name{
+    display:inline-block;
+
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    border-radius:13px;
+
+    padding:8px 15px;
+
+    font-weight:bold;
+
+    color:#76515c;
+
+    margin-bottom:14px;
+}
+
+.challenge-canvas-wrap{
+    display:flex;
+
+    justify-content:center;
+}
+
 #drawingCanvas{
-    display:block;
     width:min(100%,550px);
+
     height:330px;
-    margin:0 auto 18px;
+
     background:white;
+
     border:3px solid #c28c99;
+
     border-radius:18px;
+
     cursor:crosshair;
+
     touch-action:none;
 }
 
 .drawing-tools{
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    flex-wrap:wrap;
+
     gap:12px;
-    margin-bottom:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:16px;
 }
 
-.drawing-tools label{
-    color:#805965;
+.tool-label{
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    border-radius:11px;
+
+    padding:8px 12px;
+
+    font-size:13px;
+
     font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
 }
 
 #brushSize{
-    accent-color:#c28c99;
+    accent-color:#a97682;
 }
 
-#brushColor{
-    width:45px;
-    height:35px;
-    border:none;
-    background:none;
-    cursor:pointer;
-}
-
-.palette{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-bottom:15px;
-}
-
-.palette button{
+.color-picker{
     width:32px;
-    height:32px;
-    border-radius:50%;
-    border:2px solid white;
-    box-shadow:0 2px 0 #c28f9b;
+
+    height:30px;
+
+    border:none;
+
+    padding:0;
+
+    background:transparent;
+
     cursor:pointer;
 }
 
-.clear-btn{
-    border:2px solid #c28c99;
-    background:#f8edf0;
-    color:#805965;
-    border-radius:12px;
-    padding:8px 16px;
+.palette-title{
+    margin:18px 0 10px;
+
+    font-size:13px;
+
+    color:#76515c;
+
     font-weight:bold;
-    cursor:pointer;
 }
 
-/* DINO */
+.color-palette{
+    display:flex;
+
+    justify-content:center;
+
+    gap:9px;
+
+    flex-wrap:wrap;
+
+    max-width:480px;
+
+    margin:auto;
+}
+
+.palette-color{
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    border:3px solid white;
+
+    outline:2px solid #c28c99;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.palette-color:hover{
+    transform:scale(1.12);
+}
+
+.palette-color.selected{
+    outline:3px solid #805965;
+
+    transform:scale(1.12);
+}
+
+.challenge-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+}
+
+
+/* =========================
+   DINO RUNNER
+========================= */
 
 .dino-info{
-    text-align:center;
-    color:#805965;
-    font-weight:bold;
-    margin-bottom:12px;
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:18px;
 }
 
-.dino-score{
-    font-size:18px;
-    margin-bottom:8px;
+.dino-stat{
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    border-radius:12px;
+
+    padding:8px 15px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    color:#76515c;
+}
+
+.dino-game-wrap{
+    display:flex;
+
+    justify-content:center;
+
+    width:100%;
+}
+
+.dino-game{
+    position:relative;
+
+    width:min(100%,650px);
+
+    height:260px;
+
+    background:
+        radial-gradient(circle at 20% 25%,#ffffff 0 5px,transparent 6px),
+        radial-gradient(circle at 75% 18%,#ffffff 0 4px,transparent 5px),
+        #fff8f9;
+
+    border:3px solid #c28c99;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    touch-action:none;
+
+    user-select:none;
+}
+
+.dino-game::before{
+    content:"✦   ♡   ✿";
+
+    position:absolute;
+
+    top:22px;
+
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#e3b3c0;
+
+    font-size:17px;
+
+    letter-spacing:65px;
+
+    opacity:.7;
+}
+
+.dino-ground{
+    position:absolute;
+
+    left:0;
+
+    bottom:32px;
+
+    width:100%;
+
+    height:3px;
+
+    background:#c28c99;
+}
+
+.dino{
+    position:absolute;
+
+    left:70px;
+
+    bottom:35px;
+
+    width:48px;
+
+    height:55px;
+
+    z-index:5;
+
+    transition:none;
+}
+
+.dino-body{
+    position:absolute;
+
+    left:5px;
+
+    bottom:0;
+
+    width:38px;
+
+    height:42px;
+
+    background:#e88ba3;
+
+    border:3px solid #a97682;
+
+    border-radius:18px 18px 10px 10px;
+}
+
+.dino-head{
+    position:absolute;
+
+    right:-8px;
+
+    top:-15px;
+
+    width:35px;
+
+    height:32px;
+
+    background:#f09ab0;
+
+    border:3px solid #a97682;
+
+    border-radius:13px 15px 10px 10px;
+
+    z-index:2;
+}
+
+.dino-eye{
+    position:absolute;
+
+    right:7px;
+
+    top:8px;
+
+    width:5px;
+
+    height:5px;
+
+    background:#59484d;
+
+    border-radius:50%;
+}
+
+.dino-snout{
+    position:absolute;
+
+    right:-8px;
+
+    top:17px;
+
+    width:10px;
+
+    height:6px;
+
+    background:#e88ba3;
+
+    border-right:3px solid #a97682;
+
+    border-bottom:3px solid #a97682;
+
+    border-radius:0 5px 5px 0;
+}
+
+.dino-leg{
+    position:absolute;
+
+    bottom:-8px;
+
+    width:8px;
+
+    height:14px;
+
+    background:#d47791;
+
+    border:2px solid #a97682;
+
+    border-radius:5px;
+
+}
+
+.dino-leg.left{
+    left:10px;
+}
+
+.dino-leg.right{
+    left:28px;
+}
+
+.dino-tail{
+    position:absolute;
+
+    left:-13px;
+
+    bottom:7px;
+
+    width:18px;
+
+    height:14px;
+
+    background:#e88ba3;
+
+    border-left:3px solid #a97682;
+
+    border-bottom:3px solid #a97682;
+
+    transform:skewX(-25deg);
+
+    border-radius:5px;
+}
+
+.dino-bow{
+    position:absolute;
+
+    right:0;
+
+    top:-23px;
+
+    width:25px;
+
+    height:20px;
+
+    z-index:8;
+}
+
+.dino-bow::before,
+.dino-bow::after{
+    content:"";
+
+    position:absolute;
+
+    top:3px;
+
+    width:13px;
+
+    height:15px;
+
+    background:#e88ba3;
+
+    border:2px solid #a97682;
+
+}
+
+.dino-bow::before{
+    left:0;
+
+    transform:rotate(-28deg);
+
+    border-radius:8px 3px 8px 5px;
+}
+
+.dino-bow::after{
+    right:0;
+
+    transform:rotate(28deg);
+
+    border-radius:3px 8px 5px 8px;
+}
+
+.dino-bow span{
+    position:absolute;
+
+    left:8px;
+
+    top:6px;
+
+    width:9px;
+
+    height:9px;
+
+    background:#c45b76;
+
+    border:2px solid #a97682;
+
+    border-radius:50%;
+
+    z-index:2;
+}
+
+.dino-obstacle{
+    position:absolute;
+
+    bottom:35px;
+
+    right:-80px;
+
+    z-index:4;
+
+    animation:none;
+}
+
+.dino-palette{
+    width:48px;
+
+    height:42px;
+
+    background:#e88ba3;
+
+    border:3px solid #a97682;
+
+    border-radius:50% 45% 50% 40%;
+
+    transform:rotate(-12deg);
+}
+
+.dino-palette::before{
+    content:"";
+
+    position:absolute;
+
+    left:9px;
+
+    top:8px;
+
+    width:9px;
+
+    height:9px;
+
+    background:#f3b6c5;
+
+    border-radius:50%;
+
+    box-shadow:
+        16px -3px 0 #e8c547,
+        25px 9px 0 #7a9e65,
+        9px 20px 0 #7d65a8;
+}
+
+.dino-brush{
+    width:18px;
+
+    height:70px;
+
+    background:#e8b27d;
+
+    border:3px solid #8b5a3c;
+
+    border-radius:5px;
+
+    transform:rotate(25deg);
+
+}
+
+.dino-brush::before{
+    content:"";
+
+    position:absolute;
+
+    top:-17px;
+
+    left:-4px;
+
+    width:20px;
+
+    height:22px;
+
+    background:#e88ba3;
+
+    border:3px solid #a97682;
+
+    border-radius:50% 50% 8px 8px;
+}
+
+.dino-brush::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:3px;
+
+    width:6px;
+
+    height:10px;
+
+    background:#805965;
 }
 
 .dino-message{
-    min-height:22px;
-    color:#9b737d;
-}
+    position:absolute;
 
-.dino-wrap{
-    width:100%;
-    max-width:700px;
-    margin:0 auto;
-}
+    inset:0;
 
-#dinoCanvas{
-    display:block;
-    width:100%;
-    height:300px;
-    background:#fffafd;
-    border:3px solid #c28c99;
-    border-radius:18px;
-    touch-action:none;
-    cursor:pointer;
-}
+    display:flex;
 
-.dino-help{
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    background:rgba(255,248,249,.82);
+
+    z-index:10;
+
     text-align:center;
-    margin-top:12px;
-    color:#9b737d;
-    font-size:13px;
-}
 
-.dino-start{
-    display:block;
-    margin:15px auto 0;
-    border:2px solid #c28f9b;
-    background:#f8edf0;
     color:#805965;
-    border-radius:13px;
-    padding:9px 18px;
+
     font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 4px 0 #c28f9b;
+
 }
 
-.dino-start:hover{
-    background:#edc4ce;
+.dino-message-title{
+    font-family:Georgia,serif;
+
+    font-size:25px;
 }
+
+.dino-message-text{
+    font-size:13px;
+
+    color:#9b737d;
+}
+
+.dino-controls{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:18px;
+}
+
+.dino-hint{
+    text-align:center;
+
+    margin-top:12px;
+
+    font-size:12px;
+
+    color:#9b737d;
+}
+
+.dino-jump{
+    animation:dinoJump .55s ease-out;
+}
+
+@keyframes dinoJump{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    45%{
+        transform:translateY(-115px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     text-align:center;
+
+    margin-top:30px;
+
     color:#9b737d;
-    font-size:13px;
-    margin:25px 0;
+
+    font-size:12px;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -478,80 +1428,137 @@ footer{
 
     .main-board{
         border-radius:23px;
+
         padding:9px;
     }
 
     .board-inner{
         border-radius:17px;
-        padding:20px 12px 16px;
+
+        padding:18px 12px 15px;
     }
 
     .logo{
         font-size:29px;
-        margin-bottom:16px;
+
+        margin-bottom:15px;
     }
 
     .navbar{
-        gap:8px;
+        gap:7px;
     }
 
     .navbar a{
-        padding:8px 11px;
         font-size:12px;
+
+        padding:8px 11px;
     }
 
     .page{
-        margin:28px auto;
+        width:100%;
+
+        margin:30px auto;
+
         padding:0 12px;
     }
 
     .game-board{
+        width:100%;
+
         border-radius:23px;
+
         padding:9px;
     }
 
     .game-inner{
         border-radius:17px;
-        padding:25px 14px 28px;
+
+        padding:25px 13px 30px;
     }
 
-    .game-title{
+    .page-title{
         font-size:27px;
     }
 
+    .page-subtitle{
+        font-size:12px;
+    }
+
+    .game-tab{
+        font-size:12px;
+
+        padding:8px 11px;
+    }
+
     .memory-grid{
+        grid-template-columns:repeat(4,62px);
+
         gap:8px;
     }
 
     .memory-card{
-        font-size:20px;
+        width:62px;
+
+        height:62px;
+    }
+
+    .memory-back{
+        font-size:24px;
+    }
+
+    .color-options{
+        grid-template-columns:repeat(3,80px);
+
+        gap:11px;
+    }
+
+    .color-choice{
+        width:80px;
+
+        height:65px;
     }
 
     #drawingCanvas{
         height:280px;
     }
 
-    #dinoCanvas{
-        height:240px;
+    .dino-game{
+        height:230px;
     }
 
-    .game-tab{
-        font-size:12px;
-        padding:8px 10px;
+    .dino{
+        left:45px;
     }
+
 }
+
+
+/* =========================
+   REDUCE MOTION
+========================= */
 
 @media(prefers-reduced-motion:reduce){
 
-    *{
-        animation:none!important;
-        transition:none!important;
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
     }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <div class="decor one">✿</div>
 <div class="decor two">♡</div>
@@ -559,25 +1566,33 @@ footer{
 <div class="decor four">˚₊‧</div>
 
 
-<!-- NAVBAR -->
-
 <div class="top-area">
 
     <div class="main-board">
 
         <div class="board-inner">
 
-            <div class="logo">ART GALLERY</div>
+            <div class="logo">
+                ART GALLERY
+            </div>
 
             <nav class="navbar">
 
-                <a href="index.html">Home</a>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <a href="gallery.html">Gallery</a>
+                <a href="gallery.html">
+                    Gallery
+                </a>
 
-                <a href="about.html">About</a>
+                <a href="about.html">
+                    About
+                </a>
 
-                <a href="game.html" class="active">🎮 Game</a>
+                <a href="game.html" class="active">
+                    🎮 Game
+                </a>
 
             </nav>
 
@@ -588,24 +1603,20 @@ footer{
 </div>
 
 
-<!-- MAIN -->
-
 <main class="page">
 
     <div class="game-board">
 
         <div class="game-inner">
 
-            <h1 class="game-title">
-                Little Game Corner ♡
+            <h1 class="page-title">
+                MINI GAMES
             </h1>
 
-            <p class="game-subtitle">
-                Take a little break and play some cute mini games.
+            <p class="page-subtitle">
+                Take a little break and play some cute mini games ♡
             </p>
 
-
-            <!-- TABS -->
 
             <div class="game-tabs">
 
@@ -613,7 +1624,7 @@ footer{
                     class="game-tab active"
                     onclick="showGame('memory',this)"
                 >
-                    🧠 Memory
+                    🃏 Memory Card
                 </button>
 
                 <button
@@ -627,184 +1638,154 @@ footer{
                     class="game-tab"
                     onclick="showGame('drawing',this)"
                 >
-                    ✏️ Drawing
+                    ✏️ Drawing Challenge
                 </button>
 
                 <button
                     class="game-tab"
                     onclick="showGame('dino',this)"
                 >
-                    🎀 Pink Dino
+                    🎀 Dino Runner
                 </button>
 
             </div>
 
 
-            <!-- MEMORY -->
-
-            <section id="memory" class="game-section active">
+            <section
+                id="memory"
+                class="game-section active"
+            >
 
                 <h2 class="game-heading">
-                    Memory Challenge
+                    🃏 Memory Card
                 </h2>
 
                 <p class="game-description">
-                    Find all matching pairs!
+                    Selesaikan semua 10 level sebelum waktunya habis!
                 </p>
 
-                <div class="score">
-                    Moves:
-                    <span id="memoryMoves">0</span>
+                <div class="memory-info">
+
+                    <div class="info-box">
+                        Level:
+                        <span id="memoryLevel">1</span>/10
+                    </div>
+
+                    <div class="info-box">
+                        Time:
+                        <span id="memoryTime">30</span>s
+                    </div>
+
+                    <div class="info-box">
+                        Moves:
+                        <span id="memoryMoves">0</span>
+                    </div>
+
+                    <div class="info-box">
+                        Pairs:
+                        <span id="memoryPairs">0</span>
+                    </div>
+
                 </div>
 
+
                 <div
-                    class="memory-grid"
                     id="memoryGrid"
+                    class="memory-grid"
                 ></div>
 
-                <button
-                    class="restart-btn"
-                    onclick="startMemory()"
-                >
-                    Restart ♡
-                </button>
 
-            </section>
-
-
-            <!-- COLOR -->
-
-            <section id="color" class="game-section">
-
-                <h2 class="game-heading">
-                    Color Match
-                </h2>
-
-                <p class="game-description">
-                    Find the button with the same color.
-                </p>
-
-                <div class="score">
-                    Score:
-                    <span id="colorScore">0</span>
-                </div>
-
-                <div
-                    class="color-box"
-                    id="colorBox"
-                ></div>
-
-                <div class="color-question">
-                    Which color matches?
-                </div>
-
-                <div
-                    class="color-options"
-                    id="colorOptions"
-                ></div>
-
-                <button
-                    class="restart-btn"
-                    onclick="startColorGame()"
-                >
-                    Restart ♡
-                </button>
-
-            </section>
-
-
-            <!-- DRAWING -->
-
-            <section id="drawing" class="game-section">
-
-                <h2 class="game-heading">
-                    Drawing Challenge
-                </h2>
-
-                <p class="game-description">
-                    Draw anything you like!
-                </p>
-
-                <div class="drawing-area">
-
-                    <canvas id="drawingCanvas"></canvas>
-
-                    <div class="drawing-tools">
-
-                        <label for="brushSize">
-                            Brush
-                        </label>
-
-                        <input
-                            type="range"
-                            id="brushSize"
-                            min="2"
-                            max="30"
-                            value="6"
-                        >
-
-                        <input
-                            type="color"
-                            id="brushColor"
-                            value="#805965"
-                        >
-
-                    </div>
-
-                    <div class="palette">
-
-                        <button
-                            style="background:#805965"
-                            data-color="#805965"
-                        ></button>
-
-                        <button
-                            style="background:#000000"
-                            data-color="#000000"
-                        ></button>
-
-                        <button
-                            style="background:#ffffff"
-                            data-color="#ffffff"
-                        ></button>
-
-                        <button
-                            style="background:#e85d75"
-                            data-color="#e85d75"
-                        ></button>
-
-                        <button
-                            style="background:#e9a0b3"
-                            data-color="#e9a0b3"
-                        ></button>
-
-                        <button
-                            style="background:#f2c94c"
-                            data-color="#f2c94c"
-                        ></button>
-
-                        <button
-                            style="background:#78b77b"
-                            data-color="#78b77b"
-                        ></button>
-
-                        <button
-                            style="background:#6ca6d9"
-                            data-color="#6ca6d9"
-                        ></button>
-
-                        <button
-                            style="background:#9b73b5"
-                            data-color="#9b73b5"
-                        ></button>
-
-                    </div>
+                <div class="memory-controls">
 
                     <button
-                        class="clear-btn"
-                        onclick="clearCanvas()"
+                        class="game-btn"
+                        onclick="startMemoryGame()"
                     >
-                        Clear Canvas
+                        ▶ Start / Restart
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="memoryMessage"
+                    class="memory-message"
+                >
+                    Tekan Start untuk memulai!
+                </div>
+
+            </section>
+
+
+            <section
+                id="color"
+                class="game-section"
+            >
+
+                <h2 class="game-heading">
+                    🎨 Color Match
+                </h2>
+
+                <p class="game-description">
+                    Pilih warna yang paling tepat dari 6 warna yang hampir sama!
+                </p>
+
+
+                <div class="color-target-wrap">
+
+                    <div class="target-label">
+                        Find this color:
+                    </div>
+
+                    <div
+                        id="targetColor"
+                        class="target-color"
+                    ></div>
+
+                </div>
+
+
+                <div class="color-info">
+
+                    <div class="color-stat">
+                        Score:
+                        <span id="colorScore">0</span>
+                    </div>
+
+                    <div class="color-stat">
+                        Time:
+                        <span id="colorTime">60</span>s
+                    </div>
+
+                    <div class="color-stat">
+                        Round:
+                        <span id="colorRound">0</span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="colorOptions"
+                    class="color-options"
+                ></div>
+
+
+                <div
+                    id="colorMessage"
+                    class="color-message"
+                >
+                    Tekan Start untuk mulai!
+                </div>
+
+
+                <div class="color-controls">
+
+                    <button
+                        class="game-btn"
+                        onclick="startColorGame()"
+                    >
+                        ▶ Start / Restart
                     </button>
 
                 </div>
@@ -812,52 +1793,229 @@ footer{
             </section>
 
 
-            <!-- PINK DINO -->
-
-            <section id="dino" class="game-section">
+            <section
+                id="drawing"
+                class="game-section"
+            >
 
                 <h2 class="game-heading">
-                    🎀 Pink Dino Runner
+                    ✏️ Drawing Challenge
                 </h2>
 
                 <p class="game-description">
-                    Help the little dino jump over the art supplies!
+                    Gambar sesuai tantangan yang muncul!
                 </p>
+
+
+                <div class="challenge-box">
+
+                    <div
+                        id="challengeName"
+                        class="challenge-name"
+                    >
+                        🌸 Draw a flower
+                    </div>
+
+
+                    <div class="challenge-canvas-wrap">
+
+                        <canvas
+                            id="drawingCanvas"
+                        ></canvas>
+
+                    </div>
+
+
+                    <div class="drawing-tools">
+
+                        <div class="tool-label">
+
+                            Brush
+
+                            <input
+                                type="range"
+                                id="brushSize"
+                                min="2"
+                                max="25"
+                                value="6"
+                            >
+
+                        </div>
+
+
+                        <div class="tool-label">
+
+                            Color
+
+                            <input
+                                type="color"
+                                id="brushColor"
+                                class="color-picker"
+                                value="#805965"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="palette-title">
+                        Choose a color ♡
+                    </div>
+
+
+                    <div
+                        id="colorPalette"
+                        class="color-palette"
+                    ></div>
+
+
+                    <div class="challenge-buttons">
+
+                        <button
+                            class="game-btn"
+                            onclick="clearCanvas()"
+                        >
+                            🗑 Clear
+                        </button>
+
+
+                        <button
+                            class="game-btn"
+                            onclick="newChallenge()"
+                        >
+                            🔄 New Challenge
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section
+                id="dino"
+                class="game-section"
+            >
+
+                <h2 class="game-heading">
+                    🎀 Pinky Dino Runner
+                </h2>
+
+                <p class="game-description">
+                    Bantu dino pink melewati rintangan seni tanpa menabrak!
+                </p>
+
 
                 <div class="dino-info">
 
-                    <div class="dino-score">
+                    <div class="dino-stat">
                         Score:
                         <span id="dinoScore">0</span>
                     </div>
 
-                    <div
-                        class="dino-message"
-                        id="dinoMessage"
-                    >
-                        Press SPACE or tap the game to start.
+                    <div class="dino-stat">
+                        Best:
+                        <span id="dinoBest">0</span>
                     </div>
 
                 </div>
 
-                <div class="dino-wrap">
 
-                    <canvas id="dinoCanvas"></canvas>
+                <div class="dino-game-wrap">
 
-                    <p class="dino-help">
-                        SPACE / ↑ / TAP = Jump 🎀
-                    </p>
+                    <div
+                        id="dinoGame"
+                        class="dino-game"
+                    >
+
+                        <div class="dino-ground"></div>
+
+
+                        <div
+                            id="dinoPlayer"
+                            class="dino"
+                        >
+
+                            <div class="dino-tail"></div>
+
+                            <div class="dino-body">
+
+                                <div class="dino-head">
+                                    <div class="dino-eye"></div>
+                                    <div class="dino-snout"></div>
+                                </div>
+
+                                <div class="dino-leg left"></div>
+                                <div class="dino-leg right"></div>
+
+                            </div>
+
+
+                            <div class="dino-bow">
+                                <span></span>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="dinoObstacle"
+                            class="dino-obstacle"
+                        ></div>
+
+
+                        <div
+                            id="dinoMessage"
+                            class="dino-message"
+                        >
+
+                            <div class="dino-message-title">
+                                🎀 Pinky Dino
+                            </div>
+
+                            <div class="dino-message-text">
+                                Hindari palet dan kuas!
+                            </div>
+
+                            <button
+                                class="game-btn"
+                                onclick="startDinoGame()"
+                            >
+                                ▶ Start Game
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dino-controls">
 
                     <button
-                        class="dino-start"
-                        onclick="startDino()"
+                        class="game-btn"
+                        onclick="startDinoGame()"
                     >
-                        Start Game ♡
+                        🔄 Start / Restart
                     </button>
 
                 </div>
 
+
+                <div class="dino-hint">
+                    Tekan SPACE / ↑ atau tap layar untuk melompat ♡
+                </div>
+
             </section>
+
+
+            <footer>
+                made with ♡ by 0urnss
+            </footer>
+
 
         </div>
 
@@ -866,21 +2024,12 @@ footer{
 </main>
 
 
-<footer>
-    made with ♡ by 0urnss
-</footer>
-
-
 <script>
-
-/* =========================
-   TABS
-========================= */
 
 function showGame(gameId,button){
 
     document.querySelectorAll(".game-section")
-        .forEach(section=>{
+        .forEach(section => {
             section.classList.remove("active");
         });
 
@@ -888,89 +2037,175 @@ function showGame(gameId,button){
         .classList.add("active");
 
     document.querySelectorAll(".game-tab")
-        .forEach(tab=>{
+        .forEach(tab => {
             tab.classList.remove("active");
         });
 
     button.classList.add("active");
-
-    if(gameId==="drawing"){
-        requestAnimationFrame(setupCanvas);
-    }
-
-    if(gameId==="dino"){
-        requestAnimationFrame(resizeDinoCanvas);
-    }
 }
 
 
 /* =========================
-   MEMORY
+   MEMORY CARD
 ========================= */
 
-const memorySymbols=[
-    "🌸","🌸",
-    "🎨","🎨",
-    "🦋","🦋",
-    "🍓","🍓",
-    "🌙","🌙",
-    "⭐","⭐",
-    "🌷","🌷",
-    "🎀","🎀"
+const memoryLevels = [
+    {level:1,pairs:3,time:30},
+    {level:2,pairs:4,time:35},
+    {level:3,pairs:5,time:40},
+    {level:4,pairs:6,time:45},
+    {level:5,pairs:7,time:50},
+    {level:6,pairs:8,time:55},
+    {level:7,pairs:9,time:60},
+    {level:8,pairs:10,time:65},
+    {level:9,pairs:11,time:70},
+    {level:10,pairs:12,time:75}
 ];
 
-let memoryCards=[];
-let firstCard=null;
-let secondCard=null;
-let lockMemory=false;
-let memoryMoves=0;
+const memoryEmojis = [
+    "🌸",
+    "🎨",
+    "🦋",
+    "🍓",
+    "🌷",
+    "⭐",
+    "🍀",
+    "🎀",
+    "🌙",
+    "🩷",
+    "🍒",
+    "🧸",
+    "🌻",
+    "🍰",
+    "🎧",
+    "🪻",
+    "🍉",
+    "🐻"
+];
 
-function shuffle(array){
-    return array.sort(()=>Math.random()-0.5);
+let memoryLevel = 1;
+let firstCard = null;
+let secondCard = null;
+let memoryLock = false;
+let memoryMoves = 0;
+let memoryPairs = 0;
+let memoryTimer = null;
+let memoryTimeLeft = 30;
+let memoryRunning = false;
+
+
+function startMemoryGame(){
+
+    clearInterval(memoryTimer);
+
+    memoryLevel = 1;
+
+    createMemoryLevel();
+
 }
 
-function startMemory(){
 
-    const grid=
-        document.getElementById("memoryGrid");
+function createMemoryLevel(){
 
-    grid.innerHTML="";
+    const levelData =
+        memoryLevels[memoryLevel - 1];
 
-    memoryCards=
-        shuffle([...memorySymbols]);
+    firstCard = null;
+    secondCard = null;
+    memoryLock = false;
+    memoryMoves = 0;
+    memoryPairs = 0;
+    memoryTimeLeft = levelData.time;
+    memoryRunning = true;
 
-    firstCard=null;
-    secondCard=null;
-    lockMemory=false;
-    memoryMoves=0;
+    document.getElementById("memoryLevel")
+        .textContent = memoryLevel;
+
+    document.getElementById("memoryTime")
+        .textContent = memoryTimeLeft;
 
     document.getElementById("memoryMoves")
-        .textContent=memoryMoves;
+        .textContent = 0;
 
-    memoryCards.forEach(symbol=>{
+    document.getElementById("memoryPairs")
+        .textContent = "0/" + levelData.pairs;
 
-        const card=
-            document.createElement("button");
+    document.getElementById("memoryMessage")
+        .textContent =
+        "Level " + memoryLevel +
+        " dimulai! Cari semua pasangan ♡";
 
-        card.className="memory-card";
-        card.textContent="?";
+    let selected =
+        memoryEmojis
+        .slice(0,levelData.pairs)
+        .concat(
+            memoryEmojis.slice(0,levelData.pairs)
+        );
 
-        card.dataset.symbol=symbol;
+    selected.sort(() => Math.random() - .5);
+
+    const grid =
+        document.getElementById("memoryGrid");
+
+    grid.innerHTML = "";
+
+    selected.forEach(emoji => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "memory-card";
+
+        card.dataset.value = emoji;
+
+        card.innerHTML = `
+            <div class="memory-card-inner">
+                <div class="memory-front"></div>
+                <div class="memory-back">${emoji}</div>
+            </div>
+        `;
 
         card.addEventListener(
             "click",
-            ()=>flipMemory(card)
+            () => flipMemoryCard(card)
         );
 
         grid.appendChild(card);
 
     });
+
+    memoryTimer =
+        setInterval(() => {
+
+            memoryTimeLeft--;
+
+            document.getElementById("memoryTime")
+                .textContent = memoryTimeLeft;
+
+            if(memoryTimeLeft <= 0){
+
+                clearInterval(memoryTimer);
+
+                memoryRunning = false;
+
+                memoryLock = true;
+
+                document.getElementById("memoryMessage")
+                    .textContent =
+                    "⏰ Waktu habis! Kamu harus mulai lagi dari Level 1.";
+
+            }
+
+        },1000);
+
 }
 
-function flipMemory(card){
+
+function flipMemoryCard(card){
 
     if(
-        lockMemory ||
+        !memoryRunning ||
+        memoryLock ||
         card.classList.contains("flipped") ||
         card.classList.contains("matched")
     ){
@@ -979,67 +2214,100 @@ function flipMemory(card){
 
     card.classList.add("flipped");
 
-    card.textContent=
-        card.dataset.symbol;
-
     if(!firstCard){
 
-        firstCard=card;
+        firstCard = card;
+
         return;
 
     }
 
-    secondCard=card;
+    secondCard = card;
 
     memoryMoves++;
 
     document.getElementById("memoryMoves")
-        .textContent=memoryMoves;
+        .textContent = memoryMoves;
+
+    memoryLock = true;
 
     if(
-        firstCard.dataset.symbol===
-        secondCard.dataset.symbol
+        firstCard.dataset.value ===
+        secondCard.dataset.value
     ){
 
         firstCard.classList.add("matched");
+
         secondCard.classList.add("matched");
 
-        firstCard=null;
-        secondCard=null;
+        memoryPairs++;
 
-        const matched=
-            document.querySelectorAll(
-                ".memory-card.matched"
-            ).length;
+        const totalPairs =
+            memoryLevels[memoryLevel - 1].pairs;
 
-        if(matched===memoryCards.length){
+        document.getElementById("memoryPairs")
+            .textContent =
+            memoryPairs + "/" + totalPairs;
 
-            setTimeout(()=>{
-                alert("You found them all! ♡");
-            },300);
+        resetMemoryTurn();
+
+        if(memoryPairs === totalPairs){
+
+            clearInterval(memoryTimer);
+
+            if(memoryLevel < 10){
+
+                document.getElementById("memoryMessage")
+                    .textContent =
+                    "🎉 Level " +
+                    memoryLevel +
+                    " selesai!";
+
+                setTimeout(() => {
+
+                    memoryLevel++;
+
+                    createMemoryLevel();
+
+                },1200);
+
+            }else{
+
+                memoryRunning = false;
+
+                document.getElementById("memoryMessage")
+                    .textContent =
+                    "🏆 CONGRATS! Kamu berhasil menyelesaikan 10 level!";
+
+            }
 
         }
 
     }else{
 
-        lockMemory=true;
-
-        setTimeout(()=>{
+        setTimeout(() => {
 
             firstCard.classList.remove("flipped");
+
             secondCard.classList.remove("flipped");
 
-            firstCard.textContent="?";
-            secondCard.textContent="?";
-
-            firstCard=null;
-            secondCard=null;
-
-            lockMemory=false;
+            resetMemoryTurn();
 
         },700);
 
     }
+
+}
+
+
+function resetMemoryTurn(){
+
+    firstCard = null;
+
+    secondCard = null;
+
+    memoryLock = false;
+
 }
 
 
@@ -1047,85 +2315,216 @@ function flipMemory(card){
    COLOR MATCH
 ========================= */
 
-const colorList=[
-    "#e85d75",
-    "#f2c94c",
-    "#78b77b",
-    "#6ca6d9",
-    "#9b73b5",
-    "#f29f7a",
-    "#805965",
-    "#e9a0b3"
+let colorScore = 0;
+let colorRound = 0;
+let colorTimeLeft = 60;
+let colorTimer = null;
+let colorRunning = false;
+
+
+const colorFamilies = [
+
+    [
+        [35,75,120],
+        [42,83,130],
+        [50,90,138],
+        [55,96,145],
+        [62,101,150],
+        [68,108,157]
+    ],
+
+    [
+        [175,105,125],
+        [181,111,130],
+        [187,117,135],
+        [193,123,140],
+        [199,129,145],
+        [205,135,150]
+    ],
+
+    [
+        [80,120,105],
+        [86,126,111],
+        [92,132,117],
+        [98,138,123],
+        [104,144,129],
+        [110,150,135]
+    ],
+
+    [
+        [135,105,150],
+        [141,111,156],
+        [147,117,162],
+        [153,123,168],
+        [159,129,174],
+        [165,135,180]
+    ]
+
 ];
 
-let colorAnswer="";
-let colorScore=0;
+
+function randomColorFamily(){
+
+    return colorFamilies[
+        Math.floor(
+            Math.random() *
+            colorFamilies.length
+        )
+    ];
+
+}
+
+
+function rgbToString(rgb){
+
+    return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+
+}
+
 
 function startColorGame(){
 
-    colorScore=0;
+    clearInterval(colorTimer);
+
+    colorScore = 0;
+    colorRound = 0;
+    colorTimeLeft = 60;
+    colorRunning = true;
 
     document.getElementById("colorScore")
-        .textContent=colorScore;
+        .textContent = 0;
 
-    createColorQuestion();
+    document.getElementById("colorRound")
+        .textContent = 0;
+
+    document.getElementById("colorTime")
+        .textContent = 60;
+
+    document.getElementById("colorMessage")
+        .textContent =
+        "Pilih warna yang paling tepat!";
+
+    newColorRound();
+
+    colorTimer =
+        setInterval(() => {
+
+            colorTimeLeft--;
+
+            document.getElementById("colorTime")
+                .textContent =
+                colorTimeLeft;
+
+            if(colorTimeLeft <= 0){
+
+                clearInterval(colorTimer);
+
+                colorRunning = false;
+
+                document.getElementById("colorOptions")
+                    .innerHTML = "";
+
+                document.getElementById("colorMessage")
+                    .textContent =
+                    "⏰ Waktu habis! Score kamu: " +
+                    colorScore;
+
+            }
+
+        },1000);
+
 }
 
-function createColorQuestion(){
 
-    colorAnswer=
-        colorList[
-            Math.floor(
-                Math.random()*colorList.length
-            )
-        ];
+function newColorRound(){
 
-    document.getElementById("colorBox")
-        .style.background=colorAnswer;
+    if(!colorRunning) return;
 
-    const options=
-        shuffle([...colorList]);
+    colorRound++;
 
-    const container=
+    document.getElementById("colorRound")
+        .textContent =
+        colorRound;
+
+    const family =
+        randomColorFamily();
+
+    const targetIndex =
+        Math.floor(
+            Math.random() * family.length
+        );
+
+    const target =
+        family[targetIndex];
+
+    document.getElementById("targetColor")
+        .style.background =
+        rgbToString(target);
+
+    const shuffled =
+        family
+        .map((color,index) => ({
+            color,
+            index
+        }))
+        .sort(() => Math.random() - .5);
+
+    const container =
         document.getElementById("colorOptions");
 
-    container.innerHTML="";
+    container.innerHTML = "";
 
-    options.forEach(color=>{
+    shuffled.forEach(item => {
 
-        const button=
+        const button =
             document.createElement("button");
 
-        button.className="color-option";
+        button.className =
+            "color-choice";
 
-        button.style.background=color;
+        button.style.background =
+            rgbToString(item.color);
 
         button.addEventListener(
             "click",
-            ()=>{
+            () => {
 
-                if(color===colorAnswer){
+                if(!colorRunning) return;
 
-                    colorScore++;
+                if(item.index === targetIndex){
 
-                    document.getElementById(
-                        "colorScore"
-                    ).textContent=colorScore;
+                    colorScore += 10;
 
-                    createColorQuestion();
+                    button.classList.add("correct");
+
+                    document.getElementById("colorMessage")
+                        .textContent =
+                        "✓ Benar! +10 points";
 
                 }else{
 
-                    colorScore=
-                        Math.max(0,colorScore-1);
+                    colorScore =
+                        Math.max(
+                            0,
+                            colorScore - 3
+                        );
 
-                    document.getElementById(
-                        "colorScore"
-                    ).textContent=colorScore;
+                    button.classList.add("wrong");
 
-                    button.style.opacity="0.35";
+                    document.getElementById("colorMessage")
+                        .textContent =
+                        "✗ Salah! -3 points";
 
                 }
+
+                document.getElementById("colorScore")
+                    .textContent =
+                    colorScore;
+
+                setTimeout(
+                    newColorRound,
+                    350
+                );
 
             }
         );
@@ -1133,95 +2532,74 @@ function createColorQuestion(){
         container.appendChild(button);
 
     });
+
 }
 
 
 /* =========================
-   DRAWING
+   DRAWING CHALLENGE
 ========================= */
 
-const canvas=
-    document.getElementById(
-        "drawingCanvas"
-    );
+const canvas =
+    document.getElementById("drawingCanvas");
 
-const ctx=
+const ctx =
     canvas.getContext("2d");
 
-let drawing=false;
+let drawing = false;
+
 
 function setupCanvas(){
 
-    const rect=
+    const rect =
         canvas.getBoundingClientRect();
 
-    if(rect.width===0 || rect.height===0){
-        return;
-    }
+    const dpr =
+        window.devicePixelRatio || 1;
 
-    const dpr=
-        window.devicePixelRatio||1;
+    canvas.width =
+        rect.width * dpr;
 
-    ctx.setTransform(
-        1,0,0,1,0,0
-    );
-
-    canvas.width=
-        Math.round(rect.width*dpr);
-
-    canvas.height=
-        Math.round(rect.height*dpr);
+    canvas.height =
+        rect.height * dpr;
 
     ctx.scale(dpr,dpr);
 
-    ctx.lineCap="round";
-    ctx.lineJoin="round";
-    ctx.globalCompositeOperation=
-        "source-over";
+    ctx.lineCap = "round";
 
-    ctx.strokeStyle=
-        document.getElementById(
-            "brushColor"
-        ).value;
-
-    ctx.lineWidth=
-        document.getElementById(
-            "brushSize"
-        ).value;
+    ctx.lineJoin = "round";
 
     clearCanvas();
+
 }
+
+
+setupCanvas();
+
 
 function getCanvasPosition(event){
 
-    const rect=
+    const rect =
         canvas.getBoundingClientRect();
 
-    return{
-        x:event.clientX-rect.left,
-        y:event.clientY-rect.top
+    return {
+
+        x:event.clientX - rect.left,
+
+        y:event.clientY - rect.top
+
     };
+
 }
+
 
 canvas.addEventListener(
     "pointerdown",
-    event=>{
+    event => {
 
-        if(
-            !document
-                .getElementById("drawing")
-                .classList.contains("active")
-        ){
-            return;
-        }
+        drawing = true;
 
-        drawing=true;
-
-        canvas.setPointerCapture(
-            event.pointerId
-        );
-
-        const pos=
+        const pos =
             getCanvasPosition(event);
 
         ctx.beginPath();
@@ -1234,25 +2612,22 @@ canvas.addEventListener(
     }
 );
 
+
 canvas.addEventListener(
     "pointermove",
-    event=>{
+    event => {
 
-        if(!drawing){
-            return;
-        }
+        if(!drawing) return;
 
-        const pos=
+        const pos =
             getCanvasPosition(event);
 
-        ctx.lineWidth=
-            Number(
-                document.getElementById(
-                    "brushSize"
-                ).value
-            );
+        ctx.lineWidth =
+            document.getElementById(
+                "brushSize"
+            ).value;
 
-        ctx.strokeStyle=
+        ctx.strokeStyle =
             document.getElementById(
                 "brushColor"
             ).value;
@@ -1267,1109 +2642,549 @@ canvas.addEventListener(
     }
 );
 
-function stopDrawing(event){
-
-    drawing=false;
-
-    if(
-        event.pointerId!==undefined
-    ){
-
-        try{
-            canvas.releasePointerCapture(
-                event.pointerId
-            );
-        }catch(e){}
-
-    }
-
-    ctx.closePath();
-}
 
 canvas.addEventListener(
     "pointerup",
-    stopDrawing
+    () => {
+
+        drawing = false;
+
+        ctx.closePath();
+
+    }
 );
+
 
 canvas.addEventListener(
-    "pointercancel",
-    stopDrawing
+    "pointerleave",
+    () => {
+
+        drawing = false;
+
+        ctx.closePath();
+
+    }
 );
 
+
 function clearCanvas(){
-
-    const rect=
-        canvas.getBoundingClientRect();
-
-    if(rect.width===0 || rect.height===0){
-        return;
-    }
-
-    ctx.save();
-
-    ctx.setTransform(
-        1,0,0,1,0,0
-    );
 
     ctx.clearRect(
         0,
         0,
-        canvas.width,
-        canvas.height
+        canvas.clientWidth,
+        canvas.clientHeight
     );
 
-    ctx.restore();
 }
 
-document.getElementById(
-    "brushColor"
-).addEventListener(
-    "input",
-    event=>{
-        ctx.strokeStyle=
-            event.target.value;
-    }
-);
 
-document.querySelectorAll(
-    ".palette button"
-).forEach(button=>{
+const drawingChallenges = [
 
-    button.addEventListener(
-        "click",
-        ()=>{
+    "🌸 Draw a flower",
+    "🐱 Draw a cute cat",
+    "🦋 Draw a butterfly",
+    "🍓 Draw a strawberry",
+    "🌈 Draw a rainbow",
+    "☁️ Draw a cloud",
+    "🍄 Draw a mushroom",
+    "🌙 Draw a moon"
 
-            const color=
-                button.dataset.color;
+];
 
-            document.getElementById(
-                "brushColor"
-            ).value=color;
 
-            ctx.strokeStyle=color;
+function newChallenge(){
 
-        }
-    );
+    const random =
+        drawingChallenges[
+            Math.floor(
+                Math.random() *
+                drawingChallenges.length
+            )
+        ];
 
-});
+    document.getElementById(
+        "challengeName"
+    ).textContent =
+        random;
+
+    clearCanvas();
+
+}
 
 
 /* =========================
-   PINK DINO RUNNER
+   DRAWING COLOR PALETTE
 ========================= */
 
-const dinoCanvas=
+const drawingColors = [
+
+    "#000000",
+    "#805965",
+    "#c45b76",
+    "#e88ba3",
+    "#f3b6c5",
+    "#f6dce2",
+
+    "#8b4513",
+    "#c9825b",
+    "#e8b27d",
+
+    "#e8c547",
+    "#f4d58a",
+
+    "#7a9e65",
+    "#a8c98a",
+    "#c9d9a8",
+
+    "#4c7da8",
+    "#78a8d1",
+    "#a8c8e5",
+
+    "#7d65a8",
+    "#a88cc9",
+    "#c9b5df"
+
+];
+
+
+const palette =
     document.getElementById(
-        "dinoCanvas"
+        "colorPalette"
     );
 
-const dinoCtx=
-    dinoCanvas.getContext("2d");
 
-let dinoRunning=false;
-let dinoGameOver=false;
-let dinoAnimation=null;
-
-let dino={
-    x:55,
-    y:0,
-    width:48,
-    height:48,
-    velocityY:0,
-    jumping:false
-};
-
-let artObstacle={
-    x:0,
-    y:0,
-    width:48,
-    height:48,
-    type:"palette"
-};
-
-let dinoGround=0;
-let dinoScore=0;
-let dinoSpeed=5;
-
-
-/* RESIZE */
-
-function resizeDinoCanvas(){
-
-    const rect=
-        dinoCanvas.getBoundingClientRect();
-
-    if(
-        rect.width===0 ||
-        rect.height===0
-    ){
-        return;
-    }
-
-    const dpr=
-        window.devicePixelRatio||1;
-
-    dinoCanvas.width=
-        Math.round(rect.width*dpr);
-
-    dinoCanvas.height=
-        Math.round(rect.height*dpr);
-
-    dinoCtx.setTransform(
-        1,0,0,1,0,0
+const colorInput =
+    document.getElementById(
+        "brushColor"
     );
 
-    dinoCtx.scale(dpr,dpr);
 
-    dinoGround=
-        rect.height-38;
+drawingColors.forEach(
+    (color,index) => {
 
-    dino.y=
-        dinoGround-dino.height;
-
-    drawDinoScene();
-}
-
-
-/* START */
-
-function startDino(){
-
-    cancelAnimationFrame(
-        dinoAnimation
-    );
-
-    resizeDinoCanvas();
-
-    dinoRunning=true;
-    dinoGameOver=false;
-
-    dinoScore=0;
-    dinoSpeed=5;
-
-    dino.x=55;
-
-    dino.velocityY=0;
-    dino.jumping=false;
-
-    createObstacle();
-
-    document.getElementById(
-        "dinoScore"
-    ).textContent="0";
-
-    document.getElementById(
-        "dinoMessage"
-    ).textContent=
-        "Run, little artist! 🎀";
-
-    dinoLoop();
-}
-
-
-/* JUMP */
-
-function jumpDino(){
-
-    if(!dinoRunning){
-
-        startDino();
-        return;
-
-    }
-
-    if(dinoGameOver){
-
-        startDino();
-        return;
-
-    }
-
-    if(!dino.jumping){
-
-        dino.velocityY=-12;
-        dino.jumping=true;
-
-    }
-}
-
-
-/* CREATE ART OBSTACLE */
-
-function createObstacle(){
-
-    const width=
-        dinoCanvas.getBoundingClientRect().width;
-
-    artObstacle.x=
-        width+100+
-        Math.random()*180;
-
-    artObstacle.type=
-        Math.random()>.5
-        ? "palette"
-        : "brush";
-
-}
-
-
-/* UPDATE */
-
-function updateDino(){
-
-    const width=
-        dinoCanvas.getBoundingClientRect().width;
-
-    dino.velocityY+=0.55;
-
-    dino.y+=dino.velocityY;
-
-    if(
-        dino.y>=
-        dinoGround-dino.height
-    ){
-
-        dino.y=
-            dinoGround-dino.height;
-
-        dino.velocityY=0;
-        dino.jumping=false;
-
-    }
-
-
-    artObstacle.x-=dinoSpeed;
-
-
-    if(
-        artObstacle.x+
-        artObstacle.width<0
-    ){
-
-        createObstacle();
-
-        dinoScore++;
-
-        dinoSpeed=
-            Math.min(
-                10,
-                5+dinoScore*.12
+        const button =
+            document.createElement(
+                "button"
             );
 
-        document.getElementById(
-            "dinoScore"
-        ).textContent=dinoScore;
+        button.className =
+            "palette-color";
 
-    }
+        button.style.background =
+            color;
 
+        if(index === 1){
 
-    /* COLLISION */
+            button.classList.add(
+                "selected"
+            );
 
-    const dinoLeft=
-        dino.x+7;
+        }
 
-    const dinoRight=
-        dino.x+dino.width-5;
+        button.title =
+            color;
 
-    const dinoTop=
-        dino.y+6;
+        button.addEventListener(
+            "click",
+            () => {
 
-    const dinoBottom=
-        dino.y+dino.height-4;
+                colorInput.value =
+                    color;
 
-    const obstacleLeft=
-        artObstacle.x+4;
+                document.querySelectorAll(
+                    ".palette-color"
+                ).forEach(
+                    item => {
 
-    const obstacleRight=
-        artObstacle.x+
-        artObstacle.width-4;
+                        item.classList.remove(
+                            "selected"
+                        );
 
-    const obstacleTop=
-        artObstacle.y+4;
+                    }
+                );
 
-    const obstacleBottom=
-        artObstacle.y+
-        artObstacle.height-3;
+                button.classList.add(
+                    "selected"
+                );
 
-    if(
-        dinoRight>obstacleLeft &&
-        dinoLeft<obstacleRight &&
-        dinoBottom>obstacleTop &&
-        dinoTop<obstacleBottom
-    ){
+            }
+        );
 
-        endDino();
-
-    }
-}
-
-
-/* DRAW EVERYTHING */
-
-function drawDinoScene(){
-
-    const rect=
-        dinoCanvas.getBoundingClientRect();
-
-    const width=rect.width;
-    const height=rect.height;
-
-    dinoCtx.clearRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-
-    /* BACKGROUND */
-
-    dinoCtx.fillStyle="#fffafd";
-
-    dinoCtx.fillRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-
-    /* LITTLE ART DECOR */
-
-    drawBackgroundDecor(
-        width,
-        height
-    );
-
-
-    /* GROUND */
-
-    dinoCtx.strokeStyle="#c28c99";
-    dinoCtx.lineWidth=2;
-
-    dinoCtx.beginPath();
-
-    dinoCtx.moveTo(
-        0,
-        dinoGround+3
-    );
-
-    dinoCtx.lineTo(
-        width,
-        dinoGround+3
-    );
-
-    dinoCtx.stroke();
-
-
-    /* SMALL FLOWERS ON GROUND */
-
-    for(
-        let x=25;
-        x<width;
-        x+=90
-    ){
-
-        drawTinyFlower(
-            x,
-            dinoGround+17
+        palette.appendChild(
+            button
         );
 
     }
+);
 
 
-    drawDino();
-    drawArtObstacle();
+colorInput.addEventListener(
+    "input",
+    () => {
 
-}
+        document.querySelectorAll(
+            ".palette-color"
+        ).forEach(
+            item => {
 
+                item.classList.remove(
+                    "selected"
+                );
 
-/* BACKGROUND DECOR */
+            }
+        );
 
-function drawBackgroundDecor(
-    width,
-    height
-){
-
-    dinoCtx.fillStyle="#f6dce2";
-
-    /* clouds */
-
-    drawCloud(
-        100,
-        48
-    );
-
-    drawCloud(
-        width-150,
-        75
-    );
-
-
-    /* floating hearts */
-
-    dinoCtx.fillStyle="#e9a0b3";
-
-    drawHeart(
-        width*.25,
-        45,
-        7
-    );
-
-    drawHeart(
-        width*.72,
-        38,
-        6
-    );
-
-}
-
-
-/* CLOUD */
-
-function drawCloud(x,y){
-
-    dinoCtx.fillStyle="#f3d8df";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x,
-        y,
-        12,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.arc(
-        x+15,
-        y-6,
-        16,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.arc(
-        x+33,
-        y,
-        12,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-}
-
-
-/* HEART */
-
-function drawHeart(
-    x,
-    y,
-    size
-){
-
-    dinoCtx.beginPath();
-
-    dinoCtx.moveTo(
-        x,
-        y+size
-    );
-
-    dinoCtx.bezierCurveTo(
-        x-size*1.5,
-        y,
-        x-size,
-        y-size,
-        x,
-        y-size*.25
-    );
-
-    dinoCtx.bezierCurveTo(
-        x+size,
-        y-size,
-        x+size*1.5,
-        y,
-        x,
-        y+size
-    );
-
-    dinoCtx.fill();
-
-}
-
-
-/* FLOWER */
-
-function drawTinyFlower(
-    x,
-    y
-){
-
-    dinoCtx.fillStyle="#e9a0b3";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x,
-        y,
-        4,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.arc(
-        x+6,
-        y-3,
-        4,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.arc(
-        x+12,
-        y,
-        4,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-    dinoCtx.fillStyle="#f2c94c";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x+6,
-        y,
-        3,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-}
+    }
+);
 
 
 /* =========================
-   PINK DINO
+   DINO RUNNER
 ========================= */
 
-function drawDino(){
+const dinoGame =
+    document.getElementById("dinoGame");
 
-    const x=dino.x;
-    const y=dino.y;
+const dinoPlayer =
+    document.getElementById("dinoPlayer");
 
-    /* TAIL */
+const dinoObstacle =
+    document.getElementById("dinoObstacle");
 
-    dinoCtx.fillStyle="#ed8fab";
+const dinoScoreElement =
+    document.getElementById("dinoScore");
 
-    dinoCtx.beginPath();
+const dinoBestElement =
+    document.getElementById("dinoBest");
 
-    dinoCtx.moveTo(
-        x+11,
-        y+20
-    );
+const dinoMessage =
+    document.getElementById("dinoMessage");
 
-    dinoCtx.lineTo(
-        x-3,
-        y+30
-    );
-
-    dinoCtx.lineTo(
-        x+12,
-        y+31
-    );
-
-    dinoCtx.closePath();
-
-    dinoCtx.fill();
-
-
-    /* BODY */
-
-    dinoCtx.fillStyle="#f28eac";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.roundRect(
-        x+7,
-        y+13,
-        30,
-        27,
-        9
-    );
-
-    dinoCtx.fill();
+let dinoRunning = false;
+let dinoJumping = false;
+let dinoScore = 0;
+let dinoBest = 0;
+let dinoSpeed = 5;
+let dinoObstacleX = 700;
+let dinoFrame = null;
+let dinoLastTime = 0;
+let dinoNextObstacle = 0;
+let dinoObstacleType = "palette";
 
 
-    /* HEAD */
+function startDinoGame(){
 
-    dinoCtx.beginPath();
+    cancelAnimationFrame(dinoFrame);
 
-    dinoCtx.roundRect(
-        x+20,
-        y+4,
-        23,
-        25,
-        9
-    );
+    dinoRunning = true;
+    dinoJumping = false;
+    dinoScore = 0;
+    dinoSpeed = 5;
+    dinoObstacleX = dinoGame.clientWidth + 80;
+    dinoNextObstacle = 0;
+    dinoLastTime = performance.now();
 
-    dinoCtx.fill();
+    dinoScoreElement.textContent = "0";
 
+    dinoPlayer.style.transform =
+        "translateY(0)";
 
-    /* SNOUT */
+    dinoMessage.style.display =
+        "none";
 
-    dinoCtx.beginPath();
+    createDinoObstacle();
 
-    dinoCtx.roundRect(
-        x+36,
-        y+15,
-        12,
-        9,
-        4
-    );
-
-    dinoCtx.fill();
-
-
-    /* LEGS */
-
-    dinoCtx.fillStyle="#df7898";
-
-    dinoCtx.roundRect(
-        x+12,
-        y+35,
-        8,
-        13,
-        4
-    );
-
-    dinoCtx.fill();
-
-    dinoCtx.roundRect(
-        x+28,
-        y+35,
-        8,
-        13,
-        4
-    );
-
-    dinoCtx.fill();
-
-
-    /* EYE */
-
-    dinoCtx.fillStyle="#fff";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x+36,
-        y+11,
-        4,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-
-    dinoCtx.fillStyle="#805965";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x+37,
-        y+11,
-        2,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-
-    /* CHEEK */
-
-    dinoCtx.fillStyle="#f7b4c5";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x+41,
-        y+21,
-        3,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-
-    /* SMILE */
-
-    dinoCtx.strokeStyle="#805965";
-    dinoCtx.lineWidth=1.5;
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x+39,
-        y+17,
-        5,
-        0,
-        Math.PI/2
-    );
-
-    dinoCtx.stroke();
-
-
-    /* 🎀 BOW */
-
-    drawBow(
-        x+25,
-        y+3
-    );
+    dinoFrame =
+        requestAnimationFrame(
+            dinoLoop
+        );
 
 }
 
 
-/* BOW */
+function createDinoObstacle(){
 
-function drawBow(x,y){
+    dinoObstacle.innerHTML = "";
 
-    dinoCtx.fillStyle="#e85d75";
+    const type =
+        Math.random() < .5
+        ? "palette"
+        : "brush";
 
-    /* left */
+    dinoObstacleType = type;
 
-    dinoCtx.beginPath();
+    if(type === "palette"){
 
-    dinoCtx.moveTo(
-        x,
-        y
-    );
+        const palette =
+            document.createElement("div");
 
-    dinoCtx.bezierCurveTo(
-        x-15,
-        y-7,
-        x-18,
-        y+5,
-        x-3,
-        y+7
-    );
+        palette.className =
+            "dino-palette";
 
-    dinoCtx.closePath();
-
-    dinoCtx.fill();
-
-
-    /* right */
-
-    dinoCtx.beginPath();
-
-    dinoCtx.moveTo(
-        x+2,
-        y
-    );
-
-    dinoCtx.bezierCurveTo(
-        x+17,
-        y-7,
-        x+20,
-        y+5,
-        x+5,
-        y+7
-    );
-
-    dinoCtx.closePath();
-
-    dinoCtx.fill();
-
-
-    /* center */
-
-    dinoCtx.fillStyle="#d95b78";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x+1,
-        y+3,
-        5,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-}
-
-
-/* =========================
-   ART OBSTACLES
-========================= */
-
-function drawArtObstacle(){
-
-    const x=
-        artObstacle.x;
-
-    const y=
-        dinoGround-
-        artObstacle.height;
-
-    artObstacle.y=y;
-
-
-    if(
-        artObstacle.type==="palette"
-    ){
-
-        drawPaintPalette(
-            x,
-            y
+        dinoObstacle.appendChild(
+            palette
         );
 
     }else{
 
-        drawPaintBrush(
-            x,
-            y
+        const brush =
+            document.createElement("div");
+
+        brush.className =
+            "dino-brush";
+
+        dinoObstacle.appendChild(
+            brush
         );
 
     }
 
-}
+    dinoObstacleX =
+        dinoGame.clientWidth + 60;
 
+    dinoObstacle.style.right =
+        "auto";
 
-/* PAINT PALETTE */
-
-function drawPaintPalette(
-    x,
-    y
-){
-
-    /* palette */
-
-    dinoCtx.fillStyle="#c9869b";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.ellipse(
-        x+24,
-        y+28,
-        24,
-        18,
-        -.2,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-
-    /* palette center */
-
-    dinoCtx.fillStyle="#f8edf0";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.arc(
-        x+32,
-        y+28,
-        5,
-        0,
-        Math.PI*2
-    );
-
-    dinoCtx.fill();
-
-
-    /* paint dots */
-
-    const colors=[
-        "#e85d75",
-        "#f2c94c",
-        "#78b77b",
-        "#6ca6d9"
-    ];
-
-    colors.forEach(
-        (color,index)=>{
-
-            dinoCtx.fillStyle=color;
-
-            dinoCtx.beginPath();
-
-            dinoCtx.arc(
-                x+10+index*10,
-                y+18,
-                4,
-                0,
-                Math.PI*2
-            );
-
-            dinoCtx.fill();
-
-        }
-    );
+    dinoObstacle.style.left =
+        dinoObstacleX + "px";
 
 }
 
 
-/* PAINT BRUSH */
+function dinoJump(){
 
-function drawPaintBrush(
-    x,
-    y
-){
+    if(!dinoRunning || dinoJumping){
+        return;
+    }
 
-    /* brush handle */
+    dinoJumping = true;
 
-    dinoCtx.save();
-
-    dinoCtx.translate(
-        x+25,
-        y+25
+    dinoPlayer.classList.remove(
+        "dino-jump"
     );
 
-    dinoCtx.rotate(
-        -.55
+    void dinoPlayer.offsetWidth;
+
+    dinoPlayer.classList.add(
+        "dino-jump"
     );
 
-    dinoCtx.fillStyle="#c28c99";
+    setTimeout(() => {
 
-    dinoCtx.fillRect(
-        -4,
-        -25,
-        8,
-        38
-    );
+        dinoPlayer.classList.remove(
+            "dino-jump"
+        );
 
+        dinoJumping = false;
 
-    /* handle tip */
-
-    dinoCtx.fillStyle="#a97682";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.moveTo(
-        -4,
-        -25
-    );
-
-    dinoCtx.lineTo(
-        0,
-        -33
-    );
-
-    dinoCtx.lineTo(
-        4,
-        -25
-    );
-
-    dinoCtx.closePath();
-
-    dinoCtx.fill();
-
-
-    /* brush hair */
-
-    dinoCtx.fillStyle="#e85d75";
-
-    dinoCtx.beginPath();
-
-    dinoCtx.roundRect(
-        -7,
-        10,
-        14,
-        13,
-        4
-    );
-
-    dinoCtx.fill();
-
-    dinoCtx.restore();
+    },550);
 
 }
 
 
-/* LOOP */
+function getDinoRect(){
 
-function dinoLoop(){
+    const rect =
+        dinoPlayer.getBoundingClientRect();
+
+    return {
+
+        left:rect.left + 7,
+        right:rect.right - 5,
+        top:rect.top + 7,
+        bottom:rect.bottom
+
+    };
+
+}
+
+
+function getObstacleRect(){
+
+    const rect =
+        dinoObstacle.getBoundingClientRect();
+
+    return {
+
+        left:rect.left + 5,
+        right:rect.right - 5,
+        top:rect.top + 5,
+        bottom:rect.bottom - 3
+
+    };
+
+}
+
+
+function checkDinoCollision(){
+
+    const player =
+        getDinoRect();
+
+    const obstacle =
+        getObstacleRect();
+
+    return (
+        player.left < obstacle.right &&
+        player.right > obstacle.left &&
+        player.top < obstacle.bottom &&
+        player.bottom > obstacle.top
+    );
+
+}
+
+
+function dinoLoop(timestamp){
 
     if(!dinoRunning){
+        return;
+    }
 
-        drawDinoScene();
+    const delta =
+        timestamp - dinoLastTime;
+
+    dinoLastTime =
+        timestamp;
+
+    dinoObstacleX -=
+        dinoSpeed * (delta / 16);
+
+    dinoObstacle.style.left =
+        dinoObstacleX + "px";
+
+
+    if(checkDinoCollision()){
+
+        endDinoGame();
 
         return;
 
     }
 
-    updateDino();
 
-    drawDinoScene();
+    if(dinoObstacleX < -90){
 
-    if(!dinoGameOver){
+        dinoScore++;
 
-        dinoAnimation=
-            requestAnimationFrame(
-                dinoLoop
+        dinoScoreElement.textContent =
+            dinoScore;
+
+        if(dinoScore > dinoBest){
+
+            dinoBest =
+                dinoScore;
+
+            dinoBestElement.textContent =
+                dinoBest;
+
+        }
+
+        dinoSpeed =
+            Math.min(
+                11,
+                5 + dinoScore * .15
             );
+
+        createDinoObstacle();
 
     }
 
-}
 
-
-/* GAME OVER */
-
-function endDino(){
-
-    dinoRunning=false;
-    dinoGameOver=true;
-
-    document.getElementById(
-        "dinoMessage"
-    ).textContent=
-        "Aww! Your score is "+
-        dinoScore+
-        " ♡ Tap Start to try again!";
-
-    drawDinoScene();
+    dinoFrame =
+        requestAnimationFrame(
+            dinoLoop
+        );
 
 }
 
 
-/* KEYBOARD */
+function endDinoGame(){
+
+    dinoRunning = false;
+
+    cancelAnimationFrame(
+        dinoFrame
+    );
+
+    if(dinoScore > dinoBest){
+
+        dinoBest =
+            dinoScore;
+
+    }
+
+    dinoBestElement.textContent =
+        dinoBest;
+
+    dinoMessage.innerHTML = `
+
+        <div class="dino-message-title">
+            💕 Game Over!
+        </div>
+
+        <div class="dino-message-text">
+            Score kamu: ${dinoScore}
+        </div>
+
+        <button
+            class="game-btn"
+            onclick="startDinoGame()"
+        >
+            🔄 Play Again
+        </button>
+
+    `;
+
+    dinoMessage.style.display =
+        "flex";
+
+}
+
+
+dinoGame.addEventListener(
+    "pointerdown",
+    event => {
+
+        if(
+            event.target.closest(".game-btn")
+        ){
+            return;
+        }
+
+        dinoJump();
+
+    }
+);
+
 
 document.addEventListener(
     "keydown",
-    event=>{
+    event => {
 
         if(
-            event.code==="Space" ||
-            event.code==="ArrowUp"
+            event.code === "Space" ||
+            event.code === "ArrowUp"
         ){
 
-            const section=
-                document.getElementById(
-                    "dino"
-                );
+            event.preventDefault();
+
+            const dinoSection =
+                document.getElementById("dino");
 
             if(
-                section.classList.contains(
-                    "active"
-                )
+                dinoSection.classList.contains("active")
             ){
 
-                event.preventDefault();
+                if(!dinoRunning){
 
-                jumpDino();
+                    startDinoGame();
+
+                }else{
+
+                    dinoJump();
+
+                }
 
             }
 
@@ -2377,57 +3192,6 @@ document.addEventListener(
 
     }
 );
-
-
-/* TOUCH */
-
-dinoCanvas.addEventListener(
-    "pointerdown",
-    event=>{
-
-        event.preventDefault();
-
-        jumpDino();
-
-    }
-);
-
-
-/* RESIZE */
-
-window.addEventListener(
-    "resize",
-    ()=>{
-
-        if(
-            document
-                .getElementById("drawing")
-                .classList.contains("active")
-        ){
-
-            setupCanvas();
-
-        }
-
-        if(
-            document
-                .getElementById("dino")
-                .classList.contains("active")
-        ){
-
-            resizeDinoCanvas();
-
-        }
-
-    }
-);
-
-
-/* START */
-
-startMemory();
-
-startColorGame();
 
 </script>
 
