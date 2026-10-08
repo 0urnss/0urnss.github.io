@@ -27,11 +27,6 @@
             overflow-x: hidden;
         }
 
-
-        /* =========================
-           BACKGROUND
-        ========================= */
-
         body::before {
             content: "";
             position: fixed;
@@ -60,17 +55,11 @@
 
         .floating {
             position: fixed;
-
             color: #c98b9b;
-
             opacity: .5;
-
             font-family: Georgia, serif;
-
             pointer-events: none;
-
             z-index: 0;
-
             animation: floaty 5s ease-in-out infinite;
         }
 
@@ -129,16 +118,13 @@
 
 
         /* =========================
-           TOP HEADER / SIGN
-           SAME AS HOME
+           TOP BOARD
         ========================= */
 
         .top-area {
             width: 100%;
             padding: 28px 20px 0;
-
             position: relative;
-
             z-index: 2;
         }
 
@@ -162,53 +148,39 @@
             position: relative;
         }
 
-
-        /* BOARD DECORATIONS */
-
         .board-sticker {
             position: absolute;
-
             z-index: 5;
-
             pointer-events: none;
-
             font-family: Georgia, serif;
-
             color: #9e6978;
         }
 
         .board-sticker.flower {
             top: -18px;
             left: 30px;
-
             font-size: 30px;
-
             transform: rotate(-12deg);
         }
 
         .board-sticker.heart {
             top: -14px;
             right: 38px;
-
             font-size: 27px;
-
             transform: rotate(10deg);
         }
 
         .board-sticker.sparkle {
             bottom: -17px;
             left: 13%;
-
             font-size: 22px;
         }
 
         .board-sticker.star {
             bottom: -18px;
             right: 17%;
-
             font-size: 20px;
         }
-
 
         .board-inner {
             background: #f6dce2;
@@ -262,11 +234,6 @@
             opacity: .55;
         }
 
-
-        /* =========================
-           LOGO
-        ========================= */
-
         .logo {
             text-align: center;
 
@@ -292,11 +259,8 @@
 
         nav {
             display: flex;
-
             justify-content: center;
-
             gap: 12px;
-
             flex-wrap: wrap;
         }
 
@@ -340,24 +304,18 @@
 
 
         /* =========================
-           ABOUT AREA
+           ABOUT SECTION
         ========================= */
 
         .about {
-
-            padding: 65px 20px 80px;
-
+            padding: 60px 20px 80px;
             position: relative;
-
             z-index: 1;
         }
 
-
         .about-board {
-
             width: 100%;
             max-width: 900px;
-
             margin: auto;
 
             padding: 15px;
@@ -377,7 +335,7 @@
 
 
         /* =========================
-           ABOUT BOARD DECORATIONS
+           BOARD DECORATIONS
         ========================= */
 
         .about-sticker {
@@ -436,18 +394,17 @@
 
 
         /* =========================
-           ABOUT INNER
+           INNER CARD
         ========================= */
 
         .about-inner {
-
             background: #fff8f9;
 
             border: 2px solid #c998a4;
 
             border-radius: 17px;
 
-            padding: 50px 42px 55px;
+            padding: 48px 42px 55px;
 
             position: relative;
 
@@ -479,20 +436,18 @@
         .tape-left {
             top: -9px;
             left: 45px;
-
             transform: rotate(-6deg);
         }
 
         .tape-right {
             top: -8px;
             right: 45px;
-
             transform: rotate(7deg);
         }
 
 
         /* =========================
-           DECORATIONS
+           CARD DECORATIONS
         ========================= */
 
         .decoration {
@@ -540,40 +495,37 @@
         .doodle-one {
             top: 115px;
             left: 35px;
-
             font-size: 16px;
         }
 
         .doodle-two {
             top: 125px;
             right: 38px;
-
             font-size: 14px;
         }
 
         .doodle-three {
             bottom: 115px;
             left: 45%;
-
             font-size: 13px;
         }
 
 
         /* =========================
-           ABOUT CONTENT
+           TITLE
         ========================= */
 
         .about-label {
-
             color: #b97888;
 
             font-size: 11px;
 
             letter-spacing: 3px;
+
+            margin-bottom: 5px;
         }
 
         .about h1 {
-
             font-family: Georgia, serif;
 
             font-size: 43px;
@@ -586,11 +538,10 @@
 
             max-width: 650px;
 
-            margin: 12px auto 28px;
+            margin: 10px auto 25px;
         }
 
         .about-line {
-
             color: #c28b98;
 
             letter-spacing: 5px;
@@ -606,14 +557,11 @@
         ========================= */
 
         .about-text {
-
             max-width: 620px;
-
             margin: auto;
         }
 
         .about-text p {
-
             color: #856e75;
 
             font-size: 13px;
@@ -629,7 +577,6 @@
         ========================= */
 
         .quote {
-
             margin: 30px auto 0 !important;
 
             max-width: 500px;
@@ -640,7 +587,7 @@
 
             border: 1px solid #d3a0ac;
 
-            border-radius: 10px;
+            border-radius: 12px;
 
             font-family: Georgia, serif;
 
@@ -658,7 +605,6 @@
         ========================= */
 
         .instagram {
-
             max-width: 620px;
 
             margin: 45px auto 0;
@@ -669,7 +615,6 @@
         }
 
         .instagram h2 {
-
             font-family: Georgia, serif;
 
             font-size: 29px;
@@ -682,7 +627,6 @@
         }
 
         .instagram > p {
-
             color: #856e75;
 
             font-size: 13px;
@@ -698,7 +642,6 @@
         ========================= */
 
         .social-box {
-
             display: flex;
 
             justify-content: center;
@@ -709,12 +652,11 @@
         }
 
         .social-card {
-
-            background: #fff;
+            background: #fff8f9;
 
             border: 2px solid #d5a5b0;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
             padding: 18px 25px;
 
@@ -727,7 +669,6 @@
         }
 
         .social-card:hover {
-
             transform: translateY(-3px);
 
             box-shadow:
@@ -735,7 +676,6 @@
         }
 
         .social-card span {
-
             display: block;
 
             font-size: 10px;
@@ -748,7 +688,6 @@
         }
 
         .instagram-button {
-
             display: inline-block;
 
             padding: 10px 20px;
@@ -771,9 +710,7 @@
         }
 
         .instagram-button:hover {
-
             background: #b97986;
-
             color: white;
         }
 
@@ -783,7 +720,6 @@
         ========================= */
 
         footer {
-
             text-align: center;
 
             padding: 25px;
@@ -800,7 +736,6 @@
         }
 
         footer::before {
-
             content: "♡  ✿  ˚₊‧  ✦  ‧₊˚  ✿  ♡";
 
             display: block;
@@ -859,7 +794,6 @@
 
             .logo {
                 font-size: 29px;
-
                 margin-bottom: 20px;
             }
 
@@ -889,13 +823,11 @@
 
             .about-board {
                 padding: 9px;
-
                 border-radius: 19px;
             }
 
             .about-inner {
                 padding: 35px 20px 40px;
-
                 border-radius: 14px;
             }
 
@@ -913,7 +845,6 @@
 
             .social-card {
                 width: 100%;
-
                 min-width: unset;
             }
 
@@ -936,7 +867,6 @@
 
             .logo {
                 font-size: 25px;
-
                 letter-spacing: 2px;
             }
 
@@ -969,7 +899,6 @@
 
             .tape {
                 width: 65px;
-
                 height: 20px;
             }
 
@@ -1004,272 +933,215 @@
 <body>
 
 
-<!-- =========================
-     FLOATING DECORATIONS
-========================= -->
+    <!-- FLOATING DECORATIONS -->
 
-<span class="floating float-1">✿</span>
-<span class="floating float-2">♡</span>
-<span class="floating float-3">✦</span>
-<span class="floating float-4">✿</span>
-<span class="floating float-5">˚₊‧</span>
-<span class="floating float-6">♡</span>
+    <span class="floating float-1">✿</span>
+    <span class="floating float-2">♡</span>
+    <span class="floating float-3">✦</span>
+    <span class="floating float-4">✿</span>
+    <span class="floating float-5">˚₊‧</span>
+    <span class="floating float-6">♡</span>
 
 
+    <!-- TOP BOARD -->
 
-<!-- =========================
-     TOP BOARD
-     SAME AS HOME
-========================= -->
+    <div class="top-area">
 
-<div class="top-area">
+        <div class="main-board">
 
-    <div class="main-board">
-
-        <span class="board-sticker flower">
-            ✿
-        </span>
-
-        <span class="board-sticker heart">
-            ♡
-        </span>
-
-        <span class="board-sticker sparkle">
-            ✦
-        </span>
-
-        <span class="board-sticker star">
-            ˚✧
-        </span>
+            <span class="board-sticker flower">✿</span>
+            <span class="board-sticker heart">♡</span>
+            <span class="board-sticker sparkle">✦</span>
+            <span class="board-sticker star">˚✧</span>
 
 
-        <div class="board-inner">
+            <div class="board-inner">
 
-            <div class="logo">
-                ART GALLERY
+                <div class="logo">
+                    ART GALLERY
+                </div>
+
+
+                <nav>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                </nav>
+
             </div>
-
-
-            <nav>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="gallery.html">
-                    Gallery
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-
-            </nav>
 
         </div>
 
     </div>
 
-</div>
 
+    <!-- ABOUT -->
 
+    <section class="about">
 
-<!-- =========================
-     ABOUT
-========================= -->
+        <div class="about-board">
 
-<section class="about">
-
-    <div class="about-board">
-
-        <span class="about-sticker about-flower">
-            ✿
-        </span>
-
-        <span class="about-sticker about-heart">
-            ♡
-        </span>
-
-        <span class="about-sticker about-star">
-            ✦
-        </span>
-
-        <span class="about-sticker about-sparkle">
-            ˚✧
-        </span>
-
-
-        <div class="about-inner">
-
-
-            <span class="tape tape-left"></span>
-            <span class="tape tape-right"></span>
-
-
-            <span class="decoration one">
+            <span class="about-sticker about-flower">
                 ✿
             </span>
 
-            <span class="decoration two">
+            <span class="about-sticker about-heart">
                 ♡
             </span>
 
-            <span class="decoration three">
-                ✿
-            </span>
-
-            <span class="decoration four">
-                ♡
-            </span>
-
-
-            <span class="tiny-doodle doodle-one">
+            <span class="about-sticker about-star">
                 ✦
             </span>
 
-            <span class="tiny-doodle doodle-two">
-                ˚₊‧
-            </span>
-
-            <span class="tiny-doodle doodle-three">
-                ♡
+            <span class="about-sticker about-sparkle">
+                ˚✧
             </span>
 
 
+            <div class="about-inner">
 
-            <!-- ABOUT TITLE -->
-
-            <div class="about-label">
-                ABOUT ME
-            </div>
+                <span class="tape tape-left"></span>
+                <span class="tape tape-right"></span>
 
 
-            <h1>
-                A little space for
-                the things I love to create.
-            </h1>
+                <span class="decoration one">✿</span>
+                <span class="decoration two">♡</span>
+                <span class="decoration three">✿</span>
+                <span class="decoration four">♡</span>
 
 
-            <div class="about-line">
-                ˚₊‧ ♡ ‧₊˚
-            </div>
+                <span class="tiny-doodle doodle-one">✦</span>
+                <span class="tiny-doodle doodle-two">˚₊‧</span>
+                <span class="tiny-doodle doodle-three">♡</span>
 
 
-
-            <!-- ABOUT TEXT -->
-
-            <div class="about-text">
-
-                <p>
-                    Hi! I'm an artist who enjoys
-                    creating drawings, paintings,
-                    digital art, and other little
-                    creative projects.
-                </p>
+                <div class="about-label">
+                    ABOUT ME
+                </div>
 
 
-                <p>
-                    This website is my personal space
-                    to collect and share the artworks
-                    I've made.
-                </p>
+                <h1>
+                    A little space for
+                    the things I love to create.
+                </h1>
 
 
-                <p>
-                    Some pieces are simple studies,
-                    some are experiments, and others
-                    are just things I made because
-                    I enjoyed creating them.
-                </p>
+                <div class="about-line">
+                    ˚₊‧ ♡ ‧₊˚
+                </div>
 
 
-                <p class="quote">
-                    Made with a little creativity
-                    and lots of love for art.
-                </p>
+                <div class="about-text">
 
-            </div>
-
-
-
-            <!-- =====================
-                 INSTAGRAM
-            ====================== -->
-
-            <div class="instagram">
-
-                <h2>
-                    Find me on Instagram
-                </h2>
+                    <p>
+                        Hi! I'm an artist who enjoys
+                        creating drawings, paintings,
+                        digital art, and other little
+                        creative projects.
+                    </p>
 
 
-                <p>
-                    See more of my artwork and
-                    creative projects on Instagram.
-                </p>
+                    <p>
+                        This website is my personal space
+                        to collect and share the artworks
+                        I've made.
+                    </p>
 
 
+                    <p>
+                        Some pieces are simple studies,
+                        some are experiments, and others
+                        are just things I made because
+                        I enjoyed creating them.
+                    </p>
 
-                <div class="social-box">
+
+                    <p class="quote">
+                        Made with a little creativity
+                        and lots of love for art.
+                    </p>
+
+                </div>
 
 
-                    <div class="social-card">
+                <!-- INSTAGRAM -->
 
-                        <span>
-                            MAIN ACCOUNT
-                        </span>
+                <div class="instagram">
 
-                        <a
-                            href="https://www.instagram.com/0urnss/"
-                            target="_blank"
-                            class="instagram-button"
-                        >
-                            @0urnss
-                        </a>
+                    <h2>
+                        Find me on Instagram
+                    </h2>
+
+
+                    <p>
+                        See more of my artwork and
+                        creative projects on Instagram.
+                    </p>
+
+
+                    <div class="social-box">
+
+
+                        <div class="social-card">
+
+                            <span>
+                                MAIN ACCOUNT
+                            </span>
+
+                            <a
+                                href="https://www.instagram.com/0urnss/"
+                                target="_blank"
+                                class="instagram-button"
+                            >
+                                @0urnss
+                            </a>
+
+                        </div>
+
+
+                        <div class="social-card">
+
+                            <span>
+                                SECOND ACCOUNT
+                            </span>
+
+                            <a
+                                href="https://www.instagram.com/sipswipie/"
+                                target="_blank"
+                                class="instagram-button"
+                            >
+                                @sipswipie
+                            </a>
+
+                        </div>
+
 
                     </div>
-
-
-
-                    <div class="social-card">
-
-                        <span>
-                            SECOND ACCOUNT
-                        </span>
-
-                        <a
-                            href="https://www.instagram.com/sipswipie/"
-                            target="_blank"
-                            class="instagram-button"
-                        >
-                            @sipswipie
-                        </a>
-
-                    </div>
-
 
                 </div>
 
             </div>
 
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- FOOTER -->
 
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    © 2026 ART GALLERY · Personal artwork archive
-
-</footer>
+    <footer>
+        © 2026 ART GALLERY · Personal artwork archive
+    </footer>
 
 
 </body>
