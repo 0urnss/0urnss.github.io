@@ -783,6 +783,8 @@ body::before{
 }
 
 #dinoDrawingCanvas{
+    display:block;
+
     width:min(100%,550px);
 
     height:280px;
@@ -1584,6 +1586,22 @@ function showGame(gameId,button){
         });
 
     button.classList.add("active");
+
+
+    /* FIX DINO CANVAS */
+
+    if(gameId === "drawing"){
+
+        setTimeout(() => {
+
+            setupDinoDrawingCanvas();
+
+            resizeDinoGameCanvas();
+
+        },50);
+
+    }
+
 }
 
 
@@ -2093,10 +2111,24 @@ const dinoDrawingCtx =
 let dinoDrawing = false;
 
 
+/*
+   Canvas baru diatur ukurannya
+   setelah tab Dino terlihat.
+*/
+
 function setupDinoDrawingCanvas(){
 
     const rect =
         dinoDrawingCanvas.getBoundingClientRect();
+
+    if(
+        rect.width === 0 ||
+        rect.height === 0
+    ){
+
+        return;
+
+    }
 
     const dpr =
         window.devicePixelRatio || 1;
@@ -2116,16 +2148,32 @@ function setupDinoDrawingCanvas(){
         0
     );
 
-    dinoDrawingCtx.lineCap = "round";
+    dinoDrawingCtx.lineCap =
+        "round";
 
-    dinoDrawingCtx.lineJoin = "round";
+    dinoDrawingCtx.lineJoin =
+        "round";
 
-    clearDinoDrawing();
+    dinoDrawingCtx.lineWidth =
+        Number(
+            document.getElementById(
+                "dinoBrushSize"
+            ).value
+        );
+
+    dinoDrawingCtx.strokeStyle =
+        document.getElementById(
+            "dinoBrushColor"
+        ).value;
+
+    dinoDrawingCtx.clearRect(
+        0,
+        0,
+        rect.width,
+        rect.height
+    );
 
 }
-
-
-setupDinoDrawingCanvas();
 
 
 function getDinoDrawingPosition(event){
@@ -2164,6 +2212,18 @@ dinoDrawingCanvas.addEventListener(
             pos.y
         );
 
+        dinoDrawingCtx.lineWidth =
+            Number(
+                document.getElementById(
+                    "dinoBrushSize"
+                ).value
+            );
+
+        dinoDrawingCtx.strokeStyle =
+            document.getElementById(
+                "dinoBrushColor"
+            ).value;
+
     }
 );
 
@@ -2178,9 +2238,11 @@ dinoDrawingCanvas.addEventListener(
             getDinoDrawingPosition(event);
 
         dinoDrawingCtx.lineWidth =
-            document.getElementById(
-                "dinoBrushSize"
-            ).value;
+            Number(
+                document.getElementById(
+                    "dinoBrushSize"
+                ).value
+            );
 
         dinoDrawingCtx.strokeStyle =
             document.getElementById(
@@ -2200,6 +2262,8 @@ dinoDrawingCanvas.addEventListener(
 
 function stopDinoDrawing(){
 
+    if(!dinoDrawing) return;
+
     dinoDrawing = false;
 
     dinoDrawingCtx.closePath();
@@ -2217,11 +2281,25 @@ dinoDrawingCanvas.addEventListener(
     stopDinoDrawing
 );
 
+dinoDrawingCanvas.addEventListener(
+    "pointerleave",
+    stopDinoDrawing
+);
+
 
 function clearDinoDrawing(){
 
     const rect =
         dinoDrawingCanvas.getBoundingClientRect();
+
+    if(
+        rect.width === 0 ||
+        rect.height === 0
+    ){
+
+        return;
+
+    }
 
     dinoDrawingCtx.clearRect(
         0,
@@ -2340,6 +2418,9 @@ dinoColorInput.addEventListener(
     "input",
     () => {
 
+        dinoDrawingCtx.strokeStyle =
+            dinoColorInput.value;
+
         document.querySelectorAll(
             ".dino-palette-color"
         ).forEach(
@@ -2351,6 +2432,23 @@ dinoColorInput.addEventListener(
 
             }
         );
+
+    }
+);
+
+
+document.getElementById(
+    "dinoBrushSize"
+).addEventListener(
+    "input",
+    () => {
+
+        dinoDrawingCtx.lineWidth =
+            Number(
+                document.getElementById(
+                    "dinoBrushSize"
+                ).value
+            );
 
     }
 );
@@ -2376,6 +2474,7 @@ let dinoGameOver = false;
 let dinoAnimation = null;
 
 let dinoScore = 0;
+
 let dinoHighScore =
     Number(
         localStorage.getItem(
@@ -2388,14 +2487,23 @@ let dinoFrame = 0;
 let dinoGroundY = 0;
 
 let dinoPlayer = {
+
     x:70,
+
     y:0,
+
     width:55,
+
     height:55,
+
     velocityY:0,
+
     gravity:.65,
+
     jumpPower:-12,
+
     grounded:true
+
 };
 
 let dinoObstacles = [];
@@ -2413,6 +2521,15 @@ function resizeDinoGameCanvas(){
 
     const rect =
         dinoGameCanvas.getBoundingClientRect();
+
+    if(
+        rect.width === 0 ||
+        rect.height === 0
+    ){
+
+        return;
+
+    }
 
     const dpr =
         window.devicePixelRatio || 1;
@@ -2438,28 +2555,6 @@ function resizeDinoGameCanvas(){
 }
 
 
-resizeDinoGameCanvas();
-
-
-window.addEventListener(
-    "resize",
-    () => {
-
-        resizeDinoGameCanvas();
-
-        if(
-            !dinoGameRunning &&
-            !dinoGameOver
-        ){
-
-            drawDinoGame();
-
-        }
-
-    }
-);
-
-
 function startDinoFromDrawing(){
 
     const imageData =
@@ -2475,13 +2570,23 @@ function startDinoFromDrawing(){
 
             document.getElementById(
                 "dinoDrawArea"
-            ).style.display = "none";
+            ).style.display =
+                "none";
 
             document.getElementById(
                 "dinoGameArea"
             ).classList.add("active");
 
-            startDinoGame();
+            setTimeout(
+                () => {
+
+                    resizeDinoGameCanvas();
+
+                    startDinoGame();
+
+                },
+                50
+            );
 
         };
 
@@ -2508,7 +2613,8 @@ function startDinoGame(){
     dinoObstacles = [];
 
     dinoNextObstacle =
-        100 + Math.random() * 100;
+        100 +
+        Math.random() * 100;
 
     dinoPlayer.width = 55;
 
@@ -2545,9 +2651,7 @@ function startDinoGame(){
 function restartDinoGame(){
 
     if(
-        !dinoPlayerImage.src ||
-        dinoPlayerImage.src ===
-        window.location.href
+        !dinoPlayerImage.src
     ){
 
         return;
@@ -2575,9 +2679,17 @@ function drawDinoAgain(){
 
     document.getElementById(
         "dinoDrawArea"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
-    clearDinoDrawing();
+    setTimeout(
+        () => {
+
+            setupDinoDrawingCanvas();
+
+        },
+        50
+    );
 
 }
 
@@ -2609,13 +2721,17 @@ function createDinoObstacle(){
         : "🎨";
 
     const size =
-        28 + Math.random() * 8;
+        28 +
+        Math.random() * 8;
 
     dinoObstacles.push({
 
-        x:canvasWidth + 20,
+        x:
+            canvasWidth + 20,
 
-        y:dinoGroundY - size,
+        y:
+            dinoGroundY -
+            size,
 
         width:size,
 
@@ -2644,7 +2760,8 @@ function updateDino(){
 
 
     if(
-        dinoScore > dinoHighScore
+        dinoScore >
+        dinoHighScore
     ){
 
         dinoHighScore =
@@ -2697,7 +2814,9 @@ function updateDino(){
 
     dinoNextObstacle--;
 
-    if(dinoNextObstacle <= 0){
+    if(
+        dinoNextObstacle <= 0
+    ){
 
         createDinoObstacle();
 
@@ -2784,10 +2903,13 @@ function checkDinoCollision(){
         if(
             playerRight >
             obstacleLeft &&
+
             playerLeft <
             obstacleRight &&
+
             playerBottom >
             obstacleTop &&
+
             playerTop <
             obstacleBottom
         ){
@@ -2832,6 +2954,15 @@ function drawDinoGame(){
     const height =
         dinoGameCanvas.clientHeight;
 
+    if(
+        width === 0 ||
+        height === 0
+    ){
+
+        return;
+
+    }
+
 
     dinoGameCtx.clearRect(
         0,
@@ -2854,7 +2985,7 @@ function drawDinoGame(){
     );
 
 
-    /* LITTLE CLOUDS */
+    /* CLOUDS */
 
     dinoGameCtx.fillStyle =
         "#f6dce2";
@@ -2935,8 +3066,11 @@ function drawDinoGame(){
             dinoPlayerImage,
 
             dinoPlayer.x,
+
             dinoPlayer.y,
+
             dinoPlayer.width,
+
             dinoPlayer.height
 
         );
@@ -2964,6 +3098,7 @@ function drawDinoGame(){
                 obstacle.type,
 
                 obstacle.x,
+
                 obstacle.y
 
             );
@@ -3057,14 +3192,12 @@ dinoGameCanvas.addEventListener(
 
 
 /* =========================
-   INITIAL DRAW
+   INITIAL GAME CANVAS
 ========================= */
 
 window.addEventListener(
     "load",
     () => {
-
-        setupDinoDrawingCanvas();
 
         resizeDinoGameCanvas();
 
