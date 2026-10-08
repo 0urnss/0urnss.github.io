@@ -779,6 +779,21 @@
     }
 
 
+    .message-name {
+
+      color: #6f5059;
+
+      font-family: Georgia, serif;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      margin-bottom: 7px;
+
+    }
+
+
     .message-date {
 
       font-size: 11px;
@@ -1830,7 +1845,7 @@
         )
 
         .select(
-          "id, message, created_at"
+          "id, name, message, created_at"
         )
 
         .order(
@@ -1914,10 +1929,11 @@
 
     messageCount.textContent =
       data.length +
+      " " +
       (
         data.length === 1
-          ? " pesan"
-          : " pesan"
+          ? "pesan"
+          : "pesan"
       );
 
 
@@ -1989,6 +2005,23 @@
         );
 
 
+        const name =
+          document.createElement(
+            "div"
+          );
+
+
+        name.className =
+          "message-name";
+
+
+        name.textContent =
+          item.name &&
+          item.name.trim()
+            ? item.name.trim()
+            : "Anonymous";
+
+
         const text =
           document.createElement(
             "p"
@@ -1999,17 +2032,17 @@
           "message-text";
 
 
-        /*
-         * textContent digunakan supaya
-         * isi pesan tidak dianggap HTML.
-         */
-
         text.textContent =
           item.message;
 
 
         messageItem.appendChild(
           top
+        );
+
+
+        messageItem.appendChild(
+          name
         );
 
 
