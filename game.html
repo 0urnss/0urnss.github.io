@@ -85,11 +85,6 @@ body::before{
 
 }
 
-
-/* =========================
-   TOP BOARD
-========================= */
-
 .top-area{
     padding:28px 20px 0;
 }
@@ -98,117 +93,77 @@ body::before{
     max-width:1050px;
     width:100%;
     margin:auto;
-
     background:#d9aeb9;
-
     border:2px solid #a97682;
-
     border-radius:28px;
-
     padding:12px;
-
     box-shadow:
         0 8px 0 rgba(169,118,130,.35);
 }
 
 .board-inner{
     position:relative;
-
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:21px;
-
     padding:22px 20px 18px;
-
     overflow:hidden;
 }
 
 .board-inner::before{
     content:"✿";
-
     position:absolute;
-
     top:12px;
     left:18px;
-
     font-size:25px;
-
     color:#b47786;
-
     transform:rotate(-15deg);
 }
 
 .board-inner::after{
     content:"♡";
-
     position:absolute;
-
     top:13px;
     right:20px;
-
     font-size:26px;
-
     color:#b47786;
-
     transform:rotate(10deg);
 }
 
 .logo{
     text-align:center;
-
     font-family:Georgia,serif;
-
     font-size:38px;
-
     color:#805965;
-
     letter-spacing:1px;
-
     margin-bottom:18px;
 }
 
 .navbar{
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     gap:10px;
-
     flex-wrap:wrap;
 }
 
 .navbar a{
     text-decoration:none;
-
     color:#805965;
-
     background:#f8edf0;
-
     border:2px solid #c28f9b;
-
     border-radius:13px;
-
     padding:9px 17px;
-
     font-size:14px;
-
     font-weight:bold;
-
     box-shadow:
         0 4px 0 #c28f9b;
-
     transition:.2s;
 }
 
 .navbar a:hover{
     background:#edc4ce;
-
     transform:translateY(-2px);
-
     box-shadow:
         0 6px 0 #c28f9b;
 }
@@ -217,211 +172,128 @@ body::before{
     background:#e9bdc8;
 }
 
-
-/* =========================
-   PAGE
-========================= */
-
 .page{
     width:100%;
     max-width:900px;
-
     margin:40px auto;
-
     padding:0 20px;
 }
 
 .game-board{
     width:100%;
-
     background:#d9aeb9;
-
     border:2px solid #a97682;
-
     border-radius:28px;
-
     padding:12px;
-
     box-shadow:
         0 8px 0 rgba(169,118,130,.35);
 }
 
 .game-inner{
     position:relative;
-
     width:100%;
-
     background:#fff8f9;
-
     border:2px solid #c28c99;
-
     border-radius:21px;
-
     padding:32px 25px 35px;
-
     overflow:hidden;
 }
 
 .game-inner::before{
     content:"♡";
-
     position:absolute;
-
     left:20px;
     top:15px;
-
     font-size:22px;
-
     color:#c28c99;
-
     opacity:.6;
 }
 
 .game-inner::after{
     content:"✦";
-
     position:absolute;
-
     right:22px;
     bottom:20px;
-
     font-size:22px;
-
     color:#c28c99;
-
     opacity:.6;
 }
 
-
-/* =========================
-   TITLE
-========================= */
-
 .page-title{
     text-align:center;
-
     margin:0 0 8px;
-
     font-family:Georgia,serif;
-
     color:#805965;
-
     font-size:32px;
 }
 
 .page-subtitle{
     text-align:center;
-
     margin:0 0 18px;
-
     color:#9b737d;
-
     font-size:14px;
 }
 
-
-/* =========================
-   SOUND BUTTON
-========================= */
-
 .sound-control{
     text-align:center;
-
     margin-bottom:20px;
 }
 
 .sound-btn{
     border:2px solid #c28f9b;
-
     background:#f8edf0;
-
     color:#805965;
-
     border-radius:13px;
-
     padding:8px 15px;
-
     font-size:13px;
-
     font-weight:bold;
-
     cursor:pointer;
-
     box-shadow:
         0 4px 0 #c28f9b;
-
     transition:.2s;
 }
 
 .sound-btn:hover{
     background:#edc4ce;
-
     transform:translateY(-2px);
 }
 
-
-/* =========================
-   GAME TABS
-========================= */
-
 .game-tabs{
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:10px;
-
     margin-bottom:28px;
 }
 
 .game-tab{
     border:2px solid #c28f9b;
-
     background:#f8edf0;
-
     color:#805965;
-
     border-radius:13px;
-
     padding:9px 15px;
-
     font-weight:bold;
-
     font-size:13px;
-
     cursor:pointer;
-
     box-shadow:
         0 4px 0 #c28f9b;
-
     transition:.2s;
 }
 
 .game-tab:hover{
     background:#edc4ce;
-
     transform:translateY(-2px);
-
     box-shadow:
         0 6px 0 #c28f9b;
 }
 
 .game-tab.active{
     background:#e9bdc8;
-
     color:#714b57;
 }
 
-
-/* =========================
-   GAME SECTION
-========================= */
-
 .game-section{
     display:none;
-
     animation:fade .35s ease;
 }
 
@@ -445,129 +317,84 @@ body::before{
 
 .game-btn{
     border:2px solid #c28f9b;
-
     background:#f6dce2;
-
     color:#805965;
-
     padding:10px 18px;
-
     border-radius:12px;
-
     font-weight:bold;
-
     cursor:pointer;
-
     box-shadow:
         0 4px 0 #c28f9b;
-
     transition:.2s;
 }
 
 .game-btn:hover{
     transform:translateY(-2px);
-
     background:#edc4ce;
-
     box-shadow:
         0 6px 0 #c28f9b;
 }
 
 .game-btn:active{
     transform:translateY(2px);
-
     box-shadow:
         0 2px 0 #c28f9b;
 }
 
 .game-heading{
     text-align:center;
-
     color:#805965;
-
     font-family:Georgia,serif;
-
     font-size:25px;
-
     margin:0 0 7px;
 }
 
 .game-description{
     text-align:center;
-
     font-size:13px;
-
     color:#9b737d;
-
     margin-bottom:18px;
 }
 
-
-/* =========================
-   MEMORY
-========================= */
-
 .memory-info{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     flex-wrap:wrap;
-
     margin-bottom:18px;
 }
 
 .info-box{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:12px;
-
     padding:8px 14px;
-
     font-size:13px;
-
     font-weight:bold;
-
     color:#76515c;
 }
 
 .memory-grid{
     display:grid;
-
     grid-template-columns:repeat(6,70px);
-
     justify-content:center;
-
     gap:9px;
-
     max-width:520px;
-
     margin:auto;
 }
 
 .memory-card{
     width:70px;
-
     height:70px;
-
     perspective:700px;
-
     cursor:pointer;
 }
 
 .memory-card-inner{
     width:100%;
-
     height:100%;
-
     position:relative;
-
     transform-style:preserve-3d;
-
     transition:.4s;
 }
 
@@ -579,27 +406,18 @@ body::before{
 .memory-front,
 .memory-back{
     position:absolute;
-
     inset:0;
-
     border-radius:14px;
-
     backface-visibility:hidden;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     border:2px solid #c28c99;
 }
 
 .memory-front{
     background:#d9aeb9;
-
     color:#fff8f9;
-
     font-size:25px;
 }
 
@@ -609,9 +427,7 @@ body::before{
 
 .memory-back{
     background:#fff;
-
     transform:rotateY(180deg);
-
     font-size:28px;
 }
 
@@ -621,34 +437,20 @@ body::before{
 
 .memory-controls{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     margin-top:20px;
-
     flex-wrap:wrap;
 }
 
 .memory-message{
     text-align:center;
-
     margin-top:15px;
-
     font-size:14px;
-
     font-weight:bold;
-
     color:#805965;
-
     min-height:20px;
 }
-
-
-/* =========================
-   COLOR MATCH
-========================= */
 
 .color-target-wrap{
     text-align:center;
@@ -656,76 +458,51 @@ body::before{
 
 .target-label{
     font-size:14px;
-
     color:#76515c;
-
     font-weight:bold;
 }
 
 .target-color{
     width:95px;
-
     height:95px;
-
     border-radius:50%;
-
     margin:12px auto 8px;
-
     border:5px solid #f6dce2;
-
     box-shadow:
         0 0 0 2px #c28c99;
 }
 
 .color-info{
     display:flex;
-
     justify-content:center;
-
     gap:12px;
-
     flex-wrap:wrap;
-
     margin:15px 0 20px;
 }
 
 .color-stat{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     padding:8px 15px;
-
     border-radius:12px;
-
     font-size:13px;
-
     font-weight:bold;
 }
 
 .color-options{
     display:grid;
-
     grid-template-columns:repeat(3,100px);
-
     justify-content:center;
-
     gap:13px;
 }
 
 .color-choice{
     width:100px;
-
     height:75px;
-
     border-radius:15px;
-
     border:3px solid #fff;
-
     outline:2px solid #c28c99;
-
     cursor:pointer;
-
     transition:.2s;
 }
 
@@ -743,26 +520,16 @@ body::before{
 
 .color-message{
     text-align:center;
-
     min-height:25px;
-
     margin-top:18px;
-
     font-weight:bold;
-
     color:#805965;
 }
 
 .color-controls{
     text-align:center;
-
     margin-top:15px;
 }
-
-
-/* =========================
-   DINO DRAW
-========================= */
 
 .dino-draw-box{
     text-align:center;
@@ -770,77 +537,49 @@ body::before{
 
 .dino-draw-name{
     display:inline-block;
-
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:13px;
-
     padding:8px 15px;
-
     font-weight:bold;
-
     color:#76515c;
-
     margin-bottom:14px;
 }
 
 .dino-canvas-wrap{
     display:flex;
-
     justify-content:center;
 }
 
 #dinoDrawingCanvas{
     display:block;
-
     width:min(100%,550px);
-
     height:280px;
-
     background:white;
-
     border:3px solid #c28c99;
-
     border-radius:18px;
-
     cursor:crosshair;
-
     touch-action:none;
 }
 
 .dino-tools{
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     gap:12px;
-
     flex-wrap:wrap;
-
     margin-top:16px;
 }
 
 .dino-tool-label{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:11px;
-
     padding:8px 12px;
-
     font-size:13px;
-
     font-weight:bold;
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
@@ -850,55 +589,36 @@ body::before{
 
 .dino-color-picker{
     width:32px;
-
     height:30px;
-
     border:none;
-
     padding:0;
-
     background:transparent;
-
     cursor:pointer;
 }
 
 .dino-palette-title{
     margin:18px 0 10px;
-
     font-size:13px;
-
     color:#76515c;
-
     font-weight:bold;
 }
 
 .dino-palette{
     display:flex;
-
     justify-content:center;
-
     gap:9px;
-
     flex-wrap:wrap;
-
     max-width:480px;
-
     margin:auto;
 }
 
 .dino-palette-color{
     width:34px;
-
     height:34px;
-
     border-radius:50%;
-
     border:3px solid white;
-
     outline:2px solid #c28c99;
-
     cursor:pointer;
-
     transition:.2s;
 }
 
@@ -908,30 +628,19 @@ body::before{
 
 .dino-palette-color.selected{
     outline:3px solid #805965;
-
     transform:scale(1.12);
 }
 
 .dino-buttons{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     margin-top:20px;
-
     flex-wrap:wrap;
 }
 
-
-/* =========================
-   DINO GAME
-========================= */
-
 .dino-game-area{
     display:none;
-
     margin-top:20px;
 }
 
@@ -941,107 +650,64 @@ body::before{
 
 .dino-score{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     flex-wrap:wrap;
-
     margin-bottom:12px;
 }
 
 .dino-score-box{
     background:#f6dce2;
-
     border:2px solid #c28c99;
-
     border-radius:12px;
-
     padding:8px 15px;
-
     font-size:13px;
-
     font-weight:bold;
-
     color:#76515c;
 }
 
 #dinoGameCanvas{
     display:block;
-
     width:100%;
-
     max-width:760px;
-
     height:300px;
-
     margin:auto;
-
     background:#fff;
-
     border:3px solid #c28c99;
-
     border-radius:18px;
-
     touch-action:none;
 }
 
 .dino-game-message{
     text-align:center;
-
     min-height:25px;
-
     margin-top:13px;
-
     color:#805965;
-
     font-size:14px;
-
     font-weight:bold;
 }
 
 .dino-game-buttons{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
-
     flex-wrap:wrap;
-
     margin-top:15px;
 }
 
 .dino-instruction{
     text-align:center;
-
     color:#9b737d;
-
     font-size:12px;
-
     margin-top:10px;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
     text-align:center;
-
     margin-top:30px;
-
     color:#9b737d;
-
     font-size:12px;
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:600px){
 
@@ -1051,19 +717,16 @@ footer{
 
     .main-board{
         border-radius:23px;
-
         padding:9px;
     }
 
     .board-inner{
         border-radius:17px;
-
         padding:18px 12px 15px;
     }
 
     .logo{
         font-size:29px;
-
         margin-bottom:15px;
     }
 
@@ -1073,29 +736,23 @@ footer{
 
     .navbar a{
         font-size:12px;
-
         padding:8px 11px;
     }
 
     .page{
         width:100%;
-
         margin:30px auto;
-
         padding:0 12px;
     }
 
     .game-board{
         width:100%;
-
         border-radius:23px;
-
         padding:9px;
     }
 
     .game-inner{
         border-radius:17px;
-
         padding:25px 13px 30px;
     }
 
@@ -1109,19 +766,16 @@ footer{
 
     .game-tab{
         font-size:12px;
-
         padding:8px 11px;
     }
 
     .memory-grid{
         grid-template-columns:repeat(4,62px);
-
         gap:8px;
     }
 
     .memory-card{
         width:62px;
-
         height:62px;
     }
 
@@ -1131,13 +785,11 @@ footer{
 
     .color-options{
         grid-template-columns:repeat(3,80px);
-
         gap:11px;
     }
 
     .color-choice{
         width:80px;
-
         height:65px;
     }
 
@@ -1156,11 +808,8 @@ footer{
     *,
     *::before,
     *::after{
-
         animation-duration:.01ms !important;
-
         animation-iteration-count:1 !important;
-
         transition-duration:.01ms !important;
     }
 
@@ -1170,15 +819,12 @@ footer{
 
 </head>
 
-
 <body>
-
 
 <div class="decor one">✿</div>
 <div class="decor two">♡</div>
 <div class="decor three">✦</div>
 <div class="decor four">˚₊‧</div>
-
 
 <div class="top-area">
 
@@ -1216,7 +862,6 @@ footer{
 
 </div>
 
-
 <main class="page">
 
     <div class="game-board">
@@ -1231,7 +876,6 @@ footer{
                 Take a little break and play some cute mini games ♡
             </p>
 
-
             <div class="sound-control">
 
                 <button
@@ -1244,7 +888,6 @@ footer{
                 </button>
 
             </div>
-
 
             <div class="game-tabs">
 
@@ -1270,9 +913,6 @@ footer{
                 </button>
 
             </div>
-
-
-            <!-- MEMORY -->
 
             <section
                 id="memory"
@@ -1311,12 +951,10 @@ footer{
 
                 </div>
 
-
                 <div
                     id="memoryGrid"
                     class="memory-grid"
                 ></div>
-
 
                 <div class="memory-controls">
 
@@ -1329,7 +967,6 @@ footer{
 
                 </div>
 
-
                 <div
                     id="memoryMessage"
                     class="memory-message"
@@ -1338,9 +975,6 @@ footer{
                 </div>
 
             </section>
-
-
-            <!-- COLOR -->
 
             <section
                 id="color"
@@ -1355,7 +989,6 @@ footer{
                     Pilih warna yang paling tepat dari 6 warna yang hampir sama!
                 </p>
 
-
                 <div class="color-target-wrap">
 
                     <div class="target-label">
@@ -1368,7 +1001,6 @@ footer{
                     ></div>
 
                 </div>
-
 
                 <div class="color-info">
 
@@ -1389,12 +1021,10 @@ footer{
 
                 </div>
 
-
                 <div
                     id="colorOptions"
                     class="color-options"
                 ></div>
-
 
                 <div
                     id="colorMessage"
@@ -1402,7 +1032,6 @@ footer{
                 >
                     Tekan Start untuk mulai!
                 </div>
-
 
                 <div class="color-controls">
 
@@ -1417,9 +1046,6 @@ footer{
 
             </section>
 
-
-            <!-- DINO -->
-
             <section
                 id="drawing"
                 class="game-section"
@@ -1433,7 +1059,6 @@ footer{
                     Gambar Dino kamu sendiri dulu, lalu gunakan gambarmu untuk bermain!
                 </p>
 
-
                 <div
                     id="dinoDrawArea"
                     class="dino-draw-box"
@@ -1443,7 +1068,6 @@ footer{
                         ✏️ Draw Your Dino
                     </div>
 
-
                     <div class="dino-canvas-wrap">
 
                         <canvas
@@ -1451,7 +1075,6 @@ footer{
                         ></canvas>
 
                     </div>
-
 
                     <div class="dino-tools">
 
@@ -1469,7 +1092,6 @@ footer{
 
                         </div>
 
-
                         <div class="dino-tool-label">
 
                             Color
@@ -1485,17 +1107,14 @@ footer{
 
                     </div>
 
-
                     <div class="dino-palette-title">
                         Choose a color ♡
                     </div>
-
 
                     <div
                         id="dinoPalette"
                         class="dino-palette"
                     ></div>
-
 
                     <div class="dino-buttons">
 
@@ -1505,7 +1124,6 @@ footer{
                         >
                             🗑 Clear
                         </button>
-
 
                         <button
                             class="game-btn"
@@ -1517,7 +1135,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div
                     id="dinoGameArea"
@@ -1538,11 +1155,9 @@ footer{
 
                     </div>
 
-
                     <canvas
                         id="dinoGameCanvas"
                     ></canvas>
-
 
                     <div
                         id="dinoGameMessage"
@@ -1551,11 +1166,9 @@ footer{
                         Tekan Space atau tap layar untuk melompat!
                     </div>
 
-
                     <div class="dino-instruction">
                         SPACE / ↑ / TAP = JUMP
                     </div>
-
 
                     <div class="dino-game-buttons">
 
@@ -1565,7 +1178,6 @@ footer{
                         >
                             🔄 Restart
                         </button>
-
 
                         <button
                             class="game-btn"
@@ -1580,18 +1192,15 @@ footer{
 
             </section>
 
-
             <footer>
                 made with ♡ by 0urnss
             </footer>
-
 
         </div>
 
     </div>
 
 </main>
-
 
 <script>
 
@@ -1602,7 +1211,6 @@ footer{
 let soundEnabled = true;
 
 let audioContext = null;
-
 
 function getAudioContext(){
 
@@ -1621,7 +1229,6 @@ function getAudioContext(){
 
     }
 
-
     if(
         audioContext &&
         audioContext.state === "suspended"
@@ -1631,17 +1238,18 @@ function getAudioContext(){
 
     }
 
-
     return audioContext;
 
 }
 
 
+/* VOLUME DIBESARKAN DI SINI */
+
 function playTone(
     frequency,
     duration=.08,
     type="sine",
-    volume=.045,
+    volume=.12,
     delay=0
 ){
 
@@ -1652,41 +1260,34 @@ function playTone(
 
     if(!ctx) return;
 
-
     const oscillator =
         ctx.createOscillator();
 
     const gain =
         ctx.createGain();
 
-
     oscillator.type =
         type;
-
 
     oscillator.frequency.setValueAtTime(
         frequency,
         ctx.currentTime + delay
     );
 
-
     gain.gain.setValueAtTime(
         .0001,
         ctx.currentTime + delay
     );
-
 
     gain.gain.exponentialRampToValueAtTime(
         volume,
         ctx.currentTime + delay + .01
     );
 
-
     gain.gain.exponentialRampToValueAtTime(
         .0001,
         ctx.currentTime + delay + duration
     );
-
 
     oscillator.connect(gain);
 
@@ -1694,11 +1295,9 @@ function playTone(
         ctx.destination
     );
 
-
     oscillator.start(
         ctx.currentTime + delay
     );
-
 
     oscillator.stop(
         ctx.currentTime +
@@ -1709,11 +1308,9 @@ function playTone(
 
 }
 
-
 function playSound(name){
 
     if(!soundEnabled) return;
-
 
     switch(name){
 
@@ -1723,11 +1320,10 @@ function playSound(name){
                 520,
                 .06,
                 "sine",
-                .035
+                .12
             );
 
             break;
-
 
         case "flip":
 
@@ -1735,11 +1331,10 @@ function playSound(name){
                 420,
                 .07,
                 "sine",
-                .035
+                .12
             );
 
             break;
-
 
         case "correct":
 
@@ -1747,19 +1342,18 @@ function playSound(name){
                 660,
                 .08,
                 "sine",
-                .05
+                .12
             );
 
             playTone(
                 880,
                 .12,
                 "sine",
-                .045,
+                .11,
                 .08
             );
 
             break;
-
 
         case "wrong":
 
@@ -1767,11 +1361,10 @@ function playSound(name){
                 220,
                 .12,
                 "triangle",
-                .045
+                .12
             );
 
             break;
-
 
         case "level":
 
@@ -1779,14 +1372,14 @@ function playSound(name){
                 523,
                 .08,
                 "sine",
-                .045
+                .12
             );
 
             playTone(
                 659,
                 .08,
                 "sine",
-                .045,
+                .12,
                 .09
             );
 
@@ -1794,12 +1387,11 @@ function playSound(name){
                 784,
                 .16,
                 "sine",
-                .05,
+                .12,
                 .18
             );
 
             break;
-
 
         case "win":
 
@@ -1807,14 +1399,14 @@ function playSound(name){
                 523,
                 .1,
                 "sine",
-                .045
+                .12
             );
 
             playTone(
                 659,
                 .1,
                 "sine",
-                .045,
+                .12,
                 .1
             );
 
@@ -1822,7 +1414,7 @@ function playSound(name){
                 784,
                 .1,
                 "sine",
-                .05,
+                .12,
                 .2
             );
 
@@ -1830,12 +1422,11 @@ function playSound(name){
                 1047,
                 .22,
                 "sine",
-                .055,
+                .12,
                 .3
             );
 
             break;
-
 
         case "timeout":
 
@@ -1843,19 +1434,18 @@ function playSound(name){
                 300,
                 .15,
                 "triangle",
-                .045
+                .12
             );
 
             playTone(
                 190,
                 .25,
                 "triangle",
-                .04,
+                .12,
                 .15
             );
 
             break;
-
 
         case "colorCorrect":
 
@@ -1863,19 +1453,18 @@ function playSound(name){
                 700,
                 .07,
                 "sine",
-                .05
+                .12
             );
 
             playTone(
                 1000,
                 .1,
                 "sine",
-                .045,
+                .11,
                 .07
             );
 
             break;
-
 
         case "colorWrong":
 
@@ -1883,11 +1472,10 @@ function playSound(name){
                 180,
                 .1,
                 "square",
-                .025
+                .12
             );
 
             break;
-
 
         case "jump":
 
@@ -1895,19 +1483,18 @@ function playSound(name){
                 500,
                 .07,
                 "square",
-                .035
+                .12
             );
 
             playTone(
                 700,
                 .1,
                 "square",
-                .03,
+                .11,
                 .05
             );
 
             break;
-
 
         case "gameover":
 
@@ -1915,14 +1502,14 @@ function playSound(name){
                 300,
                 .12,
                 "sawtooth",
-                .035
+                .12
             );
 
             playTone(
                 220,
                 .16,
                 "sawtooth",
-                .035,
+                .12,
                 .12
             );
 
@@ -1930,12 +1517,11 @@ function playSound(name){
                 140,
                 .28,
                 "sawtooth",
-                .03,
+                .11,
                 .28
             );
 
             break;
-
 
         case "start":
 
@@ -1943,19 +1529,18 @@ function playSound(name){
                 440,
                 .08,
                 "sine",
-                .04
+                .12
             );
 
             playTone(
                 660,
                 .12,
                 "sine",
-                .04,
+                .12,
                 .09
             );
 
             break;
-
 
         case "highscore":
 
@@ -1963,14 +1548,14 @@ function playSound(name){
                 660,
                 .08,
                 "sine",
-                .04
+                .12
             );
 
             playTone(
                 880,
                 .08,
                 "sine",
-                .04,
+                .12,
                 .09
             );
 
@@ -1978,7 +1563,7 @@ function playSound(name){
                 1100,
                 .18,
                 "sine",
-                .05,
+                .12,
                 .18
             );
 
@@ -1988,18 +1573,15 @@ function playSound(name){
 
 }
 
-
 function toggleSound(){
 
     soundEnabled =
         !soundEnabled;
 
-
     const button =
         document.getElementById(
             "soundToggle"
         );
-
 
     if(soundEnabled){
 
@@ -2041,13 +1623,11 @@ function showGame(
         }
     );
 
-
     document.getElementById(
         gameId
     ).classList.add(
         "active"
     );
-
 
     document.querySelectorAll(
         ".game-tab"
@@ -2061,16 +1641,13 @@ function showGame(
         }
     );
 
-
     button.classList.add(
         "active"
     );
 
-
     playSound(
         "click"
     );
-
 
     if(gameId === "drawing"){
 
@@ -2096,132 +1673,47 @@ function showGame(
 
 const memoryLevels = [
 
-    {
-        level:1,
-        pairs:3,
-        time:30
-    },
-
-    {
-        level:2,
-        pairs:4,
-        time:35
-    },
-
-    {
-        level:3,
-        pairs:5,
-        time:40
-    },
-
-    {
-        level:4,
-        pairs:6,
-        time:45
-    },
-
-    {
-        level:5,
-        pairs:7,
-        time:50
-    },
-
-    {
-        level:6,
-        pairs:8,
-        time:55
-    },
-
-    {
-        level:7,
-        pairs:9,
-        time:60
-    },
-
-    {
-        level:8,
-        pairs:10,
-        time:65
-    },
-
-    {
-        level:9,
-        pairs:11,
-        time:70
-    },
-
-    {
-        level:10,
-        pairs:12,
-        time:75
-    }
+    {level:1,pairs:3,time:30},
+    {level:2,pairs:4,time:35},
+    {level:3,pairs:5,time:40},
+    {level:4,pairs:6,time:45},
+    {level:5,pairs:7,time:50},
+    {level:6,pairs:8,time:55},
+    {level:7,pairs:9,time:60},
+    {level:8,pairs:10,time:65},
+    {level:9,pairs:11,time:70},
+    {level:10,pairs:12,time:75}
 
 ];
-
 
 const memoryEmojis = [
-
-    "🌸",
-    "🎨",
-    "🦋",
-    "🍓",
-    "🌷",
-    "⭐",
-    "🍀",
-    "🎀",
-    "🌙",
-    "🩷",
-    "🍒",
-    "🧸",
-    "🌻",
-    "🍰",
-    "🎧",
-    "🪻",
-    "🍉",
-    "🐻"
-
+    "🌸","🎨","🦋","🍓","🌷","⭐","🍀","🎀","🌙",
+    "🩷","🍒","🧸","🌻","🍰","🎧","🪻","🍉","🐻"
 ];
 
-
 let memoryLevel = 1;
-
 let firstCard = null;
-
 let secondCard = null;
-
 let memoryLock = false;
-
 let memoryMoves = 0;
-
 let memoryPairs = 0;
-
 let memoryTimer = null;
-
 let memoryTimeLeft = 30;
-
 let memoryRunning = false;
-
 
 function startMemoryGame(){
 
     getAudioContext();
 
-    playSound(
-        "start"
-    );
+    playSound("start");
 
-
-    clearInterval(
-        memoryTimer
-    );
-
+    clearInterval(memoryTimer);
 
     memoryLevel = 1;
 
     createMemoryLevel();
 
 }
-
 
 function createMemoryLevel(){
 
@@ -2230,47 +1722,33 @@ function createMemoryLevel(){
             memoryLevel - 1
         ];
 
-
     firstCard = null;
-
     secondCard = null;
-
     memoryLock = false;
-
     memoryMoves = 0;
-
     memoryPairs = 0;
-
-    memoryTimeLeft =
-        levelData.time;
-
+    memoryTimeLeft = levelData.time;
     memoryRunning = true;
-
 
     document.getElementById(
         "memoryLevel"
     ).textContent =
         memoryLevel;
 
-
     document.getElementById(
         "memoryTime"
     ).textContent =
         memoryTimeLeft;
-
 
     document.getElementById(
         "memoryMoves"
     ).textContent =
         0;
 
-
     document.getElementById(
         "memoryPairs"
     ).textContent =
-        "0/" +
-        levelData.pairs;
-
+        "0/" + levelData.pairs;
 
     document.getElementById(
         "memoryMessage"
@@ -2278,7 +1756,6 @@ function createMemoryLevel(){
         "Level " +
         memoryLevel +
         " dimulai! Cari semua pasangan ♡";
-
 
     let selected =
         memoryEmojis
@@ -2293,21 +1770,17 @@ function createMemoryLevel(){
             )
         );
 
-
     selected.sort(
         () =>
             Math.random() - .5
     );
-
 
     const grid =
         document.getElementById(
             "memoryGrid"
         );
 
-
     grid.innerHTML = "";
-
 
     selected.forEach(
         emoji => {
@@ -2317,14 +1790,11 @@ function createMemoryLevel(){
                     "div"
                 );
 
-
             card.className =
                 "memory-card";
 
-
             card.dataset.value =
                 emoji;
-
 
             card.innerHTML = `
 
@@ -2340,23 +1810,16 @@ function createMemoryLevel(){
 
             `;
 
-
             card.addEventListener(
                 "click",
                 () =>
-                    flipMemoryCard(
-                        card
-                    )
+                    flipMemoryCard(card)
             );
 
-
-            grid.appendChild(
-                card
-            );
+            grid.appendChild(card);
 
         }
     );
-
 
     memoryTimer =
         setInterval(
@@ -2364,39 +1827,24 @@ function createMemoryLevel(){
 
                 memoryTimeLeft--;
 
-
                 document.getElementById(
                     "memoryTime"
                 ).textContent =
                     memoryTimeLeft;
 
+                if(memoryTimeLeft <= 0){
 
-                if(
-                    memoryTimeLeft <= 0
-                ){
+                    clearInterval(memoryTimer);
 
-                    clearInterval(
-                        memoryTimer
-                    );
-
-
-                    memoryRunning =
-                        false;
-
-
-                    memoryLock =
-                        true;
-
+                    memoryRunning = false;
+                    memoryLock = true;
 
                     document.getElementById(
                         "memoryMessage"
                     ).textContent =
                         "⏰ Waktu habis! Kamu harus mulai lagi dari Level 1.";
 
-
-                    playSound(
-                        "timeout"
-                    );
+                    playSound("timeout");
 
                 }
 
@@ -2406,97 +1854,58 @@ function createMemoryLevel(){
 
 }
 
-
-function flipMemoryCard(
-    card
-){
+function flipMemoryCard(card){
 
     if(
-
         !memoryRunning ||
-
         memoryLock ||
-
-        card.classList.contains(
-            "flipped"
-        ) ||
-
-        card.classList.contains(
-            "matched"
-        )
-
+        card.classList.contains("flipped") ||
+        card.classList.contains("matched")
     ){
 
         return;
 
     }
 
+    playSound("flip");
 
-    playSound(
-        "flip"
-    );
-
-
-    card.classList.add(
-        "flipped"
-    );
-
+    card.classList.add("flipped");
 
     if(!firstCard){
 
-        firstCard =
-            card;
+        firstCard = card;
 
         return;
 
     }
 
-
-    secondCard =
-        card;
-
+    secondCard = card;
 
     memoryMoves++;
-
 
     document.getElementById(
         "memoryMoves"
     ).textContent =
         memoryMoves;
 
-
-    memoryLock =
-        true;
-
+    memoryLock = true;
 
     if(
         firstCard.dataset.value ===
         secondCard.dataset.value
     ){
 
-        firstCard.classList.add(
-            "matched"
-        );
-
-
-        secondCard.classList.add(
-            "matched"
-        );
-
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
 
         memoryPairs++;
 
-
-        playSound(
-            "correct"
-        );
-
+        playSound("correct");
 
         const totalPairs =
             memoryLevels[
                 memoryLevel - 1
             ].pairs;
-
 
         document.getElementById(
             "memoryPairs"
@@ -2505,28 +1914,15 @@ function flipMemoryCard(
             "/" +
             totalPairs;
 
-
         resetMemoryTurn();
 
+        if(memoryPairs === totalPairs){
 
-        if(
-            memoryPairs ===
-            totalPairs
-        ){
+            clearInterval(memoryTimer);
 
-            clearInterval(
-                memoryTimer
-            );
+            if(memoryLevel < 10){
 
-
-            if(
-                memoryLevel < 10
-            ){
-
-                playSound(
-                    "level"
-                );
-
+                playSound("level");
 
                 document.getElementById(
                     "memoryMessage"
@@ -2534,7 +1930,6 @@ function flipMemoryCard(
                     "🎉 Level " +
                     memoryLevel +
                     " selesai!";
-
 
                 setTimeout(
                     () => {
@@ -2549,14 +1944,9 @@ function flipMemoryCard(
 
             }else{
 
-                memoryRunning =
-                    false;
+                memoryRunning = false;
 
-
-                playSound(
-                    "win"
-                );
-
+                playSound("win");
 
                 document.getElementById(
                     "memoryMessage"
@@ -2569,23 +1959,14 @@ function flipMemoryCard(
 
     }else{
 
-        playSound(
-            "wrong"
-        );
-
+        playSound("wrong");
 
         setTimeout(
             () => {
 
-                firstCard.classList.remove(
-                    "flipped"
-                );
+                firstCard.classList.remove("flipped");
 
-
-                secondCard.classList.remove(
-                    "flipped"
-                );
-
+                secondCard.classList.remove("flipped");
 
                 resetMemoryTurn();
 
@@ -2597,13 +1978,10 @@ function flipMemoryCard(
 
 }
 
-
 function resetMemoryTurn(){
 
     firstCard = null;
-
     secondCard = null;
-
     memoryLock = false;
 
 }
@@ -2614,15 +1992,10 @@ function resetMemoryTurn(){
 ========================= */
 
 let colorScore = 0;
-
 let colorRound = 0;
-
 let colorTimeLeft = 60;
-
 let colorTimer = null;
-
 let colorRunning = false;
-
 
 const colorFamilies = [
 
@@ -2664,7 +2037,6 @@ const colorFamilies = [
 
 ];
 
-
 function randomColorFamily(){
 
     return colorFamilies[
@@ -2676,10 +2048,7 @@ function randomColorFamily(){
 
 }
 
-
-function rgbToString(
-    rgb
-){
+function rgbToString(rgb){
 
     return `rgb(
         ${rgb[0]},
@@ -2689,56 +2058,40 @@ function rgbToString(
 
 }
 
-
 function startColorGame(){
 
     getAudioContext();
 
-    playSound(
-        "start"
-    );
+    playSound("start");
 
-
-    clearInterval(
-        colorTimer
-    );
-
+    clearInterval(colorTimer);
 
     colorScore = 0;
-
     colorRound = 0;
-
     colorTimeLeft = 60;
-
     colorRunning = true;
-
 
     document.getElementById(
         "colorScore"
     ).textContent =
         0;
 
-
     document.getElementById(
         "colorRound"
     ).textContent =
         0;
-
 
     document.getElementById(
         "colorTime"
     ).textContent =
         60;
 
-
     document.getElementById(
         "colorMessage"
     ).textContent =
         "Pilih warna yang paling tepat!";
 
-
     newColorRound();
-
 
     colorTimer =
         setInterval(
@@ -2746,31 +2099,21 @@ function startColorGame(){
 
                 colorTimeLeft--;
 
-
                 document.getElementById(
                     "colorTime"
                 ).textContent =
                     colorTimeLeft;
 
+                if(colorTimeLeft <= 0){
 
-                if(
-                    colorTimeLeft <= 0
-                ){
+                    clearInterval(colorTimer);
 
-                    clearInterval(
-                        colorTimer
-                    );
-
-
-                    colorRunning =
-                        false;
-
+                    colorRunning = false;
 
                     document.getElementById(
                         "colorOptions"
                     ).innerHTML =
                         "";
-
 
                     document.getElementById(
                         "colorMessage"
@@ -2778,10 +2121,7 @@ function startColorGame(){
                         "⏰ Waktu habis! Score kamu: " +
                         colorScore;
 
-
-                    playSound(
-                        "timeout"
-                    );
+                    playSound("timeout");
 
                 }
 
@@ -2791,25 +2131,20 @@ function startColorGame(){
 
 }
 
-
 function newColorRound(){
 
     if(!colorRunning)
         return;
 
-
     colorRound++;
-
 
     document.getElementById(
         "colorRound"
     ).textContent =
         colorRound;
 
-
     const family =
         randomColorFamily();
-
 
     const targetIndex =
         Math.floor(
@@ -2817,28 +2152,18 @@ function newColorRound(){
             family.length
         );
 
-
     const target =
-        family[
-            targetIndex
-        ];
-
+        family[targetIndex];
 
     document.getElementById(
         "targetColor"
     ).style.background =
-        rgbToString(
-            target
-        );
-
+        rgbToString(target);
 
     const shuffled =
         family
         .map(
-            (
-                color,
-                index
-            ) => ({
+            (color,index) => ({
                 color,
                 index
             })
@@ -2848,16 +2173,12 @@ function newColorRound(){
                 Math.random() - .5
         );
 
-
     const container =
         document.getElementById(
             "colorOptions"
         );
 
-
-    container.innerHTML =
-        "";
-
+    container.innerHTML = "";
 
     shuffled.forEach(
         item => {
@@ -2867,46 +2188,36 @@ function newColorRound(){
                     "button"
                 );
 
-
             button.className =
                 "color-choice";
-
 
             button.style.background =
                 rgbToString(
                     item.color
                 );
 
-
             button.addEventListener(
                 "click",
                 () => {
 
-                    if(
-                        !colorRunning
-                    )
+                    if(!colorRunning)
                         return;
-
 
                     if(
                         item.index ===
                         targetIndex
                     ){
 
-                        colorScore +=
-                            10;
-
+                        colorScore += 10;
 
                         button.classList.add(
                             "correct"
                         );
 
-
                         document.getElementById(
                             "colorMessage"
                         ).textContent =
                             "✓ Benar! +10 points";
-
 
                         playSound(
                             "colorCorrect"
@@ -2920,17 +2231,14 @@ function newColorRound(){
                                 colorScore - 3
                             );
 
-
                         button.classList.add(
                             "wrong"
                         );
-
 
                         document.getElementById(
                             "colorMessage"
                         ).textContent =
                             "✗ Salah! -3 points";
-
 
                         playSound(
                             "colorWrong"
@@ -2938,12 +2246,10 @@ function newColorRound(){
 
                     }
 
-
                     document.getElementById(
                         "colorScore"
                     ).textContent =
                         colorScore;
-
 
                     setTimeout(
                         newColorRound,
@@ -2952,7 +2258,6 @@ function newColorRound(){
 
                 }
             );
-
 
             container.appendChild(
                 button
@@ -2973,23 +2278,17 @@ const dinoDrawingCanvas =
         "dinoDrawingCanvas"
     );
 
-
 const dinoDrawingCtx =
     dinoDrawingCanvas.getContext(
         "2d"
     );
 
-
-let dinoDrawing =
-    false;
-
+let dinoDrawing = false;
 
 function setupDinoDrawingCanvas(){
 
     const rect =
-        dinoDrawingCanvas
-        .getBoundingClientRect();
-
+        dinoDrawingCanvas.getBoundingClientRect();
 
     if(
         rect.width === 0 ||
@@ -3000,21 +2299,15 @@ function setupDinoDrawingCanvas(){
 
     }
 
-
     const dpr =
         window.devicePixelRatio ||
         1;
 
-
     dinoDrawingCanvas.width =
-        rect.width *
-        dpr;
-
+        rect.width * dpr;
 
     dinoDrawingCanvas.height =
-        rect.height *
-        dpr;
-
+        rect.height * dpr;
 
     dinoDrawingCtx.setTransform(
         dpr,
@@ -3025,14 +2318,11 @@ function setupDinoDrawingCanvas(){
         0
     );
 
-
     dinoDrawingCtx.lineCap =
         "round";
 
-
     dinoDrawingCtx.lineJoin =
         "round";
-
 
     dinoDrawingCtx.lineWidth =
         Number(
@@ -3041,12 +2331,10 @@ function setupDinoDrawingCanvas(){
             ).value
         );
 
-
     dinoDrawingCtx.strokeStyle =
         document.getElementById(
             "dinoBrushColor"
         ).value;
-
 
     dinoDrawingCtx.clearRect(
         0,
@@ -3057,15 +2345,10 @@ function setupDinoDrawingCanvas(){
 
 }
 
-
-function getDinoDrawingPosition(
-    event
-){
+function getDinoDrawingPosition(event){
 
     const rect =
-        dinoDrawingCanvas
-        .getBoundingClientRect();
-
+        dinoDrawingCanvas.getBoundingClientRect();
 
     return {
 
@@ -3081,35 +2364,25 @@ function getDinoDrawingPosition(
 
 }
 
-
 dinoDrawingCanvas.addEventListener(
     "pointerdown",
     event => {
 
-        dinoDrawing =
-            true;
+        dinoDrawing = true;
 
-
-        dinoDrawingCanvas
-            .setPointerCapture(
-                event.pointerId
-            );
-
+        dinoDrawingCanvas.setPointerCapture(
+            event.pointerId
+        );
 
         const pos =
-            getDinoDrawingPosition(
-                event
-            );
-
+            getDinoDrawingPosition(event);
 
         dinoDrawingCtx.beginPath();
-
 
         dinoDrawingCtx.moveTo(
             pos.x,
             pos.y
         );
-
 
         dinoDrawingCtx.lineWidth =
             Number(
@@ -3118,7 +2391,6 @@ dinoDrawingCanvas.addEventListener(
                 ).value
             );
 
-
         dinoDrawingCtx.strokeStyle =
             document.getElementById(
                 "dinoBrushColor"
@@ -3126,7 +2398,6 @@ dinoDrawingCanvas.addEventListener(
 
     }
 );
-
 
 dinoDrawingCanvas.addEventListener(
     "pointermove",
@@ -3135,12 +2406,8 @@ dinoDrawingCanvas.addEventListener(
         if(!dinoDrawing)
             return;
 
-
         const pos =
-            getDinoDrawingPosition(
-                event
-            );
-
+            getDinoDrawingPosition(event);
 
         dinoDrawingCtx.lineWidth =
             Number(
@@ -3149,64 +2416,51 @@ dinoDrawingCanvas.addEventListener(
                 ).value
             );
 
-
         dinoDrawingCtx.strokeStyle =
             document.getElementById(
                 "dinoBrushColor"
             ).value;
-
 
         dinoDrawingCtx.lineTo(
             pos.x,
             pos.y
         );
 
-
         dinoDrawingCtx.stroke();
 
     }
 );
-
 
 function stopDinoDrawing(){
 
     if(!dinoDrawing)
         return;
 
-
-    dinoDrawing =
-        false;
-
+    dinoDrawing = false;
 
     dinoDrawingCtx.closePath();
 
 }
-
 
 dinoDrawingCanvas.addEventListener(
     "pointerup",
     stopDinoDrawing
 );
 
-
 dinoDrawingCanvas.addEventListener(
     "pointercancel",
     stopDinoDrawing
 );
-
 
 dinoDrawingCanvas.addEventListener(
     "pointerleave",
     stopDinoDrawing
 );
 
-
 function clearDinoDrawing(){
 
     const rect =
-        dinoDrawingCanvas
-        .getBoundingClientRect();
-
+        dinoDrawingCanvas.getBoundingClientRect();
 
     if(
         rect.width === 0 ||
@@ -3217,7 +2471,6 @@ function clearDinoDrawing(){
 
     }
 
-
     dinoDrawingCtx.clearRect(
         0,
         0,
@@ -3225,13 +2478,9 @@ function clearDinoDrawing(){
         rect.height
     );
 
-
-    playSound(
-        "click"
-    );
+    playSound("click");
 
 }
-
 
 const dinoDrawingColors = [
 
@@ -3263,42 +2512,32 @@ const dinoDrawingColors = [
 
 ];
 
-
 const dinoPalette =
     document.getElementById(
         "dinoPalette"
     );
-
 
 const dinoColorInput =
     document.getElementById(
         "dinoBrushColor"
     );
 
-
 dinoDrawingColors.forEach(
-    (
-        color,
-        index
-    ) => {
+    (color,index) => {
 
         const button =
             document.createElement(
                 "button"
             );
 
-
         button.type =
             "button";
-
 
         button.className =
             "dino-palette-color";
 
-
         button.style.background =
             color;
-
 
         if(index === 1){
 
@@ -3308,10 +2547,8 @@ dinoDrawingColors.forEach(
 
         }
 
-
         button.title =
             color;
-
 
         button.addEventListener(
             "click",
@@ -3319,7 +2556,6 @@ dinoDrawingColors.forEach(
 
                 dinoColorInput.value =
                     color;
-
 
                 document.querySelectorAll(
                     ".dino-palette-color"
@@ -3333,19 +2569,14 @@ dinoDrawingColors.forEach(
                     }
                 );
 
-
                 button.classList.add(
                     "selected"
                 );
 
-
-                playSound(
-                    "click"
-                );
+                playSound("click");
 
             }
         );
-
 
         dinoPalette.appendChild(
             button
@@ -3354,14 +2585,12 @@ dinoDrawingColors.forEach(
     }
 );
 
-
 dinoColorInput.addEventListener(
     "input",
     () => {
 
         dinoDrawingCtx.strokeStyle =
             dinoColorInput.value;
-
 
         document.querySelectorAll(
             ".dino-palette-color"
@@ -3377,7 +2606,6 @@ dinoColorInput.addEventListener(
 
     }
 );
-
 
 document.getElementById(
     "dinoBrushSize"
@@ -3405,32 +2633,18 @@ const dinoGameCanvas =
         "dinoGameCanvas"
     );
 
-
 const dinoGameCtx =
     dinoGameCanvas.getContext(
         "2d"
     );
 
-
 let dinoPlayerImage =
     new Image();
 
-
-let dinoGameRunning =
-    false;
-
-
-let dinoGameOver =
-    false;
-
-
-let dinoAnimation =
-    null;
-
-
-let dinoScore =
-    0;
-
+let dinoGameRunning = false;
+let dinoGameOver = false;
+let dinoAnimation = null;
+let dinoScore = 0;
 
 let dinoHighScore =
     Number(
@@ -3439,60 +2653,35 @@ let dinoHighScore =
         ) || 0
     );
 
-
-let dinoSpeed =
-    5;
-
-
-let dinoFrame =
-    0;
-
-
-let dinoGroundY =
-    0;
-
+let dinoSpeed = 5;
+let dinoFrame = 0;
+let dinoGroundY = 0;
 
 let dinoPlayer = {
 
     x:65,
-
     y:0,
-
     width:85,
-
     height:85,
-
     velocityY:0,
-
     gravity:.65,
-
     jumpPower:-12,
-
     grounded:true
 
 };
 
-
-let dinoObstacles =
-    [];
-
-
-let dinoNextObstacle =
-    100;
-
+let dinoObstacles = [];
+let dinoNextObstacle = 100;
 
 document.getElementById(
     "dinoHighScore"
 ).textContent =
     dinoHighScore;
 
-
 function resizeDinoGameCanvas(){
 
     const rect =
-        dinoGameCanvas
-        .getBoundingClientRect();
-
+        dinoGameCanvas.getBoundingClientRect();
 
     if(
         rect.width === 0 ||
@@ -3503,21 +2692,15 @@ function resizeDinoGameCanvas(){
 
     }
 
-
     const dpr =
         window.devicePixelRatio ||
         1;
 
-
     dinoGameCanvas.width =
-        rect.width *
-        dpr;
-
+        rect.width * dpr;
 
     dinoGameCanvas.height =
-        rect.height *
-        dpr;
-
+        rect.height * dpr;
 
     dinoGameCtx.setTransform(
         dpr,
@@ -3528,26 +2711,20 @@ function resizeDinoGameCanvas(){
         0
     );
 
-
     dinoGroundY =
-        rect.height -
-        48;
+        rect.height - 48;
 
 }
-
 
 function startDinoFromDrawing(){
 
     const imageData =
-        dinoDrawingCanvas
-        .toDataURL(
+        dinoDrawingCanvas.toDataURL(
             "image/png"
         );
 
-
     dinoPlayerImage =
         new Image();
-
 
     dinoPlayerImage.onload =
         () => {
@@ -3557,13 +2734,11 @@ function startDinoFromDrawing(){
             ).style.display =
                 "none";
 
-
             document.getElementById(
                 "dinoGameArea"
             ).classList.add(
                 "active"
             );
-
 
             setTimeout(
                 () => {
@@ -3578,130 +2753,76 @@ function startDinoFromDrawing(){
 
         };
 
-
     dinoPlayerImage.src =
         imageData;
 
 }
 
-
 function startDinoGame(){
 
     resizeDinoGameCanvas();
 
-
-    dinoGameRunning =
-        true;
-
-
-    dinoGameOver =
-        false;
-
-
-    dinoScore =
-        0;
-
-
-    dinoSpeed =
-        5;
-
-
-    dinoFrame =
-        0;
-
-
-    dinoObstacles =
-        [];
-
+    dinoGameRunning = true;
+    dinoGameOver = false;
+    dinoScore = 0;
+    dinoSpeed = 5;
+    dinoFrame = 0;
+    dinoObstacles = [];
 
     dinoNextObstacle =
         100 +
-        Math.random() *
-        100;
+        Math.random() * 100;
 
-
-    dinoPlayer.width =
-        85;
-
-
-    dinoPlayer.height =
-        85;
-
-
-    dinoPlayer.x =
-        65;
-
+    dinoPlayer.width = 85;
+    dinoPlayer.height = 85;
+    dinoPlayer.x = 65;
 
     dinoPlayer.y =
         dinoGroundY -
         dinoPlayer.height;
 
-
-    dinoPlayer.velocityY =
-        0;
-
-
-    dinoPlayer.grounded =
-        true;
-
+    dinoPlayer.velocityY = 0;
+    dinoPlayer.grounded = true;
 
     document.getElementById(
         "dinoScore"
     ).textContent =
         0;
 
-
     document.getElementById(
         "dinoGameMessage"
     ).textContent =
         "Tap / Space untuk melompat!";
 
-
     cancelAnimationFrame(
         dinoAnimation
     );
 
-
-    playSound(
-        "start"
-    );
-
+    playSound("start");
 
     dinoGameLoop();
 
 }
-
 
 function restartDinoGame(){
 
     if(!dinoPlayerImage.src)
         return;
 
-
-    playSound(
-        "start"
-    );
-
+    playSound("start");
 
     startDinoGame();
 
 }
 
-
 function drawDinoAgain(){
 
-    dinoGameRunning =
-        false;
-
-
-    dinoGameOver =
-        false;
-
+    dinoGameRunning = false;
+    dinoGameOver = false;
 
     cancelAnimationFrame(
         dinoAnimation
     );
-
 
     document.getElementById(
         "dinoGameArea"
@@ -3709,12 +2830,10 @@ function drawDinoAgain(){
         "active"
     );
 
-
     document.getElementById(
         "dinoDrawArea"
     ).style.display =
         "block";
-
 
     setTimeout(
         () => {
@@ -3725,99 +2844,72 @@ function drawDinoAgain(){
         50
     );
 
-
-    playSound(
-        "click"
-    );
+    playSound("click");
 
 }
-
 
 function dinoJump(){
 
     if(!dinoGameRunning)
         return;
 
-
-    if(
-        dinoPlayer.grounded
-    ){
+    if(dinoPlayer.grounded){
 
         dinoPlayer.velocityY =
             dinoPlayer.jumpPower;
 
-
         dinoPlayer.grounded =
             false;
 
-
-        playSound(
-            "jump"
-        );
+        playSound("jump");
 
     }
 
 }
-
 
 function createDinoObstacle(){
 
     const canvasWidth =
         dinoGameCanvas.clientWidth;
 
-
     const type =
         Math.random() < .5
         ? "🖌️"
         : "🎨";
 
-
     const size =
         28 +
-        Math.random() *
-        8;
-
+        Math.random() * 8;
 
     dinoObstacles.push({
 
         x:
-            canvasWidth +
-            20,
+            canvasWidth + 20,
 
         y:
-            dinoGroundY -
-            size,
+            dinoGroundY - size,
 
-        width:
-            size,
-
-        height:
-            size,
-
-        type:
-            type
+        width:size,
+        height:size,
+        type:type
 
     });
 
 }
 
-
 function updateDino(){
 
     dinoFrame++;
-
 
     dinoScore =
         Math.floor(
             dinoFrame / 6
         );
 
-
     document.getElementById(
         "dinoScore"
     ).textContent =
         dinoScore;
-
 
     if(
         dinoScore >
@@ -3827,18 +2919,15 @@ function updateDino(){
         dinoHighScore =
             dinoScore;
 
-
         localStorage.setItem(
             "dinoHighScore",
             dinoHighScore
         );
 
-
         document.getElementById(
             "dinoHighScore"
         ).textContent =
             dinoHighScore;
-
 
         if(
             dinoScore % 10 === 0
@@ -3852,7 +2941,6 @@ function updateDino(){
 
     }
 
-
     dinoSpeed =
         5 +
         Math.min(
@@ -3860,14 +2948,11 @@ function updateDino(){
             dinoScore / 180
         );
 
-
     dinoPlayer.velocityY +=
         dinoPlayer.gravity;
 
-
     dinoPlayer.y +=
         dinoPlayer.velocityY;
-
 
     if(
         dinoPlayer.y +
@@ -3879,26 +2964,16 @@ function updateDino(){
             dinoGroundY -
             dinoPlayer.height;
 
-
-        dinoPlayer.velocityY =
-            0;
-
-
-        dinoPlayer.grounded =
-            true;
+        dinoPlayer.velocityY = 0;
+        dinoPlayer.grounded = true;
 
     }
 
-
     dinoNextObstacle--;
 
-
-    if(
-        dinoNextObstacle <= 0
-    ){
+    if(dinoNextObstacle <= 0){
 
         createDinoObstacle();
-
 
         const minimumGap =
             Math.max(
@@ -3907,14 +2982,11 @@ function updateDino(){
                 dinoScore / 12
             );
 
-
         dinoNextObstacle =
             minimumGap +
-            Math.random() *
-            80;
+            Math.random() * 80;
 
     }
-
 
     dinoObstacles.forEach(
         obstacle => {
@@ -3925,7 +2997,6 @@ function updateDino(){
         }
     );
 
-
     dinoObstacles =
         dinoObstacles.filter(
             obstacle =>
@@ -3934,39 +3005,31 @@ function updateDino(){
                 -20
         );
 
-
     checkDinoCollision();
 
 }
 
-
 function checkDinoCollision(){
 
-    const padding =
-        12;
-
+    const padding = 12;
 
     const playerLeft =
         dinoPlayer.x +
         padding;
-
 
     const playerRight =
         dinoPlayer.x +
         dinoPlayer.width -
         padding;
 
-
     const playerTop =
         dinoPlayer.y +
         padding;
-
 
     const playerBottom =
         dinoPlayer.y +
         dinoPlayer.height -
         padding;
-
 
     for(
         const obstacle
@@ -3974,26 +3037,20 @@ function checkDinoCollision(){
     ){
 
         const obstacleLeft =
-            obstacle.x +
-            5;
-
+            obstacle.x + 5;
 
         const obstacleRight =
             obstacle.x +
             obstacle.width -
             5;
 
-
         const obstacleTop =
-            obstacle.y +
-            4;
-
+            obstacle.y + 4;
 
         const obstacleBottom =
             obstacle.y +
             obstacle.height -
             3;
-
 
         if(
 
@@ -4021,21 +3078,14 @@ function checkDinoCollision(){
 
 }
 
-
 function endDinoGame(){
 
-    dinoGameRunning =
-        false;
-
-
-    dinoGameOver =
-        true;
-
+    dinoGameRunning = false;
+    dinoGameOver = true;
 
     cancelAnimationFrame(
         dinoAnimation
     );
-
 
     document.getElementById(
         "dinoGameMessage"
@@ -4043,26 +3093,19 @@ function endDinoGame(){
         "💥 Game Over! Score kamu: " +
         dinoScore;
 
-
-    playSound(
-        "gameover"
-    );
-
+    playSound("gameover");
 
     drawDinoGame();
 
 }
-
 
 function drawDinoGame(){
 
     const width =
         dinoGameCanvas.clientWidth;
 
-
     const height =
         dinoGameCanvas.clientHeight;
-
 
     if(
         width === 0 ||
@@ -4073,7 +3116,6 @@ function drawDinoGame(){
 
     }
 
-
     dinoGameCtx.clearRect(
         0,
         0,
@@ -4081,10 +3123,8 @@ function drawDinoGame(){
         height
     );
 
-
     dinoGameCtx.fillStyle =
         "#ffffff";
-
 
     dinoGameCtx.fillRect(
         0,
@@ -4093,14 +3133,11 @@ function drawDinoGame(){
         height
     );
 
-
     dinoGameCtx.fillStyle =
         "#f6dce2";
 
-
     dinoGameCtx.font =
         "20px Arial";
-
 
     dinoGameCtx.fillText(
         "☁",
@@ -4108,51 +3145,39 @@ function drawDinoGame(){
         55
     );
 
-
     dinoGameCtx.fillText(
         "☁",
         width * .68,
         85
     );
 
-
     dinoGameCtx.strokeStyle =
         "#c28c99";
 
-
-    dinoGameCtx.lineWidth =
-        2;
-
+    dinoGameCtx.lineWidth = 2;
 
     dinoGameCtx.beginPath();
-
 
     dinoGameCtx.moveTo(
         0,
         dinoGroundY
     );
 
-
     dinoGameCtx.lineTo(
         width,
         dinoGroundY
     );
 
-
     dinoGameCtx.stroke();
-
 
     dinoGameCtx.fillStyle =
         "#d9aeb9";
-
 
     const offset =
         (
             dinoFrame *
             dinoSpeed
-        ) %
-        40;
-
+        ) % 40;
 
     for(
         let x = -40 + offset;
@@ -4169,7 +3194,6 @@ function drawDinoGame(){
 
     }
 
-
     if(
 
         dinoPlayerImage.complete &&
@@ -4183,17 +3207,14 @@ function drawDinoGame(){
             dinoPlayerImage,
 
             dinoPlayer.x,
-
             dinoPlayer.y,
 
             dinoPlayer.width,
-
             dinoPlayer.height
 
         );
 
     }
-
 
     dinoObstacles.forEach(
         obstacle => {
@@ -4202,34 +3223,25 @@ function drawDinoGame(){
                 obstacle.height +
                 "px Arial";
 
-
             dinoGameCtx.textAlign =
                 "left";
-
 
             dinoGameCtx.textBaseline =
                 "top";
 
-
             dinoGameCtx.fillText(
-
                 obstacle.type,
-
                 obstacle.x,
-
                 obstacle.y
-
             );
 
         }
     );
 
-
     dinoGameCtx.textBaseline =
         "alphabetic";
 
 }
-
 
 function dinoGameLoop(){
 
@@ -4241,11 +3253,9 @@ function dinoGameLoop(){
 
     }
 
-
     updateDino();
 
     drawDinoGame();
-
 
     dinoAnimation =
         requestAnimationFrame(
@@ -4265,11 +3275,9 @@ document.addEventListener(
 
         if(
 
-            event.code ===
-            "Space" ||
+            event.code === "Space" ||
 
-            event.code ===
-            "ArrowUp"
+            event.code === "ArrowUp"
 
         ){
 
@@ -4277,7 +3285,6 @@ document.addEventListener(
                 document.getElementById(
                     "drawing"
                 );
-
 
             if(
                 drawingSection
@@ -4287,10 +3294,7 @@ document.addEventListener(
 
                 event.preventDefault();
 
-
-                if(
-                    dinoGameRunning
-                ){
+                if(dinoGameRunning){
 
                     dinoJump();
 
@@ -4303,14 +3307,11 @@ document.addEventListener(
     }
 );
 
-
 dinoGameCanvas.addEventListener(
     "pointerdown",
     event => {
 
-        if(
-            dinoGameRunning
-        ){
+        if(dinoGameRunning){
 
             event.preventDefault();
 
@@ -4320,7 +3321,6 @@ dinoGameCanvas.addEventListener(
 
     }
 );
-
 
 window.addEventListener(
     "load",
