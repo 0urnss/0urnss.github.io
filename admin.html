@@ -163,13 +163,19 @@
 
       justify-content: center;
 
+      align-items: center;
+
       flex-wrap: wrap;
 
       gap: 10px;
+
+      margin: 0;
     }
 
 
     nav a {
+      display: inline-block;
+
       background: #f8edf0;
 
       border: 2px solid #c28f9b;
@@ -179,6 +185,10 @@
       padding: 9px 17px;
 
       font-size: 14px;
+
+      line-height: 1.2;
+
+      color: #59484d;
 
       box-shadow:
         0 4px 0 #c28f9b;
@@ -1488,6 +1498,7 @@
 
   /* ANONYMOUS MESSAGE ELEMENTS */
 
+
   const messageList =
     document.getElementById(
       "messageList"
@@ -2364,11 +2375,10 @@
 
   async function checkStorageSession() {
 
-
     const {
       data,
       error
-    } =
+    } = 
       await supabaseClient.auth
         .getSession();
 
@@ -2671,6 +2681,7 @@
 
         /* ADD */
 
+
         if (!id) {
 
 
@@ -2739,6 +2750,7 @@
 
 
         /* EDIT */
+
 
         else {
 
