@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Art Gallery</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f7e8ec;
+    color:#59484d;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,255,255,.65),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(255,255,255,.5),transparent 25%);
+}
+
+/* DECOR */
+
+.decor{
+    position:fixed;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.45;
+    animation:float 6s ease-in-out infinite;
+}
+
+.decor.one{
+    top:18%;
+    left:5%;
+    font-size:28px;
+}
+
+.decor.two{
+    top:55%;
+    right:5%;
+    font-size:25px;
+    animation-delay:1.5s;
+}
+
+.decor.three{
+    bottom:10%;
+    left:8%;
+    font-size:22px;
+    animation-delay:3s;
+}
+
+.decor.four{
+    top:8%;
+    right:10%;
+    font-size:20px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-12px) rotate(5deg);
+    }
+}
+
+/* TOP BOARD */
+
+.top-area{
+    padding:28px 20px 0;
+}
+
+.main-board{
+    max-width:1050px;
+    margin:auto;
+    background:#d9aeb9;
+    border:2px solid #a97682;
+    border-radius:28px;
+    padding:12px;
+    box-shadow:0 8px 0 rgba(169,118,130,.35);
+}
+
+.board-inner{
+    position:relative;
+    background:#f6dce2;
+    border:2px solid #c28c99;
+    border-radius:21px;
+    padding:22px 20px 18px;
+    overflow:hidden;
+}
+
+.board-inner::before{
+    content:"✿";
+    position:absolute;
+    top:12px;
+    left:18px;
+    font-size:25px;
+    color:#b47786;
+    transform:rotate(-15deg);
+}
+
+.board-inner::after{
+    content:"♡";
+    position:absolute;
+    top:13px;
+    right:20px;
+    font-size:26px;
+    color:#b47786;
+    transform:rotate(10deg);
+}
+
+/* LOGO */
+
+.logo{
+    text-align:center;
+    font-family:Georgia,serif;
+    font-size:38px;
+    color:#805965;
+    letter-spacing:1px;
+    margin-bottom:18px;
+}
+
+/* NAVBAR */
+
+.navbar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:#805965;
+    background:#f8edf0;
+    border:2px solid #c28f9b;
+    border-radius:13px;
+    padding:9px 17px;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 4px 0 #c28f9b;
+    transition:.2s;
+}
+
+.navbar a:hover{
+    background:#edc4ce;
+    transform:translateY(-2px);
+    box-shadow:0 6px 0 #c28f9b;
+}
+
+.navbar a.active{
+    background:#e9bdc8;
+}
+
+/* ADMIN */
+
+.admin-wrap{
+    max-width:900px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.admin-board{
+    background:#d9aeb9;
+    border:2px solid #a97682;
+    border-radius:28px;
+    padding:12px;
+    box-shadow:0 8px 0 rgba(169,118,130,.35);
+}
+
+.admin-inner{
+    background:#fff8f9;
+    border:2px solid #c28c99;
+    border-radius:21px;
+    padding:32px 25px 35px;
+}
+
+.admin-title{
+    text-align:center;
+    margin-bottom:8px;
+    font-family:Georgia,serif;
+    color:#805965;
+    font-size:32px;
+}
+
+.admin-subtitle{
+    text-align:center;
+    color:#9b737d;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.panel{
+    background:#fdf4f6;
+    border:1px solid #ead2d8;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:25px;
+}
+
+.panel h2{
+    font-family:Georgia,serif;
+    color:#805965;
+    font-size:21px;
+    margin-bottom:17px;
+}
+
+label{
+    display:block;
+    color:#805965;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:2px solid #ead2d8;
+    border-radius:12px;
+    background:#fff;
+    color:#59484d;
+    padding:11px 12px;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#c28c99;
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+input[type="file"]{
+    padding:9px;
+}
+
+.button-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:2px solid #c28f9b;
+    background:#f8edf0;
+    color:#805965;
+    border-radius:13px;
+    padding:10px 17px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 0 #c28f9b;
+    transition:.2s;
+}
+
+button:hover{
+    background:#edc4ce;
+    transform:translateY(-2px);
+}
+
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.cancel-btn{
+    background:#fff;
+}
+
+.delete-btn{
+    background:#f1c8d1;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* STATUS */
+
+.status{
+    display:none;
+    padding:11px 13px;
+    border-radius:12px;
+    margin-bottom:18px;
+    font-size:13px;
+}
+
+.status.show{
+    display:block;
+}
+
+.status.success{
+    background:#edf7ea;
+    border:1px solid #c8ddc0;
+    color:#58754f;
+}
+
+.status.error{
+    background:#fff0f2;
+    border:1px solid #e3b7c0;
+    color:#a64d61;
+}
+
+/* LOGIN */
+
+.login-box{
+    max-width:470px;
+    margin:0 auto;
+}
+
+/* ACCOUNT */
+
+.account-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    color:#805965;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+/* ARTWORK LIST */
+
+.artworks-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.art-card{
+    background:#fff;
+    border:2px solid #ead2d8;
+    border-radius:18px;
+    padding:12px;
+}
+
+.art-card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+    border-radius:13px;
+    background:#f4e9ec;
+    margin-bottom:12px;
+}
+
+.art-card h3{
+    font-family:Georgia,serif;
+    color:#805965;
+    font-size:19px;
+    margin-bottom:5px;
+}
+
+.art-category{
+    color:#9b737d;
+    font-size:12px;
+    margin-bottom:5px;
+}
+
+.art-description{
+    color:#9b737d;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.art-actions{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+    flex-wrap:wrap;
+}
+
+.art-actions button{
+    padding:8px 12px;
+    font-size:12px;
+}
+
+.empty{
+    text-align:center;
+    color:#9b737d;
+    padding:20px;
+    grid-column:1/-1;
+}
+
+footer{
+    text-align:center;
+    padding:25px 20px 35px;
+    color:#9b737d;
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .top-area{
+        padding:18px 12px 0;
+    }
+
+    .main-board{
+        border-radius:23px;
+        padding:9px;
+    }
+
+    .board-inner{
+        border-radius:17px;
+        padding:18px 12px 15px;
+    }
+
+    .logo{
+        font-size:29px;
+        margin-bottom:15px;
+    }
+
+    .navbar{
+        gap:7px;
+    }
+
+    .navbar a{
+        font-size:12px;
+        padding:8px 11px;
+    }
+
+    .admin-wrap{
+        margin:30px auto;
+        padding:0 12px;
+    }
+
+    .admin-board{
+        border-radius:23px;
+        padding:9px;
+    }
+
+    .admin-inner{
+        border-radius:17px;
+        padding:25px 13px 28px;
+    }
+
+    .admin-title{
+        font-size:27px;
+    }
+
+    .admin-subtitle{
+        font-size:12px;
+    }
+
+    .artworks-list{
+        grid-template-columns:1fr;
+    }
+
+    .art-card img{
+        height:230px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="decor one">✿</div>
+<div class="decor two">♡</div>
+<div class="decor three">✦</div>
+<div class="decor four">˚₊‧</div>
+
+
+<!-- TOP BOARD -->
+
+<div class="top-area">
+
+    <div class="main-board">
+
+        <div class="board-inner">
+
+            <div class="logo">
+                ART GALLERY
+            </div>
+
+            <nav class="navbar">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="gallery.html">
+                    Gallery
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="game.html">
+                    🎮 Game
+                </a>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<main class="admin-wrap">
+
+    <div class="admin-board">
+
+        <div class="admin-inner">
+
+            <h1 class="admin-title">
+                GALLERY ADMIN
+            </h1>
+
+            <p class="admin-subtitle">
+                manage your artworks ♡
+            </p>
+
+
+            <div id="status" class="status"></div>
+
+
+            <!-- LOGIN -->
+
+            <section
+                id="loginSection"
+                class="panel login-box">
+
+                <h2>
+                    Admin Login
+                </h2>
+
+                <form id="loginForm">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="Email admin"
+                        required
+                    >
+
+
+                    <label>
+                        Password
+                    </label>
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Login
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- ADMIN CONTENT -->
+
+            <section
+                id="adminContent"
+                class="hidden">
+
+
+                <div class="account-bar">
+
+                    <span id="adminEmail">
+                        Admin
+                    </span>
+
+                    <button
+                        id="logoutBtn"
+                        type="button">
+                        Logout
+                    </button>
+
+                </div>
+
+
+                <!-- ADD / EDIT -->
+
+                <section class="panel">
+
+                    <h2 id="formTitle">
+                        Add Artwork
+                    </h2>
+
+
+                    <form id="artworkForm">
+
+
+                        <label>
+                            Title
+                        </label>
+
+                        <input
+                            id="title"
+                            type="text"
+                            placeholder="Contoh: My Painting"
+                            required
+                        >
+
+
+                        <label>
+                            Category
+                        </label>
+
+                        <select
+                            id="category"
+                            required>
+
+                            <option value="">
+                                Choose category
+                            </option>
+
+                            <option value="B&W / Pencil">
+                                B&W / Pencil
+                            </option>
+
+                            <option value="Painting">
+                                Painting
+                            </option>
+
+                            <option value="Digital Art">
+                                Digital Art
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+
+                        <label>
+                            Artwork Image
+                        </label>
+
+                        <input
+                            id="imageFile"
+                            type="file"
+                            accept="image/*"
+                            required
+                        >
+
+
+                        <label>
+                            Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            placeholder="Optional description">
+                        </textarea>
+
+
+                        <div class="button-row">
+
+                            <button
+                                id="saveBtn"
+                                type="submit">
+                                Add Artwork
+                            </button>
+
+                            <button
+                                id="cancelBtn"
+                                class="cancel-btn hidden"
+                                type="button">
+                                Cancel
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- ARTWORKS -->
+
+                <section class="panel">
+
+                    <h2>
+                        My Artworks
+                    </h2>
+
+                    <div
+                        id="artworksList"
+                        class="artworks-list">
+
+                        <div class="empty">
+                            Loading artworks...
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+    made with ♡ by 0urnss
+</footer>
+
+
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+/* =====================================================
+   SUPABASE
+   ===================================================== */
+
+const SUPABASE_URL =
+    "https://ojjpssupaoputowjvokm.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_dFkIBbLpaQm2H8VrkyQqLw_TTsrC_fy";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+/* =====================================================
+   ELEMENTS
+   ===================================================== */
+
+const loginSection =
+    document.getElementById("loginSection");
+
+const adminContent =
+    document.getElementById("adminContent");
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const artworkForm =
+    document.getElementById("artworkForm");
+
+const artworksList =
+    document.getElementById("artworksList");
+
+const statusBox =
+    document.getElementById("status");
+
+const adminEmail =
+    document.getElementById("adminEmail");
+
+const logoutBtn =
+    document.getElementById("logoutBtn");
+
+const saveBtn =
+    document.getElementById("saveBtn");
+
+const cancelBtn =
+    document.getElementById("cancelBtn");
+
+const formTitle =
+    document.getElementById("formTitle");
+
+
+let editingId = null;
+let oldImageUrl = null;
+
+
+/* =====================================================
+   STATUS
+   ===================================================== */
+
+function showStatus(message,type){
+
+    statusBox.textContent = message;
+
+    statusBox.className =
+        "status show " + type;
+
+    setTimeout(function(){
+
+        statusBox.className =
+            "status";
+
+    },4000);
+
+}
+
+
+/* =====================================================
+   CHECK LOGIN
+   ===================================================== */
+
+async function checkLogin(){
+
+    const response =
+        await supabaseClient.auth.getSession();
+
+    if(response.data.session){
+
+        showAdmin(
+            response.data.session.user
+        );
+
+    }else{
+
+        showLogin();
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW LOGIN
+   ===================================================== */
+
+function showLogin(){
+
+    loginSection.classList.remove(
+        "hidden"
+    );
+
+    adminContent.classList.add(
+        "hidden"
+    );
+
+}
+
+
+/* =====================================================
+   SHOW ADMIN
+   ===================================================== */
+
+function showAdmin(user){
+
+    loginSection.classList.add(
+        "hidden"
+    );
+
+    adminContent.classList.remove(
+        "hidden"
+    );
+
+    adminEmail.textContent =
+        user.email;
+
+    loadArtworks();
+
+}
+
+
+/* =====================================================
+   LOGIN
+   ===================================================== */
+
+loginForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        const button =
+            loginForm.querySelector(
+                "button"
+            );
+
+        button.disabled = true;
+        button.textContent =
+            "Logging in...";
+
+
+        const response =
+            await supabaseClient.auth.signInWithPassword({
+
+                email:email,
+                password:password
+
+            });
+
+
+        button.disabled = false;
+        button.textContent =
+            "Login";
+
+
+        if(response.error){
+
+            showStatus(
+                response.error.message,
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        showStatus(
+            "Login berhasil ♡",
+            "success"
+        );
+
+
+        showAdmin(
+            response.data.user
+        );
+
+    }
+);
+
+
+/* =====================================================
+   LOGOUT
+   ===================================================== */
+
+logoutBtn.addEventListener(
+    "click",
+    async function(){
+
+        await supabaseClient.auth.signOut();
+
+        showLogin();
+
+        showStatus(
+            "You have logged out.",
+            "success"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ADD / EDIT ARTWORK
+   ===================================================== */
+
+artworkForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const title =
+            document
+                .getElementById("title")
+                .value
+                .trim();
+
+
+        const category =
+            document
+                .getElementById("category")
+                .value;
+
+
+        const description =
+            document
+                .getElementById("description")
+                .value
+                .trim();
+
+
+        const file =
+            document
+                .getElementById("imageFile")
+                .files[0];
+
+
+        if(!title || !category){
+
+            showStatus(
+                "Title and category wajib diisi.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!editingId && !file){
+
+            showStatus(
+                "Pilih foto artwork dulu.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        saveBtn.disabled = true;
+
+        saveBtn.textContent =
+            editingId
+                ? "Saving..."
+                : "Uploading...";
+
+
+        try{
+
+            let imageUrl =
+                oldImageUrl;
+
+
+            /* UPLOAD FOTO */
+
+            if(file){
+
+                const extension =
+                    file.name
+                        .split(".")
+                        .pop()
+                        .toLowerCase();
+
+
+                const fileName =
+                    Date.now() +
+                    "-" +
+                    Math.random()
+                        .toString(36)
+                        .substring(2) +
+                    "." +
+                    extension;
+
+
+                const upload =
+                    await supabaseClient
+                        .storage
+                        .from("artworks")
+                        .upload(
+                            fileName,
+                            file,
+                            {
+                                cacheControl:"3600",
+                                upsert:false
+                            }
+                        );
+
+
+                if(upload.error){
+
+                    throw upload.error;
+
+                }
+
+
+                const publicUrl =
+                    supabaseClient
+                        .storage
+                        .from("artworks")
+                        .getPublicUrl(
+                            fileName
+                        );
+
+
+                imageUrl =
+                    publicUrl.data.publicUrl;
+
+            }
+
+
+            /* EDIT */
+
+            if(editingId){
+
+                const response =
+                    await supabaseClient
+                        .from("artworks")
+                        .update({
+
+                            title:title,
+                            category:category,
+                            image_url:imageUrl,
+                            description:description
+
+                        })
+                        .eq(
+                            "id",
+                            editingId
+                        );
+
+
+                if(response.error){
+
+                    throw response.error;
+
+                }
+
+
+                showStatus(
+                    "Artwork berhasil diubah ♡",
+                    "success"
+                );
+
+            }
+
+
+            /* ADD */
+
+            else{
+
+                const response =
+                    await supabaseClient
+                        .from("artworks")
+                        .insert([{
+
+                            title:title,
+                            category:category,
+                            image_url:imageUrl,
+                            description:description
+
+                        }]);
+
+
+                if(response.error){
+
+                    throw response.error;
+
+                }
+
+
+                showStatus(
+                    "Artwork berhasil ditambahkan ♡",
+                    "success"
+                );
+
+            }
+
+
+            resetForm();
+
+            loadArtworks();
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            showStatus(
+                error.message ||
+                "Terjadi kesalahan.",
+                "error"
+            );
+
+        }
+
+
+        saveBtn.disabled = false;
+
+    }
+);
+
+
+/* =====================================================
+   LOAD ARTWORKS
+   ===================================================== */
+
+async function loadArtworks(){
+
+    artworksList.innerHTML =
+        '<div class="empty">Loading artworks...</div>';
+
+
+    const response =
+        await supabaseClient
+            .from("artworks")
+            .select("*")
+            .order(
+                "created_at",
+                {
+                    ascending:false
+                }
+            );
+
+
+    if(response.error){
+
+        artworksList.innerHTML =
+            '<div class="empty">Gagal memuat artwork.</div>';
+
+        showStatus(
+            response.error.message,
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const artworks =
+        response.data;
+
+
+    if(!artworks || artworks.length === 0){
+
+        artworksList.innerHTML =
+            '<div class="empty">Belum ada artwork ♡</div>';
+
+        return;
+
+    }
+
+
+    artworksList.innerHTML = "";
+
+
+    artworks.forEach(
+        function(artwork){
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+            card.className =
+                "art-card";
+
+
+            const image =
+                document.createElement(
+                    "img"
+                );
+
+            image.src =
+                artwork.image_url;
+
+            image.alt =
+                artwork.title;
+
+
+            const title =
+                document.createElement(
+                    "h3"
+                );
+
+            title.textContent =
+                artwork.title;
+
+
+            const category =
+                document.createElement(
+                    "p"
+                );
+
+            category.className =
+                "art-category";
+
+            category.textContent =
+                artwork.category;
+
+
+            const description =
+                document.createElement(
+                    "p"
+                );
+
+            description.className =
+                "art-description";
+
+            description.textContent =
+                artwork.description ||
+                "No description";
+
+
+            const actions =
+                document.createElement(
+                    "div"
+                );
+
+            actions.className =
+                "art-actions";
+
+
+            const editButton =
+                document.createElement(
+                    "button"
+                );
+
+            editButton.textContent =
+                "Edit";
+
+
+            editButton.addEventListener(
+                "click",
+                function(){
+
+                    startEdit(
+                        artwork
+                    );
+
+                }
+            );
+
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+            deleteButton.textContent =
+                "Delete";
+
+            deleteButton.className =
+                "delete-btn";
+
+
+            deleteButton.addEventListener(
+                "click",
+                function(){
+
+                    deleteArtwork(
+                        artwork
+                    );
+
+                }
+            );
+
+
+            actions.appendChild(
+                editButton
+            );
+
+            actions.appendChild(
+                deleteButton
+            );
+
+
+            card.appendChild(
+                image
+            );
+
+            card.appendChild(
+                title
+            );
+
+            card.appendChild(
+                category
+            );
+
+            card.appendChild(
+                description
+            );
+
+            card.appendChild(
+                actions
+            );
+
+
+            artworksList.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   EDIT
+   ===================================================== */
+
+function startEdit(artwork){
+
+    editingId =
+        artwork.id;
+
+    oldImageUrl =
+        artwork.image_url;
+
+
+    document
+        .getElementById("title")
+        .value =
+            artwork.title || "";
+
+
+    document
+        .getElementById("category")
+        .value =
+            artwork.category || "";
+
+
+    document
+        .getElementById("description")
+        .value =
+            artwork.description || "";
+
+
+    document
+        .getElementById("imageFile")
+        .required =
+            false;
+
+
+    formTitle.textContent =
+        "Edit Artwork";
+
+
+    saveBtn.textContent =
+        "Save Changes";
+
+
+    cancelBtn.classList.remove(
+        "hidden"
+    );
+
+
+    window.scrollTo({
+
+        top:300,
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =====================================================
+   CANCEL EDIT
+   ===================================================== */
+
+cancelBtn.addEventListener(
+    "click",
+    function(){
+
+        resetForm();
+
+    }
+);
+
+
+/* =====================================================
+   RESET FORM
+   ===================================================== */
+
+function resetForm(){
+
+    editingId = null;
+
+    oldImageUrl = null;
+
+    artworkForm.reset();
+
+    formTitle.textContent =
+        "Add Artwork";
+
+    saveBtn.textContent =
+        "Add Artwork";
+
+    cancelBtn.classList.add(
+        "hidden"
+    );
+
+    document
+        .getElementById("imageFile")
+        .required =
+            true;
+
+}
+
+
+/* =====================================================
+   DELETE
+   ===================================================== */
+
+async function deleteArtwork(artwork){
+
+    const confirmDelete =
+        confirm(
+            'Hapus "' +
+            artwork.title +
+            '" dari gallery?'
+        );
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+    const response =
+        await supabaseClient
+            .from("artworks")
+            .delete()
+            .eq(
+                "id",
+                artwork.id
+            );
+
+
+    if(response.error){
+
+        showStatus(
+            response.error.message,
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    showStatus(
+        "Artwork berhasil dihapus.",
+        "success"
+    );
+
+
+    loadArtworks();
+
+}
+
+
+/* =====================================================
+   AUTH STATE
+   ===================================================== */
+
+supabaseClient.auth.onAuthStateChange(
+    function(event,session){
+
+        if(session){
+
+            showAdmin(
+                session.user
+            );
+
+        }
+
+        else if(
+            event === "SIGNED_OUT"
+        ){
+
+            showLogin();
+
+        }
+
+    }
+);
+
+
+/* START */
+
+checkLogin();
+
+</script>
+
+</body>
+</html>
