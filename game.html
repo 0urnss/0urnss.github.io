@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,6 +11,8 @@
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
@@ -17,10 +20,10 @@ html{
 }
 
 body{
-    margin:0;
+    font-family:Arial,sans-serif;
     background:#f7e8ec;
     color:#59484d;
-    font-family:Arial,sans-serif;
+    min-height:100vh;
     overflow-x:hidden;
 }
 
@@ -29,263 +32,370 @@ body::before{
     position:fixed;
     inset:0;
     pointer-events:none;
-    background:
-        radial-gradient(circle at 10% 20%,rgba(255,255,255,.55),transparent 25%),
-        radial-gradient(circle at 90% 80%,rgba(255,255,255,.45),transparent 25%);
     z-index:-2;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,255,255,.65),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(255,255,255,.5),transparent 25%);
 }
 
 
-/* FLOATING DECOR */
+/* =========================
+   DECOR
+========================= */
 
 .decor{
     position:fixed;
     pointer-events:none;
-    color:#c28c99;
-    opacity:.55;
     z-index:-1;
+    opacity:.45;
     animation:float 6s ease-in-out infinite;
 }
 
 .decor.one{
     top:18%;
-    left:4%;
-    font-size:25px;
+    left:5%;
+    font-size:28px;
 }
 
 .decor.two{
-    top:65%;
+    top:55%;
     right:5%;
-    font-size:22px;
-    animation-delay:1s;
+    font-size:25px;
+    animation-delay:1.5s;
 }
 
 .decor.three{
-    top:40%;
+    bottom:10%;
     left:8%;
-    font-size:17px;
-    animation-delay:2s;
-}
-
-.decor.four{
-    bottom:8%;
-    right:10%;
-    font-size:18px;
+    font-size:22px;
     animation-delay:3s;
 }
 
+.decor.four{
+    top:8%;
+    right:10%;
+    font-size:20px;
+    animation-delay:2s;
+}
+
 @keyframes float{
+
     0%,100%{
         transform:translateY(0) rotate(0deg);
     }
 
     50%{
-        transform:translateY(-12px) rotate(8deg);
+        transform:translateY(-12px) rotate(5deg);
     }
+
 }
 
 
-/* TOP BOARD */
+/* =========================
+   TOP BOARD
+========================= */
 
 .top-area{
     padding:28px 20px 0;
 }
 
 .main-board{
-    width:100%;
     max-width:1050px;
     margin:auto;
+
     background:#d9aeb9;
+
     border:2px solid #a97682;
+
     border-radius:28px;
+
     padding:12px;
-    box-shadow:0 12px 0 rgba(169,118,130,.18);
+
+    box-shadow:
+        0 8px 0 rgba(169,118,130,.35);
 }
 
 .board-inner{
-    background:#f6dce2;
-    border:2px solid #c28c99;
-    border-radius:21px;
-    padding:20px 22px 18px;
     position:relative;
+
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    border-radius:21px;
+
+    padding:22px 20px 18px;
+
     overflow:hidden;
 }
 
 .board-inner::before{
-    content:"";
+    content:"✿";
+
     position:absolute;
-    width:90px;
-    height:90px;
-    border:2px dashed #c28c99;
-    border-radius:50%;
-    top:-45px;
-    left:-25px;
-    opacity:.45;
+
+    top:12px;
+    left:18px;
+
+    font-size:25px;
+
+    color:#b47786;
+
+    transform:rotate(-15deg);
 }
 
 .board-inner::after{
-    content:"✦";
+    content:"♡";
+
     position:absolute;
-    right:25px;
-    top:18px;
-    color:#b87988;
-    font-size:22px;
+
+    top:13px;
+    right:20px;
+
+    font-size:26px;
+
+    color:#b47786;
+
+    transform:rotate(10deg);
 }
 
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .logo{
     text-align:center;
+
     font-family:Georgia,serif;
+
     font-size:38px;
+
     color:#805965;
+
     letter-spacing:1px;
-    margin:0 0 17px;
+
+    margin-bottom:18px;
 }
 
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    gap:12px;
+
+    gap:10px;
+
     flex-wrap:wrap;
 }
 
 .navbar a{
     text-decoration:none;
-    color:#76515c;
+
+    color:#805965;
+
     background:#f8edf0;
+
     border:2px solid #c28f9b;
-    padding:10px 20px;
+
     border-radius:13px;
+
+    padding:9px 17px;
+
     font-size:14px;
+
     font-weight:bold;
-    box-shadow:0 4px 0 #c28f9b;
+
+    box-shadow:
+        0 4px 0 #c28f9b;
+
     transition:.2s;
 }
 
 .navbar a:hover{
-    background:#efc5d0;
-    transform:translateY(-3px);
-    box-shadow:0 7px 0 #b87988;
+    background:#edc4ce;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 0 #c28f9b;
 }
 
 .navbar a.active{
-    background:#efc5d0;
-    color:#714b57;
+    background:#e9bdc8;
 }
 
 
-/* PAGE */
+/* =========================
+   PAGE
+========================= */
 
 .page{
-    width:100%;
     max-width:900px;
-    margin:35px auto 60px;
+
+    margin:40px auto;
+
     padding:0 20px;
 }
 
 
-/* GAME BOARD */
+/* =========================
+   GAME BOARD
+========================= */
 
 .game-board{
     background:#d9aeb9;
+
     border:2px solid #a97682;
+
     border-radius:28px;
+
     padding:12px;
-    box-shadow:0 12px 0 rgba(169,118,130,.18);
+
+    box-shadow:
+        0 8px 0 rgba(169,118,130,.35);
 }
 
 .game-inner{
-    background:#fff8f9;
-    border:2px solid #c28c99;
-    border-radius:21px;
-    padding:28px 25px 35px;
     position:relative;
+
+    background:#fff8f9;
+
+    border:2px solid #c28c99;
+
+    border-radius:21px;
+
+    padding:32px 25px 35px;
+
     overflow:hidden;
 }
 
 .game-inner::before{
     content:"♡";
+
     position:absolute;
+
     left:20px;
     top:15px;
+
     font-size:22px;
+
     color:#c28c99;
+
     opacity:.6;
 }
 
 .game-inner::after{
     content:"✦";
+
     position:absolute;
+
     right:22px;
     bottom:20px;
+
     font-size:22px;
+
     color:#c28c99;
+
     opacity:.6;
 }
 
 
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
 
 .page-title{
     text-align:center;
-    margin:5px 0 8px;
+
+    margin:0 0 8px;
+
     font-family:Georgia,serif;
+
     color:#805965;
-    font-size:34px;
+
+    font-size:32px;
 }
 
 .page-subtitle{
     text-align:center;
+
     margin:0 0 25px;
-    color:#876873;
+
+    color:#9b737d;
+
     font-size:14px;
 }
 
 
-/* GAME TABS */
+/* =========================
+   GAME TABS
+========================= */
 
 .game-tabs{
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:10px;
+
     margin-bottom:28px;
 }
 
 .game-tab{
     border:2px solid #c28f9b;
+
     background:#f8edf0;
-    color:#76515c;
+
+    color:#805965;
+
     border-radius:13px;
-    padding:10px 15px;
+
+    padding:9px 15px;
+
     font-weight:bold;
+
     font-size:13px;
+
     cursor:pointer;
-    box-shadow:0 4px 0 #c28f99;
+
+    box-shadow:
+        0 4px 0 #c28f9b;
+
     transition:.2s;
 }
 
 .game-tab:hover{
-    background:#efc5d0;
+    background:#edc4ce;
+
     transform:translateY(-2px);
+
+    box-shadow:
+        0 6px 0 #c28f9b;
 }
 
 .game-tab.active{
-    background:#efc5d0;
+    background:#e9bdc8;
+
     color:#714b57;
 }
 
 
-/* GAME SECTION */
+/* =========================
+   GAME SECTION
+========================= */
 
 .game-section{
     display:none;
+
     animation:fade .35s ease;
 }
 
@@ -294,6 +404,7 @@ body::before{
 }
 
 @keyframes fade{
+
     from{
         opacity:0;
         transform:translateY(8px);
@@ -303,92 +414,144 @@ body::before{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 
 .game-btn{
-    border:2px solid #b87988;
-    background:#d9aeb9;
-    color:#684852;
+    border:2px solid #c28f9b;
+
+    background:#f6dce2;
+
+    color:#805965;
+
     padding:10px 18px;
+
     border-radius:12px;
+
     font-weight:bold;
+
     cursor:pointer;
-    box-shadow:0 4px 0 #b87988;
+
+    box-shadow:
+        0 4px 0 #c28f9b;
+
     transition:.2s;
 }
 
 .game-btn:hover{
     transform:translateY(-2px);
-    background:#efc5d0;
+
+    background:#edc4ce;
+
+    box-shadow:
+        0 6px 0 #c28f9b;
 }
 
 .game-btn:active{
     transform:translateY(2px);
-    box-shadow:0 2px 0 #b87988;
+
+    box-shadow:
+        0 2px 0 #c28f9b;
 }
 
 
-/* =================================
-   MEMORY CARD
-================================= */
+/* =========================
+   GAME HEADING
+========================= */
 
 .game-heading{
     text-align:center;
+
     color:#805965;
+
     font-family:Georgia,serif;
+
     font-size:25px;
+
     margin:0 0 7px;
 }
 
 .game-description{
     text-align:center;
+
     font-size:13px;
-    color:#876873;
+
+    color:#9b737d;
+
     margin-bottom:18px;
 }
 
+
+/* =========================
+   MEMORY
+========================= */
+
 .memory-info{
     display:flex;
+
     justify-content:center;
+
     gap:10px;
+
     flex-wrap:wrap;
+
     margin-bottom:18px;
 }
 
 .info-box{
     background:#f6dce2;
+
     border:2px solid #c28c99;
+
     border-radius:12px;
+
     padding:8px 14px;
+
     font-size:13px;
+
     font-weight:bold;
+
     color:#76515c;
 }
 
 .memory-grid{
     display:grid;
+
     grid-template-columns:repeat(6,70px);
+
     justify-content:center;
+
     gap:9px;
+
     max-width:520px;
+
     margin:auto;
 }
 
 .memory-card{
     width:70px;
+
     height:70px;
+
     perspective:700px;
+
     cursor:pointer;
 }
 
 .memory-card-inner{
     width:100%;
+
     height:100%;
+
     position:relative;
+
     transform-style:preserve-3d;
+
     transition:.4s;
 }
 
@@ -400,18 +563,27 @@ body::before{
 .memory-front,
 .memory-back{
     position:absolute;
+
     inset:0;
+
     border-radius:14px;
+
     backface-visibility:hidden;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     border:2px solid #c28c99;
 }
 
 .memory-front{
     background:#d9aeb9;
+
     color:#fff8f9;
+
     font-size:25px;
 }
 
@@ -421,7 +593,9 @@ body::before{
 
 .memory-back{
     background:#fff;
+
     transform:rotateY(180deg);
+
     font-size:28px;
 }
 
@@ -431,25 +605,34 @@ body::before{
 
 .memory-controls{
     display:flex;
+
     justify-content:center;
+
     gap:10px;
+
     margin-top:20px;
+
     flex-wrap:wrap;
 }
 
 .memory-message{
     text-align:center;
+
     margin-top:15px;
+
     font-size:14px;
+
     font-weight:bold;
+
     color:#805965;
+
     min-height:20px;
 }
 
 
-/* =================================
+/* =========================
    COLOR MATCH
-================================= */
+========================= */
 
 .color-target-wrap{
     text-align:center;
@@ -457,50 +640,76 @@ body::before{
 
 .target-label{
     font-size:14px;
+
     color:#76515c;
+
     font-weight:bold;
 }
 
 .target-color{
     width:95px;
+
     height:95px;
+
     border-radius:50%;
+
     margin:12px auto 8px;
+
     border:5px solid #f6dce2;
-    box-shadow:0 0 0 2px #c28c99;
+
+    box-shadow:
+        0 0 0 2px #c28c99;
 }
 
 .color-info{
     display:flex;
+
     justify-content:center;
+
     gap:12px;
+
     flex-wrap:wrap;
+
     margin:15px 0 20px;
 }
 
 .color-stat{
     background:#f6dce2;
+
     border:2px solid #c28c99;
+
     padding:8px 15px;
+
     border-radius:12px;
+
     font-size:13px;
+
     font-weight:bold;
 }
 
 .color-options{
     display:grid;
+
     grid-template-columns:repeat(3,100px);
+
     justify-content:center;
+
     gap:13px;
 }
 
 .color-choice{
     width:100px;
+
     height:75px;
+
     border-radius:15px;
+
     border:3px solid #fff;
+
     outline:2px solid #c28c99;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
@@ -518,21 +727,26 @@ body::before{
 
 .color-message{
     text-align:center;
+
     min-height:25px;
+
     margin-top:18px;
+
     font-weight:bold;
+
     color:#805965;
 }
 
 .color-controls{
     text-align:center;
+
     margin-top:15px;
 }
 
 
-/* =================================
-   DRAWING CHALLENGE
-================================= */
+/* =========================
+   DRAWING
+========================= */
 
 .challenge-box{
     text-align:center;
@@ -540,51 +754,75 @@ body::before{
 
 .challenge-name{
     display:inline-block;
+
     background:#f6dce2;
+
     border:2px solid #c28c99;
+
     border-radius:13px;
+
     padding:8px 15px;
+
     font-weight:bold;
+
     color:#76515c;
+
     margin-bottom:14px;
 }
 
 .challenge-canvas-wrap{
     display:flex;
+
     justify-content:center;
 }
 
 #drawingCanvas{
     width:min(100%,550px);
+
     height:330px;
+
     background:white;
+
     border:3px solid #c28c99;
+
     border-radius:18px;
+
     cursor:crosshair;
+
     touch-action:none;
 }
 
-
-/* DRAWING TOOLS */
-
 .drawing-tools{
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     gap:12px;
+
     flex-wrap:wrap;
+
     margin-top:16px;
 }
 
 .tool-label{
     background:#f6dce2;
+
     border:2px solid #c28c99;
+
     border-radius:11px;
+
     padding:8px 12px;
+
     font-size:13px;
+
     font-weight:bold;
+
     display:flex;
+
     align-items:center;
+
     gap:8px;
 }
 
@@ -594,39 +832,55 @@ body::before{
 
 .color-picker{
     width:32px;
+
     height:30px;
+
     border:none;
+
     padding:0;
+
     background:transparent;
+
     cursor:pointer;
 }
 
-
-/* COLOR PALETTE */
-
 .palette-title{
     margin:18px 0 10px;
+
     font-size:13px;
+
     color:#76515c;
+
     font-weight:bold;
 }
 
 .color-palette{
     display:flex;
+
     justify-content:center;
+
     gap:9px;
+
     flex-wrap:wrap;
+
     max-width:480px;
+
     margin:auto;
 }
 
 .palette-color{
     width:34px;
+
     height:34px;
+
     border-radius:50%;
+
     border:3px solid white;
+
     outline:2px solid #c28c99;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
@@ -636,32 +890,41 @@ body::before{
 
 .palette-color.selected{
     outline:3px solid #805965;
+
     transform:scale(1.12);
 }
 
-
-/* DRAWING BUTTONS */
-
 .challenge-buttons{
     display:flex;
+
     justify-content:center;
+
     gap:10px;
+
     margin-top:20px;
+
     flex-wrap:wrap;
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     text-align:center;
+
     margin-top:30px;
-    color:#96717b;
+
+    color:#9b737d;
+
     font-size:12px;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -671,46 +934,73 @@ footer{
 
     .main-board{
         border-radius:23px;
+
         padding:9px;
     }
 
     .board-inner{
-        padding:18px 12px 16px;
+        border-radius:17px;
+
+        padding:18px 12px 15px;
     }
 
     .logo{
         font-size:29px;
+
+        margin-bottom:15px;
     }
 
     .navbar{
-        gap:8px;
+        gap:7px;
     }
 
     .navbar a{
-        padding:8px 12px;
         font-size:12px;
+
+        padding:8px 11px;
     }
 
     .page{
-        margin-top:25px;
+        margin:30px auto;
+
         padding:0 12px;
     }
 
+    .game-board{
+        border-radius:23px;
+
+        padding:9px;
+    }
+
     .game-inner{
+        border-radius:17px;
+
         padding:25px 13px 30px;
     }
 
     .page-title{
-        font-size:28px;
+        font-size:27px;
+    }
+
+    .page-subtitle{
+        font-size:12px;
+    }
+
+    .game-tab{
+        font-size:12px;
+
+        padding:8px 11px;
     }
 
     .memory-grid{
         grid-template-columns:repeat(4,62px);
+
         gap:8px;
     }
 
     .memory-card{
         width:62px;
+
         height:62px;
     }
 
@@ -720,11 +1010,13 @@ footer{
 
     .color-options{
         grid-template-columns:repeat(3,80px);
+
         gap:11px;
     }
 
     .color-choice{
         width:80px;
+
         height:65px;
     }
 
@@ -734,7 +1026,28 @@ footer{
 
 }
 
+
+/* =========================
+   REDUCE MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+    }
+
+}
+
 </style>
+
 </head>
 
 
@@ -747,7 +1060,9 @@ footer{
 <div class="decor four">˚₊‧</div>
 
 
-<!-- TOP BOARD -->
+<!-- =========================
+     TOP BOARD
+========================= -->
 
 <div class="top-area">
 
@@ -755,17 +1070,28 @@ footer{
 
         <div class="board-inner">
 
-            <h1 class="logo">ART GALLERY</h1>
+            <div class="logo">
+                ART GALLERY
+            </div>
+
 
             <nav class="navbar">
 
-                <a href="index.html">Home</a>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <a href="gallery.html">Gallery</a>
+                <a href="gallery.html">
+                    Gallery
+                </a>
 
-                <a href="about.html">About</a>
+                <a href="about.html">
+                    About
+                </a>
 
-                <a href="game.html" class="active">🎮 Game</a>
+                <a href="game.html" class="active">
+                    🎮 Game
+                </a>
 
             </nav>
 
@@ -776,8 +1102,9 @@ footer{
 </div>
 
 
-
-<!-- MAIN -->
+<!-- =========================
+     MAIN
+========================= -->
 
 <main class="page">
 
@@ -786,7 +1113,9 @@ footer{
         <div class="game-inner">
 
 
-            <h1 class="page-title">MINI GAMES</h1>
+            <h1 class="page-title">
+                MINI GAMES
+            </h1>
 
             <p class="page-subtitle">
                 Take a little break and play some cute mini games ♡
@@ -823,10 +1152,7 @@ footer{
             </div>
 
 
-
-            <!-- =================================
-                 MEMORY CARD
-            ================================== -->
+            <!-- MEMORY -->
 
             <section
                 id="memory"
@@ -836,7 +1162,6 @@ footer{
                 <h2 class="game-heading">
                     🃏 Memory Card
                 </h2>
-
 
                 <p class="game-description">
                     Selesaikan semua 10 level sebelum waktunya habis!
@@ -850,18 +1175,15 @@ footer{
                         <span id="memoryLevel">1</span>/10
                     </div>
 
-
                     <div class="info-box">
                         Time:
                         <span id="memoryTime">30</span>s
                     </div>
 
-
                     <div class="info-box">
                         Moves:
                         <span id="memoryMoves">0</span>
                     </div>
-
 
                     <div class="info-box">
                         Pairs:
@@ -899,10 +1221,7 @@ footer{
             </section>
 
 
-
-            <!-- =================================
-                 COLOR MATCH
-            ================================== -->
+            <!-- COLOR MATCH -->
 
             <section
                 id="color"
@@ -912,7 +1231,6 @@ footer{
                 <h2 class="game-heading">
                     🎨 Color Match
                 </h2>
-
 
                 <p class="game-description">
                     Pilih warna yang paling tepat dari 6 warna yang hampir sama!
@@ -924,7 +1242,6 @@ footer{
                     <div class="target-label">
                         Find this color:
                     </div>
-
 
                     <div
                         id="targetColor"
@@ -941,12 +1258,10 @@ footer{
                         <span id="colorScore">0</span>
                     </div>
 
-
                     <div class="color-stat">
                         Time:
                         <span id="colorTime">60</span>s
                     </div>
-
 
                     <div class="color-stat">
                         Round:
@@ -984,10 +1299,7 @@ footer{
             </section>
 
 
-
-            <!-- =================================
-                 DRAWING CHALLENGE
-            ================================== -->
+            <!-- DRAWING CHALLENGE -->
 
             <section
                 id="drawing"
@@ -998,14 +1310,12 @@ footer{
                     ✏️ Drawing Challenge
                 </h2>
 
-
                 <p class="game-description">
                     Gambar sesuai tantangan yang muncul!
                 </p>
 
 
                 <div class="challenge-box">
-
 
                     <div
                         id="challengeName"
@@ -1023,8 +1333,6 @@ footer{
 
                     </div>
 
-
-                    <!-- BRUSH -->
 
                     <div class="drawing-tools">
 
@@ -1058,8 +1366,6 @@ footer{
 
                     </div>
 
-
-                    <!-- PALETTE -->
 
                     <div class="palette-title">
                         Choose a color ♡
@@ -1096,9 +1402,8 @@ footer{
             </section>
 
 
-
             <footer>
-                made with ♡ for my art gallery
+                made with ♡ by 0urnss
             </footer>
 
 
@@ -1109,13 +1414,12 @@ footer{
 </main>
 
 
-
 <script>
 
 
-/* =================================
+/* =========================
    GAME TABS
-================================= */
+========================= */
 
 function showGame(gameId,button){
 
@@ -1144,45 +1448,21 @@ function showGame(gameId,button){
 }
 
 
-
-/* =================================
-   MEMORY CARD — 10 LEVELS
-================================= */
-
-
-/*
-    Level
-    Pairs
-    Time
-
-    Level 1  = 3 pairs
-    Level 2  = 4 pairs
-    Level 3  = 5 pairs
-    ...
-    Level 10 = 12 pairs
-*/
-
+/* =========================
+   MEMORY CARD
+========================= */
 
 const memoryLevels = [
 
     {level:1,pairs:3,time:30},
-
     {level:2,pairs:4,time:35},
-
     {level:3,pairs:5,time:40},
-
     {level:4,pairs:6,time:45},
-
     {level:5,pairs:7,time:50},
-
     {level:6,pairs:8,time:55},
-
     {level:7,pairs:9,time:60},
-
     {level:8,pairs:10,time:65},
-
     {level:9,pairs:11,time:70},
-
     {level:10,pairs:12,time:75}
 
 ];
@@ -1213,23 +1493,14 @@ const memoryEmojis = [
 
 
 let memoryLevel = 1;
-
 let firstCard = null;
-
 let secondCard = null;
-
 let memoryLock = false;
-
 let memoryMoves = 0;
-
 let memoryPairs = 0;
-
 let memoryTimer = null;
-
 let memoryTimeLeft = 30;
-
 let memoryRunning = false;
-
 
 
 function startMemoryGame(){
@@ -1243,7 +1514,6 @@ function startMemoryGame(){
 }
 
 
-
 function createMemoryLevel(){
 
     const levelData =
@@ -1251,17 +1521,11 @@ function createMemoryLevel(){
 
 
     firstCard = null;
-
     secondCard = null;
-
     memoryLock = false;
-
     memoryMoves = 0;
-
     memoryPairs = 0;
-
     memoryTimeLeft = levelData.time;
-
     memoryRunning = true;
 
 
@@ -1278,8 +1542,7 @@ function createMemoryLevel(){
 
 
     document.getElementById("memoryPairs")
-        .textContent =
-        "0/" + levelData.pairs;
+        .textContent = "0/" + levelData.pairs;
 
 
     document.getElementById("memoryMessage")
@@ -1312,12 +1575,10 @@ function createMemoryLevel(){
             document.createElement("div");
 
 
-        card.className =
-            "memory-card";
+        card.className = "memory-card";
 
 
-        card.dataset.value =
-            emoji;
+        card.dataset.value = emoji;
 
 
         card.innerHTML = `
@@ -1377,7 +1638,6 @@ function createMemoryLevel(){
 }
 
 
-
 function flipMemoryCard(card){
 
     if(
@@ -1410,8 +1670,7 @@ function flipMemoryCard(card){
 
 
     document.getElementById("memoryMoves")
-        .textContent =
-        memoryMoves;
+        .textContent = memoryMoves;
 
 
     memoryLock = true;
@@ -1492,7 +1751,6 @@ function flipMemoryCard(card){
 }
 
 
-
 function resetMemoryTurn(){
 
     firstCard = null;
@@ -1504,20 +1762,14 @@ function resetMemoryTurn(){
 }
 
 
-
-/* =================================
+/* =========================
    COLOR MATCH
-================================= */
-
+========================= */
 
 let colorScore = 0;
-
 let colorRound = 0;
-
 let colorTimeLeft = 60;
-
 let colorTimer = null;
-
 let colorRunning = false;
 
 
@@ -1574,7 +1826,6 @@ function randomColorFamily(){
 }
 
 
-
 function rgbToString(rgb){
 
     return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
@@ -1582,17 +1833,13 @@ function rgbToString(rgb){
 }
 
 
-
 function startColorGame(){
 
     clearInterval(colorTimer);
 
     colorScore = 0;
-
     colorRound = 0;
-
     colorTimeLeft = 60;
-
     colorRunning = true;
 
 
@@ -1648,7 +1895,6 @@ function startColorGame(){
         },1000);
 
 }
-
 
 
 function newColorRound(){
@@ -1771,16 +2017,12 @@ function newColorRound(){
 }
 
 
-
-/* =================================
+/* =========================
    DRAWING CHALLENGE
-================================= */
-
+========================= */
 
 const canvas =
-    document.getElementById(
-        "drawingCanvas"
-    );
+    document.getElementById("drawingCanvas");
 
 
 const ctx =
@@ -1788,7 +2030,6 @@ const ctx =
 
 
 let drawing = false;
-
 
 
 function setupCanvas(){
@@ -1825,7 +2066,6 @@ function setupCanvas(){
 setupCanvas();
 
 
-
 function getCanvasPosition(event){
 
     const rect =
@@ -1841,7 +2081,6 @@ function getCanvasPosition(event){
     };
 
 }
-
 
 
 canvas.addEventListener(
@@ -1863,7 +2102,6 @@ canvas.addEventListener(
 
     }
 );
-
 
 
 canvas.addEventListener(
@@ -1901,7 +2139,6 @@ canvas.addEventListener(
 );
 
 
-
 canvas.addEventListener(
     "pointerup",
     () => {
@@ -1912,7 +2149,6 @@ canvas.addEventListener(
 
     }
 );
-
 
 
 canvas.addEventListener(
@@ -1927,7 +2163,6 @@ canvas.addEventListener(
 );
 
 
-
 function clearCanvas(){
 
     ctx.clearRect(
@@ -1940,27 +2175,18 @@ function clearCanvas(){
 }
 
 
-
 const drawingChallenges = [
 
     "🌸 Draw a flower",
-
     "🐱 Draw a cute cat",
-
     "🦋 Draw a butterfly",
-
     "🍓 Draw a strawberry",
-
     "🌈 Draw a rainbow",
-
     "☁️ Draw a cloud",
-
     "🍄 Draw a mushroom",
-
     "🌙 Draw a moon"
 
 ];
-
 
 
 function newChallenge(){
@@ -1985,11 +2211,9 @@ function newChallenge(){
 }
 
 
-
-/* =================================
+/* =========================
    DRAWING COLOR PALETTE
-================================= */
-
+========================= */
 
 const drawingColors = [
 
@@ -2076,9 +2300,11 @@ drawingColors.forEach(
                     ".palette-color"
                 ).forEach(
                     item => {
+
                         item.classList.remove(
                             "selected"
                         );
+
                     }
                 );
 
@@ -2099,13 +2325,6 @@ drawingColors.forEach(
 );
 
 
-
-/*
-    Kalau user memilih warna
-    melalui color picker manual,
-    pilihan palette akan dilepas.
-*/
-
 colorInput.addEventListener(
     "input",
     () => {
@@ -2114,15 +2333,16 @@ colorInput.addEventListener(
             ".palette-color"
         ).forEach(
             item => {
+
                 item.classList.remove(
                     "selected"
                 );
+
             }
         );
 
     }
 );
-
 
 </script>
 
