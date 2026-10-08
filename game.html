@@ -258,38 +258,72 @@ body::before{
     transform:translateY(-2px);
 }
 
+/* =========================
+   GAME SELECTOR
+========================= */
+
 .game-tabs{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:10px;
+    gap:14px;
     margin-bottom:28px;
+    padding:18px 14px 16px;
+    background:#f6dce2;
+    border:2px dashed #c28c99;
+    border-radius:18px;
+    position:relative;
+}
+
+.game-tabs::before{
+    content:"CHOOSE YOUR GAME";
+    position:absolute;
+    top:-12px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#fff8f9;
+    border:2px solid #c28c99;
+    border-radius:12px;
+    padding:4px 12px;
+    color:#805965;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
 }
 
 .game-tab{
     border:2px solid #c28f9b;
-    background:#f8edf0;
+    background:#fff8f9;
     color:#805965;
-    border-radius:13px;
-    padding:9px 15px;
+    border-radius:16px;
+    padding:12px 18px;
     font-weight:bold;
     font-size:13px;
     cursor:pointer;
     box-shadow:
         0 4px 0 #c28f9b;
     transition:.2s;
+    min-width:145px;
 }
 
 .game-tab:hover{
     background:#edc4ce;
-    transform:translateY(-2px);
+    transform:translateY(-3px);
     box-shadow:
-        0 6px 0 #c28f9b;
+        0 7px 0 #c28f9b;
 }
 
 .game-tab.active{
-    background:#e9bdc8;
-    color:#714b57;
+    background:#d9aeb9;
+    color:#fff8f9;
+    border-color:#a97682;
+    box-shadow:
+        0 5px 0 #a97682;
+    transform:translateY(-2px);
+}
+
+.game-tab.active:hover{
+    background:#d9aeb9;
 }
 
 .game-section{
@@ -764,9 +798,22 @@ footer{
         font-size:12px;
     }
 
+    /* GAME SELECTOR MOBILE */
+
+    .game-tabs{
+        gap:10px;
+        padding:17px 8px 13px;
+    }
+
     .game-tab{
-        font-size:12px;
-        padding:8px 11px;
+        min-width:120px;
+        padding:10px 10px;
+        font-size:11px;
+    }
+
+    .game-tabs::before{
+        font-size:10px;
+        padding:3px 9px;
     }
 
     .memory-grid{
@@ -1174,16 +1221,16 @@ footer{
 
                         <button
                             class="game-btn"
-                            onclick="restartDinoGame()"
+                            onclick="drawDinoAgain()"
                         >
-                            🔄 Restart
+                            ✏️ Draw Again
                         </button>
 
                         <button
                             class="game-btn"
-                            onclick="drawDinoAgain()"
+                            onclick="restartDinoGame()"
                         >
-                            ✏️ Draw Again
+                            🔄 Restart
                         </button>
 
                     </div>
