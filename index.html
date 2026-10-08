@@ -3,1077 +3,783 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Art Gallery</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            color: #59484d;
-            background: #f7e8ec;
-            overflow-x: hidden;
-        }
-
-
-        /* =========================
-           BACKGROUND
-        ========================= */
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(255,255,255,.7),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 85% 75%,
-                    rgba(226,177,190,.22),
-                    transparent 30%
-                );
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Art Gallery</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f7e8ec;
+    color:#59484d;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255,255,255,.65),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(255,255,255,.5),
+            transparent 25%
+        );
+}
 
-            pointer-events: none;
-            z-index: -1;
-        }
+
+/* =========================
+   FLOATING DECOR
+========================= */
 
+.decor{
+    position:fixed;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.45;
+    animation:float 6s ease-in-out infinite;
+}
 
-        /* =========================
-           FLOATING DECORATIONS
-        ========================= */
+.decor.one{
+    top:18%;
+    left:5%;
+    font-size:28px;
+}
 
-        .floating {
-            position: fixed;
+.decor.two{
+    top:55%;
+    right:5%;
+    font-size:25px;
+    animation-delay:1.5s;
+}
 
-            color: #c98b9b;
+.decor.three{
+    bottom:10%;
+    left:8%;
+    font-size:22px;
+    animation-delay:3s;
+}
 
-            opacity: .5;
+.decor.four{
+    top:8%;
+    right:10%;
+    font-size:20px;
+    animation-delay:2s;
+}
 
-            font-family: Georgia, serif;
+@keyframes float{
 
-            pointer-events: none;
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
 
-            z-index: 0;
+    50%{
+        transform:translateY(-12px) rotate(5deg);
+    }
 
-            animation: floaty 5s ease-in-out infinite;
-        }
+}
 
-        .float-1 {
-            top: 120px;
-            left: 4%;
-            font-size: 25px;
-        }
 
-        .float-2 {
-            top: 300px;
-            right: 4%;
-            font-size: 18px;
-            animation-delay: 1s;
-        }
+/* =========================
+   TOP BOARD
+========================= */
 
-        .float-3 {
-            top: 620px;
-            left: 6%;
-            font-size: 17px;
-            animation-delay: 2s;
-        }
+.top-area{
+    padding:28px 20px 0;
+}
 
-        .float-4 {
-            top: 760px;
-            right: 6%;
-            font-size: 28px;
-            animation-delay: 1.5s;
-        }
+.main-board{
+    max-width:1050px;
+    margin:auto;
 
-        .float-5 {
-            top: 1050px;
-            left: 4%;
-            font-size: 15px;
-            animation-delay: .7s;
-        }
+    background:#d9aeb9;
 
-        .float-6 {
-            top: 980px;
-            right: 4%;
-            font-size: 19px;
-            animation-delay: 2.5s;
-        }
+    border:2px solid #a97682;
+    border-radius:28px;
 
-        @keyframes floaty {
+    padding:12px;
 
-            0%, 100% {
-                transform: translateY(0) rotate(-5deg);
-            }
+    box-shadow:
+        0 8px 0 rgba(169,118,130,.35);
 
-            50% {
-                transform: translateY(-8px) rotate(5deg);
-            }
+    position:relative;
+}
 
-        }
+.board-inner{
+    position:relative;
 
+    background:#f6dce2;
 
-        /* =========================
-           TOP HEADER / SIGN
-        ========================= */
+    border:2px solid #c28c99;
+    border-radius:21px;
 
-        .top-area {
-            width: 100%;
-            padding: 28px 20px 0;
+    padding:22px 20px 18px;
 
-            position: relative;
+    overflow:hidden;
+}
 
-            z-index: 2;
-        }
+.board-inner::before{
+    content:"✿";
 
-        .main-board {
-            width: 100%;
-            max-width: 1050px;
-            margin: auto;
+    position:absolute;
 
-            padding: 10px;
+    top:12px;
+    left:18px;
 
-            background: #d9aeb9;
+    font-size:25px;
 
-            border: 2px solid #a97682;
+    color:#b47786;
 
-            border-radius: 28px;
+    transform:rotate(-15deg);
+}
 
-            box-shadow:
-                0 8px 0 #bd8d99,
-                0 18px 35px rgba(120,70,85,.12);
+.board-inner::after{
+    content:"♡";
 
-            position: relative;
-        }
+    position:absolute;
 
+    top:13px;
+    right:20px;
 
-        /* BOARD DECORATIONS */
+    font-size:26px;
 
-        .board-sticker {
-            position: absolute;
+    color:#b47786;
 
-            z-index: 5;
+    transform:rotate(10deg);
+}
 
-            pointer-events: none;
 
-            font-family: Georgia, serif;
+/* =========================
+   LOGO
+========================= */
 
-            color: #9e6978;
-        }
+.logo{
+    text-align:center;
 
-        .board-sticker.flower {
-            top: -18px;
-            left: 30px;
+    font-family:Georgia,serif;
 
-            font-size: 30px;
+    font-size:38px;
 
-            transform: rotate(-12deg);
-        }
+    color:#805965;
 
-        .board-sticker.heart {
-            top: -14px;
-            right: 38px;
+    letter-spacing:1px;
 
-            font-size: 27px;
+    margin-bottom:18px;
+}
 
-            transform: rotate(10deg);
-        }
 
-        .board-sticker.sparkle {
-            bottom: -17px;
-            left: 13%;
+/* =========================
+   NAVBAR
+========================= */
 
-            font-size: 22px;
-        }
+.navbar{
+    display:flex;
 
-        .board-sticker.star {
-            bottom: -18px;
-            right: 17%;
+    justify-content:center;
+    align-items:center;
 
-            font-size: 20px;
-        }
+    gap:10px;
 
+    flex-wrap:wrap;
+}
 
-        .board-inner {
-            background: #f6dce2;
+.navbar a{
+    text-decoration:none;
 
-            border: 2px solid #c28c99;
+    color:#805965;
 
-            border-radius: 21px;
+    background:#f8edf0;
 
-            padding: 25px 30px 18px;
+    border:2px solid #c28f9b;
 
-            position: relative;
+    border-radius:13px;
 
-            overflow: hidden;
-        }
+    padding:9px 17px;
 
-        .board-inner::before {
-            content: "✿  ˚₊‧  ♡  ‧₊˚  ✿";
+    font-size:14px;
 
-            position: absolute;
+    font-weight:bold;
 
-            top: 7px;
-            left: 0;
-            right: 0;
+    box-shadow:
+        0 4px 0 #c28f9b;
 
-            text-align: center;
+    transition:.2s;
+}
 
-            color: #bd8795;
+.navbar a:hover{
+    background:#edc4ce;
 
-            font-size: 14px;
+    transform:translateY(-2px);
 
-            opacity: .75;
-        }
+    box-shadow:
+        0 6px 0 #c28f9b;
+}
 
-        .board-inner::after {
-            content: "· · · · · · · · · · · · · · · · ·";
+.navbar a.active{
+    background:#e9bdc8;
+}
 
-            position: absolute;
 
-            bottom: 2px;
-            left: 0;
-            right: 0;
+/* =========================
+   HOME
+========================= */
 
-            text-align: center;
+.home{
+    max-width:900px;
 
-            color: #c996a3;
+    margin:40px auto;
 
-            font-size: 12px;
+    padding:0 20px;
+}
 
-            letter-spacing: 5px;
+.home-board{
+    background:#d9aeb9;
 
-            opacity: .55;
-        }
+    border:2px solid #a97682;
 
+    border-radius:28px;
 
-        /* =========================
-           LOGO
-        ========================= */
+    padding:12px;
 
-        .logo {
-            text-align: center;
+    box-shadow:
+        0 8px 0 rgba(169,118,130,.35);
 
-            font-family: Georgia, serif;
+    position:relative;
+}
 
-            font-size: 38px;
+.home-inner{
+    background:#fff8f9;
 
-            color: #805965;
+    border:2px solid #c28c99;
 
-            letter-spacing: 3px;
+    border-radius:21px;
 
-            margin-top: 8px;
-            margin-bottom: 22px;
+    padding:40px 35px 45px;
 
-            text-shadow:
-                1px 1px 0 #fff;
-        }
+    position:relative;
 
+    overflow:hidden;
+}
 
-        /* =========================
-           NAVIGATION
-        ========================= */
 
-        nav {
-            display: flex;
+/* =========================
+   HOME DECORATIONS
+========================= */
 
-            justify-content: center;
+.home-inner::before{
+    content:"✿";
 
-            gap: 12px;
+    position:absolute;
 
-            flex-wrap: wrap;
-        }
+    top:18px;
+    left:25px;
 
-        nav a {
-            text-decoration: none;
+    color:#d49aa8;
 
-            color: #6c5159;
+    font-size:24px;
 
-            font-family: Georgia, serif;
+    opacity:.6;
+}
 
-            font-size: 14px;
+.home-inner::after{
+    content:"♡";
 
-            padding: 13px 28px;
+    position:absolute;
 
-            min-width: 120px;
+    top:18px;
+    right:28px;
 
-            text-align: center;
+    color:#d49aa8;
 
-            background: #f8edf0;
+    font-size:25px;
 
-            border: 2px solid #c28f9b;
+    opacity:.6;
+}
 
-            border-radius: 13px;
+.home-decor-one{
+    position:absolute;
 
-            box-shadow:
-                0 4px 0 #c28f9b;
+    bottom:25px;
+    left:28px;
 
-            transition: .25s ease;
-        }
+    color:#d49aa8;
 
-        nav a:hover {
-            color: white;
+    opacity:.55;
 
-            background: #c48696;
+    font-size:22px;
+}
 
-            transform: translateY(-3px);
+.home-decor-two{
+    position:absolute;
 
-            box-shadow:
-                0 7px 0 #a86c7b;
-        }
+    bottom:25px;
+    right:30px;
 
+    color:#d49aa8;
 
-        /* =========================
-           HOME AREA
-        ========================= */
+    opacity:.55;
 
-        .home {
-            padding: 65px 20px 80px;
+    font-size:20px;
+}
 
-            position: relative;
 
-            z-index: 1;
-        }
+/* =========================
+   WELCOME
+========================= */
 
-        .home-card {
-            width: 100%;
-            max-width: 900px;
+.welcome{
+    text-align:center;
 
-            margin: auto;
+    margin-bottom:35px;
 
-            padding: 15px;
+    position:relative;
 
-            background: #d9aeb9;
+    z-index:2;
+}
 
-            border: 2px solid #a97682;
+.welcome small{
+    color:#b97888;
 
-            border-radius: 24px;
+    font-size:11px;
 
-            box-shadow:
-                0 8px 0 #bd8d99,
-                0 20px 45px rgba(120,70,85,.13);
+    letter-spacing:3px;
+}
 
-            position: relative;
-        }
+.welcome h1{
+    font-family:Georgia,serif;
 
+    font-size:43px;
 
-        /* CARD DECORATIONS */
+    font-weight:400;
 
-        .card-sticker {
-            position: absolute;
+    color:#754f5a;
 
-            z-index: 8;
+    margin-top:10px;
 
-            pointer-events: none;
+    margin-bottom:10px;
+}
 
-            font-family: Georgia, serif;
-        }
+.welcome-line{
+    color:#c28b98;
 
-        .sticker-flower {
-            top: -24px;
-            left: 7%;
+    letter-spacing:5px;
 
-            color: #b97688;
+    font-size:12px;
+}
 
-            font-size: 32px;
 
-            transform: rotate(-12deg);
-        }
+/* =========================
+   CONTENT
+========================= */
 
-        .sticker-heart {
-            top: -20px;
-            right: 8%;
+.home-content{
+    display:grid;
 
-            color: #c78696;
+    grid-template-columns:
+        1fr
+        1.15fr;
 
-            font-size: 29px;
+    gap:40px;
 
-            transform: rotate(9deg);
-        }
+    align-items:center;
 
-        .sticker-star {
-            bottom: -22px;
-            left: 13%;
+    position:relative;
 
-            color: #bd8291;
+    z-index:2;
+}
 
-            font-size: 24px;
 
-            transform: rotate(-8deg);
-        }
+/* =========================
+   IMAGE
+========================= */
 
-        .sticker-sparkle {
-            bottom: -20px;
-            right: 12%;
+.home-image{
+    width:100%;
 
-            color: #b87384;
+    max-width:330px;
 
-            font-size: 22px;
+    height:390px;
 
-            transform: rotate(12deg);
-        }
+    margin:auto;
 
+    overflow:hidden;
 
-        .home-inner {
-            background: #fff8f9;
+    border-radius:18px;
 
-            border: 2px solid #c998a4;
+    border:7px solid #f1d6dd;
 
-            border-radius: 17px;
+    box-shadow:
+        0 0 0 2px #c28f9b,
+        0 10px 25px rgba(120,70,85,.12);
 
-            padding: 42px;
+    position:relative;
 
-            position: relative;
+    animation:
+        imageAppear 1.8s ease-out forwards;
 
-            overflow: hidden;
-        }
+    opacity:0;
+}
 
+.home-image::before{
+    content:"♡";
 
-        /* =========================
-           TAPE DECORATION
-        ========================= */
+    position:absolute;
 
-        .tape {
-            position: absolute;
+    top:8px;
+    right:10px;
 
-            width: 92px;
-            height: 25px;
+    z-index:3;
 
-            background: rgba(235,190,201,.72);
+    color:white;
 
-            border: 1px solid rgba(188,137,150,.35);
+    font-size:20px;
 
-            z-index: 4;
+    text-shadow:
+        0 1px 4px rgba(90,50,60,.25);
+}
 
-            opacity: .8;
-        }
+.home-image img{
+    width:100%;
+    height:100%;
 
-        .tape-left {
-            top: -9px;
-            left: 45px;
+    object-fit:cover;
 
-            transform: rotate(-6deg);
-        }
+    display:block;
+}
 
-        .tape-right {
-            top: -8px;
-            right: 45px;
 
-            transform: rotate(7deg);
-        }
+/* =========================
+   TEXT
+========================= */
 
+.home-text{
+    padding:10px 5px;
+}
 
-        /* =========================
-           DECORATIONS
-        ========================= */
+.tag{
+    display:inline-block;
 
-        .decoration {
-            position: absolute;
+    padding:8px 14px;
 
-            color: #d49aa8;
+    background:#f4dce2;
 
-            opacity: .55;
+    border:1px solid #d09ba8;
 
-            font-size: 24px;
+    border-radius:20px;
 
-            pointer-events: none;
-        }
+    color:#a56878;
 
-        .decoration.one {
-            top: 18px;
-            left: 25px;
-        }
+    font-size:10px;
 
-        .decoration.two {
-            top: 25px;
-            right: 30px;
-        }
+    letter-spacing:2px;
 
-        .decoration.three {
-            bottom: 22px;
-            left: 28px;
-        }
+    margin-bottom:18px;
+}
 
-        .decoration.four {
-            bottom: 25px;
-            right: 30px;
-        }
+.home-text h2{
+    font-family:Georgia,serif;
 
+    font-size:31px;
 
-        .tiny-doodle {
-            position: absolute;
+    font-weight:400;
 
-            color: #d39aa8;
+    color:#785460;
 
-            opacity: .55;
+    margin-bottom:15px;
 
-            pointer-events: none;
-        }
+    line-height:1.25;
+}
 
-        .doodle-one {
-            top: 115px;
-            left: 35px;
+.home-text p{
+    color:#856e75;
 
-            font-size: 16px;
-        }
+    font-size:13px;
 
-        .doodle-two {
-            top: 125px;
-            right: 38px;
+    line-height:1.8;
 
-            font-size: 14px;
-        }
+    margin-bottom:25px;
+}
 
-        .doodle-three {
-            bottom: 115px;
-            left: 45%;
 
-            font-size: 13px;
-        }
+/* =========================
+   BUTTON
+========================= */
 
+.gallery-button{
+    display:inline-block;
 
-        /* =========================
-           WELCOME
-        ========================= */
+    padding:13px 22px;
 
-        .welcome {
-            text-align: center;
+    background:#c48696;
 
-            margin-bottom: 35px;
+    color:white;
 
-            position: relative;
+    text-decoration:none;
 
-            z-index: 2;
-        }
+    font-family:Georgia,serif;
 
-        .welcome small {
-            color: #b97888;
+    font-size:12px;
 
-            font-size: 11px;
+    border-radius:10px;
 
-            letter-spacing: 3px;
-        }
+    border:2px solid #a96e7d;
 
-        .welcome h1 {
-            font-family: Georgia, serif;
+    box-shadow:
+        0 4px 0 #a96e7d;
 
-            font-size: 43px;
+    transition:.25s ease;
+}
 
-            font-weight: 400;
+.gallery-button:hover{
+    background:#b87586;
 
-            color: #754f5a;
+    transform:translateY(-3px);
 
-            margin-top: 10px;
+    box-shadow:
+        0 7px 0 #955c6b;
+}
 
-            margin-bottom: 10px;
-        }
 
-        .welcome-line {
-            color: #c28b98;
+/* =========================
+   SMALL TEXT
+========================= */
 
-            letter-spacing: 5px;
+.mini-text{
+    margin-top:25px;
 
-            font-size: 12px;
-        }
+    color:#b98995;
 
+    font-family:Georgia,serif;
 
-        /* =========================
-           CONTENT
-        ========================= */
+    font-size:12px;
 
-        .home-content {
+    font-style:italic;
+}
 
-            display: grid;
 
-            grid-template-columns:
-                1fr
-                1.15fr;
+/* =========================
+   IMAGE ANIMATION
+========================= */
 
-            gap: 40px;
+@keyframes imageAppear{
 
-            align-items: center;
+    0%{
+        opacity:0;
 
-            position: relative;
+        filter:blur(10px);
 
-            z-index: 2;
-        }
+        transform:scale(1.04);
+    }
 
+    60%{
+        opacity:.75;
 
-        /* =========================
-           IMAGE
-        ========================= */
+        filter:blur(2px);
 
-        .home-image {
+        transform:scale(1.01);
+    }
 
-            width: 100%;
+    100%{
+        opacity:1;
 
-            max-width: 330px;
+        filter:blur(0);
 
-            height: 390px;
+        transform:scale(1);
+    }
 
-            margin: auto;
+}
 
-            overflow: hidden;
 
-            border-radius: 18px;
+/* =========================
+   FOOTER
+========================= */
 
-            border: 7px solid #f1d6dd;
+footer{
+    text-align:center;
 
-            box-shadow:
-                0 0 0 2px #c28f9b,
-                0 10px 25px rgba(120,70,85,.12);
+    padding:25px 20px 35px;
 
-            -webkit-mask-image:
-                linear-gradient(
-                    black,
-                    black
-                );
+    color:#9b737d;
 
-            mask-image:
-                linear-gradient(
-                    black,
-                    black
-                );
+    font-size:12px;
+}
 
-            animation:
-                imageAppear 1.8s ease-out forwards;
+footer::before{
+    content:"♡  ✿  ˚₊‧  ✦  ‧₊˚  ✿  ♡";
 
-            opacity: 0;
+    display:block;
 
-            position: relative;
-        }
+    margin-bottom:8px;
 
-        .home-image::before {
-            content: "♡";
+    color:#bf8492;
 
-            position: absolute;
+    letter-spacing:3px;
+}
 
-            top: 8px;
-            right: 10px;
 
-            z-index: 3;
+/* =========================
+   MOBILE
+========================= */
 
-            color: white;
+@media(max-width:600px){
 
-            font-size: 20px;
+    .top-area{
+        padding:18px 12px 0;
+    }
 
-            text-shadow:
-                0 1px 4px rgba(90,50,60,.25);
-        }
+    .main-board{
+        border-radius:23px;
 
-        .home-image img {
+        padding:9px;
+    }
 
-            width: 100%;
+    .board-inner{
+        border-radius:17px;
 
-            height: 100%;
+        padding:18px 12px 15px;
+    }
 
-            object-fit: cover;
+    .logo{
+        font-size:29px;
 
-            display: block;
-        }
+        margin-bottom:15px;
+    }
 
+    .navbar{
+        gap:7px;
+    }
 
-        /* =========================
-           TEXT
-        ========================= */
+    .navbar a{
+        font-size:12px;
 
-        .home-text {
+        padding:8px 11px;
+    }
 
-            padding: 10px 5px;
-        }
+    .home{
+        margin:30px auto;
 
-        .tag {
+        padding:0 12px;
+    }
 
-            display: inline-block;
+    .home-board{
+        border-radius:23px;
 
-            padding: 8px 14px;
+        padding:9px;
+    }
 
-            background: #f4dce2;
+    .home-inner{
+        border-radius:17px;
 
-            border: 1px solid #d09ba8;
+        padding:30px 20px 35px;
+    }
 
-            border-radius: 20px;
+    .welcome h1{
+        font-size:34px;
+    }
 
-            color: #a56878;
+    .home-content{
+        grid-template-columns:1fr;
 
-            font-size: 10px;
+        gap:35px;
+    }
 
-            letter-spacing: 2px;
+    .home-image{
+        order:1;
 
-            margin-bottom: 18px;
-        }
+        max-width:320px;
 
-        .home-text h2 {
+        height:370px;
+    }
 
-            font-family: Georgia, serif;
+    .home-text{
+        order:2;
 
-            font-size: 31px;
+        text-align:center;
+    }
 
-            font-weight: 400;
+    .home-text h2{
+        font-size:27px;
+    }
 
-            color: #785460;
+}
 
-            margin-bottom: 15px;
 
-            line-height: 1.25;
-        }
+/* =========================
+   SMALL PHONE
+========================= */
 
-        .home-text p {
+@media(max-width:400px){
 
-            color: #856e75;
+    .logo{
+        font-size:25px;
 
-            font-size: 13px;
+        letter-spacing:1px;
+    }
 
-            line-height: 1.8;
+    .navbar a{
+        min-width:72px;
 
-            margin-bottom: 25px;
-        }
+        padding:8px 9px;
 
+        font-size:10px;
+    }
 
-        /* =========================
-           BUTTON
-        ========================= */
+    .welcome h1{
+        font-size:29px;
+    }
 
-        .gallery-button {
+    .home-image{
+        height:330px;
+    }
 
-            display: inline-block;
+    .home-text h2{
+        font-size:24px;
+    }
 
-            padding: 13px 22px;
+}
 
-            background: #c48696;
 
-            color: white;
+/* =========================
+   REDUCE MOTION
+========================= */
 
-            text-decoration: none;
+@media(prefers-reduced-motion:reduce){
 
-            font-family: Georgia, serif;
+    *,
+    *::before,
+    *::after{
 
-            font-size: 12px;
+        animation-duration:.01ms !important;
 
-            border-radius: 10px;
+        animation-iteration-count:1 !important;
 
-            border: 2px solid #a96e7d;
+        transition-duration:.01ms !important;
+    }
 
-            box-shadow:
-                0 4px 0 #a96e7d;
+}
 
-            transition: .25s ease;
-        }
-
-        .gallery-button:hover {
-
-            background: #b87586;
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 7px 0 #955c6b;
-        }
-
-
-        /* =========================
-           SMALL DECORATIVE TEXT
-        ========================= */
-
-        .mini-text {
-
-            margin-top: 25px;
-
-            color: #b98995;
-
-            font-family: Georgia, serif;
-
-            font-size: 12px;
-
-            font-style: italic;
-        }
-
-
-        /* =========================
-           IMAGE ANIMATION
-        ========================= */
-
-        @keyframes imageAppear {
-
-            0% {
-                opacity: 0;
-                filter: blur(10px);
-                transform: scale(1.04);
-            }
-
-            60% {
-                opacity: .75;
-                filter: blur(2px);
-                transform: scale(1.01);
-            }
-
-            100% {
-                opacity: 1;
-                filter: blur(0);
-                transform: scale(1);
-            }
-
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-
-            text-align: center;
-
-            padding: 25px;
-
-            background: #f3dce2;
-
-            border-top: 1px solid #d3a4af;
-
-            color: #96747d;
-
-            font-size: 11px;
-
-            position: relative;
-        }
-
-        footer::before {
-            content: "♡  ✿  ˚₊‧  ✦  ‧₊˚  ✿  ♡";
-
-            display: block;
-
-            margin-bottom: 8px;
-
-            color: #bf8492;
-
-            letter-spacing: 3px;
-        }
-
-
-        /* =========================
-           TABLET / HP
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .floating {
-                opacity: .35;
-            }
-
-            .float-1 {
-                left: 2%;
-            }
-
-            .float-2 {
-                right: 2%;
-            }
-
-            .float-3,
-            .float-5 {
-                left: 2%;
-            }
-
-            .float-4,
-            .float-6 {
-                right: 2%;
-            }
-
-            .top-area {
-                padding: 18px 12px 0;
-            }
-
-            .main-board {
-                border-radius: 21px;
-
-                box-shadow:
-                    0 6px 0 #bd8d99,
-                    0 12px 25px rgba(120,70,85,.12);
-            }
-
-            .board-inner {
-                padding: 23px 15px 15px;
-            }
-
-            .logo {
-                font-size: 29px;
-
-                margin-bottom: 20px;
-            }
-
-            nav {
-                gap: 8px;
-            }
-
-            nav a {
-                min-width: 85px;
-
-                padding: 11px 14px;
-
-                font-size: 12px;
-            }
-
-            .board-sticker.flower {
-                left: 18px;
-            }
-
-            .board-sticker.heart {
-                right: 20px;
-            }
-
-            .home {
-                padding: 45px 12px 60px;
-            }
-
-            .home-card {
-                padding: 9px;
-
-                border-radius: 19px;
-            }
-
-            .home-inner {
-                padding: 30px 20px;
-
-                border-radius: 14px;
-            }
-
-            .sticker-flower {
-                left: 4%;
-            }
-
-            .sticker-heart {
-                right: 5%;
-            }
-
-            .welcome h1 {
-                font-size: 34px;
-            }
-
-            .home-content {
-                grid-template-columns: 1fr;
-
-                gap: 35px;
-            }
-
-            .home-image {
-                order: 1;
-
-                max-width: 320px;
-
-                height: 370px;
-            }
-
-            .home-text {
-                order: 2;
-
-                text-align: center;
-            }
-
-            .home-text h2 {
-                font-size: 27px;
-            }
-
-            .mini-text {
-                margin-bottom: 5px;
-            }
-
-            .doodle-three {
-                left: 48%;
-            }
-
-        }
-
-
-        /* =========================
-           HP KECIL
-        ========================= */
-
-        @media (max-width: 400px) {
-
-            .floating {
-                display: none;
-            }
-
-            .logo {
-                font-size: 25px;
-
-                letter-spacing: 2px;
-            }
-
-            nav a {
-                min-width: 72px;
-
-                padding: 10px 9px;
-
-                font-size: 10px;
-            }
-
-            .welcome h1 {
-                font-size: 29px;
-            }
-
-            .home-image {
-                height: 330px;
-            }
-
-            .home-text h2 {
-                font-size: 24px;
-            }
-
-            .board-sticker.flower,
-            .board-sticker.heart {
-                font-size: 22px;
-            }
-
-            .sticker-flower,
-            .sticker-heart {
-                font-size: 23px;
-            }
-
-            .tape {
-                width: 65px;
-
-                height: 20px;
-            }
-
-        }
-
-
-        /* =========================
-           REDUCE MOTION
-        ========================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration: .01ms !important;
-
-                animation-iteration-count: 1 !important;
-
-                transition-duration: .01ms !important;
-
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -1081,29 +787,19 @@
 <body>
 
 
-<!-- FLOATING DECORATIONS -->
+<!-- DECOR -->
 
-<span class="floating float-1">✿</span>
-<span class="floating float-2">♡</span>
-<span class="floating float-3">✦</span>
-<span class="floating float-4">✿</span>
-<span class="floating float-5">˚₊‧</span>
-<span class="floating float-6">♡</span>
+<div class="decor one">✿</div>
+<div class="decor two">♡</div>
+<div class="decor three">✦</div>
+<div class="decor four">˚₊‧</div>
 
 
-<!-- =========================
-     TOP BOARD
-========================= -->
+<!-- TOP BOARD -->
 
 <div class="top-area">
 
     <div class="main-board">
-
-        <span class="board-sticker flower">✿</span>
-        <span class="board-sticker heart">♡</span>
-        <span class="board-sticker sparkle">✦</span>
-        <span class="board-sticker star">˚✧</span>
-
 
         <div class="board-inner">
 
@@ -1112,9 +808,9 @@
             </div>
 
 
-            <nav>
+            <nav class="navbar">
 
-                <a href="index.html">
+                <a href="index.html" class="active">
                     Home
                 </a>
 
@@ -1139,56 +835,21 @@
 </div>
 
 
-
-<!-- =========================
-     HOME CARD
-========================= -->
+<!-- HOME -->
 
 <section class="home">
 
-    <div class="home-card">
-
-        <span class="card-sticker sticker-flower">✿</span>
-        <span class="card-sticker sticker-heart">♡</span>
-        <span class="card-sticker sticker-star">✦</span>
-        <span class="card-sticker sticker-sparkle">˚✧</span>
-
+    <div class="home-board">
 
         <div class="home-inner">
 
-            <span class="tape tape-left"></span>
-            <span class="tape tape-right"></span>
-
-
-            <span class="decoration one">
+            <span class="home-decor-one">
                 ✿
             </span>
 
-            <span class="decoration two">
-                ♡
-            </span>
-
-            <span class="decoration three">
-                ✿
-            </span>
-
-            <span class="decoration four">
-                ♡
-            </span>
-
-
-            <span class="tiny-doodle doodle-one">
+            <span class="home-decor-two">
                 ✦
             </span>
-
-            <span class="tiny-doodle doodle-two">
-                ˚₊‧
-            </span>
-
-            <span class="tiny-doodle doodle-three">
-                ♡
-            </span>
-
 
 
             <!-- WELCOME -->
@@ -1210,7 +871,6 @@
             </div>
 
 
-
             <!-- CONTENT -->
 
             <div class="home-content">
@@ -1226,7 +886,6 @@
                     >
 
                 </div>
-
 
 
                 <!-- TEXT -->
@@ -1266,7 +925,6 @@
 
             </div>
 
-
         </div>
 
     </div>
@@ -1274,14 +932,11 @@
 </section>
 
 
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
-    © 2026 ART GALLERY · Personal artwork archive
+    made with ♡ by 0urnss
 
 </footer>
 
