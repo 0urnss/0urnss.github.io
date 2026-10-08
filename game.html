@@ -751,14 +751,14 @@ body::before{
 
 
 /* =========================
-   DRAWING
+   DINO DRAWING
 ========================= */
 
-.challenge-box{
+.dino-draw-box{
     text-align:center;
 }
 
-.challenge-name{
+.dino-draw-name{
     display:inline-block;
 
     background:#f6dce2;
@@ -776,16 +776,16 @@ body::before{
     margin-bottom:14px;
 }
 
-.challenge-canvas-wrap{
+.dino-canvas-wrap{
     display:flex;
 
     justify-content:center;
 }
 
-#drawingCanvas{
+#dinoDrawingCanvas{
     width:min(100%,550px);
 
-    height:330px;
+    height:280px;
 
     background:white;
 
@@ -798,7 +798,7 @@ body::before{
     touch-action:none;
 }
 
-.drawing-tools{
+.dino-tools{
     display:flex;
 
     justify-content:center;
@@ -812,7 +812,7 @@ body::before{
     margin-top:16px;
 }
 
-.tool-label{
+.dino-tool-label{
     background:#f6dce2;
 
     border:2px solid #c28c99;
@@ -832,11 +832,11 @@ body::before{
     gap:8px;
 }
 
-#brushSize{
+#dinoBrushSize{
     accent-color:#a97682;
 }
 
-.color-picker{
+.dino-color-picker{
     width:32px;
 
     height:30px;
@@ -850,7 +850,7 @@ body::before{
     cursor:pointer;
 }
 
-.palette-title{
+.dino-palette-title{
     margin:18px 0 10px;
 
     font-size:13px;
@@ -860,7 +860,7 @@ body::before{
     font-weight:bold;
 }
 
-.color-palette{
+.dino-palette{
     display:flex;
 
     justify-content:center;
@@ -874,7 +874,7 @@ body::before{
     margin:auto;
 }
 
-.palette-color{
+.dino-palette-color{
     width:34px;
 
     height:34px;
@@ -890,17 +890,17 @@ body::before{
     transition:.2s;
 }
 
-.palette-color:hover{
+.dino-palette-color:hover{
     transform:scale(1.12);
 }
 
-.palette-color.selected{
+.dino-palette-color.selected{
     outline:3px solid #805965;
 
     transform:scale(1.12);
 }
 
-.challenge-buttons{
+.dino-buttons{
     display:flex;
 
     justify-content:center;
@@ -910,6 +910,105 @@ body::before{
     margin-top:20px;
 
     flex-wrap:wrap;
+}
+
+
+/* =========================
+   DINO GAME
+========================= */
+
+.dino-game-area{
+    display:none;
+
+    margin-top:20px;
+}
+
+.dino-game-area.active{
+    display:block;
+}
+
+.dino-score{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:12px;
+}
+
+.dino-score-box{
+    background:#f6dce2;
+
+    border:2px solid #c28c99;
+
+    border-radius:12px;
+
+    padding:8px 15px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    color:#76515c;
+}
+
+#dinoGameCanvas{
+    display:block;
+
+    width:100%;
+
+    max-width:760px;
+
+    height:300px;
+
+    margin:auto;
+
+    background:#fff;
+
+    border:3px solid #c28c99;
+
+    border-radius:18px;
+
+    touch-action:none;
+}
+
+.dino-game-message{
+    text-align:center;
+
+    min-height:25px;
+
+    margin-top:13px;
+
+    color:#805965;
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+.dino-game-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:15px;
+}
+
+.dino-instruction{
+    text-align:center;
+
+    color:#9b737d;
+
+    font-size:12px;
+
+    margin-top:10px;
 }
 
 
@@ -1030,8 +1129,12 @@ footer{
         height:65px;
     }
 
-    #drawingCanvas{
-        height:280px;
+    #dinoDrawingCanvas{
+        height:240px;
+    }
+
+    #dinoGameCanvas{
+        height:240px;
     }
 
 }
@@ -1296,42 +1399,42 @@ footer{
             >
 
                 <h2 class="game-heading">
-                    ✏️ Drawing Challenge
+                    🦖 Dino Run
                 </h2>
 
                 <p class="game-description">
-                    Gambar sesuai tantangan yang muncul!
+                    Gambar Dino kamu sendiri dulu, lalu gunakan gambarmu untuk bermain!
                 </p>
 
 
-                <div class="challenge-box">
+                <div
+                    id="dinoDrawArea"
+                    class="dino-draw-box"
+                >
 
-                    <div
-                        id="challengeName"
-                        class="challenge-name"
-                    >
-                        🌸 Draw a flower
+                    <div class="dino-draw-name">
+                        ✏️ Draw Your Dino
                     </div>
 
 
-                    <div class="challenge-canvas-wrap">
+                    <div class="dino-canvas-wrap">
 
                         <canvas
-                            id="drawingCanvas"
+                            id="dinoDrawingCanvas"
                         ></canvas>
 
                     </div>
 
 
-                    <div class="drawing-tools">
+                    <div class="dino-tools">
 
-                        <div class="tool-label">
+                        <div class="dino-tool-label">
 
                             Brush
 
                             <input
                                 type="range"
-                                id="brushSize"
+                                id="dinoBrushSize"
                                 min="2"
                                 max="25"
                                 value="6"
@@ -1340,14 +1443,14 @@ footer{
                         </div>
 
 
-                        <div class="tool-label">
+                        <div class="dino-tool-label">
 
                             Color
 
                             <input
                                 type="color"
-                                id="brushColor"
-                                class="color-picker"
+                                id="dinoBrushColor"
+                                class="dino-color-picker"
                                 value="#805965"
                             >
 
@@ -1356,22 +1459,22 @@ footer{
                     </div>
 
 
-                    <div class="palette-title">
+                    <div class="dino-palette-title">
                         Choose a color ♡
                     </div>
 
 
                     <div
-                        id="colorPalette"
-                        class="color-palette"
+                        id="dinoPalette"
+                        class="dino-palette"
                     ></div>
 
 
-                    <div class="challenge-buttons">
+                    <div class="dino-buttons">
 
                         <button
                             class="game-btn"
-                            onclick="clearCanvas()"
+                            onclick="clearDinoDrawing()"
                         >
                             🗑 Clear
                         </button>
@@ -1379,9 +1482,69 @@ footer{
 
                         <button
                             class="game-btn"
-                            onclick="newChallenge()"
+                            onclick="startDinoFromDrawing()"
                         >
-                            🔄 New Challenge
+                            🦖 Done — Start Dino
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="dinoGameArea"
+                    class="dino-game-area"
+                >
+
+                    <div class="dino-score">
+
+                        <div class="dino-score-box">
+                            Score:
+                            <span id="dinoScore">0</span>
+                        </div>
+
+                        <div class="dino-score-box">
+                            High Score:
+                            <span id="dinoHighScore">0</span>
+                        </div>
+
+                    </div>
+
+
+                    <canvas
+                        id="dinoGameCanvas"
+                    ></canvas>
+
+
+                    <div
+                        id="dinoGameMessage"
+                        class="dino-game-message"
+                    >
+                        Tekan Space atau tap layar untuk melompat!
+                    </div>
+
+
+                    <div class="dino-instruction">
+                        SPACE / ↑ / TAP = JUMP
+                    </div>
+
+
+                    <div class="dino-game-buttons">
+
+                        <button
+                            class="game-btn"
+                            onclick="restartDinoGame()"
+                        >
+                            🔄 Restart
+                        </button>
+
+
+                        <button
+                            class="game-btn"
+                            onclick="drawDinoAgain()"
+                        >
+                            ✏️ Draw Again
                         </button>
 
                     </div>
@@ -1916,50 +2079,59 @@ function newColorRound(){
 
 
 /* =========================
-   DRAWING CHALLENGE
+   DINO DRAWING
 ========================= */
 
-const canvas =
-    document.getElementById("drawingCanvas");
+const dinoDrawingCanvas =
+    document.getElementById(
+        "dinoDrawingCanvas"
+    );
 
-const ctx =
-    canvas.getContext("2d");
+const dinoDrawingCtx =
+    dinoDrawingCanvas.getContext("2d");
 
-let drawing = false;
+let dinoDrawing = false;
 
 
-function setupCanvas(){
+function setupDinoDrawingCanvas(){
 
     const rect =
-        canvas.getBoundingClientRect();
+        dinoDrawingCanvas.getBoundingClientRect();
 
     const dpr =
         window.devicePixelRatio || 1;
 
-    canvas.width =
+    dinoDrawingCanvas.width =
         rect.width * dpr;
 
-    canvas.height =
+    dinoDrawingCanvas.height =
         rect.height * dpr;
 
-    ctx.scale(dpr,dpr);
+    dinoDrawingCtx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
 
-    ctx.lineCap = "round";
+    dinoDrawingCtx.lineCap = "round";
 
-    ctx.lineJoin = "round";
+    dinoDrawingCtx.lineJoin = "round";
 
-    clearCanvas();
+    clearDinoDrawing();
 
 }
 
 
-setupCanvas();
+setupDinoDrawingCanvas();
 
 
-function getCanvasPosition(event){
+function getDinoDrawingPosition(event){
 
     const rect =
-        canvas.getBoundingClientRect();
+        dinoDrawingCanvas.getBoundingClientRect();
 
     return {
 
@@ -1972,18 +2144,22 @@ function getCanvasPosition(event){
 }
 
 
-canvas.addEventListener(
+dinoDrawingCanvas.addEventListener(
     "pointerdown",
     event => {
 
-        drawing = true;
+        dinoDrawing = true;
+
+        dinoDrawingCanvas.setPointerCapture(
+            event.pointerId
+        );
 
         const pos =
-            getCanvasPosition(event);
+            getDinoDrawingPosition(event);
 
-        ctx.beginPath();
+        dinoDrawingCtx.beginPath();
 
-        ctx.moveTo(
+        dinoDrawingCtx.moveTo(
             pos.x,
             pos.y
         );
@@ -1992,111 +2168,72 @@ canvas.addEventListener(
 );
 
 
-canvas.addEventListener(
+dinoDrawingCanvas.addEventListener(
     "pointermove",
     event => {
 
-        if(!drawing) return;
+        if(!dinoDrawing) return;
 
         const pos =
-            getCanvasPosition(event);
+            getDinoDrawingPosition(event);
 
-        ctx.lineWidth =
+        dinoDrawingCtx.lineWidth =
             document.getElementById(
-                "brushSize"
+                "dinoBrushSize"
             ).value;
 
-        ctx.strokeStyle =
+        dinoDrawingCtx.strokeStyle =
             document.getElementById(
-                "brushColor"
+                "dinoBrushColor"
             ).value;
 
-        ctx.lineTo(
+        dinoDrawingCtx.lineTo(
             pos.x,
             pos.y
         );
 
-        ctx.stroke();
+        dinoDrawingCtx.stroke();
 
     }
 );
 
 
-canvas.addEventListener(
+function stopDinoDrawing(){
+
+    dinoDrawing = false;
+
+    dinoDrawingCtx.closePath();
+
+}
+
+
+dinoDrawingCanvas.addEventListener(
     "pointerup",
-    () => {
+    stopDinoDrawing
+);
 
-        drawing = false;
-
-        ctx.closePath();
-
-    }
+dinoDrawingCanvas.addEventListener(
+    "pointercancel",
+    stopDinoDrawing
 );
 
 
-canvas.addEventListener(
-    "pointerleave",
-    () => {
+function clearDinoDrawing(){
 
-        drawing = false;
+    const rect =
+        dinoDrawingCanvas.getBoundingClientRect();
 
-        ctx.closePath();
-
-    }
-);
-
-
-function clearCanvas(){
-
-    ctx.clearRect(
+    dinoDrawingCtx.clearRect(
         0,
         0,
-        canvas.clientWidth,
-        canvas.clientHeight
+        rect.width,
+        rect.height
     );
 
 }
 
 
-const drawingChallenges = [
-
-    "🌸 Draw a flower",
-    "🐱 Draw a cute cat",
-    "🦋 Draw a butterfly",
-    "🍓 Draw a strawberry",
-    "🌈 Draw a rainbow",
-    "☁️ Draw a cloud",
-    "🍄 Draw a mushroom",
-    "🌙 Draw a moon"
-
-];
-
-
-function newChallenge(){
-
-    const random =
-        drawingChallenges[
-            Math.floor(
-                Math.random() *
-                drawingChallenges.length
-            )
-        ];
-
-    document.getElementById(
-        "challengeName"
-    ).textContent =
-        random;
-
-    clearCanvas();
-
-}
-
-
-/* =========================
-   DRAWING COLOR PALETTE
-========================= */
-
-const drawingColors = [
+const dinoDrawingColors = [
 
     "#000000",
     "#805965",
@@ -2127,19 +2264,18 @@ const drawingColors = [
 ];
 
 
-const palette =
+const dinoPalette =
     document.getElementById(
-        "colorPalette"
+        "dinoPalette"
+    );
+
+const dinoColorInput =
+    document.getElementById(
+        "dinoBrushColor"
     );
 
 
-const colorInput =
-    document.getElementById(
-        "brushColor"
-    );
-
-
-drawingColors.forEach(
+dinoDrawingColors.forEach(
     (color,index) => {
 
         const button =
@@ -2147,8 +2283,10 @@ drawingColors.forEach(
                 "button"
             );
 
+        button.type = "button";
+
         button.className =
-            "palette-color";
+            "dino-palette-color";
 
         button.style.background =
             color;
@@ -2168,11 +2306,11 @@ drawingColors.forEach(
             "click",
             () => {
 
-                colorInput.value =
+                dinoColorInput.value =
                     color;
 
                 document.querySelectorAll(
-                    ".palette-color"
+                    ".dino-palette-color"
                 ).forEach(
                     item => {
 
@@ -2190,7 +2328,7 @@ drawingColors.forEach(
             }
         );
 
-        palette.appendChild(
+        dinoPalette.appendChild(
             button
         );
 
@@ -2198,12 +2336,12 @@ drawingColors.forEach(
 );
 
 
-colorInput.addEventListener(
+dinoColorInput.addEventListener(
     "input",
     () => {
 
         document.querySelectorAll(
-            ".palette-color"
+            ".dino-palette-color"
         ).forEach(
             item => {
 
@@ -2213,6 +2351,722 @@ colorInput.addEventListener(
 
             }
         );
+
+    }
+);
+
+
+/* =========================
+   DINO RUN
+========================= */
+
+const dinoGameCanvas =
+    document.getElementById(
+        "dinoGameCanvas"
+    );
+
+const dinoGameCtx =
+    dinoGameCanvas.getContext("2d");
+
+let dinoPlayerImage =
+    new Image();
+
+let dinoGameRunning = false;
+let dinoGameOver = false;
+let dinoAnimation = null;
+
+let dinoScore = 0;
+let dinoHighScore =
+    Number(
+        localStorage.getItem(
+            "dinoHighScore"
+        ) || 0
+    );
+
+let dinoSpeed = 5;
+let dinoFrame = 0;
+let dinoGroundY = 0;
+
+let dinoPlayer = {
+    x:70,
+    y:0,
+    width:55,
+    height:55,
+    velocityY:0,
+    gravity:.65,
+    jumpPower:-12,
+    grounded:true
+};
+
+let dinoObstacles = [];
+
+let dinoNextObstacle = 100;
+
+
+document.getElementById(
+    "dinoHighScore"
+).textContent =
+    dinoHighScore;
+
+
+function resizeDinoGameCanvas(){
+
+    const rect =
+        dinoGameCanvas.getBoundingClientRect();
+
+    const dpr =
+        window.devicePixelRatio || 1;
+
+    dinoGameCanvas.width =
+        rect.width * dpr;
+
+    dinoGameCanvas.height =
+        rect.height * dpr;
+
+    dinoGameCtx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+
+    dinoGroundY =
+        rect.height - 48;
+
+}
+
+
+resizeDinoGameCanvas();
+
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        resizeDinoGameCanvas();
+
+        if(
+            !dinoGameRunning &&
+            !dinoGameOver
+        ){
+
+            drawDinoGame();
+
+        }
+
+    }
+);
+
+
+function startDinoFromDrawing(){
+
+    const imageData =
+        dinoDrawingCanvas.toDataURL(
+            "image/png"
+        );
+
+    dinoPlayerImage =
+        new Image();
+
+    dinoPlayerImage.onload =
+        () => {
+
+            document.getElementById(
+                "dinoDrawArea"
+            ).style.display = "none";
+
+            document.getElementById(
+                "dinoGameArea"
+            ).classList.add("active");
+
+            startDinoGame();
+
+        };
+
+    dinoPlayerImage.src =
+        imageData;
+
+}
+
+
+function startDinoGame(){
+
+    resizeDinoGameCanvas();
+
+    dinoGameRunning = true;
+
+    dinoGameOver = false;
+
+    dinoScore = 0;
+
+    dinoSpeed = 5;
+
+    dinoFrame = 0;
+
+    dinoObstacles = [];
+
+    dinoNextObstacle =
+        100 + Math.random() * 100;
+
+    dinoPlayer.width = 55;
+
+    dinoPlayer.height = 55;
+
+    dinoPlayer.x = 65;
+
+    dinoPlayer.y =
+        dinoGroundY -
+        dinoPlayer.height;
+
+    dinoPlayer.velocityY = 0;
+
+    dinoPlayer.grounded = true;
+
+    document.getElementById(
+        "dinoScore"
+    ).textContent = 0;
+
+    document.getElementById(
+        "dinoGameMessage"
+    ).textContent =
+        "Tap / Space untuk melompat!";
+
+    cancelAnimationFrame(
+        dinoAnimation
+    );
+
+    dinoGameLoop();
+
+}
+
+
+function restartDinoGame(){
+
+    if(
+        !dinoPlayerImage.src ||
+        dinoPlayerImage.src ===
+        window.location.href
+    ){
+
+        return;
+
+    }
+
+    startDinoGame();
+
+}
+
+
+function drawDinoAgain(){
+
+    dinoGameRunning = false;
+
+    dinoGameOver = false;
+
+    cancelAnimationFrame(
+        dinoAnimation
+    );
+
+    document.getElementById(
+        "dinoGameArea"
+    ).classList.remove("active");
+
+    document.getElementById(
+        "dinoDrawArea"
+    ).style.display = "block";
+
+    clearDinoDrawing();
+
+}
+
+
+function dinoJump(){
+
+    if(!dinoGameRunning) return;
+
+    if(dinoPlayer.grounded){
+
+        dinoPlayer.velocityY =
+            dinoPlayer.jumpPower;
+
+        dinoPlayer.grounded = false;
+
+    }
+
+}
+
+
+function createDinoObstacle(){
+
+    const canvasWidth =
+        dinoGameCanvas.clientWidth;
+
+    const type =
+        Math.random() < .5
+        ? "🖌️"
+        : "🎨";
+
+    const size =
+        28 + Math.random() * 8;
+
+    dinoObstacles.push({
+
+        x:canvasWidth + 20,
+
+        y:dinoGroundY - size,
+
+        width:size,
+
+        height:size,
+
+        type:type
+
+    });
+
+}
+
+
+function updateDino(){
+
+    dinoFrame++;
+
+    dinoScore =
+        Math.floor(
+            dinoFrame / 6
+        );
+
+    document.getElementById(
+        "dinoScore"
+    ).textContent =
+        dinoScore;
+
+
+    if(
+        dinoScore > dinoHighScore
+    ){
+
+        dinoHighScore =
+            dinoScore;
+
+        localStorage.setItem(
+            "dinoHighScore",
+            dinoHighScore
+        );
+
+        document.getElementById(
+            "dinoHighScore"
+        ).textContent =
+            dinoHighScore;
+
+    }
+
+
+    dinoSpeed =
+        5 +
+        Math.min(
+            7,
+            dinoScore / 180
+        );
+
+
+    dinoPlayer.velocityY +=
+        dinoPlayer.gravity;
+
+    dinoPlayer.y +=
+        dinoPlayer.velocityY;
+
+
+    if(
+        dinoPlayer.y +
+        dinoPlayer.height >=
+        dinoGroundY
+    ){
+
+        dinoPlayer.y =
+            dinoGroundY -
+            dinoPlayer.height;
+
+        dinoPlayer.velocityY = 0;
+
+        dinoPlayer.grounded = true;
+
+    }
+
+
+    dinoNextObstacle--;
+
+    if(dinoNextObstacle <= 0){
+
+        createDinoObstacle();
+
+        const minimumGap =
+            Math.max(
+                75,
+                125 -
+                dinoScore / 12
+            );
+
+        dinoNextObstacle =
+            minimumGap +
+            Math.random() * 80;
+
+    }
+
+
+    dinoObstacles.forEach(
+        obstacle => {
+
+            obstacle.x -=
+                dinoSpeed;
+
+        }
+    );
+
+
+    dinoObstacles =
+        dinoObstacles.filter(
+            obstacle =>
+                obstacle.x +
+                obstacle.width >
+                -20
+        );
+
+
+    checkDinoCollision();
+
+}
+
+
+function checkDinoCollision(){
+
+    const padding = 8;
+
+    const playerLeft =
+        dinoPlayer.x +
+        padding;
+
+    const playerRight =
+        dinoPlayer.x +
+        dinoPlayer.width -
+        padding;
+
+    const playerTop =
+        dinoPlayer.y +
+        padding;
+
+    const playerBottom =
+        dinoPlayer.y +
+        dinoPlayer.height -
+        padding;
+
+
+    for(
+        const obstacle of dinoObstacles
+    ){
+
+        const obstacleLeft =
+            obstacle.x + 5;
+
+        const obstacleRight =
+            obstacle.x +
+            obstacle.width - 5;
+
+        const obstacleTop =
+            obstacle.y + 4;
+
+        const obstacleBottom =
+            obstacle.y +
+            obstacle.height - 3;
+
+
+        if(
+            playerRight >
+            obstacleLeft &&
+            playerLeft <
+            obstacleRight &&
+            playerBottom >
+            obstacleTop &&
+            playerTop <
+            obstacleBottom
+        ){
+
+            endDinoGame();
+
+            return;
+
+        }
+
+    }
+
+}
+
+
+function endDinoGame(){
+
+    dinoGameRunning = false;
+
+    dinoGameOver = true;
+
+    cancelAnimationFrame(
+        dinoAnimation
+    );
+
+    document.getElementById(
+        "dinoGameMessage"
+    ).textContent =
+        "💥 Game Over! Score kamu: " +
+        dinoScore;
+
+    drawDinoGame();
+
+}
+
+
+function drawDinoGame(){
+
+    const width =
+        dinoGameCanvas.clientWidth;
+
+    const height =
+        dinoGameCanvas.clientHeight;
+
+
+    dinoGameCtx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    /* SKY */
+
+    dinoGameCtx.fillStyle =
+        "#ffffff";
+
+    dinoGameCtx.fillRect(
+        0,
+        0,
+        width,
+        height
+    );
+
+
+    /* LITTLE CLOUDS */
+
+    dinoGameCtx.fillStyle =
+        "#f6dce2";
+
+    dinoGameCtx.font =
+        "20px Arial";
+
+    dinoGameCtx.fillText(
+        "☁",
+        width * .18,
+        55
+    );
+
+    dinoGameCtx.fillText(
+        "☁",
+        width * .68,
+        85
+    );
+
+
+    /* GROUND */
+
+    dinoGameCtx.strokeStyle =
+        "#c28c99";
+
+    dinoGameCtx.lineWidth = 2;
+
+    dinoGameCtx.beginPath();
+
+    dinoGameCtx.moveTo(
+        0,
+        dinoGroundY
+    );
+
+    dinoGameCtx.lineTo(
+        width,
+        dinoGroundY
+    );
+
+    dinoGameCtx.stroke();
+
+
+    /* GROUND DOTS */
+
+    dinoGameCtx.fillStyle =
+        "#d9aeb9";
+
+    const offset =
+        (dinoFrame *
+        dinoSpeed) %
+        40;
+
+    for(
+        let x = -40 + offset;
+        x < width;
+        x += 40
+    ){
+
+        dinoGameCtx.fillRect(
+            x,
+            dinoGroundY + 10,
+            18,
+            2
+        );
+
+    }
+
+
+    /* PLAYER */
+
+    if(
+        dinoPlayerImage.complete &&
+        dinoPlayerImage.naturalWidth > 0
+    ){
+
+        dinoGameCtx.drawImage(
+
+            dinoPlayerImage,
+
+            dinoPlayer.x,
+            dinoPlayer.y,
+            dinoPlayer.width,
+            dinoPlayer.height
+
+        );
+
+    }
+
+
+    /* OBSTACLES */
+
+    dinoObstacles.forEach(
+        obstacle => {
+
+            dinoGameCtx.font =
+                obstacle.height +
+                "px Arial";
+
+            dinoGameCtx.textAlign =
+                "left";
+
+            dinoGameCtx.textBaseline =
+                "top";
+
+            dinoGameCtx.fillText(
+
+                obstacle.type,
+
+                obstacle.x,
+                obstacle.y
+
+            );
+
+        }
+    );
+
+
+    dinoGameCtx.textBaseline =
+        "alphabetic";
+
+}
+
+
+function dinoGameLoop(){
+
+    if(!dinoGameRunning){
+
+        drawDinoGame();
+
+        return;
+
+    }
+
+    updateDino();
+
+    drawDinoGame();
+
+    dinoAnimation =
+        requestAnimationFrame(
+            dinoGameLoop
+        );
+
+}
+
+
+/* =========================
+   DINO CONTROLS
+========================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.code === "Space" ||
+            event.code === "ArrowUp"
+        ){
+
+            const drawingSection =
+                document.getElementById(
+                    "drawing"
+                );
+
+            if(
+                drawingSection.classList.contains(
+                    "active"
+                )
+            ){
+
+                event.preventDefault();
+
+                if(dinoGameRunning){
+
+                    dinoJump();
+
+                }
+
+            }
+
+        }
+
+    }
+);
+
+
+dinoGameCanvas.addEventListener(
+    "pointerdown",
+    event => {
+
+        if(dinoGameRunning){
+
+            event.preventDefault();
+
+            dinoJump();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   INITIAL DRAW
+========================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setupDinoDrawingCanvas();
+
+        resizeDinoGameCanvas();
 
     }
 );
