@@ -602,6 +602,49 @@ body::before{
     gap:10px;
 }
 
+
+/* =========================
+   NAME INPUT
+========================= */
+
+.anonymous-form input{
+    width:100%;
+
+    padding:12px 13px;
+
+    border:2px solid #dfb7c0;
+
+    border-radius:13px;
+
+    background:#fff8f9;
+
+    color:#59484d;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    outline:none;
+
+    transition:.2s;
+}
+
+.anonymous-form input::placeholder{
+    color:#b9959d;
+}
+
+.anonymous-form input:focus{
+    border-color:#c28c99;
+
+    box-shadow:
+        0 0 0 3px rgba(194,140,153,.12);
+}
+
+
+/* =========================
+   MESSAGE TEXTAREA
+========================= */
+
 .anonymous-form textarea{
     width:100%;
 
@@ -1091,6 +1134,13 @@ footer::before{
                             id="anonymousMessageForm"
                         >
 
+                            <input
+                                type="text"
+                                id="anonymousName"
+                                maxlength="50"
+                                placeholder="Your name (optional) ♡"
+                            >
+
                             <textarea
                                 id="anonymousMessage"
                                 maxlength="1000"
@@ -1152,7 +1202,7 @@ const SUPABASE_URL =
     "https://ojjpssupaoputowjvokm.supabase.co";
 
 const SUPABASE_ANON_KEY =
-    "sb_publishable_dFkIBbLpaQm2H8VrkyQqLw_TTsrC_fy";
+    "sb_publishable_dFkIBbLpaQmH2VrkyQqLw_TTsrC_fy";
 
 const supabaseClient =
     window.supabase.createClient(
@@ -1163,6 +1213,9 @@ const supabaseClient =
 
 const anonymousMessageForm =
     document.getElementById("anonymousMessageForm");
+
+const anonymousName =
+    document.getElementById("anonymousName");
 
 const anonymousMessage =
     document.getElementById("anonymousMessage");
@@ -1179,6 +1232,9 @@ anonymousMessageForm.addEventListener(
     async function(event){
 
         event.preventDefault();
+
+        const name =
+            anonymousName.value.trim();
 
         const message =
             anonymousMessage.value.trim();
@@ -1208,6 +1264,7 @@ anonymousMessageForm.addEventListener(
                 .from("anonymous_messages")
                 .insert([
                     {
+                        name:name || null,
                         message:message
                     }
                 ]);
@@ -1231,6 +1288,8 @@ anonymousMessageForm.addEventListener(
             return;
         }
 
+
+        anonymousName.value = "";
 
         anonymousMessage.value = "";
 
