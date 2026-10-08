@@ -359,6 +359,29 @@ body::before{
 }
 
 
+/* LOADING */
+.loading{
+    text-align:center;
+    padding:40px 15px;
+    color:#9b737d;
+    font-size:14px;
+}
+
+.empty-gallery{
+    text-align:center;
+    padding:40px 15px;
+    color:#9b737d;
+    font-size:14px;
+}
+
+.error-gallery{
+    text-align:center;
+    padding:30px 15px;
+    color:#a55f6e;
+    font-size:14px;
+}
+
+
 /* FLOATING DECOR */
 #clover-container{
     position:fixed;
@@ -557,243 +580,26 @@ footer{
 
             <!-- CATEGORY -->
 
-            <div class="category-nav">
+            <div
+                class="category-nav"
+                id="categoryNav">
 
-                <button
-                    class="category-btn active"
-                    onclick="showCategory('pencil',this)">
-                    ✏️ B&W / Pencil
-                </button>
-
-                <button
-                    class="category-btn"
-                    onclick="showCategory('painting',this)">
-                    🎨 Painting
-                </button>
-
-                <button
-                    class="category-btn"
-                    onclick="showCategory('digital',this)">
-                    🖥️ Digital Art
-                </button>
+                <div class="loading">
+                    Memuat kategori...
+                </div>
 
             </div>
 
 
-            <!-- PENCIL -->
+            <!-- ARTWORK -->
 
-            <section
-                id="pencil"
-                class="category-content active">
+            <div id="galleryContent">
 
-                <div class="art-card">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="foto1.jpeg"
-                            alt="Portrait Study"
-                            class="art-image">
-
-                    </div>
-
-
-                    <h2 class="art-title">
-                        Portrait Study
-                    </h2>
-
-                    <p class="art-description">
-                        B&W / Pencil
-                    </p>
-
-
-                    <div
-                        class="rating-box"
-                        data-artwork="portrait-study">
-
-                        <div class="rating-title">
-                            ⭐ Rate this artwork
-                        </div>
-
-                        <div class="stars">
-
-                            <button class="star" data-rating="1">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="2">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="3">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="4">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="5">
-                                ★
-                            </button>
-
-                        </div>
-
-                        <div class="rating-result">
-                            Memuat rating...
-                        </div>
-
-                        <div class="rating-message"></div>
-
-                    </div>
-
+                <div class="loading">
+                    Memuat karya...
                 </div>
 
-            </section>
-
-
-            <!-- PAINTING -->
-
-            <section
-                id="painting"
-                class="category-content">
-
-                <div class="art-card">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="Picsart_26-10-06_17-27-05-079_image_repair_1791282548302.jpg"
-                            alt="My Painting"
-                            class="art-image">
-
-                    </div>
-
-
-                    <h2 class="art-title">
-                        My Painting
-                    </h2>
-
-                    <p class="art-description">
-                        Painting
-                    </p>
-
-
-                    <div
-                        class="rating-box"
-                        data-artwork="my-painting">
-
-                        <div class="rating-title">
-                            ⭐ Rate this artwork
-                        </div>
-
-                        <div class="stars">
-
-                            <button class="star" data-rating="1">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="2">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="3">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="4">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="5">
-                                ★
-                            </button>
-
-                        </div>
-
-                        <div class="rating-result">
-                            Memuat rating...
-                        </div>
-
-                        <div class="rating-message"></div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- DIGITAL ART -->
-
-            <section
-                id="digital"
-                class="category-content">
-
-                <div class="art-card">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="Tak berjudul22 (2).jpg"
-                            alt="Untitled"
-                            class="art-image">
-
-                    </div>
-
-
-                    <h2 class="art-title">
-                        Untitled
-                    </h2>
-
-                    <p class="art-description">
-                        Digital Art
-                    </p>
-
-
-                    <div
-                        class="rating-box"
-                        data-artwork="untitled">
-
-                        <div class="rating-title">
-                            ⭐ Rate this artwork
-                        </div>
-
-                        <div class="stars">
-
-                            <button class="star" data-rating="1">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="2">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="3">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="4">
-                                ★
-                            </button>
-
-                            <button class="star" data-rating="5">
-                                ★
-                            </button>
-
-                        </div>
-
-                        <div class="rating-result">
-                            Memuat rating...
-                        </div>
-
-                        <div class="rating-message"></div>
-
-                    </div>
-
-                </div>
-
-            </section>
+            </div>
 
         </div>
 
@@ -818,24 +624,11 @@ footer{
    SUPABASE CONNECTION
    ===================================================== */
 
-
-/*
-   GANTI BAGIAN DI BAWAH INI
-*/
-
-
 const SUPABASE_URL =
     "https://ojjpssupaoputowjvokm.supabase.co";
 
-
 const SUPABASE_ANON_KEY =
     "sb_publishable_dFkIBbLpaQm2H8VrkyQqLw_TTsrC_fy";
-
-
-/*
-   JANGAN UBAH BAGIAN DI BAWAH INI
-*/
-
 
 const supabaseClient =
     window.supabase.createClient(
@@ -845,48 +638,516 @@ const supabaseClient =
 
 
 /* =====================================================
-   CATEGORY
+   GLOBAL DATA
    ===================================================== */
 
-function showCategory(category,button){
-
-    document
-        .querySelectorAll(".category-content")
-        .forEach(section => {
-
-            section.classList.remove("active");
-
-        });
+let artworks = [];
 
 
-    document
-        .getElementById(category)
-        .classList.add("active");
+/* =====================================================
+   ESCAPE HTML
+   ===================================================== */
 
+function escapeHTML(value){
 
-    document
-        .querySelectorAll(".category-btn")
-        .forEach(btn => {
+    if(value === null || value === undefined){
+        return "";
+    }
 
-            btn.classList.remove("active");
-
-        });
-
-
-    button.classList.add("active");
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
 /* =====================================================
-   RATING
+   FORMAT CATEGORY
    ===================================================== */
 
-const ratingBoxes =
-    document.querySelectorAll(".rating-box");
+function categoryIcon(category){
+
+    const text =
+        String(category).toLowerCase();
+
+    if(
+        text.includes("pencil") ||
+        text.includes("b&w") ||
+        text.includes("black") ||
+        text.includes("drawing")
+    ){
+        return "✏️";
+    }
+
+    if(
+        text.includes("paint") ||
+        text.includes("acrylic")
+    ){
+        return "🎨";
+    }
+
+    if(
+        text.includes("digital")
+    ){
+        return "🖥️";
+    }
+
+    return "🖼️";
+
+}
 
 
-ratingBoxes.forEach(box => {
+/* =====================================================
+   LOAD ARTWORKS
+   ===================================================== */
+
+async function loadArtworks(){
+
+    const galleryContent =
+        document.getElementById("galleryContent");
+
+    const categoryNav =
+        document.getElementById("categoryNav");
+
+
+    galleryContent.innerHTML =
+        '<div class="loading">Memuat karya...</div>';
+
+    categoryNav.innerHTML =
+        '<div class="loading">Memuat kategori...</div>';
+
+
+    try{
+
+        const response =
+            await supabaseClient
+                .from("artworks")
+                .select("*")
+                .order(
+                    "created_at",
+                    {
+                        ascending:false
+                    }
+                );
+
+
+        if(response.error){
+
+            console.error(
+                response.error
+            );
+
+            galleryContent.innerHTML =
+                '<div class="error-gallery">' +
+                'Gagal memuat karya dari database.' +
+                '</div>';
+
+            categoryNav.innerHTML = "";
+
+            return;
+
+        }
+
+
+        artworks =
+            response.data || [];
+
+
+        if(artworks.length === 0){
+
+            categoryNav.innerHTML = "";
+
+            galleryContent.innerHTML =
+                '<div class="empty-gallery">' +
+                'Belum ada karya di gallery ♡' +
+                '</div>';
+
+            return;
+
+        }
+
+
+        renderCategories();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        categoryNav.innerHTML = "";
+
+        galleryContent.innerHTML =
+            '<div class="error-gallery">' +
+            'Terjadi kesalahan saat memuat gallery.' +
+            '</div>';
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER CATEGORY BUTTONS
+   ===================================================== */
+
+function renderCategories(){
+
+    const categoryNav =
+        document.getElementById("categoryNav");
+
+
+    const categories = [];
+
+
+    artworks.forEach(artwork => {
+
+        const category =
+            artwork.category || "Other";
+
+
+        if(
+            !categories.includes(category)
+        ){
+
+            categories.push(category);
+
+        }
+
+    });
+
+
+    categoryNav.innerHTML = "";
+
+
+    categories.forEach(
+        (category,index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "category-btn";
+
+            if(index === 0){
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            button.innerHTML =
+                categoryIcon(category) +
+                " " +
+                escapeHTML(category);
+
+
+            button.addEventListener(
+                "click",
+                function(){
+
+                    showCategory(
+                        category,
+                        button
+                    );
+
+                }
+            );
+
+
+            categoryNav.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    renderArtworkCategories(
+        categories[0]
+    );
+
+}
+
+
+/* =====================================================
+   SHOW CATEGORY
+   ===================================================== */
+
+function showCategory(
+    category,
+    button
+){
+
+    document
+        .querySelectorAll(
+            ".category-content"
+        )
+        .forEach(section => {
+
+            section.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    const selected =
+        document.querySelector(
+            '[data-category="' +
+            CSS.escape(category) +
+            '"]'
+        );
+
+
+    if(selected){
+
+        selected.classList.add(
+            "active"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".category-btn"
+        )
+        .forEach(btn => {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    button.classList.add(
+        "active"
+    );
+
+}
+
+
+/* =====================================================
+   RENDER ARTWORKS
+   ===================================================== */
+
+function renderArtworkCategories(
+    firstCategory
+){
+
+    const galleryContent =
+        document.getElementById(
+            "galleryContent"
+        );
+
+
+    galleryContent.innerHTML = "";
+
+
+    const categories = [];
+
+
+    artworks.forEach(artwork => {
+
+        const category =
+            artwork.category || "Other";
+
+
+        if(
+            !categories.includes(category)
+        ){
+
+            categories.push(category);
+
+        }
+
+    });
+
+
+    categories.forEach(
+        category => {
+
+            const section =
+                document.createElement(
+                    "section"
+                );
+
+
+            section.className =
+                "category-content";
+
+
+            section.dataset.category =
+                category;
+
+
+            if(
+                category === firstCategory
+            ){
+
+                section.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            const categoryArtworks =
+                artworks.filter(
+                    artwork =>
+                        (
+                            artwork.category ||
+                            "Other"
+                        ) === category
+                );
+
+
+            categoryArtworks.forEach(
+                artwork => {
+
+                    section.appendChild(
+                        createArtworkCard(
+                            artwork
+                        )
+                    );
+
+                }
+            );
+
+
+            galleryContent.appendChild(
+                section
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CREATE ARTWORK CARD
+   ===================================================== */
+
+function createArtworkCard(
+    artwork
+){
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+
+    card.className =
+        "art-card";
+
+
+    const artworkId =
+        "artwork-" +
+        artwork.id;
+
+
+    card.innerHTML = `
+
+        <div class="art-image-wrap">
+
+            <img
+                src="${escapeHTML(artwork.image_url)}"
+                alt="${escapeHTML(artwork.title)}"
+                class="art-image"
+                loading="lazy">
+
+        </div>
+
+
+        <h2 class="art-title">
+            ${escapeHTML(artwork.title)}
+        </h2>
+
+
+        <p class="art-description">
+            ${escapeHTML(artwork.description || artwork.category || "")}
+        </p>
+
+
+        <div
+            class="rating-box"
+            data-artwork="${escapeHTML(artworkId)}">
+
+            <div class="rating-title">
+                ⭐ Rate this artwork
+            </div>
+
+            <div class="stars">
+
+                <button
+                    class="star"
+                    data-rating="1">
+                    ★
+                </button>
+
+                <button
+                    class="star"
+                    data-rating="2">
+                    ★
+                </button>
+
+                <button
+                    class="star"
+                    data-rating="3">
+                    ★
+                </button>
+
+                <button
+                    class="star"
+                    data-rating="4">
+                    ★
+                </button>
+
+                <button
+                    class="star"
+                    data-rating="5">
+                    ★
+                </button>
+
+            </div>
+
+            <div class="rating-result">
+                Memuat rating...
+            </div>
+
+            <div class="rating-message"></div>
+
+        </div>
+
+    `;
+
+
+    setupRating(
+        card.querySelector(
+            ".rating-box"
+        )
+    );
+
+
+    return card;
+
+}
+
+
+/* =====================================================
+   SETUP RATING
+   ===================================================== */
+
+function setupRating(box){
 
     const artwork =
         box.dataset.artwork;
@@ -895,10 +1156,14 @@ ratingBoxes.forEach(box => {
         box.querySelectorAll(".star");
 
     const result =
-        box.querySelector(".rating-result");
+        box.querySelector(
+            ".rating-result"
+        );
 
     const message =
-        box.querySelector(".rating-message");
+        box.querySelector(
+            ".rating-message"
+        );
 
 
     loadRating(
@@ -984,7 +1249,7 @@ ratingBoxes.forEach(box => {
         }
     );
 
-});
+}
 
 
 /* =====================================================
@@ -1002,7 +1267,10 @@ async function loadRating(
             await supabaseClient
                 .from("ratings")
                 .select("rating")
-                .eq("artwork",artwork);
+                .eq(
+                    "artwork",
+                    artwork
+                );
 
 
         if(response.error){
@@ -1023,7 +1291,10 @@ async function loadRating(
             response.data;
 
 
-        if(!data || data.length === 0){
+        if(
+            !data ||
+            data.length === 0
+        ){
 
             result.textContent =
                 "Belum ada rating";
@@ -1039,7 +1310,9 @@ async function loadRating(
         data.forEach(item => {
 
             total +=
-                Number(item.rating);
+                Number(
+                    item.rating
+                );
 
         });
 
@@ -1082,13 +1355,16 @@ async function submitRating(
 ){
 
     const storageKey =
-        "rated_" + artwork;
+        "rated_" +
+        artwork;
 
 
     /* CEK SUDAH PERNAH RATING */
 
     if(
-        localStorage.getItem(storageKey)
+        localStorage.getItem(
+            storageKey
+        )
     ){
 
         message.textContent =
@@ -1180,6 +1456,13 @@ async function submitRating(
     }
 
 }
+
+
+/* =====================================================
+   START
+   ===================================================== */
+
+loadArtworks();
 
 </script>
 
