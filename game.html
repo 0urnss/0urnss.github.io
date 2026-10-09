@@ -409,12 +409,13 @@ body::before{
 }
 
 .memory-grid{
-    display:grid;
-    grid-template-columns:repeat(6,70px);
-    justify-content:center;
-    gap:9px;
-    max-width:520px;
-    margin:auto;
+     display:grid;
+     grid-template-columns:repeat(var(--memory-columns, 2),70px);
+     justify-content:center;
+     gap:9px;
+     width:100%;
+     max-width:100%;
+     margin:auto;
 }
 
 .memory-card{
@@ -817,8 +818,9 @@ footer{
     }
 
     .memory-grid{
-        grid-template-columns:repeat(4,62px);
-        gap:8px;
+         grid-template-columns:repeat(var(--memory-columns, 2),62px);
+         gap:8px;
+         max-width:100%;
     }
 
     .memory-card{
@@ -1820,9 +1822,16 @@ function createMemoryLevel(){
     const grid = document.getElementById("memoryGrid");
     grid.innerHTML = "";
 
+    // Tata kartu mengikuti jumlah pasangan agar susunannya tetap rapi.
+    // Level awal: 2, 3, lalu 4 kolom; level tinggi dibatasi agar tidak terlalu melebar.
+    const isMobile = window.matchMedia("(max-width: 600px)").matches;
+    const maxColumns = 4;
+    const memoryColumns = Math.min(levelData.pairs, maxColumns);
+    grid.style.setProperty("--memory-columns", memoryColumns);
+
     selected.forEach(emoji => {
         const card = document.createElement("div");
-        card.className = "memory-card flipped";
+        card.className = "memory-card";
         card.dataset.value = emoji;
 
         card.innerHTML = `
@@ -1836,34 +1845,51 @@ function createMemoryLevel(){
         grid.appendChild(card);
     });
 
-    // Pou-style preview: show all cards briefly, then hide them.
-    memoryPreviewTimer = setTimeout(() => {
-        grid.querySelectorAll(".memory-card").forEach(card => {
+    // Preview satu per satu dalam urutan acak, seperti permainan hafalan.
+    // Kartu lain tetap tertutup saat satu kartu sedang diperlihatkan.
+    const previewOrder = Array.from(grid.querySelectorAll(".memory-card"));
+    previewOrder.sort(() => Math.random() - 0.5);
+    let previewIndex = 0;
+
+    function showNextPreviewCard(){
+        if(previewIndex >= previewOrder.length){
+            memoryLock = false;
+            memoryRunning = true;
+            document.getElementById("memoryMessage").textContent =
+                "Mulai! Cari semua pasangan ♡";
+
+            memoryTimer = setInterval(() => {
+                memoryTimeLeft--;
+                document.getElementById("memoryTime").textContent =
+                    memoryTimeLeft;
+
+                if(memoryTimeLeft <= 0){
+                    clearInterval(memoryTimer);
+                    memoryRunning = false;
+                    memoryLock = true;
+
+                    document.getElementById("memoryMessage").textContent =
+                        "⏰ Waktu habis! Tekan Start untuk mencoba lagi dari Level 1.";
+
+                    playSound("timeout");
+                }
+            }, 1000);
+            return;
+        }
+
+        const card = previewOrder[previewIndex];
+        card.classList.add("flipped");
+        playSound("flip");
+
+        memoryPreviewTimer = setTimeout(() => {
             card.classList.remove("flipped");
-        });
+            previewIndex++;
+            memoryPreviewTimer = setTimeout(showNextPreviewCard, 100);
+        }, 320);
+    }
 
-        memoryLock = false;
-        memoryRunning = true;
-        document.getElementById("memoryMessage").textContent =
-            "Mulai! Cari semua pasangan ♡";
-
-        memoryTimer = setInterval(() => {
-            memoryTimeLeft--;
-            document.getElementById("memoryTime").textContent =
-                memoryTimeLeft;
-
-            if(memoryTimeLeft <= 0){
-                clearInterval(memoryTimer);
-                memoryRunning = false;
-                memoryLock = true;
-
-                document.getElementById("memoryMessage").textContent =
-                    "⏰ Waktu habis! Tekan Start untuk mencoba lagi dari Level 1.";
-
-                playSound("timeout");
-            }
-        }, 1000);
-    }, 1400);
+    // Jeda singkat sebelum mulai menunjukkan kartu secara acak.
+    memoryPreviewTimer = setTimeout(showNextPreviewCard, 350);
 }
 
 function flipMemoryCard(card){
